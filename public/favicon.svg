@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Revisortopedia">
+  <rect width="512" height="512" rx="112" fill="#0F1A17"/>
+  <g stroke="#3FBFA6" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M150 120 V300 a106 106 0 0 0 212 0 V120"/>
+  </g>
+  <circle cx="256" cy="300" r="66" fill="none" stroke="#EAF2EE" stroke-width="24"/>
+  <path d="M298 248 L374 190" stroke="#E4644B" stroke-width="26" stroke-linecap="round"/>
+</svg>
