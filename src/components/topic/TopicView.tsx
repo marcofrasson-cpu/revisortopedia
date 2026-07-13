@@ -256,8 +256,15 @@ export default function TopicView({ topic }: { topic: Topic }) {
 
       <SectionRail visible={visible} active={active} />
 
-      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10">
-        <div ref={contentRef}>
+      <div
+        className={cx(
+          "lg:gap-10",
+          // Reserve the figure column only when the active section has a
+          // figure — figure-less sections (e.g. evidence) reclaim the space.
+          focused?.figureId && "lg:grid lg:grid-cols-[minmax(0,1fr)_auto]",
+        )}
+      >
+        <div ref={contentRef} className="lg:max-w-[760px]">
           {visible.map((k) => (
             <section
               id={`sec-${k}`}
@@ -299,8 +306,9 @@ export default function TopicView({ topic }: { topic: Topic }) {
           </nav>
         </div>
 
-        {/* Sticky figure panel — desktop only */}
-        <aside className="hidden lg:block">
+        {/* Sticky figure panel — desktop only, hidden when the section has no figure */}
+        {focused?.figureId && (
+        <aside className="hidden lg:block lg:w-[350px]">
           <div className="sticky top-24">
             <FigurePanel
               figureId={focused?.figureId}
@@ -328,6 +336,7 @@ export default function TopicView({ topic }: { topic: Topic }) {
             </p>
           </div>
         </aside>
+        )}
       </div>
     </div>
   );

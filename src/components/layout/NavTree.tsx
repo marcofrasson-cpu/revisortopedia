@@ -179,6 +179,17 @@ export default function NavTree() {
             }}
           />
         </div>
+
+        {/* Credit pill */}
+        <div className="mt-3 flex justify-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface-2/60 px-2.5 py-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+            <span className="code text-[0.6rem] uppercase tracking-[0.14em] text-muted">
+              designed by
+            </span>
+            <span className="text-[0.72rem] font-medium text-ink-soft">Marco Frasson</span>
+          </span>
+        </div>
       </div>
     </div>
   );

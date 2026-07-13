@@ -54,25 +54,25 @@
   color-scheme: light;
 }
 
-/* ---- Dark "light-box" (radiograph) ---- */
+/* ---- Dark "light-box" — navy palette (Axis FitoMed dark) ---- */
 :root[data-theme="dark"] {
-  --bg: #0f1a17;
-  --surface: #15221e;
-  --surface-2: #1c2a25;
-  --ink: #e9efea;
-  --ink-soft: #bcc7c0;
-  --muted: #8a968f;
-  --line: #28372f;
-  --line-strong: #3a4c43;
-  --teal: #43c2a8;
-  --teal-deep: #57c8ae;
-  --teal-tint: #123029;
-  --cortical: #e4644b;
-  --cortical-tint: #2e1a15;
-  --amber: #d6a64a;
-  --amber-tint: #2c2413;
-  --grid-ink: 233 239 234;
-  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px -14px rgba(0, 0, 0, 0.55);
+  --bg: #0a1522;          /* ground-deep */
+  --surface: #14253a;     /* brand-navy-lighter */
+  --surface-2: #1c2f47;   /* card-hover */
+  --ink: #f1f5f9;         /* text-primary */
+  --ink-soft: #c6d2df;    /* lead */
+  --muted: #94a3b8;       /* text-muted */
+  --line: #22344b;
+  --line-strong: #2f465f;
+  --teal: #5fc89b;        /* brand-green (primary) */
+  --teal-deep: #86dcb4;
+  --teal-tint: #123a30;
+  --cortical: #e8705a;    /* semantic danger / fracture line */
+  --cortical-tint: #3a1e18;
+  --amber: #e8a13c;       /* oil / measurements */
+  --amber-tint: #3a2a12;
+  --grid-ink: 241 245 249;
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 36px -14px rgba(0, 0, 0, 0.5);
   color-scheme: dark;
 }
 

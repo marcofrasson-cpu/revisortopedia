@@ -22,8 +22,8 @@ export default defineConfig({
         description:
           "Referência ortopédica interativa e ilustrada, passo a passo, com evidência citada. Offline-first.",
         lang: "pt-BR",
-        theme_color: "#0f1a17",
-        background_color: "#0f1a17",
+        theme_color: "#0a1522",
+        background_color: "#0a1522",
         display: "standalone",
         orientation: "any",
         start_url: "./",
