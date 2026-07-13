@@ -143,6 +143,13 @@ export default function HomePage() {
               <IconLayers className="h-4 w-4" />
               Explorar regiões
             </button>
+            <Link
+              to="/estudo"
+              className="inline-flex items-center gap-2 rounded-lg border border-teal/40 bg-teal-tint/30 px-5 py-3 text-[0.94rem] font-medium text-teal-deep transition-colors hover:border-teal hover:bg-teal-tint/50"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+              Modo estudo · questões
+            </Link>
           </div>
 
           {/* Continuar lendo */}

@@ -4,6 +4,7 @@ import AppShell from "./components/layout/AppShell";
 import HomePage from "./pages/HomePage";
 import RegionPage from "./pages/RegionPage";
 import TopicPage from "./pages/TopicPage";
+import StudyPage from "./pages/StudyPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { useUserState } from "./store/useUserState";
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="regiao/:regionId" element={<RegionPage />} />
         <Route path="topico/:slug" element={<TopicPage />} />
+        <Route path="estudo" element={<StudyPage />} />
         <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

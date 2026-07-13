@@ -62,6 +62,15 @@ export default function TopBar({ onOpenSearch, onOpenMenu }: Props) {
         </div>
 
         <div className="flex flex-1 items-center justify-end gap-2 lg:flex-none">
+          {/* Modo estudo */}
+          <Link
+            to="/estudo"
+            className="hidden items-center gap-1.5 rounded-lg border border-line bg-surface px-2.5 py-2 text-[0.82rem] text-ink-soft transition-colors hover:border-teal/50 hover:text-teal sm:flex"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+            Estudo
+          </Link>
+
           {/* Search trigger */}
           <button
             type="button"
