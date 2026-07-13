@@ -1,5 +1,4 @@
-/// <reference types="vitest/config" />
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
@@ -9,6 +8,8 @@ import { VitePWA } from "vite-plugin-pwa";
 // network — e.g. inside a surgical centre.
 export default defineConfig({
   base: "./",
+  // Cast sidesteps a Plugin type-identity clash between the top-level `vite`
+  // and the copy nested under `vitest` — runtime is unaffected.
   plugins: [
     react(),
     tailwindcss(),
@@ -38,7 +39,7 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
       },
     }),
-  ],
+  ] as unknown as [],
   test: {
     globals: true,
     environment: "jsdom",
