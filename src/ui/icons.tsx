@@ -94,3 +94,10 @@ export const IconLayers = (p: P) => (
     <path d="m12 3 9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 17l9 5 9-5" />
   </svg>
 );
+
+export const IconExpand = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5" />
+    <path d="m3 8 5-5M16 3l5 5M21 16l-5 5M8 21l-5-5" />
+  </svg>
+);

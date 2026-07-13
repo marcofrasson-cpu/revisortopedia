@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import ThemeToggle from "./ThemeToggle";
 import { IconSearch, IconMenu } from "../../ui/icons";
-import { Logo } from "../../ui/Logo";
+import { LogoMark } from "../../ui/Logo";
 import { useProfiles } from "../../store/useProfiles";
 
 function initials(name: string): string {
@@ -20,74 +20,94 @@ interface Props {
   onOpenSearch: () => void;
   onOpenMenu: () => void;
   onOpenProfile: () => void;
+  onRequestVisible: () => void;
+  hidden: boolean;
+  scrolled: boolean;
 }
 
-export default function TopBar({ onOpenSearch, onOpenMenu, onOpenProfile }: Props) {
+export default function TopBar({
+  onOpenSearch,
+  onOpenMenu,
+  onOpenProfile,
+  onRequestVisible,
+  hidden,
+  scrolled,
+}: Props) {
   const active = useProfiles((s) => s.active());
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-md">
-      <div className="flex h-14 items-center gap-3 px-3 sm:px-4">
-        {/* Mobile: menu */}
-        <button
-          type="button"
-          onClick={onOpenMenu}
-          aria-label="Abrir navegação"
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line text-ink-soft transition-colors hover:bg-surface-2 hover:text-ink lg:hidden"
-        >
-          <IconMenu className="h-5 w-5" />
-        </button>
-
-        {/* Wordmark */}
-        <Link
-          to="/"
-          className="flex shrink-0 items-center rounded-md pr-2 transition-colors"
-          aria-label="Revisortopedia — início"
-        >
-          <Logo markClassName="h-7 w-7" wordClassName="text-[1.12rem]" />
-        </Link>
-
-        {/* Breadcrumb — desktop only */}
-        <div className="hidden min-w-0 flex-1 items-center border-l border-line pl-3 lg:flex">
-          <Breadcrumb />
-        </div>
-
-        <div className="flex flex-1 items-center justify-end gap-2 lg:flex-none">
-          {/* Modo estudo */}
-          <Link
-            to="/estudo"
-            className="hidden items-center gap-1.5 rounded-lg border border-line bg-surface px-2.5 py-2 text-[0.82rem] text-ink-soft transition-colors hover:border-teal/50 hover:text-teal sm:flex"
+    <header
+      className="app-header"
+      data-hidden={hidden ? "true" : "false"}
+      data-scrolled={scrolled ? "true" : "false"}
+      onFocusCapture={onRequestVisible}
+    >
+      <div className="app-header__pill">
+        <div className="flex h-full min-w-0 items-center gap-1.5 px-2 sm:gap-2 sm:px-3">
+          {/* Mobile: menu */}
+          <button
+            type="button"
+            onClick={onOpenMenu}
+            aria-label="Abrir navegação"
+            className="app-header-control grid h-9 w-9 shrink-0 place-items-center lg:hidden"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-teal" />
-            Estudo
+            <IconMenu className="h-5 w-5" />
+          </button>
+
+          {/* Wordmark */}
+          <Link
+            to="/"
+            className="flex shrink-0 items-center gap-2 rounded-full px-1.5 py-1 transition-colors hover:bg-[var(--header-control-hover)] sm:pr-2.5"
+            aria-label="Revisortopedia — início"
+          >
+            <LogoMark className="h-8 w-8" />
+            <span className="hidden font-display text-[1.08rem] font-medium text-ink sm:inline">
+              Revisortopedia
+            </span>
           </Link>
 
-          {/* Search trigger */}
-          <button
-            type="button"
-            onClick={onOpenSearch}
-            aria-label="Buscar tópicos"
-            className="group flex items-center gap-2 rounded-lg border border-line bg-surface px-2.5 py-2 text-muted transition-colors hover:border-line-strong hover:text-ink-soft"
-          >
-            <IconSearch className="h-4 w-4" />
-            <span className="hidden text-[0.82rem] sm:inline">Buscar</span>
-            <kbd className="code hidden rounded border border-line px-1.5 py-0.5 text-[0.65rem] leading-none sm:inline-block">
-              {shortcut}
-            </kbd>
-          </button>
+          {/* Breadcrumb — desktop only */}
+          <div className="hidden min-w-0 flex-1 items-center border-l border-line pl-3 lg:flex">
+            <Breadcrumb />
+          </div>
 
-          <ThemeToggle />
+          <div className="ml-auto flex min-w-0 items-center justify-end gap-1 sm:gap-1.5">
+            {/* Modo estudo */}
+            <Link
+              to="/estudo"
+              className="app-header-control app-header-study hidden h-9 items-center gap-1.5 px-3 text-[0.8rem] sm:flex"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+              Estudo
+            </Link>
 
-          {/* Perfil ativo — abre o seletor */}
-          <button
-            type="button"
-            onClick={onOpenProfile}
-            aria-label={active ? `Perfil: ${active.name} — trocar` : "Perfis"}
-            title={active ? `${active.name} — trocar perfil` : "Perfis"}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg text-[0.72rem] font-semibold text-white transition-transform hover:scale-105"
-            style={active ? { background: `hsl(${active.hue} 42% 42%)` } : undefined}
-          >
-            {active ? initials(active.name) : "?"}
-          </button>
+            {/* Search trigger */}
+            <button
+              type="button"
+              onClick={onOpenSearch}
+              aria-label="Buscar tópicos"
+              className="app-header-control group flex h-9 items-center gap-2 px-2.5 text-muted"
+            >
+              <IconSearch className="h-4 w-4" />
+              <span className="hidden text-[0.82rem] sm:inline">Buscar</span>
+              <kbd className="code hidden rounded border border-line px-1.5 py-0.5 text-[0.65rem] leading-none sm:inline-block">
+                {shortcut}
+              </kbd>
+            </button>
+
+            <ThemeToggle />
+
+            {/* Perfil ativo — abre o seletor */}
+            <button
+              type="button"
+              onClick={onOpenProfile}
+              aria-label={active ? `Perfil: ${active.name} — trocar` : "Perfis"}
+              title={active ? `${active.name} — trocar perfil` : "Perfis"}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-muted text-[0.72rem] font-semibold text-white shadow-sm transition-transform hover:scale-105"
+              style={active ? { background: `hsl(${active.hue} 42% 42%)` } : undefined}
+            >
+              {active ? initials(active.name) : "?"}
+            </button>
+          </div>
         </div>
       </div>
     </header>

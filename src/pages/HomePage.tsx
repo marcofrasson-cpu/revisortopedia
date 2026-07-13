@@ -4,7 +4,6 @@ import { allRegions, effectiveStatus, getTopic, locate, stats } from "../content
 import { useUserState } from "../store/useUserState";
 import { Eyebrow, StatusDot, cx } from "../ui/primitives";
 import { IconArrowRight, IconLayers, IconChevronRight } from "../ui/icons";
-import { Logo } from "../ui/Logo";
 
 const FEATURED_SLUG = "fratura-maleolar-tornozelo";
 
@@ -113,108 +112,129 @@ export default function HomePage() {
     regionsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
-    <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* HERO */}
-      <section className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-        <div className="min-w-0">
-          <div className="mb-6">
-            <Logo
-              tagline
-              markClassName="h-14 w-14"
-              wordClassName="text-[1.85rem] sm:text-[2.15rem]"
-            />
-          </div>
-          <Eyebrow>Referência de cirurgia ortopédica · pt-BR</Eyebrow>
-          <h1 className="mt-4 font-display text-[2.6rem] leading-[1.05] text-ink sm:text-[3.2rem]">
-            Manual de trauma ortopédico{" "}
-            <span className="text-teal-deep">baseado em evidências</span>.
-          </h1>
-          <p className="mt-5 max-w-xl text-[1.02rem] leading-relaxed text-ink-soft">
-            Anatomia, classificação, indicações, vias de acesso e técnica passo a
-            passo — com evidência clássica e atual referenciada. Preciso, calmo e
-            disponível offline.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
-              to={`/topico/${FEATURED_SLUG}`}
-              className="inline-flex items-center gap-2 rounded-lg bg-teal px-5 py-3 text-[0.94rem] font-medium text-surface shadow-panel transition-colors hover:bg-teal-deep"
-            >
-              Abrir fratura maleolar do tornozelo
-              <IconArrowRight className="h-4 w-4" />
-            </Link>
-            <button
-              type="button"
-              onClick={scrollToRegions}
-              className="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-[0.94rem] font-medium text-ink-soft transition-colors hover:bg-surface-2"
-            >
-              <IconLayers className="h-4 w-4" />
-              Explorar regiões
-            </button>
-            <Link
-              to="/estudo"
-              className="inline-flex items-center gap-2 rounded-lg border border-teal/40 bg-teal-tint/30 px-5 py-3 text-[0.94rem] font-medium text-teal-deep transition-colors hover:border-teal hover:bg-teal-tint/50"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-teal" />
-              Modo estudo · questões
-            </Link>
-          </div>
-
-          {/* Continuar lendo */}
-          {resumeFlat && (
-            <Link
-              to={`/topico/${resumeFlat.slug}`}
-              className="group mt-8 inline-flex max-w-full items-center gap-3 rounded-lg border border-line bg-surface px-4 py-2.5 transition-colors hover:border-line-strong"
-            >
-              <span className="eyebrow shrink-0">Continuar</span>
-              <span className="min-w-0 truncate text-[0.88rem] text-ink">
-                {resumeTopic?.title ?? resumeFlat.title}
-              </span>
-              <IconChevronRight className="h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-teal" />
-            </Link>
-          )}
-        </div>
-
-        {/* Figura de assinatura */}
-        <div className="relative mx-auto w-full max-w-sm">
-          <div className="panel grid-film relative overflow-hidden p-6">
-            <div className="absolute left-4 top-4 z-10">
-              <Eyebrow>Tornozelo · mortise</Eyebrow>
-            </div>
-            <div className="absolute right-4 top-4 z-10">
-              <span className="code rounded bg-cortical-tint px-1.5 py-0.5 text-[0.62rem] text-cortical">
-                Weber B
+      <section className="py-8 sm:py-10 lg:py-12">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-center lg:gap-10 xl:gap-14">
+          <div className="min-w-0">
+            <div className="flex items-center gap-3">
+              <Eyebrow className="shrink-0">Referência ortopédica · pt-BR</Eyebrow>
+              <span className="rule hidden max-w-20 flex-1 sm:block" />
+              <span className="code shrink-0 text-[0.68rem] text-muted">
+                {stats.topicsComplete} / {stats.topicsPlanned} completos
               </span>
             </div>
-            <div className="mx-auto aspect-[26/30] w-full max-w-[240px]">
-              <MortiseFigure />
+
+            <h1 className="mt-5 max-w-[18ch] font-display text-[2.45rem] leading-[1.05] text-ink sm:text-[2.9rem] lg:text-[3.2rem]">
+              Manual de trauma ortopédico{" "}
+              <span className="text-teal-deep">baseado em evidências</span>.
+            </h1>
+            <p className="mt-5 max-w-2xl text-[1rem] leading-relaxed text-ink-soft">
+              Anatomia, classificação, indicações, vias de acesso e técnica passo a
+              passo — com evidência clássica e atual referenciada. Preciso, calmo e
+              disponível offline.
+            </p>
+
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={scrollToRegions}
+                className="inline-flex items-center gap-2 rounded-lg bg-teal px-5 py-3 text-[0.92rem] font-medium text-surface shadow-panel transition-colors hover:bg-teal-deep"
+              >
+                <IconLayers className="h-4 w-4" />
+                Explorar regiões
+              </button>
+              <Link
+                to="/estudo"
+                className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface/60 px-5 py-3 text-[0.92rem] font-medium text-ink-soft transition-colors hover:border-teal/50 hover:text-teal-deep"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+                Modo estudo
+              </Link>
             </div>
-            <div className="mt-2 flex items-center justify-between text-[0.68rem] text-muted">
-              <span className="code">AP · pinça tibiofibular</span>
-              <span className="code text-amber">espaço claro medial</span>
-            </div>
+
+            {/* Continuar lendo */}
+            {resumeFlat && (
+              <Link
+                to={`/topico/${resumeFlat.slug}`}
+                className="group mt-7 flex max-w-2xl items-center gap-3 border-t border-line pt-4"
+              >
+                <span className="eyebrow shrink-0">Retomar</span>
+                <span className="min-w-0 truncate text-[0.88rem] text-ink">
+                  {resumeTopic?.title ?? resumeFlat.title}
+                </span>
+                <span className="rule min-w-4 flex-1" />
+                <IconChevronRight className="h-4 w-4 shrink-0 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal" />
+              </Link>
+            )}
           </div>
+
+          {/* Tópico em destaque: a figura também funciona como entrada. */}
+          <Link
+            to={`/topico/${FEATURED_SLUG}`}
+            aria-label="Abrir tópico: fratura maleolar do tornozelo"
+            className="group panel mx-auto w-full max-w-[430px] overflow-hidden transition-all hover:-translate-y-0.5 hover:border-line-strong lg:ml-auto"
+          >
+            <div className="grid-film relative px-6 pb-4 pt-12">
+              <div className="absolute left-4 top-4 z-10">
+                <Eyebrow>Tornozelo · mortise</Eyebrow>
+              </div>
+              <div className="absolute right-4 top-4 z-10">
+                <span className="code rounded bg-cortical-tint px-1.5 py-0.5 text-[0.62rem] text-cortical">
+                  Weber B
+                </span>
+              </div>
+              <div className="mx-auto aspect-[26/30] w-full max-w-[230px]">
+                <MortiseFigure />
+              </div>
+              <div className="mt-1 flex items-center justify-between gap-4 text-[0.66rem] text-muted">
+                <span className="code">AP · pinça tibiofibular</span>
+                <span className="code text-right text-amber">espaço claro medial</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 border-t border-line bg-surface px-4 py-3.5">
+              <div className="min-w-0 flex-1">
+                <Eyebrow className="text-[0.6rem]">Tópico em destaque</Eyebrow>
+                <h2 className="mt-1 truncate font-display text-[1.1rem] text-ink">
+                  Fratura maleolar do tornozelo
+                </h2>
+              </div>
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line text-muted transition-colors group-hover:border-teal group-hover:bg-teal group-hover:text-surface">
+                <IconArrowRight className="h-4 w-4" />
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 
       {/* Faixa de estatísticas */}
-      <section className="grid grid-cols-3 divide-x divide-line rounded-xl border border-line bg-surface">
+      <section
+        aria-label="Cobertura do conteúdo"
+        className="grid grid-cols-3 divide-x divide-line border-y border-line"
+      >
         {[
-          { n: stats.regions, label: "Regiões anatômicas" },
-          { n: stats.topicsPlanned, label: "Tópicos no framework" },
-          { n: stats.topicsComplete, label: "Tópicos completos" },
+          { n: stats.regions, label: "Regiões anatômicas", short: "Regiões" },
+          { n: stats.topicsPlanned, label: "Tópicos no framework", short: "Tópicos" },
+          { n: stats.topicsComplete, label: "Tópicos completos", short: "Completos" },
         ].map((s) => (
-          <div key={s.label} className="px-4 py-5 text-center sm:px-6">
-            <div className="font-display text-[2rem] leading-none text-ink sm:text-[2.4rem]">
+          <div
+            key={s.label}
+            className="flex flex-col items-center justify-center px-2 py-4 text-center sm:flex-row sm:gap-4 sm:px-6 sm:py-5 sm:text-left"
+          >
+            <div className="font-display text-[1.8rem] leading-none text-ink sm:text-[2.2rem]">
               {s.n}
             </div>
-            <div className="eyebrow mt-2 justify-center text-[0.6rem]">{s.label}</div>
+            <div className="eyebrow mt-1 text-[0.56rem] sm:mt-0 sm:max-w-24 sm:text-[0.6rem]">
+              <span className="sm:hidden">{s.short}</span>
+              <span className="hidden sm:inline">{s.label}</span>
+            </div>
           </div>
         ))}
       </section>
 
       {/* Grade de regiões */}
-      <section ref={regionsRef} className="scroll-mt-20 py-14">
+      <section ref={regionsRef} className="scroll-mt-24 py-10 sm:py-12">
         <div className="mb-6 flex items-center gap-3">
           <h2 className="font-display text-[1.7rem] text-ink">Regiões</h2>
           <span className="rule flex-1" />

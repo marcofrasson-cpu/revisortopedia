@@ -34,6 +34,7 @@
 /* ---- Light "atlas" (default) ---- */
 :root,
 :root[data-theme="light"] {
+  --app-header-space: calc(4.5rem + env(safe-area-inset-top, 0px));
   --bg: #e6eae5;
   --surface: #fbfcfa;
   --surface-2: #eef1ec;
@@ -59,11 +60,21 @@
   --pill-label: #5b655e;
   --pill-name: #0a5a4c;
   --pill-shadow: 0 8px 22px -12px rgba(20, 32, 28, 0.28);
+  --header-glass-top: rgba(255, 255, 255, 0.88);
+  --header-glass-bottom: rgba(246, 249, 246, 0.7);
+  --header-glass-border: rgba(20, 32, 28, 0.14);
+  --header-glass-highlight: rgba(255, 255, 255, 0.92);
+  --header-glass-shadow: 0 14px 38px rgba(20, 32, 28, 0.14);
+  --header-glass-shadow-scrolled: 0 18px 48px rgba(20, 32, 28, 0.22);
+  --header-control-hover: rgba(255, 255, 255, 0.72);
+  --header-control-border: rgba(20, 32, 28, 0.1);
+  --header-study-bg: rgba(216, 233, 227, 0.7);
   color-scheme: light;
 }
 
 /* ---- Dark "light-box" — navy palette (Axis FitoMed dark) ---- */
 :root[data-theme="dark"] {
+  --app-header-space: calc(4.5rem + env(safe-area-inset-top, 0px));
   --bg: #0a1522;          /* ground-deep */
   --surface: #14253a;     /* brand-navy-lighter */
   --surface-2: #1c2f47;   /* card-hover */
@@ -89,6 +100,15 @@
   --pill-label: #94a3b8;
   --pill-name: #5fc89b;
   --pill-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.7);
+  --header-glass-top: rgba(27, 48, 72, 0.78);
+  --header-glass-bottom: rgba(10, 21, 34, 0.7);
+  --header-glass-border: rgba(255, 255, 255, 0.16);
+  --header-glass-highlight: rgba(255, 255, 255, 0.2);
+  --header-glass-shadow: 0 14px 38px rgba(0, 0, 0, 0.34);
+  --header-glass-shadow-scrolled: 0 18px 48px rgba(0, 0, 0, 0.5);
+  --header-control-hover: rgba(255, 255, 255, 0.08);
+  --header-control-border: rgba(255, 255, 255, 0.1);
+  --header-study-bg: rgba(18, 58, 48, 0.72);
   color-scheme: dark;
 }
 
@@ -157,6 +177,98 @@
 }
 
 @layer components {
+  .app-shell {
+    --app-sticky-top: var(--app-header-space);
+  }
+
+  .app-shell[data-header-hidden="true"] {
+    --app-sticky-top: 0px;
+  }
+
+  .app-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 40;
+    height: var(--app-header-space);
+    padding: calc(env(safe-area-inset-top, 0px) + 0.5rem) 0.5rem 0;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .app-header[data-hidden="true"] {
+    transform: translate3d(0, calc(-100% - 0.5rem), 0);
+  }
+
+  .app-header__pill {
+    height: 3.5rem;
+    max-width: 98rem;
+    margin-inline: auto;
+    border: 1px solid var(--header-glass-border);
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--header-glass-top), var(--header-glass-bottom));
+    box-shadow:
+      var(--header-glass-shadow),
+      inset 0 1px 0 var(--header-glass-highlight),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+    backdrop-filter: saturate(135%) blur(26px);
+    -webkit-backdrop-filter: saturate(135%) blur(26px);
+    pointer-events: auto;
+    transform: translateZ(0);
+    transition:
+      background 260ms ease,
+      border-color 260ms ease,
+      box-shadow 260ms ease;
+  }
+
+  .app-header[data-scrolled="true"] .app-header__pill {
+    box-shadow:
+      var(--header-glass-shadow-scrolled),
+      inset 0 1px 0 var(--header-glass-highlight),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .app-header-control {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--ink-soft);
+    transition:
+      color 160ms ease,
+      background-color 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .app-header-control:hover {
+    border-color: var(--header-control-border);
+    background: var(--header-control-hover);
+    color: var(--ink);
+  }
+
+  .app-header-study {
+    border-color: var(--header-control-border);
+    background: var(--header-study-bg);
+    color: var(--teal-deep);
+  }
+
+  .app-sticky-panel {
+    top: var(--app-sticky-top);
+    height: calc(100dvh - var(--app-sticky-top));
+    transition-property: width, top, height;
+    transition-duration: 200ms;
+  }
+
+  .app-sticky-rail {
+    top: var(--app-sticky-top);
+    transition: top 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .app-header__pill {
+      background: var(--surface);
+    }
+  }
+
   /* Eyebrow / kicker label — mono, tracked-out, the app's structural voice */
   .eyebrow {
     font-family: var(--font-mono);

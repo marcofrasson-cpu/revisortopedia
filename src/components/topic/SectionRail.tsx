@@ -20,7 +20,7 @@ export default function SectionRail({
   return (
     <nav
       aria-label="Seções do tópico"
-      className="sticky top-14 z-20 -mx-4 mb-2 border-b border-line bg-bg/85 px-4 backdrop-blur-md sm:-mx-6 sm:px-6"
+      className="app-sticky-rail sticky z-20 -mx-4 mb-2 border-b border-line bg-bg/85 px-4 backdrop-blur-md sm:-mx-6 sm:px-6"
     >
       <ul className="flex gap-1 overflow-x-auto py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {items.map((s, i) => {

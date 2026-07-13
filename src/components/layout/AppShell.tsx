@@ -12,6 +12,9 @@ const NAV_MIN = 240;
 const NAV_MAX = 480;
 const NAV_DEFAULT = 300;
 const NAV_COLLAPSED = 52;
+const HEADER_HIDE_START = 120;
+const HEADER_HIDE_TRAVEL = 24;
+const HEADER_SHOW_TRAVEL = 12;
 
 /* Console de três painéis no desktop: NavTree fixo à esquerda, conteúdo
    central (Outlet). O painel direito (figura) é gerido pelo próprio TopicView.
@@ -20,6 +23,8 @@ export default function AppShell() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const [headerScrolled, setHeaderScrolled] = useState(false);
   const { pathname } = useLocation();
 
   const openPalette = useCallback(() => setPaletteOpen(true), []);
@@ -30,7 +35,57 @@ export default function AppShell() {
   // Fecha o drawer a cada mudança de rota.
   useEffect(() => {
     setNavOpen(false);
+    setHeaderHidden(false);
   }, [pathname]);
+
+  // Recolhe o header ao descer e o devolve ao menor gesto de subida. A
+  // distância acumulada evita oscilação em trackpads e durante scroll suave.
+  useEffect(() => {
+    let lastY = Math.max(window.scrollY, 0);
+    let direction: -1 | 0 | 1 = 0;
+    let travel = 0;
+    const forceVisible = paletteOpen || navOpen || profileOpen;
+
+    if (forceVisible) setHeaderHidden(false);
+
+    const onScroll = () => {
+      const y = Math.max(window.scrollY, 0);
+      const delta = y - lastY;
+      const nextDirection: -1 | 0 | 1 = delta > 0 ? 1 : delta < 0 ? -1 : 0;
+
+      setHeaderScrolled(y > 16);
+
+      if (forceVisible || y <= 72) {
+        setHeaderHidden(false);
+        direction = nextDirection;
+        travel = 0;
+        lastY = y;
+        return;
+      }
+
+      if (nextDirection !== 0) {
+        if (nextDirection !== direction) {
+          direction = nextDirection;
+          travel = 0;
+        }
+        travel += Math.abs(delta);
+      }
+
+      if (direction === 1 && y > HEADER_HIDE_START && travel >= HEADER_HIDE_TRAVEL) {
+        setHeaderHidden(true);
+        travel = 0;
+      } else if (direction === -1 && travel >= HEADER_SHOW_TRAVEL) {
+        setHeaderHidden(false);
+        travel = 0;
+      }
+
+      lastY = y;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [navOpen, paletteOpen, profileOpen]);
 
   // Drawer mobile: move o foco para dentro ao abrir, Esc fecha, restaura foco
   // no botão de menu ao fechar.
@@ -133,12 +188,19 @@ export default function AppShell() {
   }, []);
 
   return (
-    <div className="min-h-dvh bg-bg text-ink">
+    <div
+      className="app-shell min-h-dvh bg-bg text-ink"
+      data-header-hidden={headerHidden ? "true" : "false"}
+    >
       <TopBar
         onOpenSearch={openPalette}
         onOpenMenu={() => setNavOpen(true)}
         onOpenProfile={() => setProfileOpen(true)}
+        onRequestVisible={() => setHeaderHidden(false)}
+        hidden={headerHidden}
+        scrolled={headerScrolled}
       />
+      <div aria-hidden="true" className="h-[var(--app-header-space)]" />
 
       {/* Overlay durante o arraste — mantém o cursor e bloqueia seleção */}
       {resizing && <div className="fixed inset-0 z-[60] cursor-col-resize select-none" />}
@@ -148,7 +210,7 @@ export default function AppShell() {
         <aside
           ref={asideRef}
           style={{ width: navCollapsed ? NAV_COLLAPSED : navWidth }}
-          className="sticky top-14 hidden h-[calc(100dvh-3.5rem)] shrink-0 border-r border-line transition-[width] duration-200 lg:block"
+          className="app-sticky-panel sticky hidden shrink-0 border-r border-line lg:block"
         >
           {navCollapsed ? (
             <div className="flex h-full justify-center pt-4">

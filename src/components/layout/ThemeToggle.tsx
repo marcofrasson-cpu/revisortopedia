@@ -14,7 +14,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
       title={isDark ? "Tema claro" : "Tema escuro"}
-      className="grid h-9 w-9 place-items-center rounded-lg border border-line text-ink-soft transition-colors duration-200 hover:bg-surface-2 hover:text-ink"
+      className="app-header-control grid h-9 w-9 shrink-0 place-items-center"
     >
       <span className="relative block h-5 w-5">
         <IconSun
