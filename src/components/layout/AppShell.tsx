@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import TopBar from "./TopBar";
 import NavTree from "./NavTree";
 import CommandPalette from "./CommandPalette";
+import ProfileGate from "../profile/ProfileGate";
 import { IconClose } from "../../ui/icons";
 import { cx } from "../../ui/primitives";
 
@@ -17,6 +18,7 @@ const NAV_DEFAULT = 300;
 export default function AppShell() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const { pathname } = useLocation();
 
   const openPalette = useCallback(() => setPaletteOpen(true), []);
@@ -116,7 +118,11 @@ export default function AppShell() {
 
   return (
     <div className="min-h-dvh bg-bg text-ink">
-      <TopBar onOpenSearch={openPalette} onOpenMenu={() => setNavOpen(true)} />
+      <TopBar
+        onOpenSearch={openPalette}
+        onOpenMenu={() => setNavOpen(true)}
+        onOpenProfile={() => setProfileOpen(true)}
+      />
 
       {/* Overlay durante o arraste — mantém o cursor e bloqueia seleção */}
       {resizing && <div className="fixed inset-0 z-[60] cursor-col-resize select-none" />}
@@ -200,6 +206,8 @@ export default function AppShell() {
       )}
 
       <CommandPalette open={paletteOpen} onClose={closePalette} />
+
+      {profileOpen && <ProfileGate overlay onClose={() => setProfileOpen(false)} />}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   allQuestions,
   questionsForRegion,
@@ -17,14 +17,10 @@ interface Scope {
 }
 
 export default function StudyPage() {
-  const hydrate = useQuizStats((s) => s.hydrate);
+  // O progresso do quiz é hidratado por perfil no App; aqui só lemos.
   const results = useQuizStats((s) => s.results);
   const wrongIds = useQuizStats((s) => s.wrongIds);
   const [scope, setScope] = useState<Scope | null>(null);
-
-  useEffect(() => {
-    void hydrate();
-  }, [hydrate]);
 
   const agg = useMemo(() => {
     const entries = Object.values(results);

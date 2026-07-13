@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import ThemeToggle from "./ThemeToggle";
 import { IconSearch, IconMenu } from "../../ui/icons";
+import { useProfiles } from "../../store/useProfiles";
+
+function initials(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
 
 const isMac =
   typeof navigator !== "undefined" && /Mac|iPhone|iPad/i.test(navigator.platform || navigator.userAgent);
@@ -28,9 +36,11 @@ function ForcepsMark({ className }: { className?: string }) {
 interface Props {
   onOpenSearch: () => void;
   onOpenMenu: () => void;
+  onOpenProfile: () => void;
 }
 
-export default function TopBar({ onOpenSearch, onOpenMenu }: Props) {
+export default function TopBar({ onOpenSearch, onOpenMenu, onOpenProfile }: Props) {
+  const active = useProfiles((s) => s.active());
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-md">
       <div className="flex h-14 items-center gap-3 px-3 sm:px-4">
@@ -86,6 +96,18 @@ export default function TopBar({ onOpenSearch, onOpenMenu }: Props) {
           </button>
 
           <ThemeToggle />
+
+          {/* Perfil ativo — abre o seletor */}
+          <button
+            type="button"
+            onClick={onOpenProfile}
+            aria-label={active ? `Perfil: ${active.name} — trocar` : "Perfis"}
+            title={active ? `${active.name} — trocar perfil` : "Perfis"}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg text-[0.72rem] font-semibold text-white transition-transform hover:scale-105"
+            style={active ? { background: `hsl(${active.hue} 42% 42%)` } : undefined}
+          >
+            {active ? initials(active.name) : "?"}
+          </button>
         </div>
       </div>
     </header>

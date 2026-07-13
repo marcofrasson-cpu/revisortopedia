@@ -1,10 +1,9 @@
 import { create } from "zustand";
-import { get, set } from "idb-keyval";
+import { get as idbGet, set as idbSet } from "idb-keyval";
+import { quizKey } from "../lib/idb";
 
-/* Progresso do modo estudo, persistido em IndexedDB (guarda-chuva próprio,
-   separado do estado do usuário). Degrada para memória se o IDB faltar. */
-
-const KEY = "revisortopedia:quiz:v1";
+/* Progresso do modo estudo, isolado POR PERFIL no IndexedDB. Degrada para
+   memória se o IDB faltar. */
 
 export interface QResult {
   seen: number;
@@ -15,9 +14,10 @@ export interface QResult {
 type ResultMap = Record<string, QResult>;
 
 interface QuizStore {
+  profileId: string | null;
   results: ResultMap;
   hydrated: boolean;
-  hydrate: () => Promise<void>;
+  hydrate: (profileId: string) => Promise<void>;
   record: (qid: string, correct: boolean) => void;
   reset: () => void;
   wrongIds: () => string[];
@@ -27,22 +27,27 @@ let persistTimer: ReturnType<typeof setTimeout> | undefined;
 
 export const useQuizStats = create<QuizStore>((setState, getState) => {
   const persist = () => {
+    const pid = getState().profileId;
+    if (!pid || !getState().hydrated) return;
     clearTimeout(persistTimer);
     persistTimer = setTimeout(() => {
-      void set(KEY, getState().results).catch(() => {});
+      void idbSet(quizKey(pid), getState().results).catch(() => {});
     }, 200);
   };
 
   return {
+    profileId: null,
     results: {},
     hydrated: false,
 
-    hydrate: async () => {
+    hydrate: async (profileId) => {
+      setState({ hydrated: false, profileId, results: {} });
       try {
-        const stored = await get<ResultMap>(KEY);
-        setState({ results: stored ?? {}, hydrated: true });
+        const stored = await idbGet<ResultMap>(quizKey(profileId));
+        if (getState().profileId !== profileId) return;
+        setState({ results: stored ?? {}, profileId, hydrated: true });
       } catch {
-        setState({ hydrated: true });
+        if (getState().profileId === profileId) setState({ hydrated: true });
       }
     },
 
