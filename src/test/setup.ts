@@ -13,6 +13,5 @@ class IOStub {
   thresholds = [];
 }
 if (!("IntersectionObserver" in globalThis)) {
-  // @ts-expect-error test shim
-  globalThis.IntersectionObserver = IOStub;
+  globalThis.IntersectionObserver = IOStub as unknown as typeof IntersectionObserver;
 }
