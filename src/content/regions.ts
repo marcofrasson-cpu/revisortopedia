@@ -141,6 +141,16 @@ export const regions: RegionNode[] = [
           { slug: "fratura-quinto-metatarso", title: "Fratura do quinto metatarso", status: "planned" },
         ],
       },
+      {
+        id: "mi-tendoes-partes-moles",
+        title: "Tendões & partes moles",
+        topics: [
+          { slug: "ruptura-tendao-aquiles", title: "Ruptura do tendão de Aquiles", status: "complete" },
+          { slug: "tendinopatia-aquiles", title: "Tendinopatia do Aquiles", status: "planned" },
+          { slug: "ruptura-tendao-tibial-posterior", title: "Disfunção do tendão tibial posterior", status: "planned" },
+          { slug: "lesao-tendoes-fibulares", title: "Lesão dos tendões fibulares", status: "planned" },
+        ],
+      },
     ],
   },
   {

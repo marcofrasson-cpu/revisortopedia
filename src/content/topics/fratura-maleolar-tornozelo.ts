@@ -250,7 +250,7 @@ export const fraturaMaleolarTornozelo = defineTopic({
       n: 5,
       title: "Fixação do maléolo medial",
       detail:
-        "Reduzir anatomicamente o maléolo medial, removendo periósteo/osteocôndrio interposto. Fixar fragmento transverso com dois parafusos de compressão parcialmente rosqueados; usar banda de tensão para fragmento pequeno ou cominutivo, e fixação antiglide/placa para a fratura vertical do padrão SAD.",
+        "Reduzir anatomicamente o maléolo medial, removendo periósteo/tecido osteocondral interposto. Fixar fragmento transverso com dois parafusos de compressão parcialmente rosqueados; usar banda de tensão para fragmento pequeno ou cominutivo, e fixação antiglide/placa para a fratura vertical do padrão SAD.",
       figureId: "step-medial-malleolus",
       figureVariant: "screws",
       tips: [

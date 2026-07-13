@@ -134,9 +134,12 @@ export default function NavTree() {
     return next;
   }, [activeRegion, expanded]);
 
+  // Toggle from the *effective* open set (openSet), not raw `expanded` — the
+  // active region is auto-opened via openSet, so collapsing it must start from
+  // there or the first click no-ops.
   const toggle = (id: string) =>
-    setExpanded((prev) => {
-      const next = new Set(prev.size ? prev : openSet);
+    setExpanded(() => {
+      const next = new Set(openSet);
       if (next.has(id)) next.delete(id);
       else next.add(id);
       return next;

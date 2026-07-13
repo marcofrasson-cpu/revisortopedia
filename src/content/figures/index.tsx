@@ -17,6 +17,21 @@ import {
   StepPosteriorMalleolus,
   StepFluoroCheck,
 } from "./ankle/technique";
+import {
+  AchillesAnatomy,
+  ThompsonTest,
+  AchillesGap,
+  AchillesApposition,
+} from "./achilles/anatomy";
+import { ApproachOpenAchilles, ApproachPercutaneous } from "./achilles/approaches";
+import {
+  StepPosition,
+  StepExposure,
+  StepCoreSuture,
+  StepTensionRepair,
+  StepMisRepair,
+  StepFunctionalBrace,
+} from "./achilles/technique";
 
 /**
  * Registro de figuras: id canônico -> componente React.FC<FigureProps>.
@@ -43,6 +58,20 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   "step-syndesmosis": StepSyndesmosis,
   "step-posterior-malleolus": StepPosteriorMalleolus,
   "step-fluoro-check": StepFluoroCheck,
+
+  // ── Ruptura do tendão de Aquiles ──────────────────────────────────────────
+  "achilles-anatomy": AchillesAnatomy,
+  "thompson-test": ThompsonTest,
+  "achilles-gap": AchillesGap,
+  "achilles-apposition": AchillesApposition,
+  "approach-open-achilles": ApproachOpenAchilles,
+  "approach-percutaneous": ApproachPercutaneous,
+  "step-position": StepPosition,
+  "step-exposure": StepExposure,
+  "step-core-suture": StepCoreSuture,
+  "step-tension-repair": StepTensionRepair,
+  "step-mis-repair": StepMisRepair,
+  "step-functional-brace": StepFunctionalBrace,
 };
 
 /** Resolve um id de figura; ids desconhecidos caem no placeholder. */

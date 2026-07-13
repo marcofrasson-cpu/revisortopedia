@@ -39,15 +39,15 @@
   --surface-2: #eef1ec;
   --ink: #15201c;
   --ink-soft: #38453f;
-  --muted: #667069;
+  --muted: #5b655e;
   --line: #d4dad3;
   --line-strong: #b8c1b9;
   --teal: #0e7a69;
   --teal-deep: #0a5a4c;
   --teal-tint: #d8e9e3;
-  --cortical: #bf432d;
+  --cortical: #b23a26;
   --cortical-tint: #f4e1db;
-  --amber: #a9761d;
+  --amber: #8a5e12;
   --amber-tint: #eee2c7;
   --grid-ink: 21 32 28;
   --shadow-panel: 0 1px 2px rgba(20, 32, 28, 0.04), 0 8px 24px -12px rgba(20, 32, 28, 0.14);
@@ -65,7 +65,7 @@
   --line: #28372f;
   --line-strong: #3a4c43;
   --teal: #43c2a8;
-  --teal-deep: #2e9b85;
+  --teal-deep: #57c8ae;
   --teal-tint: #123029;
   --cortical: #e4644b;
   --cortical-tint: #2e1a15;

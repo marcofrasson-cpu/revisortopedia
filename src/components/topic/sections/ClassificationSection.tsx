@@ -57,8 +57,13 @@ export default function ClassificationSection({
                           onFocus({
                             figureId: ty.figureId,
                             variant: ty.figureVariant,
-                            caption: captionFor(topic, ty.figureId, `${ty.code} — ${ty.label}`),
-                            alt: altFor(topic, ty.figureId, ty.label),
+                            caption: captionFor(
+                              topic,
+                              ty.figureId,
+                              `${ty.code} — ${ty.label}`,
+                              ty.figureVariant,
+                            ),
+                            alt: altFor(topic, ty.figureId, ty.label, ty.figureVariant),
                             eyebrow: sys.name,
                             variants,
                           });

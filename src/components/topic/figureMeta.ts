@@ -2,19 +2,21 @@ import type { Figure, Topic } from "../../types/topic";
 
 /* ============================================================================
    Resolvers de metadados de figura. As seções e o painel referenciam figuras
-   por id; a legenda/alt "canônicos" vêm de `topic.figures` quando presentes,
-   com fallback gracioso para ids citados apenas em anatomia/técnica/vias.
+   por id (e, quando há variantes com legendas distintas, por variant); a
+   legenda/alt "canônicos" vêm de `topic.figures`, com fallback gracioso.
    ========================================================================== */
 
-export function figureMeta(topic: Topic, id?: string): Figure | undefined {
+export function figureMeta(topic: Topic, id?: string, variant?: string): Figure | undefined {
   if (!id) return undefined;
-  return topic.figures.find((f) => f.id === id);
+  const byIdAndVariant =
+    variant != null ? topic.figures.find((f) => f.id === id && f.variant === variant) : undefined;
+  return byIdAndVariant ?? topic.figures.find((f) => f.id === id);
 }
 
-export function captionFor(topic: Topic, id: string | undefined, fallback = ""): string {
-  return figureMeta(topic, id)?.caption ?? fallback;
+export function captionFor(topic: Topic, id: string | undefined, fallback = "", variant?: string): string {
+  return figureMeta(topic, id, variant)?.caption ?? fallback;
 }
 
-export function altFor(topic: Topic, id: string | undefined, fallback = ""): string {
-  return figureMeta(topic, id)?.alt ?? fallback ?? "";
+export function altFor(topic: Topic, id: string | undefined, fallback = "", variant?: string): string {
+  return figureMeta(topic, id, variant)?.alt ?? fallback ?? "";
 }

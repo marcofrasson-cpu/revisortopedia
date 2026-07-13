@@ -66,8 +66,8 @@ function classificationFocus(t: Topic): FocusedFigure | null {
   return {
     figureId: first.figureId,
     variant: first.figureVariant,
-    caption: captionFor(t, first.figureId, sys.name),
-    alt: altFor(t, first.figureId, sys.name),
+    caption: captionFor(t, first.figureId, sys.name, first.figureVariant),
+    alt: altFor(t, first.figureId, sys.name, first.figureVariant),
     eyebrow: sys.name,
     variants,
   };
@@ -115,7 +115,7 @@ function defaultFocus(t: Topic, k: SectionKey): FocusedFigure | null {
     case "postop":
       return mk(anat, { eyebrow: "Reabilitação" });
     case "complications":
-      return { figureId: "syndesmosis", variant: "injured", eyebrow: "Complicações" };
+      return mk(anat, { eyebrow: "Complicações" });
     case "pearls":
       return mk(anat, { eyebrow: "Síntese" });
     case "evidence":
@@ -310,7 +310,18 @@ export default function TopicView({ topic }: { topic: Topic }) {
               alt={focused?.alt}
               eyebrow={focused?.eyebrow}
               variants={focused?.variants}
-              onVariant={(v) => setFocused((f) => (f ? { ...f, variant: v } : f))}
+              onVariant={(v) =>
+                setFocused((f) =>
+                  f
+                    ? {
+                        ...f,
+                        variant: v,
+                        caption: captionFor(topic, f.figureId, f.caption ?? "", v),
+                        alt: altFor(topic, f.figureId, f.alt ?? "", v),
+                      }
+                    : f,
+                )
+              }
             />
             <p className="mt-3 px-1 text-[0.72rem] leading-relaxed text-muted">
               Esquemas originais, didáticos — não substituem imagem radiográfica real.

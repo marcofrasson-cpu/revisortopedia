@@ -17,7 +17,7 @@ export default function TopicPage() {
     if (topic) visit(slug);
   }, [topic, slug, visit]);
 
-  if (topic) return <TopicView topic={topic} />;
+  if (topic) return <TopicView key={topic.slug} topic={topic} />;
 
   // Tópico referenciado no framework, porém ainda sem conteúdo.
   const flat = locate(slug);

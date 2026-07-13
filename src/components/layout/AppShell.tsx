@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import TopBar from "./TopBar";
 import NavTree from "./NavTree";
@@ -16,10 +16,31 @@ export default function AppShell() {
   const openPalette = useCallback(() => setPaletteOpen(true), []);
   const closePalette = useCallback(() => setPaletteOpen(false), []);
 
+  const drawerCloseRef = useRef<HTMLButtonElement>(null);
+
   // Fecha o drawer a cada mudança de rota.
   useEffect(() => {
     setNavOpen(false);
   }, [pathname]);
+
+  // Drawer mobile: move o foco para dentro ao abrir, Esc fecha, restaura foco
+  // no botão de menu ao fechar.
+  useEffect(() => {
+    if (!navOpen) return;
+    const prev = document.activeElement as HTMLElement | null;
+    drawerCloseRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setNavOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      prev?.focus?.();
+    };
+  }, [navOpen]);
 
   // Atalhos globais: ⌘K / Ctrl+K e "/" abrem a busca.
   useEffect(() => {
@@ -80,6 +101,7 @@ export default function AppShell() {
             <div className="flex h-14 shrink-0 items-center justify-between border-b border-line px-4">
               <span className="font-display text-[1.05rem] text-ink">Navegação</span>
               <button
+                ref={drawerCloseRef}
                 type="button"
                 onClick={() => setNavOpen(false)}
                 aria-label="Fechar"
