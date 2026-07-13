@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import type { RegionNode, TopicRef } from "../../types/topic";
 import { allRegions, effectiveStatus, locate, stats } from "../../content/registry";
-import { IconChevronDown } from "../../ui/icons";
+import { IconChevronDown, IconChevronLeft } from "../../ui/icons";
 import { StatusDot, cx } from "../../ui/primitives";
 
 /* Which region should be open initially — the one holding the active route. */
@@ -113,7 +113,7 @@ function RegionBranch({
   );
 }
 
-export default function NavTree() {
+export default function NavTree({ onCollapse }: { onCollapse?: () => void }) {
   const { pathname } = useLocation();
   const params = useParams();
   const activeRegion = useActiveRegionId();
@@ -122,7 +122,6 @@ export default function NavTree() {
   const [expanded, setExpanded] = useState<Set<string>>(() => {
     const init = new Set<string>();
     if (activeRegion) init.add(activeRegion);
-    else if (allRegions[0]) init.add(allRegions[0].id);
     return init;
   });
 
@@ -148,7 +147,20 @@ export default function NavTree() {
   return (
     <div className="flex h-full flex-col">
       <nav aria-label="Regiões e tópicos" className="flex-1 overflow-y-auto px-2.5 py-4">
-        <div className="eyebrow px-2 pb-2">Framework ortopédico</div>
+        <div className="flex items-center justify-between gap-2 px-2 pb-2">
+          <div className="eyebrow">Framework ortopédico</div>
+          {onCollapse && (
+            <button
+              type="button"
+              onClick={onCollapse}
+              aria-label="Recolher barra de topografias"
+              title="Recolher barra de topografias"
+              className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-muted transition-colors hover:bg-surface-2 hover:text-ink"
+            >
+              <IconChevronLeft className="h-4 w-4" />
+            </button>
+          )}
+        </div>
         <ul>
           {allRegions.map((region) => (
             <RegionBranch
@@ -180,22 +192,25 @@ export default function NavTree() {
           />
         </div>
 
-        {/* Credit pill — brand badge (look fixo, independente do tema) */}
-        <div className="mt-3 flex justify-center">
-          <div className="relative">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-3 rounded-full bg-[#5fc89b]/15 blur-2xl"
-            />
-            <div className="relative flex flex-col items-center rounded-full border border-white/10 bg-gradient-to-b from-[#1b3048] to-[#0f1f30] px-5 py-2 shadow-[0_10px_28px_-10px_rgba(0,0,0,0.7)]">
-              <span className="text-[0.56rem] font-semibold uppercase tracking-[0.22em] text-[#94a3b8]">
-                Designed by
-              </span>
-              <span className="mt-0.5 text-[0.82rem] font-bold uppercase tracking-[0.05em] text-[#5fc89b]">
-                @Marco Frasson
-              </span>
-            </div>
-          </div>
+        <div
+          className="mt-3 flex items-center justify-between gap-2 rounded-md border px-2.5 py-2"
+          style={{
+            borderColor: "var(--pill-border)",
+            backgroundImage: "linear-gradient(to bottom, var(--pill-bg1), var(--pill-bg2))",
+          }}
+        >
+          <span
+            className="text-[0.58rem] font-semibold uppercase tracking-[0.12em]"
+            style={{ color: "var(--pill-label)" }}
+          >
+            Designed by
+          </span>
+          <span
+            className="text-[0.72rem] font-semibold"
+            style={{ color: "var(--pill-name)" }}
+          >
+            @Marco Frasson
+          </span>
         </div>
       </div>
     </div>

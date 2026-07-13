@@ -1,12 +1,12 @@
 import { getFigure } from "../../content/figures";
 import { CodeChip, cx } from "../../ui/primitives";
-import { IconLayers } from "../../ui/icons";
+import { IconExternal, IconLayers } from "../../ui/icons";
+import type { FigureKind, FigureSource } from "../../types/topic";
 
 /* ============================================================================
-   FigurePanel — moldura .panel .grid-film (light-box radiográfico) que exibe
-   a figura da seção/passo ativo. Usada tanto no painel sticky do desktop
-   quanto inline dentro de cada seção no mobile. Remonta a figura ao trocar
-   id/variant/passo para que o traço de fratura (.fx-line) se redesenhe.
+   FigurePanel — moldura .panel .grid-film que exibe mídia no fluxo editorial.
+   Remonta a figura ao trocar id/variant/passo para que diagramas interativos
+   redesenhem o traço de fratura (.fx-line).
    ========================================================================== */
 
 export interface VariantOption {
@@ -36,8 +36,19 @@ interface FigurePanelProps {
   eyebrow?: string;
   variants?: VariantOption[];
   onVariant?: (value: string) => void;
+  kind?: FigureKind;
+  source?: FigureSource;
   className?: string;
 }
+
+const KIND_LABEL: Record<FigureKind, string> = {
+  diagram: "Esquema",
+  radiograph: "Radiografia",
+  ct: "Tomografia",
+  mri: "Ressonância",
+  "anatomy-photo": "Anatomia",
+  "clinical-photo": "Foto clínica",
+};
 
 export default function FigurePanel({
   figureId,
@@ -48,6 +59,8 @@ export default function FigurePanel({
   eyebrow,
   variants,
   onVariant,
+  kind = "diagram",
+  source,
   className,
 }: FigurePanelProps) {
   if (!figureId) {
@@ -75,7 +88,10 @@ export default function FigurePanel({
     <figure className={cx("panel overflow-hidden", className)}>
       {(eyebrow || showSelector) && (
         <div className="flex items-center justify-between gap-3 border-b border-line px-3 py-2">
-          {eyebrow ? <span className="eyebrow truncate">{eyebrow}</span> : <span />}
+          <div className="flex min-w-0 items-center gap-2">
+            {eyebrow ? <span className="eyebrow truncate">{eyebrow}</span> : <span />}
+            <CodeChip tone={kind === "diagram" ? "plain" : "teal"}>{KIND_LABEL[kind]}</CodeChip>
+          </div>
           {showSelector && (
             <div className="flex shrink-0 items-center gap-1" role="group" aria-label="Variante da figura">
               {variants!.map((v) => {
@@ -102,24 +118,52 @@ export default function FigurePanel({
         </div>
       )}
 
-      <div className="grid-film grid place-items-center px-4 py-5 sm:px-6">
+      <div className="grid-film grid min-h-[240px] place-items-center px-3 py-4 sm:min-h-[320px] sm:px-6 sm:py-6">
         <Figure
           key={`${figureId}:${variant ?? ""}:${activeStep ?? ""}`}
           variant={variant}
           activeStep={activeStep}
           title={alt || caption || figureId}
-          className="h-auto w-full max-h-[46vh]"
+          className="h-auto max-h-[34rem] w-full object-contain"
         />
       </div>
 
-      {caption && (
+      {(caption || source) && (
         <figcaption className="border-t border-line px-3 py-2.5">
-          <div className="flex items-start gap-2">
-            {activeVariantLabel && !showSelector && (
-              <CodeChip tone="teal">{activeVariantLabel}</CodeChip>
-            )}
-            <p className="text-[0.82rem] leading-snug text-ink-soft">{caption}</p>
-          </div>
+          {caption && (
+            <div className="flex items-start gap-2">
+              {activeVariantLabel && !showSelector && (
+                <CodeChip tone="teal">{activeVariantLabel}</CodeChip>
+              )}
+              <p className="text-[0.82rem] leading-snug text-ink-soft">{caption}</p>
+            </div>
+          )}
+          {source && (
+            <div
+              className={cx(
+                "flex items-start gap-1.5 text-[0.7rem] leading-relaxed text-muted",
+                caption && "mt-2 border-t border-line/70 pt-2",
+              )}
+            >
+              {source.url && <IconExternal className="mt-0.5 h-3 w-3 shrink-0" aria-hidden />}
+              <p>
+                {source.url ? (
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-ink-soft transition-colors hover:text-teal-deep"
+                  >
+                    {source.label}
+                  </a>
+                ) : (
+                  <span className="font-medium text-ink-soft">{source.label}</span>
+                )}
+                {source.license && <> · {source.license}</>}
+                {source.reference && <> · {source.reference}</>}
+              </p>
+            </div>
+          )}
         </figcaption>
       )}
     </figure>

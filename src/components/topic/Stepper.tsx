@@ -1,41 +1,22 @@
-import { useEffect, useState } from "react";
-import type { Step } from "../../types/topic";
+import { useState } from "react";
+import type { Step, Topic } from "../../types/topic";
 import { Callout, cx } from "../../ui/primitives";
 import { IconChevronLeft, IconChevronRight } from "../../ui/icons";
 import FigurePanel from "./FigurePanel";
-import type { FocusedFigure } from "./FigurePanel";
+import { altFor, captionFor, kindFor, sourceFor } from "./figureMeta";
 
-function focusFor(step: Step, total: number): FocusedFigure | null {
-  if (!step.figureId) return null;
-  return {
-    figureId: step.figureId,
-    variant: step.figureVariant,
-    activeStep: step.n,
-    caption: `Passo ${step.n} · ${step.title}`,
-    alt: step.title,
-    eyebrow: `Técnica · Passo ${step.n}/${total}`,
-  };
-}
-
-/* Stepper da técnica passo a passo. Sincroniza a figura do passo com o painel
-   sticky (só quando esta seção está ativa, para não sequestrar o painel de
-   outras seções) e mostra tips/pitfalls do passo. Teclado ← / →. */
+/* Stepper da técnica passo a passo. Mantém texto, figura e alertas do passo
+   juntos no fluxo editorial. Teclado ← / →. */
 export default function Stepper({
   steps,
-  onFocus,
-  active,
+  topic,
 }: {
   steps: Step[];
-  onFocus: (f: FocusedFigure | null) => void;
-  active: boolean;
+  topic: Topic;
 }) {
   const [i, setI] = useState(0);
   const step = steps[i];
   const go = (d: number) => setI((v) => Math.min(steps.length - 1, Math.max(0, v + d)));
-
-  useEffect(() => {
-    if (active) onFocus(focusFor(step, steps.length));
-  }, [i, active, onFocus, step, steps.length]);
 
   if (!step) return null;
 
@@ -99,13 +80,20 @@ export default function Stepper({
         <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft">{step.detail}</p>
 
         <FigurePanel
-          className="mt-4 lg:hidden"
+          className="mt-5"
           figureId={step.figureId}
           variant={step.figureVariant}
           activeStep={step.n}
-          caption={`Passo ${step.n} · ${step.title}`}
-          alt={step.title}
+          caption={captionFor(
+            topic,
+            step.figureId,
+            `Passo ${step.n} · ${step.title}`,
+            step.figureVariant,
+          )}
+          alt={altFor(topic, step.figureId, step.title, step.figureVariant)}
           eyebrow={`Técnica · Passo ${step.n}/${steps.length}`}
+          kind={kindFor(topic, step.figureId, step.figureVariant)}
+          source={sourceFor(topic, step.figureId, step.figureVariant)}
         />
 
         {(step.tips.length > 0 || step.pitfalls.length > 0) && (

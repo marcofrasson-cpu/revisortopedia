@@ -4,6 +4,7 @@ import { allRegions, effectiveStatus, getTopic, locate, stats } from "../content
 import { useUserState } from "../store/useUserState";
 import { Eyebrow, StatusDot, cx } from "../ui/primitives";
 import { IconArrowRight, IconLayers, IconChevronRight } from "../ui/icons";
+import { Logo } from "../ui/Logo";
 
 const FEATURED_SLUG = "fratura-maleolar-tornozelo";
 
@@ -116,6 +117,13 @@ export default function HomePage() {
       {/* HERO */}
       <section className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
         <div className="min-w-0">
+          <div className="mb-6">
+            <Logo
+              tagline
+              markClassName="h-14 w-14"
+              wordClassName="text-[1.85rem] sm:text-[2.15rem]"
+            />
+          </div>
           <Eyebrow>Referência de cirurgia ortopédica · pt-BR</Eyebrow>
           <h1 className="mt-4 font-display text-[2.6rem] leading-[1.05] text-ink sm:text-[3.2rem]">
             Manual de trauma ortopédico{" "}

@@ -1,4 +1,4 @@
-import type { Figure, Topic } from "../../types/topic";
+import type { Figure, FigureKind, FigureSource, Topic } from "../../types/topic";
 
 /* ============================================================================
    Resolvers de metadados de figura. As seções e o painel referenciam figuras
@@ -19,4 +19,20 @@ export function captionFor(topic: Topic, id: string | undefined, fallback = "", 
 
 export function altFor(topic: Topic, id: string | undefined, fallback = "", variant?: string): string {
   return figureMeta(topic, id, variant)?.alt ?? fallback ?? "";
+}
+
+export function kindFor(topic: Topic, id?: string, variant?: string): FigureKind {
+  return figureMeta(topic, id, variant)?.kind ?? "diagram";
+}
+
+export function sourceFor(topic: Topic, id?: string, variant?: string): FigureSource | undefined {
+  const figure = figureMeta(topic, id, variant);
+  if (figure?.source) return figure.source;
+  if (figure?.kind === "diagram" && topic.meta.figureReference) {
+    return {
+      label: "Esquema didático original",
+      reference: topic.meta.figureReference,
+    };
+  }
+  return undefined;
 }

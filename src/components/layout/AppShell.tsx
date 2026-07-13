@@ -5,12 +5,13 @@ import TopBar from "./TopBar";
 import NavTree from "./NavTree";
 import CommandPalette from "./CommandPalette";
 import ProfileGate from "../profile/ProfileGate";
-import { IconClose } from "../../ui/icons";
+import { IconChevronRight, IconClose } from "../../ui/icons";
 import { cx } from "../../ui/primitives";
 
 const NAV_MIN = 240;
 const NAV_MAX = 480;
 const NAV_DEFAULT = 300;
+const NAV_COLLAPSED = 52;
 
 /* Console de três painéis no desktop: NavTree fixo à esquerda, conteúdo
    central (Outlet). O painel direito (figura) é gerido pelo próprio TopicView.
@@ -91,6 +92,13 @@ export default function AppShell() {
     }
   });
   const [resizing, setResizing] = useState(false);
+  const [navCollapsed, setNavCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem("revisortopedia:navcollapsed") === "true";
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
     try {
@@ -99,6 +107,14 @@ export default function AppShell() {
       /* ignore */
     }
   }, [navWidth]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("revisortopedia:navcollapsed", String(navCollapsed));
+    } catch {
+      /* ignore */
+    }
+  }, [navCollapsed]);
 
   const clampW = (w: number) => Math.min(NAV_MAX, Math.max(NAV_MIN, Math.round(w)));
 
@@ -131,43 +147,61 @@ export default function AppShell() {
         {/* Painel esquerdo — desktop, redimensionável */}
         <aside
           ref={asideRef}
-          style={{ width: navWidth }}
-          className="sticky top-14 hidden h-[calc(100dvh-3.5rem)] shrink-0 border-r border-line lg:block"
+          style={{ width: navCollapsed ? NAV_COLLAPSED : navWidth }}
+          className="sticky top-14 hidden h-[calc(100dvh-3.5rem)] shrink-0 border-r border-line transition-[width] duration-200 lg:block"
         >
-          <NavTree />
+          {navCollapsed ? (
+            <div className="flex h-full justify-center pt-4">
+              <button
+                type="button"
+                onClick={() => setNavCollapsed(false)}
+                aria-label="Expandir barra de topografias"
+                title="Expandir barra de topografias"
+                className="grid h-9 w-9 place-items-center rounded-md border border-line text-muted transition-colors hover:bg-surface-2 hover:text-ink"
+              >
+                <IconChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          ) : (
+            <NavTree onCollapse={() => setNavCollapsed(true)} />
+          )}
           {/* Alça de redimensionamento */}
-          <div
-            role="separator"
-            aria-orientation="vertical"
-            aria-label="Redimensionar barra lateral"
-            aria-valuenow={navWidth}
-            aria-valuemin={NAV_MIN}
-            aria-valuemax={NAV_MAX}
-            tabIndex={0}
-            onPointerDown={startResize}
-            onDoubleClick={() => setNavWidth(NAV_DEFAULT)}
-            onKeyDown={(e) => {
-              if (e.key === "ArrowLeft") {
-                e.preventDefault();
-                setNavWidth((w) => clampW(w - 16));
-              } else if (e.key === "ArrowRight") {
-                e.preventDefault();
-                setNavWidth((w) => clampW(w + 16));
-              } else if (e.key === "Home") {
-                e.preventDefault();
-                setNavWidth(NAV_DEFAULT);
-              }
-            }}
-            className="group absolute -right-1 top-0 z-10 h-full w-3 cursor-col-resize"
-            title="Arraste para redimensionar · duplo-clique para redefinir"
-          >
-            <span
-              className={cx(
-                "absolute right-1 top-0 h-full transition-all",
-                resizing ? "w-0.5 bg-teal" : "w-px bg-transparent group-hover:w-0.5 group-hover:bg-teal",
-              )}
-            />
-          </div>
+          {!navCollapsed && (
+            <div
+              role="separator"
+              aria-orientation="vertical"
+              aria-label="Redimensionar barra lateral"
+              aria-valuenow={navWidth}
+              aria-valuemin={NAV_MIN}
+              aria-valuemax={NAV_MAX}
+              tabIndex={0}
+              onPointerDown={startResize}
+              onDoubleClick={() => setNavWidth(NAV_DEFAULT)}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowLeft") {
+                  e.preventDefault();
+                  setNavWidth((w) => clampW(w - 16));
+                } else if (e.key === "ArrowRight") {
+                  e.preventDefault();
+                  setNavWidth((w) => clampW(w + 16));
+                } else if (e.key === "Home") {
+                  e.preventDefault();
+                  setNavWidth(NAV_DEFAULT);
+                }
+              }}
+              className="group absolute -right-1 top-0 z-10 h-full w-3 cursor-col-resize"
+              title="Arraste para redimensionar · duplo-clique para redefinir"
+            >
+              <span
+                className={cx(
+                  "absolute right-1 top-0 h-full transition-all",
+                  resizing
+                    ? "w-0.5 bg-teal"
+                    : "w-px bg-transparent group-hover:w-0.5 group-hover:bg-teal",
+                )}
+              />
+            </div>
+          )}
         </aside>
 
         {/* Conteúdo central */}

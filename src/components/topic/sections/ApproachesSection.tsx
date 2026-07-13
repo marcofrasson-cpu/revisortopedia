@@ -2,24 +2,15 @@ import { useState } from "react";
 import type { Topic } from "../../../types/topic";
 import { CodeChip, cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
-import type { FocusedFigure } from "../FigurePanel";
+import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
 
 /* Vias de acesso — intervalo, estruturas em risco e esquema da incisão. */
-export default function ApproachesSection({
-  topic,
-  onFocus,
-}: {
-  topic: Topic;
-  onFocus: (fig: FocusedFigure | null) => void;
-}) {
+export default function ApproachesSection({ topic }: { topic: Topic }) {
   const [sel, setSel] = useState<string | undefined>(
     () => topic.approaches.find((a) => a.figureId)?.id,
   );
 
-  const focus = (id: string, figureId?: string, name?: string) => {
-    setSel(id);
-    if (figureId) onFocus({ figureId, caption: name, alt: name, eyebrow: "Via de acesso" });
-  };
+  const focus = (id: string) => setSel(id);
 
   const selApproach = topic.approaches.find((a) => a.id === sel);
 
@@ -34,7 +25,7 @@ export default function ApproachesSection({
             <button
               key={a.id}
               type="button"
-              onClick={() => focus(a.id, a.figureId, a.name)}
+              onClick={() => focus(a.id)}
               aria-pressed={on}
               className={cx(
                 "panel block w-full px-4 py-4 text-left transition-colors hover:border-line-strong",
@@ -63,10 +54,13 @@ export default function ApproachesSection({
 
       {selApproach?.figureId && (
         <FigurePanel
-          className="mt-5 lg:hidden"
+          className="mt-5"
           figureId={selApproach.figureId}
-          caption={selApproach.name}
+          caption={captionFor(topic, selApproach.figureId, selApproach.name)}
+          alt={altFor(topic, selApproach.figureId, selApproach.name)}
           eyebrow="Via de acesso"
+          kind={kindFor(topic, selApproach.figureId)}
+          source={sourceFor(topic, selApproach.figureId)}
         />
       )}
     </>

@@ -87,4 +87,19 @@ describe("complete topics carry a full clinical payload", () => {
       }
     }
   });
+
+  it("every clinical image identifies its source and reuse license", () => {
+    for (const t of complete) {
+      for (const figure of t.figures.filter((item) => item.kind !== "diagram")) {
+        expect(figure.source?.url, `figure "${figure.id}" source URL`).toBeTruthy();
+        expect(figure.source?.license, `figure "${figure.id}" reuse license`).toBeTruthy();
+      }
+    }
+  });
+
+  it("every complete upper-limb topic grounds its original diagrams in Rockwood", () => {
+    for (const t of complete.filter((item) => item.regionId === "membro-superior")) {
+      expect(t.meta.figureReference, `topic "${t.slug}" figure reference`).toMatch(/Rockwood/);
+    }
+  });
 });

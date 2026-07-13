@@ -33,12 +33,29 @@ export const evidenceItemSchema = z.object({
 });
 export type EvidenceItem = z.infer<typeof evidenceItemSchema>;
 
+export const figureKindSchema = z
+  .enum(["diagram", "radiograph", "ct", "mri", "anatomy-photo", "clinical-photo"])
+  .default("diagram");
+export type FigureKind = z.infer<typeof figureKindSchema>;
+
+export const figureSourceSchema = z.object({
+  /** Author, collection or publication responsible for the image. */
+  label: z.string(),
+  url: z.string().url().optional(),
+  license: z.string().optional(),
+  /** Editorial reference used to validate an original diagram. */
+  reference: z.string().optional(),
+});
+export type FigureSource = z.infer<typeof figureSourceSchema>;
+
 export const figureSchema = z.object({
   /** Resolves against the figures registry; unknown ids render a placeholder. */
   id: z.string(),
   caption: z.string(),
   alt: z.string(),
   variant: z.string().optional(),
+  kind: figureKindSchema,
+  source: figureSourceSchema.optional(),
 });
 export type Figure = z.infer<typeof figureSchema>;
 
@@ -137,6 +154,7 @@ export const topicSchema = z.object({
     lastReviewed: z.string(),
     sources: z.array(z.string()).default([]),
     attribution: z.string().optional(),
+    figureReference: z.string().optional(),
   }),
 });
 export type Topic = z.infer<typeof topicSchema>;

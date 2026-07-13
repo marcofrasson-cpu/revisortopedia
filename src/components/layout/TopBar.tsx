@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import ThemeToggle from "./ThemeToggle";
 import { IconSearch, IconMenu } from "../../ui/icons";
+import { Logo } from "../../ui/Logo";
 import { useProfiles } from "../../store/useProfiles";
 
 function initials(name: string): string {
@@ -14,24 +15,6 @@ function initials(name: string): string {
 const isMac =
   typeof navigator !== "undefined" && /Mac|iPhone|iPad/i.test(navigator.platform || navigator.userAgent);
 const shortcut = isMac ? "⌘K" : "Ctrl K";
-
-/* Small original "surgical forceps" (pinça) glyph for the wordmark. */
-function ForcepsMark({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
-      <path
-        d="M8 3.5c1.4 1.8 1.6 4 .7 6.4L6.4 20.5M16 3.5c-1.4 1.8-1.6 4-.7 6.4l2.3 10.6"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="8" cy="3.2" r="1.3" stroke="currentColor" strokeWidth="1.6" />
-      <circle cx="16" cy="3.2" r="1.3" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M9.6 11h4.8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 interface Props {
   onOpenSearch: () => void;
@@ -57,13 +40,10 @@ export default function TopBar({ onOpenSearch, onOpenMenu, onOpenProfile }: Prop
         {/* Wordmark */}
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-2 rounded-md pr-2 transition-colors hover:text-teal"
+          className="flex shrink-0 items-center rounded-md pr-2 transition-colors"
           aria-label="Revisortopedia — início"
         >
-          <ForcepsMark className="h-6 w-6 text-teal" />
-          <span className="font-display text-[1.12rem] font-medium tracking-tight text-ink">
-            Revisortopedia
-          </span>
+          <Logo markClassName="h-7 w-7" wordClassName="text-[1.12rem]" />
         </Link>
 
         {/* Breadcrumb — desktop only */}

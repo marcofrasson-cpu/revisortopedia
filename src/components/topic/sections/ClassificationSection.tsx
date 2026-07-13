@@ -2,23 +2,18 @@ import { useState } from "react";
 import type { Topic } from "../../../types/topic";
 import { CodeChip, cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
-import type { FocusedFigure, VariantOption } from "../FigurePanel";
-import { altFor, captionFor } from "../figureMeta";
+import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
 
-/* Classificação — um bloco por sistema (Danis-Weber, Lauge-Hansen, AO/OTA).
-   Selecionar um tipo com figura foca o esquema no painel e re-desenha o traço. */
-export default function ClassificationSection({
-  topic,
-  onFocus,
-}: {
-  topic: Topic;
-  onFocus: (fig: FocusedFigure | null) => void;
-}) {
-  const first = topic.classification[0];
-  const [selKey, setSelKey] = useState<string | undefined>(() => {
-    const t = first?.types.find((x) => x.figureId);
-    return t ? `${first.id}:${t.code}` : undefined;
-  });
+/* Classificação — cada sistema intercala a descrição e sua figura selecionada. */
+export default function ClassificationSection({ topic }: { topic: Topic }) {
+  const [selected, setSelected] = useState<Record<string, string>>(() =>
+    Object.fromEntries(
+      topic.classification.flatMap((system) => {
+        const type = system.types.find((item) => item.figureId);
+        return type ? [[system.id, type.code]] : [];
+      }),
+    ),
+  );
 
   return (
     <>
@@ -26,9 +21,9 @@ export default function ClassificationSection({
 
       <div className="mt-5 space-y-8">
         {topic.classification.map((sys) => {
-          const variants: VariantOption[] = sys.types
-            .filter((ty) => ty.figureId)
-            .map((ty) => ({ value: ty.figureVariant ?? ty.code, label: ty.code }));
+          const selectedType =
+            sys.types.find((item) => item.code === selected[sys.id]) ??
+            sys.types.find((item) => item.figureId);
 
           return (
             <div key={sys.id}>
@@ -43,7 +38,7 @@ export default function ClassificationSection({
               <ul className="mt-3 divide-y divide-line overflow-hidden rounded-xl border border-line">
                 {sys.types.map((ty) => {
                   const key = `${sys.id}:${ty.code}`;
-                  const on = key === selKey;
+                  const on = ty.code === selected[sys.id];
                   const clickable = Boolean(ty.figureId);
                   return (
                     <li key={key}>
@@ -53,20 +48,7 @@ export default function ClassificationSection({
                         aria-pressed={clickable ? on : undefined}
                         onClick={() => {
                           if (!ty.figureId) return;
-                          setSelKey(key);
-                          onFocus({
-                            figureId: ty.figureId,
-                            variant: ty.figureVariant,
-                            caption: captionFor(
-                              topic,
-                              ty.figureId,
-                              `${ty.code} — ${ty.label}`,
-                              ty.figureVariant,
-                            ),
-                            alt: altFor(topic, ty.figureId, ty.label, ty.figureVariant),
-                            eyebrow: sys.name,
-                            variants,
-                          });
+                          setSelected((current) => ({ ...current, [sys.id]: ty.code }));
                         }}
                         className={cx(
                           "flex w-full items-start gap-3 px-4 py-3 text-left transition-colors",
@@ -90,24 +72,33 @@ export default function ClassificationSection({
                   );
                 })}
               </ul>
+
+              {selectedType?.figureId && (
+                <FigurePanel
+                  className="mt-5"
+                  figureId={selectedType.figureId}
+                  variant={selectedType.figureVariant}
+                  caption={captionFor(
+                    topic,
+                    selectedType.figureId,
+                    `${selectedType.code} — ${selectedType.label}`,
+                    selectedType.figureVariant,
+                  )}
+                  alt={altFor(
+                    topic,
+                    selectedType.figureId,
+                    selectedType.label,
+                    selectedType.figureVariant,
+                  )}
+                  eyebrow={sys.name}
+                  kind={kindFor(topic, selectedType.figureId, selectedType.figureVariant)}
+                  source={sourceFor(topic, selectedType.figureId, selectedType.figureVariant)}
+                />
+              )}
             </div>
           );
         })}
       </div>
-
-      {/* Figura inline — mobile */}
-      {selKey && (
-        <FigurePanel
-          className="mt-5 lg:hidden"
-          figureId={topic.classification
-            .flatMap((s) => s.types.map((t) => ({ s, t })))
-            .find(({ s, t }) => `${s.id}:${t.code}` === selKey)?.t.figureId}
-          variant={topic.classification
-            .flatMap((s) => s.types.map((t) => ({ s, t })))
-            .find(({ s, t }) => `${s.id}:${t.code}` === selKey)?.t.figureVariant}
-          eyebrow="Classificação"
-        />
-      )}
     </>
   );
 }

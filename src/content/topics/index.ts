@@ -24,6 +24,13 @@ import { topic as tendinopatiaAquiles } from "./tendinopatia-aquiles";
 import { topic as lisfranc } from "./lesao-lisfranc";
 import { topic as tendoesFibulares } from "./lesao-tendoes-fibulares";
 
+// Membro superior — topicos autorados.
+import { topic as fraturaClavicula } from "./fratura-clavicula";
+import { topic as luxacaoAcromioclavicular } from "./luxacao-acromioclavicular";
+import { topic as fraturaGlenoide } from "./fratura-glenoide";
+import { topic as fraturaUmeroProximal } from "./fratura-umero-proximal";
+import { topic as fraturaUmeroDistal } from "./fratura-umero-distal";
+
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
    a partir daqui; um tópico novo é um arquivo de dados novo + uma linha aqui.
@@ -52,4 +59,9 @@ export const topics: Topic[] = [
   tendinopatiaAquiles,
   lisfranc,
   tendoesFibulares,
+  fraturaClavicula,
+  luxacaoAcromioclavicular,
+  fraturaGlenoide,
+  fraturaUmeroProximal,
+  fraturaUmeroDistal,
 ];

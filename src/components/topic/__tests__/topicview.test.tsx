@@ -43,4 +43,16 @@ describe("TopicView", () => {
       .filter((a) => a.getAttribute("href")?.includes("doi.org"));
     expect(doiLinks.length).toBeGreaterThan(0);
   });
+
+  it("keeps figures inline without a layout-changing complementary panel", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <TopicView topic={fraturaMaleolarTornozelo} />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText("Base de evidências")).toBeInTheDocument();
+    expect(container.querySelector("aside")).not.toBeInTheDocument();
+    expect(container.querySelectorAll("figure").length).toBeGreaterThan(0);
+  });
 });

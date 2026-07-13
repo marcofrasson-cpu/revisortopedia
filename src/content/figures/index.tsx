@@ -55,6 +55,14 @@ import { figures as figTendinopatiaAquiles } from "./tendinopatia-aquiles";
 import { figures as figLisfranc } from "./lesao-lisfranc";
 import { figures as figTendoesFibulares } from "./lesao-tendoes-fibulares";
 
+// Membro superior — barris de figuras por tópico (ids prefixados por slug).
+import { figures as figFraturaClavicula } from "./fratura-clavicula";
+import { figures as figLuxacaoAcromioclavicular } from "./luxacao-acromioclavicular";
+import { figures as figFraturaGlenoide } from "./fratura-glenoide";
+import { figures as figFraturaUmeroProximal } from "./fratura-umero-proximal";
+import { figures as figFraturaUmeroDistal } from "./fratura-umero-distal";
+import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
+
 /**
  * Registro de figuras: id canônico -> componente React.FC<FigureProps>.
  * O conteúdo referencia estes ids (e variants) de forma estável.
@@ -116,6 +124,14 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figTendinopatiaAquiles,
   ...figLisfranc,
   ...figTendoesFibulares,
+
+  // ── Membro superior (ids já prefixados por slug dentro de cada barril) ───
+  ...figFraturaClavicula,
+  ...figLuxacaoAcromioclavicular,
+  ...figFraturaGlenoide,
+  ...figFraturaUmeroProximal,
+  ...figFraturaUmeroDistal,
+  ...figClinicalUpperLimb,
 };
 
 /** Resolve um id de figura; ids desconhecidos caem no placeholder. */

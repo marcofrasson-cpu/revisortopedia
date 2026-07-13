@@ -2,30 +2,15 @@ import { useState } from "react";
 import type { Topic } from "../../../types/topic";
 import { cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
-import type { FocusedFigure } from "../FigurePanel";
-import { altFor, captionFor } from "../figureMeta";
+import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
 
-/* Anatomia — texto + trilha de figuras anatômicas comutáveis (pinça, anel,
-   ligamentos). Selecionar uma figura foca o painel sticky (desktop) e troca
-   a figura inline (mobile). */
-export default function AnatomySection({
-  topic,
-  onFocus,
-}: {
-  topic: Topic;
-  onFocus: (fig: FocusedFigure | null) => void;
-}) {
+/* Anatomia — texto seguido por figuras anatômicas ou clínicas comutáveis. */
+export default function AnatomySection({ topic }: { topic: Topic }) {
   const ids = topic.anatomy.figureIds;
   const [sel, setSel] = useState<string | undefined>(ids[0]);
 
   const focus = (id: string) => {
     setSel(id);
-    onFocus({
-      figureId: id,
-      caption: captionFor(topic, id, id),
-      alt: altFor(topic, id),
-      eyebrow: "Anatomia",
-    });
   };
 
   const paragraphs = topic.anatomy.text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
@@ -68,13 +53,14 @@ export default function AnatomySection({
             </div>
           )}
 
-          {/* Figura inline — apenas mobile; no desktop o painel sticky assume. */}
           <FigurePanel
-            className="mt-4 lg:hidden"
+            className="mt-5"
             figureId={sel}
             caption={captionFor(topic, sel, sel)}
             alt={altFor(topic, sel)}
             eyebrow="Anatomia"
+            kind={kindFor(topic, sel)}
+            source={sourceFor(topic, sel)}
           />
         </>
       )}
