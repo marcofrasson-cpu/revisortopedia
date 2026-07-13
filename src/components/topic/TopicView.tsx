@@ -269,7 +269,7 @@ export default function TopicView({ topic }: { topic: Topic }) {
             <section
               id={`sec-${k}`}
               key={k}
-              className="scroll-mt-28 border-t border-line/70 pt-10 mt-10 first:mt-0 first:border-0 first:pt-0"
+              className="scroll-mt-28 border-t border-line/70 pt-12 mt-12 first:mt-0 first:border-0 first:pt-0"
             >
               {sectionNode[k]}
             </section>

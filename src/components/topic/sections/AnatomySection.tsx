@@ -33,7 +33,7 @@ export default function AnatomySection({
   return (
     <>
       <SectionHeading index="02" eyebrow="Anatomia" title="Anatomia cirúrgica" />
-      <div className="mt-4 space-y-4 text-[0.98rem] leading-relaxed text-ink-soft">
+      <div className="mt-5 space-y-5 text-[1.05rem] leading-[1.75] text-ink-soft">
         {paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
@@ -42,23 +42,26 @@ export default function AnatomySection({
       {ids.length > 0 && (
         <>
           {ids.length > 1 && (
-            <div className="mt-5 flex flex-wrap gap-1.5" role="group" aria-label="Figuras anatômicas">
-              {ids.map((id) => {
+            <div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Figuras anatômicas">
+              {ids.map((id, n) => {
                 const on = id === sel;
+                const full = captionFor(topic, id, id);
+                const label = full.split(/[—–-]/)[0].trim() || `Figura ${n + 1}`;
                 return (
                   <button
                     key={id}
                     type="button"
                     aria-pressed={on}
+                    title={full}
                     onClick={() => focus(id)}
                     className={cx(
-                      "code rounded-full border px-3 py-1.5 text-[0.74rem] leading-none transition-colors",
+                      "rounded-lg border px-3.5 py-2 text-[0.82rem] leading-none transition-colors",
                       on
                         ? "border-teal/50 bg-teal-tint text-teal-deep"
-                        : "border-line text-muted hover:border-line-strong hover:text-ink",
+                        : "border-line text-ink-soft hover:border-line-strong hover:text-ink",
                     )}
                   >
-                    {captionFor(topic, id, id)}
+                    {label}
                   </button>
                 );
               })}

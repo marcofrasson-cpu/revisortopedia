@@ -99,6 +99,17 @@
     letter-spacing: -0.01em;
     line-height: 1.08;
   }
+
+  /* Rótulos das figuras legíveis sobre os traços: halo da cor do painel
+     desenhado atrás do preenchimento do texto (paint-order). Afeta só SVGs
+     com <text> — as figuras esquemáticas e o mark do hero, nunca os ícones. */
+  svg text {
+    paint-order: stroke;
+    stroke: var(--surface);
+    stroke-width: 3.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
   ::selection {
     background: var(--teal);
     color: var(--surface);

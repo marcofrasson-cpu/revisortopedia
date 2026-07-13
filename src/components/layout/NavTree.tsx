@@ -180,15 +180,22 @@ export default function NavTree() {
           />
         </div>
 
-        {/* Credit pill */}
+        {/* Credit pill — brand badge (look fixo, independente do tema) */}
         <div className="mt-3 flex justify-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface-2/60 px-2.5 py-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-teal" />
-            <span className="code text-[0.6rem] uppercase tracking-[0.14em] text-muted">
-              designed by
-            </span>
-            <span className="text-[0.72rem] font-medium text-ink-soft">Marco Frasson</span>
-          </span>
+          <div className="relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-3 rounded-full bg-[#5fc89b]/15 blur-2xl"
+            />
+            <div className="relative flex flex-col items-center rounded-full border border-white/10 bg-gradient-to-b from-[#1b3048] to-[#0f1f30] px-5 py-2 shadow-[0_10px_28px_-10px_rgba(0,0,0,0.7)]">
+              <span className="text-[0.56rem] font-semibold uppercase tracking-[0.22em] text-[#94a3b8]">
+                Designed by
+              </span>
+              <span className="mt-0.5 text-[0.82rem] font-bold uppercase tracking-[0.05em] text-[#5fc89b]">
+                @Marco Frasson
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
