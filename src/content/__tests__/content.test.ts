@@ -74,12 +74,15 @@ describe("complete topics carry a full clinical payload", () => {
     }
   });
 
-  it("every evidence item on a complete topic has a citation DOI", () => {
+  it("every evidence item on a complete topic is verifiable (DOI or PMID)", () => {
+    // A real citation may legitimately lack a DOI (e.g. landmark pre-2000
+    // articles) — a verified PMID is an acceptable identifier. We never accept
+    // a citation with neither, which would signal a fabricated reference.
     for (const t of complete) {
       for (const ev of t.evidence) {
         expect(
-          ev.citation.doi,
-          `evidence "${ev.id}" (topic "${t.slug}") must cite a DOI`,
+          ev.citation.doi || ev.citation.pmid,
+          `evidence "${ev.id}" (topic "${t.slug}") must cite a DOI or PMID`,
         ).toBeTruthy();
       }
     }
