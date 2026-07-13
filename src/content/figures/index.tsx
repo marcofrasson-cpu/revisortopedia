@@ -58,6 +58,7 @@ import { figures as figTendoesFibulares } from "./lesao-tendoes-fibulares";
 // Membro superior — barris de figuras por tópico (ids prefixados por slug).
 import { figures as figFraturaClavicula } from "./fratura-clavicula";
 import { figures as figLuxacaoAcromioclavicular } from "./luxacao-acromioclavicular";
+import { figures as figLuxacaoGlenoumeralAnterior } from "./luxacao-glenoumeral-anterior";
 import { figures as figFraturaGlenoide } from "./fratura-glenoide";
 import { figures as figFraturaUmeroProximal } from "./fratura-umero-proximal";
 import { figures as figFraturaUmeroDistal } from "./fratura-umero-distal";
@@ -128,6 +129,7 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   // ── Membro superior (ids já prefixados por slug dentro de cada barril) ───
   ...figFraturaClavicula,
   ...figLuxacaoAcromioclavicular,
+  ...figLuxacaoGlenoumeralAnterior,
   ...figFraturaGlenoide,
   ...figFraturaUmeroProximal,
   ...figFraturaUmeroDistal,

@@ -4,6 +4,8 @@ import type { FigureProps } from "../../../types/topic";
 export const CLINICAL_MEDIA_PATHS = {
   "fratura-clavicula:radiografia": "media/upper-limb/clavicle-fracture-xray.jpg",
   "luxacao-acromioclavicular:radiografia": "media/upper-limb/ac-separation-xray.png",
+  "luxacao-glenoumeral-anterior:radiografia":
+    "media/upper-limb/anterior-shoulder-dislocation-xray.png",
   "fratura-glenoide:radiografia": "media/upper-limb/glenoid-fracture-xray.jpg",
   "fratura-umero-proximal:radiografia": "media/upper-limb/proximal-humerus-fracture-xray.jpg",
   "fratura-umero-distal:radiografia": "media/upper-limb/distal-humerus-fracture-xray.jpg",

@@ -27,6 +27,7 @@ import { topic as tendoesFibulares } from "./lesao-tendoes-fibulares";
 // Membro superior — topicos autorados.
 import { topic as fraturaClavicula } from "./fratura-clavicula";
 import { topic as luxacaoAcromioclavicular } from "./luxacao-acromioclavicular";
+import { topic as luxacaoGlenoumeralAnterior } from "./luxacao-glenoumeral-anterior";
 import { topic as fraturaGlenoide } from "./fratura-glenoide";
 import { topic as fraturaUmeroProximal } from "./fratura-umero-proximal";
 import { topic as fraturaUmeroDistal } from "./fratura-umero-distal";
@@ -61,6 +62,7 @@ export const topics: Topic[] = [
   tendoesFibulares,
   fraturaClavicula,
   luxacaoAcromioclavicular,
+  luxacaoGlenoumeralAnterior,
   fraturaGlenoide,
   fraturaUmeroProximal,
   fraturaUmeroDistal,

@@ -112,6 +112,7 @@ describe("complete topics carry a full clinical payload", () => {
     const figureSources = [
       "fratura-clavicula",
       "luxacao-acromioclavicular",
+      "luxacao-glenoumeral-anterior",
       "fratura-glenoide",
       "fratura-umero-proximal",
       "fratura-umero-distal",
