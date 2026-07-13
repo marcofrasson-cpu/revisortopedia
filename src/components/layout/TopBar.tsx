@@ -42,7 +42,7 @@ export default function TopBar({
       onFocusCapture={onRequestVisible}
     >
       <div className="app-header__pill">
-        <div className="flex h-full min-w-0 items-center gap-1.5 px-2 sm:gap-2 sm:px-3">
+        <div className="app-header__content flex h-full min-w-0 items-center gap-1.5 px-2 sm:gap-2 sm:px-3">
           {/* Mobile: menu */}
           <button
             type="button"
@@ -56,7 +56,7 @@ export default function TopBar({
           {/* Wordmark */}
           <Link
             to="/"
-            className="flex shrink-0 items-center gap-2 rounded-full px-1.5 py-1 transition-colors hover:bg-[var(--header-control-hover)] sm:pr-2.5"
+            className="app-header-brand flex shrink-0 items-center gap-2 rounded-full px-1.5 py-1 transition-colors hover:bg-[var(--header-control-hover)] sm:pr-2.5"
             aria-label="Revisortopedia — início"
           >
             <LogoMark className="h-8 w-8" />
@@ -89,7 +89,7 @@ export default function TopBar({
             >
               <IconSearch className="h-4 w-4" />
               <span className="hidden text-[0.82rem] sm:inline">Buscar</span>
-              <kbd className="code hidden rounded border border-line px-1.5 py-0.5 text-[0.65rem] leading-none sm:inline-block">
+              <kbd className="app-header-shortcut code hidden rounded border px-1.5 py-0.5 text-[0.65rem] leading-none sm:inline-block">
                 {shortcut}
               </kbd>
             </button>
@@ -102,7 +102,7 @@ export default function TopBar({
               onClick={onOpenProfile}
               aria-label={active ? `Perfil: ${active.name} — trocar` : "Perfis"}
               title={active ? `${active.name} — trocar perfil` : "Perfis"}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-muted text-[0.72rem] font-semibold text-white shadow-sm transition-transform hover:scale-105"
+              className="app-header-profile grid h-9 w-9 shrink-0 place-items-center rounded-full bg-muted text-[0.72rem] font-semibold text-white transition-transform hover:scale-105"
               style={active ? { background: `hsl(${active.hue} 42% 42%)` } : undefined}
             >
               {active ? initials(active.name) : "?"}

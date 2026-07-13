@@ -60,15 +60,26 @@
   --pill-label: #5b655e;
   --pill-name: #0a5a4c;
   --pill-shadow: 0 8px 22px -12px rgba(20, 32, 28, 0.28);
-  --header-glass-top: rgba(255, 255, 255, 0.88);
-  --header-glass-bottom: rgba(246, 249, 246, 0.7);
-  --header-glass-border: rgba(20, 32, 28, 0.14);
-  --header-glass-highlight: rgba(255, 255, 255, 0.92);
-  --header-glass-shadow: 0 14px 38px rgba(20, 32, 28, 0.14);
-  --header-glass-shadow-scrolled: 0 18px 48px rgba(20, 32, 28, 0.22);
-  --header-control-hover: rgba(255, 255, 255, 0.72);
-  --header-control-border: rgba(20, 32, 28, 0.1);
-  --header-study-bg: rgba(216, 233, 227, 0.7);
+  --header-glass-base: rgba(248, 251, 249, 0.38);
+  --header-glass-top: rgba(255, 255, 255, 0.64);
+  --header-glass-bottom: rgba(240, 247, 243, 0.3);
+  --header-glass-scrolled-top: rgba(255, 255, 255, 0.78);
+  --header-glass-scrolled-bottom: rgba(240, 247, 243, 0.52);
+  --header-glass-border: rgba(255, 255, 255, 0.76);
+  --header-glass-outer-border: rgba(20, 32, 28, 0.1);
+  --header-glass-inner-border: rgba(255, 255, 255, 0.42);
+  --header-glass-highlight: rgba(255, 255, 255, 0.94);
+  --header-glass-sheen: rgba(255, 255, 255, 0.38);
+  --header-glass-tint: rgba(14, 122, 105, 0.055);
+  --header-glass-shadow: 0 12px 30px -20px rgba(20, 32, 28, 0.38), 0 28px 68px -42px rgba(20, 32, 28, 0.34);
+  --header-glass-shadow-scrolled: 0 16px 38px -20px rgba(20, 32, 28, 0.48), 0 34px 76px -40px rgba(20, 32, 28, 0.42);
+  --header-control-hover: rgba(255, 255, 255, 0.48);
+  --header-control-border: rgba(255, 255, 255, 0.62);
+  --header-control-highlight: rgba(255, 255, 255, 0.78);
+  --header-control-shadow: rgba(20, 32, 28, 0.18);
+  --header-study-bg: rgba(216, 233, 227, 0.48);
+  --header-shortcut-bg: rgba(255, 255, 255, 0.28);
+  --header-profile-ring: rgba(255, 255, 255, 0.76);
   color-scheme: light;
 }
 
@@ -100,15 +111,26 @@
   --pill-label: #94a3b8;
   --pill-name: #5fc89b;
   --pill-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.7);
-  --header-glass-top: rgba(27, 48, 72, 0.78);
-  --header-glass-bottom: rgba(10, 21, 34, 0.7);
-  --header-glass-border: rgba(255, 255, 255, 0.16);
-  --header-glass-highlight: rgba(255, 255, 255, 0.2);
-  --header-glass-shadow: 0 14px 38px rgba(0, 0, 0, 0.34);
-  --header-glass-shadow-scrolled: 0 18px 48px rgba(0, 0, 0, 0.5);
-  --header-control-hover: rgba(255, 255, 255, 0.08);
-  --header-control-border: rgba(255, 255, 255, 0.1);
-  --header-study-bg: rgba(18, 58, 48, 0.72);
+  --header-glass-base: rgba(8, 18, 30, 0.34);
+  --header-glass-top: rgba(36, 59, 85, 0.56);
+  --header-glass-bottom: rgba(8, 18, 30, 0.32);
+  --header-glass-scrolled-top: rgba(36, 59, 85, 0.72);
+  --header-glass-scrolled-bottom: rgba(8, 18, 30, 0.5);
+  --header-glass-border: rgba(255, 255, 255, 0.2);
+  --header-glass-outer-border: rgba(0, 0, 0, 0.42);
+  --header-glass-inner-border: rgba(255, 255, 255, 0.08);
+  --header-glass-highlight: rgba(255, 255, 255, 0.34);
+  --header-glass-sheen: rgba(255, 255, 255, 0.11);
+  --header-glass-tint: rgba(95, 200, 155, 0.06);
+  --header-glass-shadow: 0 16px 36px -20px rgba(0, 0, 0, 0.72), 0 34px 78px -46px rgba(0, 0, 0, 0.88);
+  --header-glass-shadow-scrolled: 0 20px 44px -18px rgba(0, 0, 0, 0.82), 0 38px 86px -42px rgba(0, 0, 0, 0.94);
+  --header-control-hover: rgba(255, 255, 255, 0.09);
+  --header-control-border: rgba(255, 255, 255, 0.13);
+  --header-control-highlight: rgba(255, 255, 255, 0.14);
+  --header-control-shadow: rgba(0, 0, 0, 0.42);
+  --header-study-bg: rgba(18, 58, 48, 0.56);
+  --header-shortcut-bg: rgba(255, 255, 255, 0.045);
+  --header-profile-ring: rgba(255, 255, 255, 0.2);
   color-scheme: dark;
 }
 
@@ -202,18 +224,25 @@
   }
 
   .app-header__pill {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     height: 3.5rem;
     max-width: 98rem;
     margin-inline: auto;
     border: 1px solid var(--header-glass-border);
     border-radius: 999px;
-    background: linear-gradient(180deg, var(--header-glass-top), var(--header-glass-bottom));
+    background:
+      linear-gradient(112deg, var(--header-glass-sheen), transparent 28%, transparent 74%, var(--header-glass-tint)),
+      linear-gradient(180deg, var(--header-glass-top), var(--header-glass-bottom)),
+      var(--header-glass-base);
     box-shadow:
+      0 0 0 1px var(--header-glass-outer-border),
       var(--header-glass-shadow),
       inset 0 1px 0 var(--header-glass-highlight),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.08);
-    backdrop-filter: saturate(135%) blur(26px);
-    -webkit-backdrop-filter: saturate(135%) blur(26px);
+      inset 0 -1px 0 var(--header-glass-inner-border);
+    backdrop-filter: blur(32px) saturate(175%) contrast(104%);
+    -webkit-backdrop-filter: blur(32px) saturate(175%) contrast(104%);
     pointer-events: auto;
     transform: translateZ(0);
     transition:
@@ -222,11 +251,45 @@
       box-shadow 260ms ease;
   }
 
+  .app-header__pill::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 4%;
+    left: 4%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--header-glass-highlight) 24%, var(--header-glass-highlight) 76%, transparent);
+    opacity: 0.82;
+    pointer-events: none;
+  }
+
+  .app-header__pill::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 1px;
+    border: 1px solid var(--header-glass-inner-border);
+    border-radius: inherit;
+    box-shadow: inset 0 -12px 28px -24px var(--header-glass-tint);
+    pointer-events: none;
+  }
+
+  .app-header__content {
+    position: relative;
+    z-index: 1;
+  }
+
   .app-header[data-scrolled="true"] .app-header__pill {
+    background:
+      linear-gradient(112deg, var(--header-glass-sheen), transparent 28%, transparent 74%, var(--header-glass-tint)),
+      linear-gradient(180deg, var(--header-glass-scrolled-top), var(--header-glass-scrolled-bottom)),
+      var(--header-glass-base);
     box-shadow:
+      0 0 0 1px var(--header-glass-outer-border),
       var(--header-glass-shadow-scrolled),
       inset 0 1px 0 var(--header-glass-highlight),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+      inset 0 -1px 0 var(--header-glass-inner-border);
   }
 
   .app-header-control {
@@ -242,13 +305,43 @@
   .app-header-control:hover {
     border-color: var(--header-control-border);
     background: var(--header-control-hover);
+    box-shadow:
+      0 8px 18px -14px var(--header-control-shadow),
+      inset 0 1px 0 var(--header-control-highlight);
     color: var(--ink);
   }
 
   .app-header-study {
     border-color: var(--header-control-border);
     background: var(--header-study-bg);
+    box-shadow:
+      0 8px 18px -15px var(--header-control-shadow),
+      inset 0 1px 0 var(--header-control-highlight);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
     color: var(--teal-deep);
+  }
+
+  .app-header-brand {
+    border: 1px solid transparent;
+  }
+
+  .app-header-brand:hover {
+    border-color: var(--header-control-border);
+    box-shadow: inset 0 1px 0 var(--header-control-highlight);
+  }
+
+  .app-header-shortcut {
+    border-color: var(--header-control-border);
+    background: var(--header-shortcut-bg);
+    box-shadow: inset 0 1px 0 var(--header-control-highlight);
+  }
+
+  .app-header-profile {
+    border: 1px solid var(--header-profile-ring);
+    box-shadow:
+      0 7px 16px -10px var(--header-control-shadow),
+      inset 0 1px 0 var(--header-control-highlight);
   }
 
   .app-sticky-panel {
@@ -266,6 +359,14 @@
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .app-header__pill {
       background: var(--surface);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .app-header__pill {
+      background: var(--surface);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
   }
 
