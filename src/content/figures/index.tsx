@@ -62,6 +62,7 @@ import { figures as figLuxacaoGlenoumeralAnterior } from "./luxacao-glenoumeral-
 import { figures as figFraturaGlenoide } from "./fratura-glenoide";
 import { figures as figFraturaUmeroProximal } from "./fratura-umero-proximal";
 import { figures as figFraturaUmeroDistal } from "./fratura-umero-distal";
+import { figures as figFraturaDiafiseUmeral } from "./fratura-diafise-umeral";
 import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
 
 /**
@@ -133,6 +134,7 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figFraturaGlenoide,
   ...figFraturaUmeroProximal,
   ...figFraturaUmeroDistal,
+  ...figFraturaDiafiseUmeral,
   ...figClinicalUpperLimb,
 };
 

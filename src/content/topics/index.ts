@@ -31,6 +31,7 @@ import { topic as luxacaoGlenoumeralAnterior } from "./luxacao-glenoumeral-anter
 import { topic as fraturaGlenoide } from "./fratura-glenoide";
 import { topic as fraturaUmeroProximal } from "./fratura-umero-proximal";
 import { topic as fraturaUmeroDistal } from "./fratura-umero-distal";
+import { topic as fraturaDiafiseUmeral } from "./fratura-diafise-umeral";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -66,4 +67,5 @@ export const topics: Topic[] = [
   fraturaGlenoide,
   fraturaUmeroProximal,
   fraturaUmeroDistal,
+  fraturaDiafiseUmeral,
 ];
