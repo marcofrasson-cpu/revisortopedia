@@ -1,9 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import TopBar from "./TopBar";
 import NavTree from "./NavTree";
 import CommandPalette from "./CommandPalette";
 import { IconClose } from "../../ui/icons";
+import { cx } from "../../ui/primitives";
+
+const NAV_MIN = 240;
+const NAV_MAX = 480;
+const NAV_DEFAULT = 300;
 
 /* Console de três painéis no desktop: NavTree fixo à esquerda, conteúdo
    central (Outlet). O painel direito (figura) é gerido pelo próprio TopicView.
@@ -72,14 +78,90 @@ export default function AppShell() {
     };
   }, []);
 
+  // Barra lateral redimensionável (desktop), largura persistida.
+  const asideRef = useRef<HTMLElement>(null);
+  const [navWidth, setNavWidth] = useState<number>(() => {
+    try {
+      const v = parseInt(localStorage.getItem("revisortopedia:navwidth") ?? "", 10);
+      return v >= NAV_MIN && v <= NAV_MAX ? v : NAV_DEFAULT;
+    } catch {
+      return NAV_DEFAULT;
+    }
+  });
+  const [resizing, setResizing] = useState(false);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("revisortopedia:navwidth", String(navWidth));
+    } catch {
+      /* ignore */
+    }
+  }, [navWidth]);
+
+  const clampW = (w: number) => Math.min(NAV_MAX, Math.max(NAV_MIN, Math.round(w)));
+
+  const startResize = useCallback((e: ReactPointerEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const left = asideRef.current?.getBoundingClientRect().left ?? 0;
+    setResizing(true);
+    const onMove = (ev: PointerEvent) => setNavWidth(clampW(ev.clientX - left));
+    const onUp = () => {
+      setResizing(false);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+  }, []);
+
   return (
     <div className="min-h-dvh bg-bg text-ink">
       <TopBar onOpenSearch={openPalette} onOpenMenu={() => setNavOpen(true)} />
 
+      {/* Overlay durante o arraste — mantém o cursor e bloqueia seleção */}
+      {resizing && <div className="fixed inset-0 z-[60] cursor-col-resize select-none" />}
+
       <div className="mx-auto flex w-full max-w-[1600px]">
-        {/* Painel esquerdo — desktop */}
-        <aside className="sticky top-14 hidden h-[calc(100dvh-3.5rem)] w-[300px] shrink-0 border-r border-line lg:block">
+        {/* Painel esquerdo — desktop, redimensionável */}
+        <aside
+          ref={asideRef}
+          style={{ width: navWidth }}
+          className="sticky top-14 hidden h-[calc(100dvh-3.5rem)] shrink-0 border-r border-line lg:block"
+        >
           <NavTree />
+          {/* Alça de redimensionamento */}
+          <div
+            role="separator"
+            aria-orientation="vertical"
+            aria-label="Redimensionar barra lateral"
+            aria-valuenow={navWidth}
+            aria-valuemin={NAV_MIN}
+            aria-valuemax={NAV_MAX}
+            tabIndex={0}
+            onPointerDown={startResize}
+            onDoubleClick={() => setNavWidth(NAV_DEFAULT)}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                setNavWidth((w) => clampW(w - 16));
+              } else if (e.key === "ArrowRight") {
+                e.preventDefault();
+                setNavWidth((w) => clampW(w + 16));
+              } else if (e.key === "Home") {
+                e.preventDefault();
+                setNavWidth(NAV_DEFAULT);
+              }
+            }}
+            className="group absolute -right-1 top-0 z-10 h-full w-3 cursor-col-resize"
+            title="Arraste para redimensionar · duplo-clique para redefinir"
+          >
+            <span
+              className={cx(
+                "absolute right-1 top-0 h-full transition-all",
+                resizing ? "w-0.5 bg-teal" : "w-px bg-transparent group-hover:w-0.5 group-hover:bg-teal",
+              )}
+            />
+          </div>
         </aside>
 
         {/* Conteúdo central */}

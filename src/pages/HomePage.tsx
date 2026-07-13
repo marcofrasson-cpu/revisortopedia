@@ -118,9 +118,8 @@ export default function HomePage() {
         <div className="min-w-0">
           <Eyebrow>Referência de cirurgia ortopédica · pt-BR</Eyebrow>
           <h1 className="mt-4 font-display text-[2.6rem] leading-[1.05] text-ink sm:text-[3.2rem]">
-            O console de{" "}
-            <span className="text-teal-deep">planejamento cirúrgico</span> da
-            ortopedia.
+            Manual de trauma ortopédico{" "}
+            <span className="text-teal-deep">baseado em evidências</span>.
           </h1>
           <p className="mt-5 max-w-xl text-[1.02rem] leading-relaxed text-ink-soft">
             Anatomia, classificação, indicações, vias de acesso e técnica passo a
