@@ -393,7 +393,7 @@ export const StepArticular: FC<FigureProps> = ({ className, title }) => (
 
 /* ---------------------------------------------------------------------------
    7) Passo — nervo ulnar: identificação, dissecção e proteção; decisão de
-   deixar in situ (decomprimido) versus transposição anterior.
+   manter em posição anatômica (descomprimido) ou transpor anteriormente.
 --------------------------------------------------------------------------- */
 export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
   <svg
@@ -403,7 +403,7 @@ export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title>{title ?? "Nervo ulnar — identificação e proteção no túnel cubital (in situ vs transposição)"}</title>
+    <title>{title ?? "Nervo ulnar — identificação e proteção no túnel cubital; manutenção no sulco ou transposição anterior"}</title>
 
     {/* Úmero distal / epicôndilo medial (posteromedial) */}
     <path {...boneStyle} d="M150 16 C 146 56, 144 96, 148 130 C 152 152, 168 164, 186 158 L 196 96 C 190 66, 176 36, 172 14 Z" />
@@ -413,7 +413,7 @@ export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
     {/* Túnel cubital — sulco posterior ao epicôndilo medial */}
     <path d="M126 140 C 136 150, 140 162, 138 176" fill="none" stroke="var(--line-strong)" strokeWidth="1" strokeDasharray="3 3" />
 
-    {/* Nervo ulnar in situ (posterior ao epicôndilo) */}
+    {/* Nervo ulnar no sulco (posterior ao epicôndilo) */}
     <path
       d="M128 30 C 118 70, 108 106, 104 138 C 100 158, 108 180, 124 194 C 138 206, 150 224, 152 244"
       fill="none"
@@ -434,7 +434,7 @@ export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
     <text x="176" y="176" {...label} textAnchor="start">epicôndilo medial</text>
     <text x="118" y="24" {...label} textAnchor="middle" fill="var(--teal)">nervo ulnar</text>
     <text x="60" y="200" {...label} textAnchor="middle" fill="var(--teal)">transposição</text>
-    <text x="60" y="213" {...label} textAnchor="middle" fill="var(--teal)">anterior (alt.)</text>
+    <text x="60" y="213" {...label} textAnchor="middle" fill="var(--teal)">anterior (alternativa)</text>
     <text x="130" y="256" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
       isolar e proteger antes de reduzir · evitar tração/isquemia
     </text>

@@ -2,7 +2,7 @@ import { defineTopic } from "../../types/topic";
 
 /* Fratura da clavícula — membro superior.
    Base: bibliografia TEOT 2026 (Rockwood & Green, Campbell, Hebert/Lech) +
-   ensaios/revisoes PubMed com PMID/DOI verificaveis. */
+   ensaios/revisões PubMed com PMID/DOI verificáveis. */
 export const topic = defineTopic({
   id: "ms-ombro-clavicula-fratura-clavicula",
   slug: "fratura-clavicula",
@@ -15,32 +15,32 @@ export const topic = defineTopic({
   laterality: null,
   status: "complete",
   overview:
-    "A clavícula e a escora anterior da cintura escapular: mantém o ombro afastado do tórax, protege o feixe subclávio/plexo braquial e transmite carga entre membro superior e esqueleto axial. A maioria das fraturas ocorre no terço médio e consolida bem com tratamento funcional. O desafio do adulto e separar as fraturas desviadas/com encurtamento relevante, pele ameaçada, lesão neurovascular ou demanda alta das fraturas que podem ser conduzidas com tipoia e reabilitação. A decisão moderna não e simplesmente 'desviou, opera': a placa reduz pseudartrose e deformidade em fraturas diafisárias completamente desviadas, mas acrescenta risco de complicação de implante, parestesia supraclavicular e retirada de material. No terço distal, a estabilidade depende dos ligamentos coracoclaviculares; padrões tipo Neer II/V são mais instáveis e merecem limiar cirúrgico menor.",
+    "A clavícula é a escora anterior da cintura escapular: mantém o ombro afastado do tórax, protege o feixe subclávio e o plexo braquial e transmite carga entre o membro superior e o esqueleto axial. A maioria das fraturas ocorre no terço médio e consolida bem com tratamento funcional. O desafio no adulto é separar as fraturas com desvio ou encurtamento relevante, pele ameaçada, lesão neurovascular ou demanda alta daquelas que podem ser conduzidas com tipoia e reabilitação. A decisão moderna não é simplesmente 'desviou, opera': a placa reduz pseudartrose e deformidade em fraturas diafisárias completamente desviadas, mas acrescenta risco de complicações do implante, parestesia supraclavicular e retirada de material. No terço distal, a estabilidade depende dos ligamentos coracoclaviculares; os padrões de Neer II e V são mais instáveis e merecem limiar cirúrgico menor.",
   keyFacts: [
     { label: "Local mais comum", value: "Terço médio (Allman I / Robinson 2)" },
-    { label: "Classificação pratica", value: "Allman por terço + Robinson/Edinburgh por desvio/cominuicao" },
-    { label: "Radiografias", value: "AP + inclinacao cranial 15-45 graus; avaliar encurtamento e pele" },
-    { label: "Cirurgia absoluta", value: "Exposta, pele ameaçada, lesão vascular/plexo, floating shoulder instável" },
-    { label: "Cirurgia relativa", value: "Diafisária completamente desviada/encurtada, cominuicao, alto rendimento" },
-    { label: "Terço distal", value: "Neer II/V instáveis por ruptura/desinsercao CC" },
+    { label: "Classificação prática", value: "Allman por terço + Robinson/Edinburgh por desvio e cominuição" },
+    { label: "Radiografias", value: "AP + inclinação cranial de 15-45 graus; avaliar encurtamento e pele" },
+    { label: "Cirurgia absoluta", value: "Exposta, pele ameaçada, lesão vascular ou do plexo e ombro flutuante instável" },
+    { label: "Cirurgia relativa", value: "Diafisária completamente desviada ou encurtada, cominuição e alto rendimento" },
+    { label: "Terço distal", value: "Neer II/V instáveis por ruptura ou desinserção dos ligamentos CC" },
   ],
   anatomy: {
     text:
-      "A clavícula tem dupla curvatura em S, extremidade medial prismática e lateral achatada. O terço médio e a zona de transição com menor reforco ligamentar, por isso concentra as fraturas. Superiormente inserem-se esternocleidomastoideo e trapézio; inferiormente peitoral maior, deltoide e subclávio. O feixe subclávio e o plexo braquial passam posteroinferiores ao terço médio, o que explica a necessidade de proteção durante perfuração bicortical e redução com pinças. Lateralmente, os ligamentos conoide e trapezoide suspendem a clavícula ao processo coracoide; quando perdem continuidade no terço distal, o fragmento medial fica instável.",
+      "A clavícula tem dupla curvatura em S, extremidade medial prismática e lateral achatada. O terço médio é a zona de transição com menor reforço ligamentar, por isso concentra as fraturas. Superiormente inserem-se o esternocleidomastóideo e o trapézio; inferiormente, o peitoral maior, o deltoide e o subclávio. Os vasos subclávios e o plexo braquial passam posteroinferiormente ao terço médio, o que exige proteção durante a perfuração bicortical e a redução com pinças. Lateralmente, os ligamentos conoide e trapezoide suspendem a clavícula no processo coracoide; quando perdem continuidade no terço distal, o fragmento medial fica instável.",
     figureIds: ["fratura-clavicula:radiografia", "fratura-clavicula:anatomia"],
   },
   classification: [
     {
       id: "allman",
       name: "Allman por terço",
-      basis: "Divide a clavícula em terço médio, lateral e medial; e simples e util para triagem.",
-      note: "O terço médio e o mais frequente; o terço distal exige avaliar os ligamentos coracoclaviculares.",
+      basis: "Divide a clavícula em terços médio, lateral e medial; é simples e útil para triagem.",
+      note: "O terço médio é o mais frequente; o terço distal exige avaliação dos ligamentos coracoclaviculares.",
       types: [
         {
           code: "I",
           label: "Terço médio",
           description:
-            "Fratura diafisária entre os ligamentos costoclavicular e coracoclaviculares; a mais comum. Desvio completo, encurtamento e cominuicao aumentam risco de pseudartrose e mau resultado cosmético/funcional.",
+            "Fratura diafisária entre os ligamentos costoclavicular e coracoclaviculares; é a mais comum. Desvio completo, encurtamento e cominuição aumentam o risco de pseudartrose e de mau resultado cosmético ou funcional.",
           figureId: "fratura-clavicula:tercos",
           figureVariant: "medio",
         },
@@ -48,7 +48,7 @@ export const topic = defineTopic({
           code: "II",
           label: "Terço lateral",
           description:
-            "Relacionada aos ligamentos coracoclaviculares. Se o fragmento medial perde suporte CC (Neer II/V), a fratura e instável e tem maior risco de pseudartrose.",
+            "Relacionada aos ligamentos coracoclaviculares. Se o fragmento medial perde o suporte CC (Neer II/V), a fratura é instável e apresenta maior risco de pseudartrose.",
           figureId: "fratura-clavicula:tercos",
           figureVariant: "lateral",
         },
@@ -56,7 +56,7 @@ export const topic = defineTopic({
           code: "III",
           label: "Terço medial",
           description:
-            "Rara; exige atenção a trauma de alta energia, mediastino e articulação esternoclavicular. TC e frequente quando há duvida de desvio posterior.",
+            "Rara; exige atenção ao trauma de alta energia, ao mediastino e à articulação esternoclavicular. A TC é indicada quando há dúvida sobre desvio posterior.",
           figureId: "fratura-clavicula:tercos",
           figureVariant: "medial",
         },
@@ -65,13 +65,13 @@ export const topic = defineTopic({
     {
       id: "robinson",
       name: "Robinson/Edinburgh — terço médio",
-      basis: "Codifica localização e grau de desvio/cominuicao; ajuda a estratificar risco no adulto.",
+      basis: "Codifica localização e grau de desvio ou cominuição; ajuda a estratificar o risco no adulto.",
       types: [
         {
           code: "2A",
           label: "Alinhada ou pouco desviada",
           description:
-            "Contato cortical preservado ou desvio minimo. Tratamento funcional costuma ser suficiente.",
+            "Contato cortical preservado ou desvio mínimo. O tratamento funcional costuma ser suficiente.",
           figureId: "fratura-clavicula:robinson",
           figureVariant: "2A",
         },
@@ -79,7 +79,7 @@ export const topic = defineTopic({
           code: "2B",
           label: "Desviada/cominutiva",
           description:
-            "Sem contato cortical, encurtada ou com fragmento em cunha. Grupo em que a fixação pode reduzir pseudartrose/maluniao em adultos selecionados.",
+            "Sem contato cortical, encurtada ou com fragmento em cunha. Grupo em que a fixação pode reduzir pseudartrose e consolidação viciosa em adultos selecionados.",
           figureId: "fratura-clavicula:robinson",
           figureVariant: "2B",
         },
@@ -89,31 +89,31 @@ export const topic = defineTopic({
   indications: {
     operative: [
       "Fratura exposta, pele em tenda/ameaçada ou risco iminente de exposição.",
-      "Lesao vascular, plexo braquial progressivo ou compressão por fragmento.",
-      "Diafisária completamente desviada, encurtamento clinicamente relevante ou cominuicao em adulto ativo.",
-      "Ombro flutuante ou fratura associada do colo da escapula com instabilidade da cintura.",
+      "Lesão vascular, déficit progressivo do plexo braquial ou compressão por fragmento.",
+      "Fratura diafisária completamente desviada, encurtamento clinicamente relevante ou cominuição em adulto ativo.",
+      "Ombro flutuante ou fratura associada do colo da escápula com instabilidade da cintura.",
       "Fratura distal instável (Neer II/V) em paciente apto, sobretudo com grande deslocamento.",
-      "Pseudartrose sintomatica ou consolidação viciosa com perda funcional.",
+      "Pseudartrose sintomática ou consolidação viciosa com perda funcional.",
     ],
     nonOperative: [
-      "Fratura do terço médio sem desvio importante e pele integra.",
+      "Fratura do terço médio sem desvio importante e com pele íntegra.",
       "Paciente de baixa demanda ou alto risco cirúrgico mesmo com desvio moderado.",
-      "Fraturas pediátricas/adolescentes com potencial de remodelacao, salvo excecoes.",
+      "Fraturas pediátricas e de adolescentes com potencial de remodelação, salvo exceções.",
       "Fratura medial sem desvio posterior/compromisso mediastinal.",
     ],
     decisionNotes:
-      "A escolha deve pesar risco biológico e demanda do paciente. Em adultos com fratura diafisária completamente desviada, a placa reduz não-união/maluniao e acelera a recuperação inicial em estudos randomizados, mas o beneficio funcional a longo prazo se estreita e parte dos pacientes precisa retirar implante. Tipoia simples costuma ser melhor tolerada que enfaixamento em oito. No terço distal, a pergunta central e se os ligamentos coracoclaviculares mantém o fragmento medial reduzido; quando não, a fratura se comporta como lesão suspensória instável.",
+      "A escolha deve pesar o risco biológico e a demanda do paciente. Em adultos com fratura diafisária completamente desviada, a placa reduz pseudartrose e consolidação viciosa e acelera a recuperação inicial em estudos randomizados, mas o benefício funcional a longo prazo diminui e parte dos pacientes precisa retirar o implante. A tipoia simples costuma ser mais bem tolerada que o enfaixamento em oito. No terço distal, a pergunta central é se os ligamentos coracoclaviculares mantêm o fragmento medial reduzido; quando não, a fratura se comporta como lesão suspensória instável.",
   },
   approaches: [
     {
       id: "superior",
       name: "Via superior/infraclavicular",
-      indication: "ORIF da diáfise clavicular e terço lateral conforme padrão.",
+      indication: "Redução aberta e fixação interna da diáfise clavicular e do terço lateral, conforme o padrão.",
       interval:
-        "Incisao centrada sobre a clavícula, preservando ramos supraclaviculares quando possível; exposição subperiostal limitada apenas ao necessário para redução e placa.",
+        "Incisão centrada sobre a clavícula, preservando os ramos supraclaviculares quando possível; exposição subperiostal limitada ao necessário para redução e colocação da placa.",
       atRisk: [
         "Ramos sensitivos supraclaviculares",
-        "Veia/artéria subclavia e plexo braquial na perfuração inferior",
+        "Veia e artéria subclávias e plexo braquial na perfuração inferior",
         "Pele fina sobre placa superior",
       ],
       figureId: "fratura-clavicula:acesso",
@@ -124,11 +124,11 @@ export const topic = defineTopic({
       n: 1,
       title: "Planejar redução e implante",
       detail:
-        "Confirmar AP e inclinacao cranial, medir encurtamento/desvio, mapear cominuicao e decidir entre placa superior/anterior, placa-gancho, reconstrução CC ou haste intramedular. Em fratura distal, definir estabilidade pelos ligamentos CC.",
+        "Confirmar as incidências AP e com inclinação cranial, medir encurtamento e desvio, mapear a cominuição e decidir entre placa superior ou anterior, placa-gancho, reconstrução CC ou haste intramedular. Na fratura distal, definir a estabilidade pelos ligamentos CC.",
       figureId: "fratura-clavicula:tercos",
       figureVariant: "medio",
       tips: ["Fotografar/registrar pele antes do bloqueio", "Ter placa pré-moldada e parafusos de bloqueio disponíveis"],
-      pitfalls: ["Subestimar ameaca de pele", "Não reconhecer padrão distal instável"],
+      pitfalls: ["Subestimar ameaça à pele", "Não reconhecer padrão distal instável"],
     },
     {
       n: 2,
@@ -137,16 +137,16 @@ export const topic = defineTopic({
         "Incisar no eixo da clavícula, criar retalhos espessos e identificar ramos sensitivos quando cruzam o campo. Desperiostizar pouco: apenas o suficiente para pinças, leitura cortical e passagem da placa.",
       figureId: "fratura-clavicula:acesso",
       tips: ["Manter fragmentos com partes moles quando possível"],
-      pitfalls: ["Retalhos finos e placa proeminente", "Parestesia extensa por seccao desnecessária de ramos"],
+      pitfalls: ["Retalhos finos e placa proeminente", "Parestesia extensa por secção desnecessária de ramos"],
     },
     {
       n: 3,
       title: "Restaurar comprimento e rotação",
       detail:
-        "Reduzir fragmentos principais com pinças pontiagudas, usando a cortical superior/anterior como referencia. Em cunha intercalar, reconstruir primeiro a geometria da diáfise sem esmagar fragmentos desvitalizados.",
+        "Reduzir os fragmentos principais com pinças pontiagudas, usando a cortical superior ou anterior como referência. Na presença de cunha intercalar, reconstruir primeiro a geometria da diáfise sem esmagar fragmentos desvitalizados.",
       figureId: "fratura-clavicula:step-1",
-      tips: ["Conferir comprimento pela simetria do ombro e fluoroscopia", "Usar lag screw quando o traço permitir"],
-      pitfalls: ["Aceitar encurtamento residual", "Comprimir cominuicao e perder comprimento"],
+      tips: ["Conferir o comprimento pela simetria dos ombros e pela fluoroscopia", "Usar parafuso interfragmentar quando o traço permitir"],
+      pitfalls: ["Aceitar encurtamento residual", "Comprimir a cominuição e perder comprimento"],
     },
     {
       n: 4,
@@ -160,26 +160,26 @@ export const topic = defineTopic({
   ],
   postop: {
     immobilization:
-      "Tipoia para conforto por 2-4 semanas, retirando para cotovelo/punho/mao e pendulares conforme dor. Protecao maior se fixação distal ou osso osteopênico.",
+      "Tipoia para conforto por 2-4 semanas, retirando-a para mobilizar cotovelo, punho e mão e realizar exercícios pendulares conforme a dor. Proteção maior após fixação distal ou em osso osteopênico.",
     weightBearing:
       "Sem carga/resistência no membro até sinais de consolidação; atividades acima da cabeça e esporte após consolidação clínico-radiográfica.",
     rehab: [
-      { window: "0-2 semanas", weightBearing: "Sem carga", focus: "Controle de dor, ferida, mobilidade de cotovelo/punho/mao e pendulares leves." },
+      { window: "0-2 semanas", weightBearing: "Sem carga", focus: "Controle da dor e da ferida, mobilidade de cotovelo, punho e mão e exercícios pendulares leves." },
       { window: "2-6 semanas", weightBearing: "Sem carga", focus: "Amplitude ativa-assistida progressiva, evitando alavancas dolorosas." },
       { window: "6-12 semanas", weightBearing: "Carga gradual", focus: "Fortalecimento escapular/manguito conforme consolidação." },
     ],
     followup:
-      "Radiografias seriadas até ponte cortical; vigiar parestesia supraclavicular, irritacao de placa e sinais de não-união.",
+      "Radiografias seriadas até a formação de ponte cortical; vigiar parestesia supraclavicular, irritação da placa e sinais de pseudartrose.",
   },
   complications: [
     { name: "Pseudartrose", detail: "Mais comum em fraturas desviadas/cominutivas, tabagismo e terço distal instável.", prevention: "Selecionar bem indicação cirúrgica e preservar biologia." },
-    { name: "Irritacao/retirada de placa", detail: "Queixa frequente por subcutaneo fino.", prevention: "Perfil baixo, posicionamento adequado e fechamento cuidadoso." },
-    { name: "Lesao neurovascular", detail: "Rara, mas grave; risco na perfuração inferior.", prevention: "Broca medida, limitador e consciencia da anatomia profunda." },
+    { name: "Irritação/retirada da placa", detail: "Queixa frequente devido ao tecido subcutâneo fino.", prevention: "Perfil baixo, posicionamento adequado e fechamento cuidadoso." },
+    { name: "Lesão neurovascular", detail: "Rara, mas grave; há risco durante a perfuração inferior.", prevention: "Medir a broca, usar limitador e conhecer a anatomia profunda." },
   ],
   evidence: [
     {
       id: "cots-2007-clavicula",
-      claim: "Em fraturas diafisárias desviadas do adulto, placa reduz não-união/maluniao e melhora desfecho inicial em comparacao ao tratamento não operatório.",
+      claim: "Em fraturas diafisárias desviadas do adulto, a placa reduz pseudartrose e consolidação viciosa e melhora o desfecho inicial em comparação com o tratamento não operatório.",
       takeaway: "A evidência favorece fixação em adultos selecionados, não cirurgia universal para toda fratura da clavícula.",
       level: "I",
       studyType: "Ensaio clínico randomizado multicêntrico",
@@ -195,10 +195,10 @@ export const topic = defineTopic({
     },
     {
       id: "thurston-2024-distal",
-      claim: "Fraturas distais desviadas podem ter não-união radiográfica sem necessariamente pior desfecho funcional em todos os pacientes.",
+      claim: "Fraturas distais desviadas podem apresentar ausência de consolidação radiográfica sem necessariamente produzir pior desfecho funcional em todos os pacientes.",
       takeaway: "No terço distal, a indicação deve considerar estabilidade, sintomas e demanda, não apenas a radiografia.",
       level: "II",
-      studyType: "Revisao sistematica",
+      studyType: "Revisão sistemática",
       era: "atual",
       citation: {
         authors: "Thurston D, Jordan RW, Thangarajah T, Haque A, Woodmass J, D'Alessandro P, Malik SS",
@@ -211,8 +211,8 @@ export const topic = defineTopic({
     },
   ],
   pearls: [
-    "A pele decide urgencia tanto quanto a radiografia.",
-    "Tipoia simples e suficiente para a maioria das fraturas pouco desviadas.",
+    "A pele determina a urgência tanto quanto a radiografia.",
+    "A tipoia simples é suficiente para a maioria das fraturas pouco desviadas.",
     "No terço distal, pense em ligamentos coracoclaviculares antes de escolher o tratamento.",
   ],
   pitfalls: [
@@ -233,25 +233,25 @@ export const topic = defineTopic({
         reference: "Imagem recortada para remover o painel radiográfico adjacente; sem alteração diagnóstica.",
       },
     },
-    { id: "fratura-clavicula:anatomia", caption: "Dupla curvatura, insercoes e estruturas neurovasculares profundas.", alt: "Esquema anatômico da clavícula e relacoes neurovasculares" },
+    { id: "fratura-clavicula:anatomia", caption: "Dupla curvatura, inserções e estruturas neurovasculares profundas.", alt: "Esquema anatômico da clavícula e relações neurovasculares" },
     { id: "fratura-clavicula:tercos", variant: "medio", caption: "Allman I: terço médio, padrão mais frequente.", alt: "Fratura do terço médio da clavícula" },
     { id: "fratura-clavicula:tercos", variant: "lateral", caption: "Allman II: terço lateral, avaliar ligamentos coracoclaviculares.", alt: "Fratura lateral da clavícula" },
     { id: "fratura-clavicula:tercos", variant: "medial", caption: "Allman III: terço medial, rara e próxima ao mediastino.", alt: "Fratura medial da clavícula" },
     { id: "fratura-clavicula:robinson", variant: "2A", caption: "Robinson 2A: contato/alinhamento preservado.", alt: "Classificação Robinson 2A" },
-    { id: "fratura-clavicula:robinson", variant: "2B", caption: "Robinson 2B: desvio/cominuicao com maior risco de não-união.", alt: "Classificação Robinson 2B" },
+    { id: "fratura-clavicula:robinson", variant: "2B", caption: "Robinson 2B: desvio e cominuição com maior risco de pseudartrose.", alt: "Classificação Robinson 2B" },
     { id: "fratura-clavicula:acesso", caption: "Via sobre a clavícula e ramos supraclaviculares.", alt: "Via de acesso para clavícula" },
-    { id: "fratura-clavicula:step-1", caption: "Redução com restauracao de comprimento.", alt: "Redução da fratura da clavícula" },
+    { id: "fratura-clavicula:step-1", caption: "Redução com restauração do comprimento.", alt: "Redução da fratura da clavícula" },
     { id: "fratura-clavicula:step-2", caption: "Placa pré-moldada e parafuso interfragmentar quando indicado.", alt: "Fixação da clavícula com placa" },
     { id: "fratura-clavicula:step-3", caption: "Haste intramedular como alternativa em traços simples selecionados.", alt: "Haste intramedular da clavícula" },
   ],
   meta: {
     lastReviewed: "2026-07-13",
     sources: [
-      "SBOT. Edital TEOT 2026: Bibliografia para o 55º Exame de Titulo de Ortopedia e Traumatologia.",
+      "SBOT. Edital TEOT 2026: Bibliografia para o 55º Exame de Título de Ortopedia e Traumatologia.",
       "Rockwood and Green's Fractures in Adults. 10th ed. 2024.",
       "Campbell's Operative Orthopaedics. 14th ed. 2021.",
     ],
-    attribution: "Conteudo original Revisortopedia; figuras esquematicas originais.",
+    attribution: "Conteúdo original Revisortopedia; figuras esquemáticas originais.",
     figureReference:
       "Referência editorial: Rockwood & Green's Fractures in Adults, 10th ed. (2024), seção de fraturas da clavícula; redesenho original, não reprodução.",
   },

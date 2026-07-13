@@ -190,63 +190,63 @@ export const Neer: FC<FigureProps> = ({ className, title, variant }) => {
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
-   3) HERTEL — preditores de isquemia da cabeça (calcar + charneira medial).
-   Variantes: "perfusao" (favorável) × "isquemia" (alto risco).
+   3) HERTEL — preditores de isquemia da cabeça umeral.
+   Variantes: "perfusao" (menor risco) × "isquemia" (maior risco).
    ────────────────────────────────────────────────────────────────────────── */
 export const Hertel: FC<FigureProps> = ({ className, title, variant }) => {
   const isch = (variant ?? "perfusao") === "isquemia";
 
   return (
     <svg
-      viewBox="0 0 300 280"
+      viewBox="0 0 420 250"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>{title ?? (isch
-        ? "Critérios de Hertel — padrão de alto risco de isquemia (calcar curto + charneira rota)"
-        : "Critérios de Hertel — padrão favorável à perfusão (calcar longo + charneira íntegra)")}</title>
+        ? "Critérios de Hertel — padrão de maior risco de isquemia da cabeça umeral"
+        : "Critérios de Hertel — padrão de menor risco de isquemia da cabeça umeral")}</title>
 
       {/* diáfise */}
-      <path {...bone} d="M150 176 L 182 176 L 178 268 L 154 268 Z" />
+      <path {...bone} d="M128 148 L 158 148 L 155 228 L 132 228 Z" />
 
       {/* cabeça umeral */}
-      <circle {...bone} cx="120" cy="98" r="42" />
-      <text x="120" y="70" {...label} textAnchor="middle">cabeça</text>
+      <circle {...bone} cx="100" cy="76" r="38" />
+      <text x="100" y="55" {...label} textAnchor="middle">cabeça umeral</text>
 
-      {/* extensão metafisária medial (calcar) presa à cabeça */}
+      {/* extensão metafisária posteromedial presa à cabeça */}
       {isch ? (
-        // calcar CURTO (< 8 mm) — pouco osso metafisário na cabeça
-        <path d="M110 138 C 112 144, 114 148, 116 150" fill="none" stroke={amber} strokeWidth="4" strokeLinecap="round" />
+        <path d="M90 112 C 92 118, 94 122, 96 125" fill="none" stroke={amber} strokeWidth="4" strokeLinecap="round" />
       ) : (
-        // calcar LONGO (> 8 mm) — bom manguito metafisário
-        <path d="M108 136 C 110 150, 114 164, 122 174" fill="none" stroke={amber} strokeWidth="4" strokeLinecap="round" />
+        <path d="M88 110 C 91 124, 96 138, 104 148" fill="none" stroke={amber} strokeWidth="4" strokeLinecap="round" />
       )}
-      <text x="20" y="150" {...label} textAnchor="start" fill={amber}>
-        calcar {isch ? "< 8 mm (curto)" : "> 8 mm (longo)"}
+      <text x="10" y="132" {...label} textAnchor="start" fill={amber}>
+        extensão posteromedial
+      </text>
+      <text x="10" y="147" {...label} textAnchor="start" fill={amber}>
+        {isch ? "< 8 mm" : "≥ 8 mm"}
       </text>
 
-      {/* charneira medial (córtex medial) */}
+      {/* dobradiça medial: continuidade entre cabeça e metáfise */}
       {isch ? (
         <g className="fx-line">
-          {/* charneira ROTA — gap */}
-          <line x1="104" y1="150" x2="150" y2="172" stroke="var(--cortical)" strokeWidth="2.6" strokeDasharray="4 4" />
-          <circle cx="126" cy="160" r="3" fill="var(--cortical)" />
+          <line x1="92" y1="128" x2="128" y2="146" stroke="var(--cortical)" strokeWidth="2.6" strokeDasharray="4 4" />
+          <circle cx="110" cy="137" r="3" fill="var(--cortical)" />
         </g>
       ) : (
-        <g>
-          {/* charneira ÍNTEGRA — continuidade cortical */}
-          <path d="M110 172 C 128 178, 144 178, 154 174" fill="none" stroke="var(--ink-soft)" strokeWidth="2.4" />
-        </g>
+        <path d="M91 142 C 106 149, 119 151, 132 147" fill="none" stroke="var(--ink-soft)" strokeWidth="2.4" />
       )}
-      <text x="150" y="196" {...label} textAnchor="start" fill={isch ? "var(--cortical)" : "var(--ink-soft)"}>
-        charneira medial {isch ? "ROTA" : "íntegra"}
+      <text x="98" y="190" {...label} textAnchor="middle" fill={isch ? "var(--cortical)" : "var(--ink-soft)"}>
+        dobradiça medial
+      </text>
+      <text x="98" y="205" {...label} textAnchor="middle" fill={isch ? "var(--cortical)" : "var(--ink-soft)"}>
+        {isch ? "desviada > 2 mm" : "preservada"}
       </text>
 
       {/* vaso retinacular */}
       <path
-        d="M138 180 C 128 160, 122 132, 124 108"
+        d="M116 151 C 107 132, 102 108, 104 84"
         fill="none"
         stroke="var(--teal)"
         strokeWidth="2.2"
@@ -254,17 +254,34 @@ export const Hertel: FC<FigureProps> = ({ className, title, variant }) => {
         opacity={isch ? 0.5 : 1}
       />
 
-      <text x="150" y="24" {...labelMono} textAnchor="middle" fill="var(--ink-soft)">
-        Hertel · {isch ? "alto risco" : "favorável"}
+      <text x="100" y="22" {...labelMono} textAnchor="middle" fill="var(--ink-soft)">
+        Hertel · {isch ? "maior risco" : "menor risco"}
       </text>
-      <text x="20" y="240" {...label} textAnchor="start">
-        Preditores de isquemia: extensão metafisária medial &lt; 8 mm, charneira medial rota
+
+      <line x1="205" y1="26" x2="205" y2="224" stroke="var(--line)" strokeWidth="1" />
+      <text x="218" y="54" {...labelMono} textAnchor="start" fill="var(--ink-soft)">
+        PADRÃO REPRESENTADO
       </text>
-      <text x="20" y="256" {...label} textAnchor="start">
-        e traço do colo anatômico. Combinados → VPP de necrose até ~97%.
+      <text x="218" y="82" {...label} fontSize="10" textAnchor="start">
+        extensão posteromedial {isch ? "< 8 mm" : "≥ 8 mm"}
       </text>
-      <text x="20" y="272" {...label} textAnchor="start" fill="var(--teal)">
-        {isch ? "Cabeça mal perfundida → considere artroplastia no idoso." : "Cabeça bem perfundida → osteossíntese favorecida."}
+      <text x="218" y="104" {...label} fontSize="10" textAnchor="start">
+        {isch ? "desvio da dobradiça medial > 2 mm" : "dobradiça medial preservada"}
+      </text>
+      <text x="218" y="126" {...label} fontSize="10" textAnchor="start">
+        colo anatômico: avaliar à parte
+      </text>
+      <text x="218" y="158" {...label} fontSize="10" textAnchor="start" fill="var(--ink-soft)">
+        Três critérios combinados:
+      </text>
+      <text x="218" y="176" {...label} fontSize="10" textAnchor="start" fill="var(--ink-soft)">
+        VPP de isquemia até 97%.
+      </text>
+      <text x="218" y="204" {...label} fontSize="10" textAnchor="start" fill="var(--teal)">
+        Não determinam sozinhos viabilidade
+      </text>
+      <text x="218" y="222" {...label} fontSize="10" textAnchor="start" fill="var(--teal)">
+        nem indicação de tratamento.
       </text>
     </svg>
   );
@@ -311,7 +328,8 @@ export const ViaDeltopeitoral: FC<FigureProps> = ({ className, title }) => (
 );
 
 /* ──────────────────────────────────────────────────────────────────────────
-   5) VIA DELTOIDE (transdeltoidea anterolateral) — MIPO; n. axilar em risco.
+   5) VIA DELTOIDE (transdeltoidea anterolateral) — osteossíntese minimamente
+   invasiva; nervo axilar em risco.
    ────────────────────────────────────────────────────────────────────────── */
 export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
   <svg
@@ -321,7 +339,7 @@ export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title>{title ?? "Via transdeltoidea anterolateral — janela para MIPO; nervo axilar cruza 5–7 cm abaixo do acrômio"}</title>
+    <title>{title ?? "Via transdeltoidea anterolateral — osteossíntese minimamente invasiva; nervo axilar cruza 5–7 cm abaixo do acrômio"}</title>
 
     <path {...bone2} d="M40 30 C 130 18, 220 34, 262 70 L 262 250 L 40 250 Z" opacity="0.5" />
 
@@ -335,7 +353,8 @@ export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
       <path d="M150 68 C 152 130, 154 190, 156 236" />
       <path d="M170 68 C 170 130, 172 190, 174 236" />
     </g>
-    <text x="196" y="120" {...label} textAnchor="start" fill="var(--teal)">deltoide (split de fibras)</text>
+    <text x="190" y="116" {...label} textAnchor="start" fill="var(--teal)">deltoide</text>
+    <text x="190" y="131" {...label} textAnchor="start" fill="var(--teal)">(separação das fibras)</text>
 
     {/* incisão superior (split) */}
     <line x1="150" y1="66" x2="150" y2="150" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />

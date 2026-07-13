@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { allTopics } from "../registry";
 import { getFigure, PlaceholderFigure } from "../figures";
 import { topicSchema } from "../../types/topic";
@@ -100,6 +102,37 @@ describe("complete topics carry a full clinical payload", () => {
   it("every complete upper-limb topic grounds its original diagrams in Rockwood", () => {
     for (const t of complete.filter((item) => item.regionId === "membro-superior")) {
       expect(t.meta.figureReference, `topic "${t.slug}" figure reference`).toMatch(/Rockwood/);
+    }
+  });
+
+  it("keeps upper-limb clinical copy in Brazilian Portuguese", () => {
+    const topics = JSON.stringify(
+      complete.filter((item) => item.regionId === "membro-superior"),
+    );
+    const figureSources = [
+      "fratura-clavicula",
+      "luxacao-acromioclavicular",
+      "fratura-glenoide",
+      "fratura-umero-proximal",
+      "fratura-umero-distal",
+    ]
+      .map((slug) =>
+        readFileSync(resolve(process.cwd(), "src/content/figures", slug, "index.tsx"), "utf8"),
+      )
+      .join("\n");
+    const authoredCopy = `${topics}\n${figureSources}`;
+
+    for (const forbidden of [
+      /\bcharneira\b/i,
+      /head[- ]split/i,
+      /cut[- ]out/i,
+      /deltoide split/i,
+      /split de fibras/i,
+      /parafuso lag/i,
+      /saber[- ]cut/i,
+      /in situ vs/i,
+    ]) {
+      expect(authoredCopy).not.toMatch(forbidden);
     }
   });
 });

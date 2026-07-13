@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { allRegions, effectiveStatus, getTopic, locate, stats } from "../content/registry";
 import { useUserState } from "../store/useUserState";
-import { Eyebrow, StatusDot, cx } from "../ui/primitives";
+import { Eyebrow, StatusDot } from "../ui/primitives";
 import { IconArrowRight, IconLayers, IconChevronRight } from "../ui/icons";
 
 const FEATURED_SLUG = "fratura-maleolar-tornozelo";
@@ -88,7 +88,7 @@ function RegionCard({ regionId }: { regionId: string }) {
       <p className="mt-1.5 line-clamp-3 flex-1 text-[0.86rem] leading-relaxed text-muted">
         {region.blurb}
       </p>
-      <div className="mt-4 flex items-center gap-3 border-t border-line pt-3 text-[0.72rem] text-muted">
+      <div className="mt-4 flex items-center gap-3 text-[0.72rem] text-muted">
         <span className="code">{total} tópicos</span>
         {complete > 0 && (
           <span className="flex items-center gap-1">
@@ -117,9 +117,9 @@ export default function HomePage() {
       <section className="py-8 sm:py-10 lg:py-12">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-center lg:gap-10 xl:gap-14">
           <div className="min-w-0">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <Eyebrow className="shrink-0">Referência ortopédica · pt-BR</Eyebrow>
-              <span className="rule hidden max-w-20 flex-1 sm:block" />
+              <span aria-hidden="true" className="text-[0.72rem] text-line-strong">·</span>
               <span className="code shrink-0 text-[0.68rem] text-muted">
                 {stats.topicsComplete} / {stats.topicsPlanned} completos
               </span>
@@ -157,13 +157,12 @@ export default function HomePage() {
             {resumeFlat && (
               <Link
                 to={`/topico/${resumeFlat.slug}`}
-                className="group mt-7 flex max-w-2xl items-center gap-3 border-t border-line pt-4"
+                className="group mt-7 inline-flex max-w-full items-center gap-3 text-left"
               >
                 <span className="eyebrow shrink-0">Retomar</span>
                 <span className="min-w-0 truncate text-[0.88rem] text-ink">
                   {resumeTopic?.title ?? resumeFlat.title}
                 </span>
-                <span className="rule min-w-4 flex-1" />
                 <IconChevronRight className="h-4 w-4 shrink-0 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal" />
               </Link>
             )}
@@ -211,7 +210,7 @@ export default function HomePage() {
       {/* Faixa de estatísticas */}
       <section
         aria-label="Cobertura do conteúdo"
-        className="grid grid-cols-3 divide-x divide-line border-y border-line"
+        className="grid grid-cols-3 gap-3 py-5 sm:gap-8 sm:py-6"
       >
         {[
           { n: stats.regions, label: "Regiões anatômicas", short: "Regiões" },
@@ -220,7 +219,7 @@ export default function HomePage() {
         ].map((s) => (
           <div
             key={s.label}
-            className="flex flex-col items-center justify-center px-2 py-4 text-center sm:flex-row sm:gap-4 sm:px-6 sm:py-5 sm:text-left"
+            className="flex flex-col items-center justify-center px-2 text-center sm:flex-row sm:gap-4 sm:px-4 sm:text-left"
           >
             <div className="font-display text-[1.8rem] leading-none text-ink sm:text-[2.2rem]">
               {s.n}
@@ -235,10 +234,9 @@ export default function HomePage() {
 
       {/* Grade de regiões */}
       <section ref={regionsRef} className="scroll-mt-24 py-10 sm:py-12">
-        <div className="mb-6 flex items-center gap-3">
+        <div className="mb-6 flex items-baseline gap-3">
           <h2 className="font-display text-[1.7rem] text-ink">Regiões</h2>
-          <span className="rule flex-1" />
-          <span className="code text-[0.72rem] text-muted">{stats.regions}</span>
+          <span className="code text-[0.68rem] text-muted">{stats.regions} topografias</span>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {allRegions.map((r) => (
@@ -247,7 +245,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className={cx("border-t border-line py-8 text-center text-[0.78rem] text-muted")}>
+      <footer className="py-8 text-center text-[0.78rem] text-muted">
         Revisortopedia · referência de estudo · não substitui julgamento clínico
         individualizado.
       </footer>

@@ -505,7 +505,8 @@ const ViaPosterior: FC<FigureProps> = ({ className, title }) => (
 );
 
 /* =========================================================================
-   7) Técnica — redução articular + fixação (parafuso lag / placa; âncoras).
+   7) Técnica — redução articular + fixação (parafuso interfragmentar, placa
+   ou âncoras).
    ========================================================================= */
 const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
   const ancoras = variant === "ancoras";
@@ -556,7 +557,7 @@ const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
               <line x1="192" y1="164" x2="186" y2="174" />
             </g>
           </g>
-          <text x="150" y="200" {...label} fill="var(--teal)">parafuso lag</text>
+          <text x="150" y="200" {...label} fill="var(--teal)">parafuso interfragmentar</text>
 
           {/* Placa de apoio (buttress) na borda lateral */}
           <path d="M214 158 C 196 182, 168 208, 138 228" fill="none" stroke="var(--teal)" strokeWidth="7" strokeLinecap="round" opacity="0.9" />

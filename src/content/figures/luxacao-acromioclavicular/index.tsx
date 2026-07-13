@@ -127,10 +127,10 @@ export const Rockwood: FC<FigureProps> = ({ className, title, variant = "I" }) =
     { dy: number; acTorn: boolean; ccTorn: boolean; note: string; posterior?: boolean }
   > = {
     I: { dy: 0, acTorn: false, ccTorn: false, note: "entorse AC; sem desvio" },
-    II: { dy: -8, acTorn: true, ccTorn: false, note: "AC roto, CC íntegro; subluxação" },
-    III: { dy: -28, acTorn: true, ccTorn: true, note: "AC + CC rotos; CC ↑ 25–100%" },
+    II: { dy: -8, acTorn: true, ccTorn: false, note: "AC rompido; CC íntegros; subluxação" },
+    III: { dy: -28, acTorn: true, ccTorn: true, note: "AC e CC rompidos; CC ↑ 25–100%" },
     IV: { dy: -18, acTorn: true, ccTorn: true, note: "desvio POSTERIOR (trapézio)", posterior: true },
-    V: { dy: -52, acTorn: true, ccTorn: true, note: "CC ↑ 100–300%; fáscia deltotrapezial rota" },
+    V: { dy: -52, acTorn: true, ccTorn: true, note: "CC ↑ 100–300%; fáscia rompida" },
     VI: { dy: 34, acTorn: true, ccTorn: true, note: "subcoracoide (inferior) — raro" },
   };
   const c = cfg[v];
@@ -246,10 +246,10 @@ export const Mensuracao: FC<FigureProps> = ({ className, title }) => (
     <line x1="20" y1="130" x2="320" y2="130" stroke="var(--ink-soft)" strokeWidth="1" strokeDasharray="2 4" />
 
     <text x="170" y="176" {...label} textAnchor="middle">
-      Aumento &gt; 25% vs. contralateral sugere ruptura CC (tipo III+)
+      CC &gt; 25% em relação ao lado oposto: ruptura (tipo III+)
     </text>
     <text x="170" y="198" {...label} textAnchor="middle">
-      Zanca: raio 10–15° cefálico; comparar sempre com o lado são
+      Zanca: raio 10–15° cefálico · comparar os lados
     </text>
     <text x="170" y="226" {...mono} textAnchor="middle">
       tipo IV: perfil axilar (desvio posterior) · tipo VI: CC ↓ (subcoracoide)
