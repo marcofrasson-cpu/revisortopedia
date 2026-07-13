@@ -135,7 +135,6 @@ export function SectionHeading({
       <div className="mb-2 flex items-center gap-3">
         {index && <span className="code text-[0.8rem] font-medium text-teal">{index}</span>}
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-        <span className="rule flex-1" />
       </div>
       <h2 className="text-[1.6rem] text-ink">{title}</h2>
     </div>

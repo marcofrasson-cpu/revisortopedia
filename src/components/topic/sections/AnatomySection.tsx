@@ -18,7 +18,7 @@ export default function AnatomySection({ topic }: { topic: Topic }) {
   return (
     <>
       <SectionHeading index="02" eyebrow="Anatomia" title="Anatomia cirúrgica" />
-      <div className="mt-5 space-y-5 text-[1.05rem] leading-[1.75] text-ink-soft">
+      <div className="mt-5 max-w-[78ch] space-y-5 text-[1.05rem] leading-[1.75] text-ink-soft">
         {paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}

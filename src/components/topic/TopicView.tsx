@@ -112,7 +112,7 @@ export default function TopicView({ topic }: { topic: Topic }) {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       {/* Header */}
       <header>
         <div className="flex items-start justify-between gap-4">
@@ -175,12 +175,12 @@ export default function TopicView({ topic }: { topic: Topic }) {
 
       <SectionRail visible={visible} active={active} />
 
-      <div ref={contentRef} className="mx-auto max-w-[920px]">
+      <div ref={contentRef} className="mx-auto max-w-6xl">
         {visible.map((k) => (
           <section
             id={`sec-${k}`}
             key={k}
-            className="mt-12 scroll-mt-28 border-t border-line/70 pt-12 first:mt-0 first:border-0 first:pt-0"
+            className="mt-16 scroll-mt-28 first:mt-0"
           >
             {sectionNode[k]}
           </section>

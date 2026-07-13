@@ -7,7 +7,7 @@ export default function OverviewSection({ topic }: { topic: Topic }) {
   return (
     <>
       <SectionHeading index="01" eyebrow="Visão geral" title="Panorama da lesão" />
-      <div className="mt-5 space-y-5 text-[1.05rem] leading-[1.75] text-ink-soft">
+      <div className="mt-5 max-w-[78ch] space-y-5 text-[1.05rem] leading-[1.75] text-ink-soft">
         {paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}

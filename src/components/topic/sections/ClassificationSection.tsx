@@ -32,7 +32,9 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
                 <span className="eyebrow">{sys.basis}</span>
               </div>
               {sys.note && (
-                <p className="mt-1 text-[0.88rem] leading-relaxed text-muted">{sys.note}</p>
+                <p className="mt-1 max-w-[88ch] text-[0.88rem] leading-relaxed text-muted">
+                  {sys.note}
+                </p>
               )}
 
               <ul className="mt-3 divide-y divide-line overflow-hidden rounded-xl border border-line">
@@ -59,11 +61,11 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
                         <CodeChip tone={on ? "teal" : "plain"} className="mt-0.5 shrink-0">
                           {ty.code}
                         </CodeChip>
-                        <span>
+                        <span className="min-w-0 flex-1 lg:grid lg:grid-cols-[minmax(12rem,0.36fr)_minmax(0,1fr)] lg:gap-6">
                           <span className="block text-[0.92rem] font-medium text-ink">
                             {ty.label}
                           </span>
-                          <span className="mt-0.5 block text-[0.88rem] leading-relaxed text-ink-soft">
+                          <span className="mt-0.5 block text-[0.88rem] leading-relaxed text-ink-soft lg:mt-0">
                             {ty.description}
                           </span>
                         </span>
