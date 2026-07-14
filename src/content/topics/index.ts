@@ -66,6 +66,20 @@ import { topic as coxaVara } from "./coxa-vara";
 import { topic as paralisiaBraquial } from "./paralisia-braquial-obstetrica";
 import { topic as torcicolo } from "./torcicolo-muscular-congenito";
 
+// Coluna — trauma, degeneração e sacro.
+import { topic as fraturaAxisOdontoide } from "./fratura-axis-odontoide";
+import { topic as fraturaAtlasJefferson } from "./fratura-atlas-jefferson";
+import { topic as traumaCervicalSubaxial } from "./trauma-cervical-subaxial";
+import { topic as herniaCervicalRadiculopatia } from "./hernia-cervical-radiculopatia";
+import { topic as fraturaToracolombarExplosao } from "./fratura-toracolombar-explosao";
+import { topic as fraturaCompressaoOsteoporotica } from "./fratura-compressao-osteoporotica";
+import { topic as espondilolistese } from "./espondilolistese";
+import { topic as herniaDiscalLombar } from "./hernia-discal-lombar";
+import { topic as estenoseLombar } from "./estenose-lombar";
+import { topic as escolioseIdiopaticaAdolescente } from "./escoliose-idiopatica-adolescente";
+import { topic as fraturaSacro } from "./fratura-sacro";
+import { topic as fraturaInsuficienciaSacral } from "./fratura-insuficiencia-sacral";
+
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
    a partir daqui; um tópico novo é um arquivo de dados novo + uma linha aqui.
@@ -134,4 +148,16 @@ export const topics: Topic[] = [
   coxaVara,
   paralisiaBraquial,
   torcicolo,
+  fraturaAxisOdontoide,
+  fraturaAtlasJefferson,
+  traumaCervicalSubaxial,
+  herniaCervicalRadiculopatia,
+  fraturaToracolombarExplosao,
+  fraturaCompressaoOsteoporotica,
+  espondilolistese,
+  herniaDiscalLombar,
+  estenoseLombar,
+  escolioseIdiopaticaAdolescente,
+  fraturaSacro,
+  fraturaInsuficienciaSacral,
 ];

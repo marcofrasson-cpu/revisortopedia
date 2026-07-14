@@ -98,6 +98,20 @@ import { figures as figParalisiaBraquial } from "./paralisia-braquial-obstetrica
 import { figures as figTorcicolo } from "./torcicolo-muscular-congenito";
 import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
 
+// Coluna — barris de figuras por tópico (ids prefixados por slug).
+import { figures as figFraturaAxisOdontoide } from "./fratura-axis-odontoide";
+import { figures as figFraturaAtlasJefferson } from "./fratura-atlas-jefferson";
+import { figures as figTraumaCervicalSubaxial } from "./trauma-cervical-subaxial";
+import { figures as figHerniaCervicalRadiculopatia } from "./hernia-cervical-radiculopatia";
+import { figures as figFraturaToracolombarExplosao } from "./fratura-toracolombar-explosao";
+import { figures as figFraturaCompressaoOsteoporotica } from "./fratura-compressao-osteoporotica";
+import { figures as figEspondilolistese } from "./espondilolistese";
+import { figures as figHerniaDiscalLombar } from "./hernia-discal-lombar";
+import { figures as figEstenoseLombar } from "./estenose-lombar";
+import { figures as figEscolioseIdiopaticaAdolescente } from "./escoliose-idiopatica-adolescente";
+import { figures as figFraturaSacro } from "./fratura-sacro";
+import { figures as figFraturaInsuficienciaSacral } from "./fratura-insuficiencia-sacral";
+
 /**
  * Registro de figuras: id canônico -> componente React.FC<FigureProps>.
  * O conteúdo referencia estes ids (e variants) de forma estável.
@@ -202,6 +216,20 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figParalisiaBraquial,
   ...figTorcicolo,
   ...figClinicalUpperLimb,
+
+  // ── Coluna ───────────────────────────────────────────────────────────────
+  ...figFraturaAxisOdontoide,
+  ...figFraturaAtlasJefferson,
+  ...figTraumaCervicalSubaxial,
+  ...figHerniaCervicalRadiculopatia,
+  ...figFraturaToracolombarExplosao,
+  ...figFraturaCompressaoOsteoporotica,
+  ...figEspondilolistese,
+  ...figHerniaDiscalLombar,
+  ...figEstenoseLombar,
+  ...figEscolioseIdiopaticaAdolescente,
+  ...figFraturaSacro,
+  ...figFraturaInsuficienciaSacral,
 };
 
 /** Resolve um id de figura; ids desconhecidos caem no placeholder. */

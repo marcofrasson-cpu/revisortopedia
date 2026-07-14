@@ -176,6 +176,8 @@ export const regions: RegionNode[] = [
           { slug: "fratura-axis-odontoide", title: "Fratura do áxis (processo odontoide)", status: "planned" },
           { slug: "fratura-atlas-jefferson", title: "Fratura do atlas (Jefferson)", status: "planned" },
           { slug: "trauma-cervical-subaxial", title: "Trauma cervical subaxial", status: "planned" },
+          { slug: "hernia-cervical-radiculopatia", title: "Hérnia cervical e radiculopatia", status: "planned" },
+          { slug: "mielopatia-cervical-espondilotica", title: "Mielopatia cervical espondilótica", status: "planned" },
         ],
       },
       {
@@ -185,6 +187,29 @@ export const regions: RegionNode[] = [
           { slug: "fratura-toracolombar-explosao", title: "Fratura toracolombar por explosão", status: "planned" },
           { slug: "fratura-compressao-osteoporotica", title: "Fratura por compressão osteoporótica", status: "planned" },
           { slug: "espondilolistese", title: "Espondilolistese", status: "planned" },
+        ],
+      },
+      {
+        id: "col-lombar-degenerativo",
+        title: "Lombar — degenerativo",
+        topics: [
+          { slug: "hernia-discal-lombar", title: "Hérnia discal lombar", status: "planned" },
+          { slug: "estenose-lombar", title: "Estenose de canal lombar", status: "planned" },
+        ],
+      },
+      {
+        id: "col-deformidade",
+        title: "Deformidade",
+        topics: [
+          { slug: "escoliose-idiopatica-adolescente", title: "Escoliose idiopática do adolescente", status: "planned" },
+          { slug: "cifose-scheuermann", title: "Cifose de Scheuermann", status: "planned" },
+        ],
+      },
+      {
+        id: "col-medular",
+        title: "Lesão medular",
+        topics: [
+          { slug: "trauma-raquimedular", title: "Trauma raquimedular", status: "planned" },
         ],
       },
       {
