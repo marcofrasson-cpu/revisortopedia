@@ -29,7 +29,10 @@ export default function SectionRail({
       aria-label="Seções do tópico"
       className="app-sticky-rail sticky z-20 -mx-4 mb-4 bg-bg/88 px-4 backdrop-blur-md sm:-mx-6 sm:px-6"
     >
-      <ul className="flex gap-1 overflow-x-auto py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {/* No celular a trilha rola com o dedo. No desktop ela quebra em linhas: a
+          barra de rolagem é escondida por CSS e um mouse sem eixo horizontal não
+          alcançava as últimas seções (870px de conteúdo em 343px de trilha). */}
+      <ul className="flex gap-1 overflow-x-auto py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:overflow-x-visible [&::-webkit-scrollbar]:hidden">
         {items.map((s, i) => {
           const on = s.key === active;
           return (

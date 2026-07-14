@@ -95,6 +95,14 @@ export const IconLayers = (p: P) => (
   </svg>
 );
 
+/** Modo estudo — o cartão da frente sobre o baralho. */
+export const IconCards = (p: P) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="7" width="13" height="14" rx="2" />
+    <path d="M8 3h11a2 2 0 0 1 2 2v11" />
+  </svg>
+);
+
 export const IconExpand = (p: P) => (
   <svg {...base} {...p}>
     <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5" />

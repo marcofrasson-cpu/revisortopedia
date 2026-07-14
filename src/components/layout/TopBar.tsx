@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import ThemeToggle from "./ThemeToggle";
-import { IconSearch, IconMenu } from "../../ui/icons";
+import { IconSearch, IconMenu, IconCards } from "../../ui/icons";
 import { LogoMark } from "../../ui/Logo";
 import { useProfiles } from "../../store/useProfiles";
 
@@ -72,12 +72,17 @@ export default function TopBar({
 
           <div className="ml-auto flex min-w-0 items-center justify-end gap-1 sm:gap-1.5">
             {/* Modo estudo */}
+            {/* O rótulo recolhe abaixo de sm, mas o alvo não: era `hidden sm:flex`
+                e o modo estudo simplesmente não existia no celular — nem o menu
+                lateral o oferece. */}
             <Link
               to="/estudo"
-              className="app-header-control app-header-study hidden h-9 items-center gap-1.5 px-3 text-[0.8rem] sm:flex"
+              aria-label="Modo estudo"
+              className="app-header-control app-header-study flex h-9 items-center gap-1.5 px-2.5 text-[0.8rem] sm:px-3"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-teal" />
-              Estudo
+              <IconCards className="h-4 w-4 shrink-0 text-teal sm:hidden" />
+              <span className="hidden h-1.5 w-1.5 shrink-0 rounded-full bg-teal sm:block" />
+              <span className="hidden sm:inline">Estudo</span>
             </Link>
 
             {/* Search trigger */}
