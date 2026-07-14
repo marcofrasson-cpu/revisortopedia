@@ -52,6 +52,11 @@ describe("flattenTree", () => {
     expect(foundations).toHaveLength(2);
     expect(foundations.every((topic) => topic.status === "complete")).toBe(true);
   });
+
+  it("publishes the complete 98-topic framework", () => {
+    expect(flat).toHaveLength(98);
+    expect(flat.every((topic) => topic.status === "complete")).toBe(true);
+  });
 });
 
 describe("neighbors", () => {
@@ -73,5 +78,10 @@ describe("stats", () => {
     expect(stats.topicsComplete).toBeGreaterThanOrEqual(1);
     expect(stats.regions).toBeGreaterThan(0);
     expect(stats.topicsPlanned).toBeGreaterThanOrEqual(stats.topicsComplete);
+  });
+
+  it("reports full editorial coverage", () => {
+    expect(stats.topicsPlanned).toBe(98);
+    expect(stats.topicsComplete).toBe(98);
   });
 });

@@ -81,6 +81,9 @@ import { topic as estenoseLombar } from "./estenose-lombar";
 import { topic as escolioseIdiopaticaAdolescente } from "./escoliose-idiopatica-adolescente";
 import { topic as fraturaSacro } from "./fratura-sacro";
 import { topic as fraturaInsuficienciaSacral } from "./fratura-insuficiencia-sacral";
+import { topic as mielopatiaCervicalEspondilotica } from "./mielopatia-cervical-espondilotica";
+import { topic as cifoseScheuermann } from "./cifose-scheuermann";
+import { topic as traumaRaquimedular } from "./trauma-raquimedular";
 
 // Esportiva & artroscopia — lesões ligamentares e retorno ao esporte.
 import { topic as lesaoLca } from "./lesao-lca";
@@ -94,6 +97,18 @@ import { topic as rupturaTendaoCalcaneo } from "./ruptura-tendao-calcaneo";
 // Tumores & metástases — princípios de investigação e estadiamento.
 import { topic as biopsiaLesaoOssea } from "./biopsia-lesao-ossea";
 import { topic as estadiamentoEnneking } from "./estadiamento-enneking";
+import { topic as osteossarcoma } from "./osteossarcoma";
+import { topic as tumorCelulasGigantes } from "./tumor-celulas-gigantes";
+import { topic as condrossarcoma } from "./condrossarcoma";
+import { topic as metastaseOsseaMembro } from "./metastase-ossea-membro";
+import { topic as fraturaPatologicaIminente } from "./fratura-patologica-iminente";
+
+// Infecção musculoesquelética — osso, articulação, prótese e síntese.
+import { topic as osteomieliteAguda } from "./osteomielite-aguda";
+import { topic as osteomieliteCronica } from "./osteomielite-cronica";
+import { topic as artriteSeptica } from "./artrite-septica";
+import { topic as infeccaoPeriprotetica } from "./infeccao-periprotetica";
+import { topic as infeccaoAssociadaFratura } from "./infeccao-associada-fratura";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -177,6 +192,9 @@ export const topics: Topic[] = [
   escolioseIdiopaticaAdolescente,
   fraturaSacro,
   fraturaInsuficienciaSacral,
+  mielopatiaCervicalEspondilotica,
+  cifoseScheuermann,
+  traumaRaquimedular,
   lesaoLca,
   lesaoMeniscal,
   lesaoMultiligamentarJoelho,
@@ -186,4 +204,14 @@ export const topics: Topic[] = [
   rupturaTendaoCalcaneo,
   biopsiaLesaoOssea,
   estadiamentoEnneking,
+  osteossarcoma,
+  tumorCelulasGigantes,
+  condrossarcoma,
+  metastaseOsseaMembro,
+  fraturaPatologicaIminente,
+  osteomieliteAguda,
+  osteomieliteCronica,
+  artriteSeptica,
+  infeccaoPeriprotetica,
+  infeccaoAssociadaFratura,
 ];

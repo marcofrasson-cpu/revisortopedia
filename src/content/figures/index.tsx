@@ -113,6 +113,7 @@ import { figures as figEstenoseLombar } from "./estenose-lombar";
 import { figures as figEscolioseIdiopaticaAdolescente } from "./escoliose-idiopatica-adolescente";
 import { figures as figFraturaSacro } from "./fratura-sacro";
 import { figures as figFraturaInsuficienciaSacral } from "./fratura-insuficiencia-sacral";
+import { figures as figFrameworkCompletion } from "./framework-completion";
 
 // Esportiva & artroscopia.
 import { figures as figLesaoLca } from "./lesao-lca";
@@ -245,6 +246,7 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figEscolioseIdiopaticaAdolescente,
   ...figFraturaSacro,
   ...figFraturaInsuficienciaSacral,
+  ...figFrameworkCompletion,
 
   // ── Esportiva & artroscopia ─────────────────────────────────────────────
   ...figLesaoLca,
