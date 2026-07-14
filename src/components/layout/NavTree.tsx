@@ -182,26 +182,43 @@ export default function NavTree({ onCollapse }: { onCollapse?: () => void }) {
       {/* A barra de cobertura saiu daqui: o framework está completo, então ela
           ficava cravada em 100% em toda página, para sempre — medindo o progresso
           de um trabalho que acabou. A home mostra a base de evidências no lugar. */}
+      {/* Pill de assinatura — a do orto desk. Cápsula com glow, duas linhas
+          centradas, nome em caixa alta. É a única peça do app que existe para ter
+          presença, não para informar: não achate, não deite em uma linha, não tire
+          o glow.
+
+          A forma é a de 6fb98db, que a nasceu; as cores vêm dos tokens --pill-*,
+          que foram derivados dela e existem porque a versão de cor fixa ficava
+          errada no tema claro. No escuro os tokens reproduzem os valores originais
+          exatamente (#1b3048 → #0f1f30, nome #5fc89b, label #94a3b8). */}
       <div className="shrink-0 border-t border-line px-4 py-3">
-        <div
-          className="flex items-center justify-between gap-2 rounded-md border px-2.5 py-2"
-          style={{
-            borderColor: "var(--pill-border)",
-            backgroundImage: "linear-gradient(to bottom, var(--pill-bg1), var(--pill-bg2))",
-          }}
-        >
-          <span
-            className="text-[0.58rem] font-semibold uppercase tracking-[0.12em]"
-            style={{ color: "var(--pill-label)" }}
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-3 rounded-full blur-2xl"
+            style={{ background: "var(--pill-glow)" }}
+          />
+          <div
+            className="relative flex flex-col items-center rounded-full border px-5 py-2"
+            style={{
+              borderColor: "var(--pill-border)",
+              backgroundImage: "linear-gradient(to bottom, var(--pill-bg1), var(--pill-bg2))",
+              boxShadow: "var(--pill-shadow)",
+            }}
           >
-            Designed by
-          </span>
-          <span
-            className="text-[0.72rem] font-semibold"
-            style={{ color: "var(--pill-name)" }}
-          >
-            @Marco Frasson
-          </span>
+            <span
+              className="text-[0.56rem] font-semibold uppercase tracking-[0.22em]"
+              style={{ color: "var(--pill-label)" }}
+            >
+              Designed by
+            </span>
+            <span
+              className="mt-0.5 text-[0.82rem] font-bold uppercase tracking-[0.05em]"
+              style={{ color: "var(--pill-name)" }}
+            >
+              @Marco Frasson
+            </span>
+          </div>
         </div>
       </div>
     </div>
