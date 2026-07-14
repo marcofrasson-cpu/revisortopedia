@@ -10,6 +10,7 @@ import ProfileGate from "./components/profile/ProfileGate";
 import { useUserState } from "./store/useUserState";
 import { useQuizStats } from "./store/useQuizStats";
 import { useProfiles } from "./store/useProfiles";
+import { useFlashcardStats } from "./store/useFlashcardStats";
 
 /** Reset scroll on route change (hash routing keeps the old scroll otherwise). */
 function ScrollToTop() {
@@ -26,6 +27,7 @@ export default function App() {
   const loadProfiles = useProfiles((s) => s.load);
   const hydrateUser = useUserState((s) => s.hydrate);
   const hydrateQuiz = useQuizStats((s) => s.hydrate);
+  const hydrateFlashcards = useFlashcardStats((s) => s.hydrate);
 
   useEffect(() => {
     loadProfiles();
@@ -36,8 +38,9 @@ export default function App() {
     if (activeId) {
       void hydrateUser(activeId);
       void hydrateQuiz(activeId);
+      void hydrateFlashcards(activeId);
     }
-  }, [activeId, hydrateUser, hydrateQuiz]);
+  }, [activeId, hydrateUser, hydrateQuiz, hydrateFlashcards]);
 
   if (!loaded) return null;
   if (!activeId) return <ProfileGate />;

@@ -6,12 +6,16 @@ import { get, set, del } from "idb-keyval";
 
 const USER_PREFIX = "revisortopedia:user:v1:";
 const QUIZ_PREFIX = "revisortopedia:quiz:v1:";
+const FLASHCARD_PREFIX = "revisortopedia:flashcards:v1:";
 
 export function userKey(profileId: string): string {
   return USER_PREFIX + profileId;
 }
 export function quizKey(profileId: string): string {
   return QUIZ_PREFIX + profileId;
+}
+export function flashcardKey(profileId: string): string {
+  return FLASHCARD_PREFIX + profileId;
 }
 
 export interface UserState {
@@ -45,6 +49,7 @@ export async function clearProfileData(profileId: string): Promise<void> {
   try {
     await del(userKey(profileId));
     await del(quizKey(profileId));
+    await del(flashcardKey(profileId));
   } catch {
     /* no-op */
   }

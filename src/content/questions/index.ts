@@ -1,10 +1,11 @@
 import type { Question } from "../../types/question";
 import { membroInferiorQuestions } from "./membro-inferior";
+import { generatedQuestions } from "./generated";
 import { allRegions, getTopic } from "../registry";
 
 /* Registro de questões. Um novo bloco = um arquivo novo + uma linha aqui. */
 
-export const questions: Question[] = [...membroInferiorQuestions];
+export const questions: Question[] = [...membroInferiorQuestions, ...generatedQuestions];
 
 export function allQuestions(): Question[] {
   return questions;
@@ -42,4 +43,6 @@ export function topicTitle(slug: string): string {
 export const quizStats = {
   total: questions.length,
   regions: regionsWithQuestions().length,
+  originalClinical: membroInferiorQuestions.length,
+  generatedFromSummaries: generatedQuestions.length,
 };
