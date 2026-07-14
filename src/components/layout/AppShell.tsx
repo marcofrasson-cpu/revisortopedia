@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import type { MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import RouteFallback from "./RouteFallback";
 import TopBar from "./TopBar";
 import NavTree from "./NavTree";
 import CommandPalette from "./CommandPalette";
@@ -283,7 +284,14 @@ export default function AppShell() {
 
         {/* Conteúdo central */}
         <main id="conteudo" ref={mainRef} tabIndex={-1} className="min-w-0 flex-1">
-          <Outlet />
+          {/* O Suspense mora aqui, e não em volta das rotas: as páginas são
+              carregadas sob demanda e um tópico traz ~3,9 MB de dados e figuras.
+              Envolvendo o Outlet, o cabeçalho e a árvore continuam de pé — quem
+              clicou vê onde está e pode desistir. Em volta das rotas, a tela
+              inteira apagava até o chunk chegar. */}
+          <Suspense fallback={<RouteFallback />}>
+            <Outlet />
+          </Suspense>
         </main>
       </div>
 

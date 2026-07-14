@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AppShell from "./components/layout/AppShell";
 import ProfileGate from "./components/profile/ProfileGate";
@@ -56,17 +56,15 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
-      <Suspense fallback={null}>
-        <Routes>
-          <Route element={<AppShell />}>
-            <Route index element={<HomePage />} />
-            <Route path="regiao/:regionId" element={<RegionPage />} />
-            <Route path="topico/:slug" element={<TopicPage />} />
-            <Route path="estudo" element={<StudyPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route element={<AppShell />}>
+          <Route index element={<HomePage />} />
+          <Route path="regiao/:regionId" element={<RegionPage />} />
+          <Route path="topico/:slug" element={<TopicPage />} />
+          <Route path="estudo" element={<StudyPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
     </>
   );
 }

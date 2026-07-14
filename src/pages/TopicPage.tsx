@@ -20,23 +20,27 @@ export default function TopicPage() {
 
   if (topic) return <TopicView key={topic.slug} topic={topic} />;
 
-  // Tópico referenciado no framework, porém ainda sem conteúdo.
+  /* Dois casos bem diferentes caíam no mesmo texto. Um tópico que está na árvore
+     mas ainda não foi redigido está "em preparo". Um slug que a árvore não conhece
+     — link antigo, endereço digitado errado, tópico que saiu — não está: dizer que
+     "já faz parte do framework" seria mentira. */
   const flat = locate(slug);
-  const title = flat?.title ?? "Tópico";
 
   return (
     <div className="mx-auto grid min-h-[70dvh] max-w-2xl place-items-center px-6 py-16 text-center">
       <div>
         <Eyebrow className="flex items-center justify-center gap-2">
           <StatusDot status="planned" />
-          Em preparo
+          {flat ? "Em preparo" : "Endereço sem tópico"}
         </Eyebrow>
 
-        <h1 className="mt-4 font-display text-[2rem] text-ink">{title}</h1>
+        <h1 className="mt-4 font-display text-[2rem] text-ink">
+          {flat?.title ?? "Este tópico não está aqui"}
+        </h1>
         <p className="mx-auto mt-3 max-w-md text-[0.95rem] leading-relaxed text-ink-soft">
-          Este tópico já faz parte do framework, mas seu conteúdo — anatomia,
-          classificação, técnica passo a passo e evidência — ainda está sendo
-          redigido e revisado.
+          {flat
+            ? "Este tópico já faz parte do framework, mas seu conteúdo — anatomia, classificação, técnica passo a passo e evidência — ainda está sendo redigido e revisado."
+            : "O endereço não corresponde a nenhum tópico do manual. Ele pode ter mudado de nome ou sido reunido a outro. A busca encontra pelo nome da lesão, do osso ou da classificação."}
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
