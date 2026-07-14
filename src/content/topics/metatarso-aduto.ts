@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "op-pe-metatarso-aduto",
   slug: "metatarso-aduto",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Pé (criança)",
   injury: "Deformidade do antepé",

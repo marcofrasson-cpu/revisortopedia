@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "ms-punho-carpo-instabilidade-carpo",
   slug: "instabilidade-carpo",
+  kind: "condicao",
   regionId: "membro-superior",
   bone: "Punho",
   injury: "Instabilidade ligamentar do carpo",

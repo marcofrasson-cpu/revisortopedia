@@ -6,6 +6,7 @@ import { defineTopic } from "../../types/topic";
 export const rupturaTendaoAquiles = defineTopic({
   id: "mi-aquiles-ruptura",
   slug: "ruptura-tendao-aquiles",
+  kind: "condicao",
   regionId: "membro-inferior",
   bone: "Tornozelo & retropé",
   injury: "Ruptura tendínea",

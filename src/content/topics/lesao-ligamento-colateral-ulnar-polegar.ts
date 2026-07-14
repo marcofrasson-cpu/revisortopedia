@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "ms-mao-lesao-ligamento-colateral-ulnar-polegar",
   slug: "lesao-ligamento-colateral-ulnar-polegar",
+  kind: "condicao",
   regionId: "membro-superior",
   bone: "Mão",
   injury: "Lesão ligamentar",

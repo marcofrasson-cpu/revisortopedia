@@ -8,6 +8,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "lesao-tendoes-fibulares",
   slug: "lesao-tendoes-fibulares",
+  kind: "condicao",
   regionId: "membro-inferior",
   bone: "Tendão",
   injury: "Lesão/instabilidade tendínea",

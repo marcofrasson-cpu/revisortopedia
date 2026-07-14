@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "op-quadril-coxa-vara",
   slug: "coxa-vara",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Quadril (criança)",
   injury: "Coxa vara",

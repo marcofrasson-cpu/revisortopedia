@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "op-joelho-deformidades-angulares-blount",
   slug: "deformidades-angulares-blount",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Joelho (criança)",
   injury: "Deformidade angular / tíbia vara",

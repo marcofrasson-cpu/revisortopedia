@@ -8,6 +8,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "tendinopatia-aquiles",
   slug: "tendinopatia-aquiles",
+  kind: "condicao",
   regionId: "membro-inferior",
   bone: "Tendão",
   injury: "Tendinopatia",

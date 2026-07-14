@@ -15,6 +15,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "peds-pescoco-tmc",
   slug: "torcicolo-muscular-congenito",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Pescoço (criança)",
   injury: "Encurtamento do esternocleidomastoideo",

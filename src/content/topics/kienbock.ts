@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "ms-punho-semilunar-kienbock",
   slug: "kienbock",
+  kind: "condicao",
   regionId: "membro-superior",
   bone: "Punho",
   injury: "Osteonecrose do semilunar",

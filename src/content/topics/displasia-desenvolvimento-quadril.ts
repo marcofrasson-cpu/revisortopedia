@@ -11,6 +11,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "peds-quadril-ddq",
   slug: "displasia-desenvolvimento-quadril",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Quadril (criança)",
   injury: "Displasia do desenvolvimento (DDQ)",

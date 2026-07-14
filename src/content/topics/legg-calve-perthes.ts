@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "op-quadril-legg-calve-perthes",
   slug: "legg-calve-perthes",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Quadril (criança)",
   injury: "Necrose avascular idiopática",

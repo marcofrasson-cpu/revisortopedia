@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "op-ombro-paralisia-braquial-obstetrica",
   slug: "paralisia-braquial-obstetrica",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Ombro (criança)",
   injury: "Lesão do plexo braquial no parto",

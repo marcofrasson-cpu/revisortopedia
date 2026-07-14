@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import type { SectionKey, Topic } from "../../types/topic";
 import { SECTIONS } from "../../types/topic";
 import { locate, neighbors } from "../../content/registry";
+import { fillers } from "../../lib/gridFill";
 import { useUserState } from "../../store/useUserState";
 import { cx, Eyebrow } from "../../ui/primitives";
 import {
@@ -168,6 +169,17 @@ export default function TopicView({ topic }: { topic: Topic }) {
                   {f.value}
                 </dd>
               </div>
+            ))}
+            {fillers(topic.keyFacts.length).map((fill, i) => (
+              <div
+                key={`fill-${i}`}
+                aria-hidden="true"
+                className={cx(
+                  "bg-surface",
+                  fill.narrow ? "block" : "hidden",
+                  fill.wide ? "sm:block" : "sm:hidden",
+                )}
+              />
             ))}
           </dl>
         )}

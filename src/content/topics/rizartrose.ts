@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "ms-mao-rizartrose",
   slug: "rizartrose",
+  kind: "condicao",
   regionId: "membro-superior",
   bone: "Mão",
   injury: "Artrose trapeziometacarpiana",

@@ -3,6 +3,7 @@ import { defineTopic } from "../../types/topic";
 export const topic = defineTopic({
   id: "op-pe-torto-congenito",
   slug: "pe-torto-congenito",
+  kind: "condicao",
   regionId: "ortopedia-pediatrica",
   bone: "Pé (criança)",
   injury: "Talipes equinovaro congenito",
