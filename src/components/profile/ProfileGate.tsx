@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MAX_PROFILES, useProfiles } from "../../store/useProfiles";
+import { LogoMark } from "../../ui/Logo";
 import type { Profile } from "../../store/useProfiles";
 import { cx } from "../../ui/primitives";
 import { IconClose } from "../../ui/icons";
@@ -149,9 +150,7 @@ export default function ProfileGate({
     <div className="w-full max-w-lg">
       {/* Cabeçalho */}
       <div className="mb-8 text-center">
-        <div className="inline-grid h-11 w-11 place-items-center rounded-xl bg-teal-tint text-teal-deep">
-          <span className="font-display text-[1.2rem]">R</span>
-        </div>
+        <LogoMark className="mx-auto h-12 w-12" />
         <h1 id="profile-gate-title" className="mt-4 font-display text-[1.9rem] leading-tight text-ink">
           {view === "add" && profiles.length === 0
             ? "Crie seu perfil"
