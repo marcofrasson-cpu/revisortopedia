@@ -45,6 +45,13 @@ import { topic as instabilidadeCarpo } from "./instabilidade-carpo";
 import { topic as metacarpo } from "./fratura-metacarpo";
 import { topic as falanges } from "./fratura-falanges";
 import { topic as lcuPolegar } from "./lesao-ligamento-colateral-ulnar-polegar";
+import { topic as supracondiliana } from "./fratura-supracondiliana-umero";
+import { topic as antebracoCrianca } from "./fratura-antebraco-crianca";
+import { topic as ddq } from "./displasia-desenvolvimento-quadril";
+import { topic as ecf } from "./epifisiolise-femoral-proximal";
+import { topic as perthes } from "./legg-calve-perthes";
+import { topic as salterHarris } from "./fratura-fisaria-salter-harris";
+import { topic as transicaoTornozelo } from "./fratura-transicao-tornozelo";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -94,4 +101,11 @@ export const topics: Topic[] = [
   metacarpo,
   falanges,
   lcuPolegar,
+  supracondiliana,
+  antebracoCrianca,
+  ddq,
+  ecf,
+  perthes,
+  salterHarris,
+  transicaoTornozelo,
 ];

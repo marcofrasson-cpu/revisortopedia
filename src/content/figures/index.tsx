@@ -76,6 +76,13 @@ import { figures as figInstabilidadeCarpo } from "./instabilidade-carpo";
 import { figures as figMetacarpo } from "./fratura-metacarpo";
 import { figures as figFalanges } from "./fratura-falanges";
 import { figures as figLcuPolegar } from "./lesao-ligamento-colateral-ulnar-polegar";
+import { figures as figSupracondiliana } from "./fratura-supracondiliana-umero";
+import { figures as figAntebracoCrianca } from "./fratura-antebraco-crianca";
+import { figures as figDdq } from "./displasia-desenvolvimento-quadril";
+import { figures as figEcf } from "./epifisiolise-femoral-proximal";
+import { figures as figPerthes } from "./legg-calve-perthes";
+import { figures as figSalterHarris } from "./fratura-fisaria-salter-harris";
+import { figures as figTransicaoTornozelo } from "./fratura-transicao-tornozelo";
 import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
 
 /**
@@ -161,6 +168,13 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figMetacarpo,
   ...figFalanges,
   ...figLcuPolegar,
+  ...figSupracondiliana,
+  ...figAntebracoCrianca,
+  ...figDdq,
+  ...figEcf,
+  ...figPerthes,
+  ...figSalterHarris,
+  ...figTransicaoTornozelo,
   ...figClinicalUpperLimb,
 };
 

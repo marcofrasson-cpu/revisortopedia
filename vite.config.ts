@@ -37,6 +37,10 @@ export default defineConfig({
         globPatterns: ["**/*.{js,css,html,svg,woff2,png,jpg,jpeg,ico,json}"],
         navigateFallback: "index.html",
         cleanupOutdatedCaches: true,
+        // App é offline-first: todo o conteúdo (dados + figuras) entra no
+        // precache. O bundle cresce com os tópicos; elevar o teto mantém tudo
+        // disponível offline. (Code-split por tópico é otimização futura.)
+        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
       },
     }),
   ] as unknown as [],
