@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { allTopics, getTopic } from "../../registry";
+import { allTopics, getTopic } from "../../topicData";
 import { allFlashcards, flashcardsForTopic, flashcardStats } from "..";
 
 describe("flashcard bank", () => {

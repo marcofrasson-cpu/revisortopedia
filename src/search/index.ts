@@ -1,7 +1,8 @@
 import Fuse from "fuse.js";
 import type { IFuseOptions } from "fuse.js";
 import type { Topic, TopicStatus } from "../types/topic";
-import { flattenTree, getTopic } from "../content/registry";
+import { flattenTree } from "../content/registry";
+import { getTopic } from "../content/topicData";
 
 /* ============================================================================
    Client-side fuzzy search over the content tree.

@@ -1,30 +1,23 @@
-import type { RegionNode, Topic, TopicStatus } from "../types/topic";
-import { topics } from "./topics";
+import type { RegionNode, TopicStatus } from "../types/topic";
 import { regions } from "./regions";
 
 /* ============================================================================
-   Content registry — the single source that binds authored topic data to the
-   whole-orthopedics navigation tree, and derives search + prev/next ordering.
+   Content registry — a camada de ÁRVORE. Conhece as regiões, os grupos e as
+   referências de tópico: o suficiente para navegar, buscar por título, montar
+   o breadcrumb e ordenar prev/next.
+
+   Deliberadamente NÃO importa os corpos dos tópicos. Este módulo está no
+   caminho de boot (a NavTree vive no AppShell, montada em toda rota), e o
+   barrel dos 98 tópicos custa ~536 ms de eval + zod. Quem precisa do conteúdo
+   de um tópico usa ./topicData, carregado sob demanda.
    ========================================================================== */
 
-const bySlug = new Map<string, Topic>(topics.map((t) => [t.slug, t]));
-
-export const allTopics: Topic[] = topics;
 export const allRegions: RegionNode[] = regions;
 
-export function getTopic(slug: string): Topic | undefined {
-  return bySlug.get(slug);
-}
-
-export function hasTopic(slug: string): boolean {
-  return bySlug.has(slug);
-}
-
-/** Display status: data presence overrides the tree's declared intent. */
-export function effectiveStatus(slug: string, declared: TopicStatus): TopicStatus {
-  const t = bySlug.get(slug);
-  if (!t) return declared === "complete" ? "planned" : declared;
-  return t.status;
+/** O status vem da árvore. tree-integrity.test.ts garante que todo ref
+    "complete" tem arquivo e que nenhum arquivo ficou fora dela. */
+export function effectiveStatus(_slug: string, declared: TopicStatus): TopicStatus {
+  return declared;
 }
 
 export interface FlatTopic {
@@ -45,7 +38,7 @@ export function flattenTree(): FlatTopic[] {
         out.push({
           slug: ref.slug,
           title: ref.title,
-          status: effectiveStatus(ref.slug, ref.status),
+          status: ref.status,
           regionId: region.id,
           regionTitle: region.title,
           groupTitle: group.title,
@@ -58,6 +51,10 @@ export function flattenTree(): FlatTopic[] {
 
 const flat = flattenTree();
 const readableOrder = flat.filter((t) => t.status === "complete").map((t) => t.slug);
+
+export function hasTopic(slug: string): boolean {
+  return readableOrder.includes(slug);
+}
 
 export function neighbors(slug: string): { prev?: FlatTopic; next?: FlatTopic } {
   const i = readableOrder.indexOf(slug);

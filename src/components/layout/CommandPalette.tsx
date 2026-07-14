@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { searchTopics, allSearchable, type SearchResult } from "../../search";
+import type { SearchResult } from "../../search";
 import { IconSearch, IconArrowRight, IconChevronRight } from "../../ui/icons";
 import { StatusDot, cx } from "../../ui/primitives";
 
@@ -11,6 +11,23 @@ interface Props {
 
 const MAX = 40;
 
+/* O índice de busca lê o corpo dos 98 tópicos (~2,5 MB, ~536 ms de zod). A
+   paleta vive no AppShell, montada em toda rota — importar a busca no topo
+   arrastaria tudo isso para o boot. Carrega no primeiro Cmd+K e fica em cache. */
+type SearchEngine = typeof import("../../search");
+let cached: SearchEngine | undefined;
+let inFlight: Promise<SearchEngine> | undefined;
+
+function loadSearch(): Promise<SearchEngine> {
+  if (!inFlight) {
+    inFlight = import("../../search").then((engine) => {
+      cached = engine;
+      return engine;
+    });
+  }
+  return inFlight;
+}
+
 export default function CommandPalette({ open, onClose }: Props) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
@@ -18,11 +35,25 @@ export default function CommandPalette({ open, onClose }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
+  const [engine, setEngine] = useState<SearchEngine | undefined>(cached);
+
+  useEffect(() => {
+    if (!open || engine) return;
+    let live = true;
+    loadSearch().then((loaded) => {
+      if (live) setEngine(loaded);
+    });
+    return () => {
+      live = false;
+    };
+  }, [open, engine]);
+
   const results = useMemo<SearchResult[]>(() => {
+    if (!engine) return [];
     const q = query.trim();
-    if (!q) return allSearchable().slice(0, MAX);
-    return searchTopics(q).slice(0, MAX);
-  }, [query]);
+    if (!q) return engine.allSearchable().slice(0, MAX);
+    return engine.searchTopics(q).slice(0, MAX);
+  }, [engine, query]);
 
   // Reset state whenever the palette opens.
   useEffect(() => {

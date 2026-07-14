@@ -1,7 +1,7 @@
 import type { Question, QuestionOption } from "../../types/question";
 import type { Topic } from "../../types/topic";
 import { defineQuestions } from "../../types/question";
-import { allTopics } from "../registry";
+import { allTopics } from "../topicData";
 
 /* Questões originais de fixação em formato de melhor resposta. A construção
    usa somente relações já revisadas no conteúdo (fato, classificação, técnica

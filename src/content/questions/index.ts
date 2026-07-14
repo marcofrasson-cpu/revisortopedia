@@ -1,7 +1,8 @@
 import type { Question } from "../../types/question";
 import { membroInferiorQuestions } from "./membro-inferior";
 import { generatedQuestions } from "./generated";
-import { allRegions, getTopic } from "../registry";
+import { allRegions } from "../registry";
+import { getTopic } from "../topicData";
 
 /* Registro de questões. Um novo bloco = um arquivo novo + uma linha aqui. */
 

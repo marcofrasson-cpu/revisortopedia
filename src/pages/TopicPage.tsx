@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import TopicView from "../components/topic/TopicView";
-import { getTopic, locate } from "../content/registry";
+import { locate } from "../content/registry";
+import { getTopic } from "../content/topicData";
 import { useUserState } from "../store/useUserState";
 import { Eyebrow, StatusDot } from "../ui/primitives";
 import { IconArrowRight, IconChevronLeft, IconSearch } from "../ui/icons";

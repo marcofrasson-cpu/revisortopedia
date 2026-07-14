@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { allRegions, effectiveStatus, getTopic, locate, stats } from "../content/registry";
+import { allRegions, effectiveStatus, locate, stats } from "../content/registry";
 import { useUserState } from "../store/useUserState";
 import { Eyebrow, StatusDot } from "../ui/primitives";
 import { IconArrowRight, IconLayers, IconChevronRight } from "../ui/icons";
@@ -44,7 +44,6 @@ export default function HomePage() {
   const regionsRef = useRef<HTMLDivElement>(null);
   const lastRead = useUserState((s) => s.lastRead);
 
-  const resumeTopic = lastRead ? getTopic(lastRead.slug) : undefined;
   const resumeFlat = lastRead ? locate(lastRead.slug) : undefined;
   const coverage = stats.topicsPlanned
     ? Math.round((stats.topicsComplete / stats.topicsPlanned) * 100)
@@ -102,7 +101,7 @@ export default function HomePage() {
             >
               <span className="eyebrow shrink-0">Retomar</span>
               <span className="min-w-0 truncate text-[0.88rem] text-ink">
-                {resumeTopic?.title ?? resumeFlat.title}
+                {resumeFlat.title}
               </span>
               <IconChevronRight className="h-4 w-4 shrink-0 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal" />
             </Link>

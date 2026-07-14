@@ -1,7 +1,8 @@
 import type { Flashcard } from "../../types/flashcard";
 import type { Topic } from "../../types/topic";
 import { defineFlashcards } from "../../types/flashcard";
-import { allRegions, allTopics, getTopic } from "../registry";
+import { allRegions } from "../registry";
+import { allTopics, getTopic } from "../topicData";
 
 function reference(topic: Topic): string {
   return topic.meta.sources.slice(0, 2).join(" · ") || `Resumo: ${topic.title}`;

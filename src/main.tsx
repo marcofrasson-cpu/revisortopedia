@@ -1,8 +1,12 @@
 import "@fontsource-variable/newsreader";
 import "@fontsource-variable/hanken-grotesk";
-import "@fontsource/ibm-plex-mono/400.css";
-import "@fontsource/ibm-plex-mono/500.css";
-import "@fontsource/ibm-plex-mono/600.css";
+/* Só o latim: o pacote completo traz cirílico, cirílico estendido e vietnamita,
+   que este manual em pt-BR nunca renderiza mas o PWA precacheava assim mesmo.
+   O subset latino cobre todo acento do português (U+0000-00FF) e a pontuação
+   tipográfica (U+2000-206F, onde vive o travessão dos eyebrows). */
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-500.css";
+import "@fontsource/ibm-plex-mono/latin-600.css";
 import "./index.css";
 
 import { StrictMode } from "react";

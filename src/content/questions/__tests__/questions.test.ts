@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { allQuestions, questionsForTopic } from "../index";
-import { allTopics, getTopic } from "../../registry";
+import { allTopics, getTopic } from "../../topicData";
 
 describe("question bank integrity", () => {
   const qs = allQuestions();
