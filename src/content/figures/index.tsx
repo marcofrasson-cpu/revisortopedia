@@ -54,6 +54,8 @@ import { figures as figQuintoMetatarso } from "./fratura-quinto-metatarso";
 import { figures as figTendinopatiaAquiles } from "./tendinopatia-aquiles";
 import { figures as figLisfranc } from "./lesao-lisfranc";
 import { figures as figTendoesFibulares } from "./lesao-tendoes-fibulares";
+import { figures as figTibialPosterior } from "./ruptura-tendao-tibial-posterior";
+import { figures as figTibialPosteriorPcfd } from "./ruptura-tendao-tibial-posterior/pcfd-current";
 
 // Membro superior — barris de figuras por tópico (ids prefixados por slug).
 import { figures as figFraturaClavicula } from "./fratura-clavicula";
@@ -120,6 +122,9 @@ import { figures as figLesaoLabralBankart } from "./lesao-labral-bankart";
 import { figures as figInstabilidadeLateralTornozelo } from "./instabilidade-lateral-tornozelo";
 import { figures as figClinicalSports } from "./clinical-sports";
 
+// Tumores & metástases.
+import { figures as figTumorPrinciples } from "./tumor-principles";
+
 /**
  * Registro de figuras: id canônico -> componente React.FC<FigureProps>.
  * O conteúdo referencia estes ids (e variants) de forma estável.
@@ -181,6 +186,8 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figTendinopatiaAquiles,
   ...figLisfranc,
   ...figTendoesFibulares,
+  ...figTibialPosterior,
+  ...figTibialPosteriorPcfd,
 
   // ── Membro superior (ids já prefixados por slug dentro de cada barril) ───
   ...figFraturaClavicula,
@@ -246,6 +253,9 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figLesaoLabralBankart,
   ...figInstabilidadeLateralTornozelo,
   ...figClinicalSports,
+
+  // ── Tumores & metástases ───────────────────────────────────────────────
+  ...figTumorPrinciples,
 };
 
 /** Resolve um id de figura; ids desconhecidos caem no placeholder. */

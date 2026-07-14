@@ -86,7 +86,7 @@ export const regions: RegionNode[] = [
     title: "Membro inferior",
     tag: "MI",
     blurb:
-      "Da pelve ao pé: carga, alinhamento e a pinça do tornozelo. Região com o tópico-semente completo.",
+      "Da pelve ao pé: carga, alinhamento, partes moles e reconstrução articular.",
     groups: [
       {
         id: "mi-pelve-acetabulo",

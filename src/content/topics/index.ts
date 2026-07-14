@@ -23,6 +23,8 @@ import { topic as quintoMetatarso } from "./fratura-quinto-metatarso";
 import { topic as tendinopatiaAquiles } from "./tendinopatia-aquiles";
 import { topic as lisfranc } from "./lesao-lisfranc";
 import { topic as tendoesFibulares } from "./lesao-tendoes-fibulares";
+import { topic as fraturaPilao } from "./fratura-pilao";
+import { topic as tibialPosterior } from "./ruptura-tendao-tibial-posterior";
 
 // Membro superior — topicos autorados.
 import { topic as fraturaClavicula } from "./fratura-clavicula";
@@ -89,6 +91,10 @@ import { topic as lesaoLabralBankart } from "./lesao-labral-bankart";
 import { topic as instabilidadeLateralTornozelo } from "./instabilidade-lateral-tornozelo";
 import { topic as rupturaTendaoCalcaneo } from "./ruptura-tendao-calcaneo";
 
+// Tumores & metástases — princípios de investigação e estadiamento.
+import { topic as biopsiaLesaoOssea } from "./biopsia-lesao-ossea";
+import { topic as estadiamentoEnneking } from "./estadiamento-enneking";
+
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
    a partir daqui; um tópico novo é um arquivo de dados novo + uma linha aqui.
@@ -117,6 +123,8 @@ export const topics: Topic[] = [
   tendinopatiaAquiles,
   lisfranc,
   tendoesFibulares,
+  fraturaPilao,
+  tibialPosterior,
   fraturaClavicula,
   luxacaoAcromioclavicular,
   luxacaoGlenoumeralAnterior,
@@ -176,4 +184,6 @@ export const topics: Topic[] = [
   lesaoLabralBankart,
   instabilidadeLateralTornozelo,
   rupturaTendaoCalcaneo,
+  biopsiaLesaoOssea,
+  estadiamentoEnneking,
 ];

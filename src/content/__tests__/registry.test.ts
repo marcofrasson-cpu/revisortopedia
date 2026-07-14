@@ -34,6 +34,24 @@ describe("flattenTree", () => {
     expect(sports).toHaveLength(7);
     expect(sports.every((topic) => topic.status === "complete")).toBe(true);
   });
+
+  it("publishes the full lower-limb section", () => {
+    const lowerLimb = flat.filter((topic) => topic.regionId === "membro-inferior");
+
+    expect(lowerLimb).toHaveLength(24);
+    expect(lowerLimb.every((topic) => topic.status === "complete")).toBe(true);
+  });
+
+  it("publishes the tumor investigation and staging foundations", () => {
+    const foundations = flat.filter(
+      (topic) =>
+        topic.regionId === "tumores-e-metastases" &&
+        topic.groupTitle === "Princípios & estadiamento",
+    );
+
+    expect(foundations).toHaveLength(2);
+    expect(foundations.every((topic) => topic.status === "complete")).toBe(true);
+  });
 });
 
 describe("neighbors", () => {
