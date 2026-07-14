@@ -33,6 +33,18 @@ import { topic as fraturaUmeroProximal } from "./fratura-umero-proximal";
 import { topic as fraturaUmeroDistal } from "./fratura-umero-distal";
 import { topic as fraturaDiafiseUmeral } from "./fratura-diafise-umeral";
 import { topic as fraturaCabecaRadial } from "./fratura-cabeca-radial";
+import { topic as fraturaOlecrano } from "./fratura-olecrano";
+import { topic as luxacaoCotovelo } from "./luxacao-cotovelo";
+import { topic as triadeTerrivel } from "./triade-terrivel-cotovelo";
+import { topic as diafiseRadioUlna } from "./fratura-diafise-radio-ulna";
+import { topic as galeazzi } from "./fratura-galeazzi";
+import { topic as monteggia } from "./fratura-monteggia";
+import { topic as radioDistal } from "./fratura-radio-distal";
+import { topic as escafoide } from "./fratura-escafoide";
+import { topic as instabilidadeCarpo } from "./instabilidade-carpo";
+import { topic as metacarpo } from "./fratura-metacarpo";
+import { topic as falanges } from "./fratura-falanges";
+import { topic as lcuPolegar } from "./lesao-ligamento-colateral-ulnar-polegar";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -70,4 +82,16 @@ export const topics: Topic[] = [
   fraturaUmeroDistal,
   fraturaDiafiseUmeral,
   fraturaCabecaRadial,
+  fraturaOlecrano,
+  luxacaoCotovelo,
+  triadeTerrivel,
+  diafiseRadioUlna,
+  galeazzi,
+  monteggia,
+  radioDistal,
+  escafoide,
+  instabilidadeCarpo,
+  metacarpo,
+  falanges,
+  lcuPolegar,
 ];

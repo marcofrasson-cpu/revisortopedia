@@ -64,6 +64,18 @@ import { figures as figFraturaUmeroProximal } from "./fratura-umero-proximal";
 import { figures as figFraturaUmeroDistal } from "./fratura-umero-distal";
 import { figures as figFraturaDiafiseUmeral } from "./fratura-diafise-umeral";
 import { figures as figFraturaCabecaRadial } from "./fratura-cabeca-radial";
+import { figures as figOlecrano } from "./fratura-olecrano";
+import { figures as figLuxacaoCotovelo } from "./luxacao-cotovelo";
+import { figures as figTriadeTerrivel } from "./triade-terrivel-cotovelo";
+import { figures as figDiafiseRadioUlna } from "./fratura-diafise-radio-ulna";
+import { figures as figGaleazzi } from "./fratura-galeazzi";
+import { figures as figMonteggia } from "./fratura-monteggia";
+import { figures as figRadioDistal } from "./fratura-radio-distal";
+import { figures as figEscafoide } from "./fratura-escafoide";
+import { figures as figInstabilidadeCarpo } from "./instabilidade-carpo";
+import { figures as figMetacarpo } from "./fratura-metacarpo";
+import { figures as figFalanges } from "./fratura-falanges";
+import { figures as figLcuPolegar } from "./lesao-ligamento-colateral-ulnar-polegar";
 import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
 
 /**
@@ -137,6 +149,18 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figFraturaUmeroDistal,
   ...figFraturaDiafiseUmeral,
   ...figFraturaCabecaRadial,
+  ...figOlecrano,
+  ...figLuxacaoCotovelo,
+  ...figTriadeTerrivel,
+  ...figDiafiseRadioUlna,
+  ...figGaleazzi,
+  ...figMonteggia,
+  ...figRadioDistal,
+  ...figEscafoide,
+  ...figInstabilidadeCarpo,
+  ...figMetacarpo,
+  ...figFalanges,
+  ...figLcuPolegar,
   ...figClinicalUpperLimb,
 };
 
