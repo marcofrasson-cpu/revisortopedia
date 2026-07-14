@@ -12,8 +12,16 @@ export interface CardProgress {
 const DAY = 24 * 60 * 60 * 1000;
 const TEN_MINUTES = 10 * 60 * 1000;
 
+/* Teto de 5 anos: além de um ciclo de TEOT o cartão já está consolidado, e sem
+   teto os múltiplos sucessivos de "Fácil" chegam a intervalos de séculos. */
+export const MAX_INTERVAL_DAYS = 1825;
+
 function clampEase(value: number): number {
   return Math.max(1.3, Math.min(3.2, Math.round(value * 100) / 100));
+}
+
+function clampInterval(days: number): number {
+  return Math.min(MAX_INTERVAL_DAYS, days);
 }
 
 export function scheduleReview(
@@ -46,7 +54,9 @@ export function scheduleReview(
   if (current.repetitions === 0 || current.intervalDays === 0) {
     intervalDays = rating === "hard" ? 1 : rating === "good" ? 3 : 7;
   } else if (rating === "hard") {
-    intervalDays = Math.max(1, Math.round(current.intervalDays * 1.2));
+    /* O +1 garante avanço: com o fator 1.2 sozinho, round(1 * 1.2) volta a 1 e o
+       cartão fica preso em um dia para sempre. */
+    intervalDays = Math.max(current.intervalDays + 1, Math.round(current.intervalDays * 1.2));
     ease = clampEase(ease - 0.15);
   } else if (rating === "good") {
     intervalDays = Math.max(3, Math.round(current.intervalDays * ease));
@@ -54,6 +64,7 @@ export function scheduleReview(
     intervalDays = Math.max(7, Math.round(current.intervalDays * ease * 1.3));
     ease = clampEase(ease + 0.15);
   }
+  intervalDays = clampInterval(intervalDays);
 
   return {
     dueAt: now + intervalDays * DAY,

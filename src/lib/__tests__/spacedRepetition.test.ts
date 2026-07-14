@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { dailyCardIds, isDue, previewInterval, scheduleReview } from "../spacedRepetition";
+import {
+  dailyCardIds,
+  isDue,
+  MAX_INTERVAL_DAYS,
+  previewInterval,
+  scheduleReview,
+} from "../spacedRepetition";
 
 const NOW = Date.UTC(2026, 6, 14, 12);
 const DAY = 24 * 60 * 60 * 1000;
@@ -37,5 +43,29 @@ describe("spaced repetition", () => {
   it("provides compact interval labels for the rating controls", () => {
     expect(previewInterval(undefined, "again", NOW)).toBe("10 min");
     expect(previewInterval(undefined, "good", NOW)).toBe("3 dias");
+  });
+
+  it("keeps growing the interval of a card rated hard every time", () => {
+    // Um cartão sempre difícil ainda precisa se afastar: se o intervalo estagna,
+    // o cartão que o residente mais erra volta todo dia para sempre.
+    let card = scheduleReview(undefined, "hard", NOW);
+    let at = NOW;
+    for (let review = 0; review < 8; review += 1) {
+      const previous = card;
+      at += card.intervalDays * DAY;
+      card = scheduleReview(card, "hard", at);
+      expect(card.intervalDays).toBeGreaterThan(previous.intervalDays);
+    }
+  });
+
+  it("caps the interval so a card never leaves the deck for a lifetime", () => {
+    let card = scheduleReview(undefined, "easy", NOW);
+    let at = NOW;
+    for (let review = 0; review < 12; review += 1) {
+      at += card.intervalDays * DAY;
+      card = scheduleReview(card, "easy", at);
+    }
+    expect(card.intervalDays).toBeLessThanOrEqual(MAX_INTERVAL_DAYS);
+    expect(card.dueAt).toBeLessThanOrEqual(at + MAX_INTERVAL_DAYS * DAY);
   });
 });
