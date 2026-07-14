@@ -20,8 +20,19 @@ import { useQuizStats } from "../store/useQuizStats";
 import { useFlashcardStats } from "../store/useFlashcardStats";
 import QuizRunner from "../components/study/QuizRunner";
 import FlashcardRunner from "../components/study/FlashcardRunner";
-import { Eyebrow, cx } from "../ui/primitives";
+import { cx } from "../ui/primitives";
 import { IconArrowRight, IconChevronDown, IconLayers } from "../ui/icons";
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function plural(count: number, one: string, many: string): string {
+  return `${count} ${count === 1 ? one : many}`;
+}
+
+function nextDueLabel(dueAt: number, now: number): string {
+  const days = Math.ceil((dueAt - now) / DAY_MS);
+  return days <= 1 ? "amanhã" : `em ${days} dias`;
+}
 
 type Mode = "questions" | "flashcards";
 type Scope =
@@ -96,6 +107,19 @@ export default function StudyPage() {
   const reviewedDue = cards.filter((card) => cardProgress[card.id] && isDue(cardProgress[card.id], now)).length;
   const seenCards = Object.keys(cardProgress).length;
   const newCards = cards.length - seenCards;
+  // Cartão agendado mais próximo — só existe quando nada está vencido agora.
+  const nextDueAt = cards.reduce<number | null>((soonest, card) => {
+    const dueAt = cardProgress[card.id]?.dueAt;
+    if (dueAt === undefined || dueAt <= now) return soonest;
+    return soonest === null || dueAt < soonest ? dueAt : soonest;
+  }, null);
+  // Só entra no subtítulo o balde que tem cartão — "0 vencidos" não é informação.
+  const dailySubtitle = [
+    reviewedDue > 0 && plural(reviewedDue, "vencido", "vencidos"),
+    newCards > 0 && `até ${plural(Math.min(20, newCards), "novo", "novos")}`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
   const wrong = wrongIds();
   const questionRegions = regionsWithQuestions();
 
@@ -127,9 +151,8 @@ export default function StudyPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
-      <Eyebrow>Modo estudo · pt-BR</Eyebrow>
-      <h1 className="mt-3 font-display text-[2.2rem] leading-tight text-ink sm:text-[2.6rem]">
-        Estudo ativo
+      <h1 className="font-display text-[2.2rem] leading-tight text-ink sm:text-[2.6rem]">
+        Estudo
       </h1>
 
       <div className="mt-5 inline-grid grid-cols-2 rounded-lg border border-line bg-surface-2 p-1">
@@ -221,16 +244,35 @@ export default function StudyPage() {
           </div>
 
           <div className="mt-8 space-y-3">
-            <ScopeCard
-              title="Revisão de hoje"
-              subtitle={`${reviewedDue} vencidos · até ${Math.min(20, newCards)} novos`}
-              count={dailyCards.length}
-              tone="primary"
-              onClick={() => setScope({ mode: "flashcards", title: "Revisão de hoje", cards: dailyCards })}
-            />
+            {dailyCards.length === 0 ? (
+              <div className="panel border-teal/50 bg-teal-tint/30 px-5 py-4">
+                <p className="text-[1rem] font-medium text-ink">Revisão de hoje concluída</p>
+                <p className="mt-0.5 text-[0.85rem] text-muted">
+                  {nextDueAt === null
+                    ? "Nenhum cartão vencido e nenhum cartão novo à espera."
+                    : `Nenhum cartão vencido. Os próximos voltam ${nextDueLabel(nextDueAt, now)}.`}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setMode("questions")}
+                  className="mt-3 inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-2 text-[0.85rem] font-medium text-ink-soft transition-colors hover:bg-surface-2 hover:text-ink"
+                >
+                  Treinar questões
+                  <IconArrowRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            ) : (
+              <ScopeCard
+                title="Revisão de hoje"
+                subtitle={dailySubtitle}
+                count={dailyCards.length}
+                tone="primary"
+                onClick={() => setScope({ mode: "flashcards", title: "Revisão de hoje", cards: dailyCards })}
+              />
+            )}
             <ScopeCard
               title="Todos os flashcards"
-              subtitle="Banco completo dos 98 tópicos"
+              subtitle="Banco completo, embaralhado"
               count={flashcardStats.total}
               onClick={() => setScope({ mode: "flashcards", title: "Todos os flashcards", cards })}
             />

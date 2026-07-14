@@ -6,7 +6,12 @@ import FigurePanel from "./FigurePanel";
 import { altFor, captionFor, kindFor, sourceFor } from "./figureMeta";
 
 /* Stepper da técnica passo a passo. Mantém texto, figura e alertas do passo
-   juntos no fluxo editorial. Teclado ← / →. */
+   juntos no fluxo editorial. Teclado ← / →.
+
+   Foco: o container é controle de teclado real, então não leva outline-none —
+   fica com o foco padrão do app (:focus-visible em index.css, 2px de teal
+   sólido: 4.31:1 no claro, 8.94:1 no escuro). O rounded-2xl abaixo é utility,
+   vence o border-radius do @layer base e mantém o outline no raio do painel. */
 export default function Stepper({
   steps,
   topic,
@@ -34,11 +39,15 @@ export default function Stepper({
           go(-1);
         }
       }}
-      className="mt-5 rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-teal/50"
+      className="mt-5 rounded-2xl"
     >
       {/* progress track */}
       <div className="mb-4 flex items-center gap-2">
-        <div className="flex flex-1 flex-wrap gap-1.5">
+        {/* gap-2.5 (10px) não é decorativo: com o alvo de 44px do pseudo-elemento
+            abaixo (-inset-2 sobre 28px), um gap menor faria o alvo de um passo
+            cobrir os pixels visíveis do passo vizinho. 10px deixa a sobreposição
+            inteira dentro do vão, fora dos chips. */}
+        <div className="flex flex-1 flex-wrap gap-2.5">
           {steps.map((s, idx) => {
             const done = idx < i;
             const on = idx === i;
@@ -50,7 +59,9 @@ export default function Stepper({
                 aria-current={on ? "step" : undefined}
                 onClick={() => setI(idx)}
                 className={cx(
-                  "code flex h-7 w-7 items-center justify-center rounded-md border text-[0.72rem] transition-colors",
+                  // o chip continua com 28px; o pseudo-elemento estende o alvo
+                  // de toque para 44px (28 + 8 de cada lado) sem mudar o visual
+                  "code relative flex h-7 w-7 items-center justify-center rounded-md border text-[0.72rem] transition-colors before:absolute before:-inset-2 before:content-['']",
                   on
                     ? "border-teal bg-teal text-surface"
                     : done

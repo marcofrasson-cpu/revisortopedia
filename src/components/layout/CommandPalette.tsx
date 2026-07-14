@@ -161,9 +161,26 @@ export default function CommandPalette({ open, onClose }: Props) {
           className="max-h-[52vh] overflow-y-auto p-2"
         >
           {results.length === 0 && (
-            <li className="px-3 py-10 text-center text-[0.88rem] text-muted">
-              Nenhum tópico para{" "}
-              <span className="text-ink-soft">“{query.trim()}”</span>.
+            <li role="presentation" className="px-3 py-10 text-center">
+              <p className="text-[0.88rem] text-muted">
+                Nenhum tópico para{" "}
+                <span className="text-ink-soft">“{query.trim()}”</span>.
+              </p>
+              <p className="mx-auto mt-1 max-w-xs text-[0.8rem] leading-relaxed text-muted">
+                A busca cobre título, osso e classificação — tente o nome da fratura ou da
+                região.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery("");
+                  inputRef.current?.focus();
+                }}
+                className="mt-4 inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-[0.82rem] font-medium text-ink-soft transition-colors hover:bg-surface-2 hover:text-ink"
+              >
+                Ver todos os tópicos
+                <IconArrowRight className="h-3.5 w-3.5" />
+              </button>
             </li>
           )}
 

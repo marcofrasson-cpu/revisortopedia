@@ -31,14 +31,14 @@ describe("flattenTree", () => {
   it("publishes the full sports and arthroscopy section", () => {
     const sports = flat.filter((topic) => topic.regionId === "esportiva-artroscopia");
 
-    expect(sports).toHaveLength(7);
+    expect(sports).toHaveLength(5);
     expect(sports.every((topic) => topic.status === "complete")).toBe(true);
   });
 
   it("publishes the full lower-limb section", () => {
     const lowerLimb = flat.filter((topic) => topic.regionId === "membro-inferior");
 
-    expect(lowerLimb).toHaveLength(24);
+    expect(lowerLimb).toHaveLength(23);
     expect(lowerLimb.every((topic) => topic.status === "complete")).toBe(true);
   });
 
@@ -53,8 +53,8 @@ describe("flattenTree", () => {
     expect(foundations.every((topic) => topic.status === "complete")).toBe(true);
   });
 
-  it("publishes the complete 98-topic framework", () => {
-    expect(flat).toHaveLength(98);
+  it("publishes the complete 95-topic framework", () => {
+    expect(flat).toHaveLength(95);
     expect(flat.every((topic) => topic.status === "complete")).toBe(true);
   });
 });
@@ -81,7 +81,7 @@ describe("stats", () => {
   });
 
   it("reports full editorial coverage", () => {
-    expect(stats.topicsPlanned).toBe(98);
-    expect(stats.topicsComplete).toBe(98);
+    expect(stats.topicsPlanned).toBe(95);
+    expect(stats.topicsComplete).toBe(95);
   });
 });

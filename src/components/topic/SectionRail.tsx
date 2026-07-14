@@ -1,6 +1,7 @@
 import type { SectionKey, TopicKind } from "../../types/topic";
 import { SECTIONS } from "../../types/topic";
 import { sectionCopy } from "../../content/sectionCopy";
+import { scrollBehavior } from "../../lib/motion";
 import { cx } from "../../ui/primitives";
 
 /* Trilha de seções — tira horizontal sticky com scroll-spy. Numerada porque a
@@ -21,7 +22,7 @@ export default function SectionRail({
   }));
 
   const go = (key: string) => {
-    document.getElementById(`sec-${key}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById(`sec-${key}`)?.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
   };
 
   return (

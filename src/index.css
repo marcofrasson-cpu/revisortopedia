@@ -207,6 +207,37 @@
     --app-sticky-top: 0px;
   }
 
+  /* Atalho de teclado para o <main>. Fica no fluxo de foco (não usa
+     display/visibility), apenas estacionado fora da viewport por transform.
+     O deslocamento é maior que a própria altura + o offset do topo para
+     continuar escondido mesmo com safe-area-inset alto (iPhone em paisagem).
+     z-index acima do header (40), do drawer (50) e do overlay de resize (60). */
+  .skip-link {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
+    left: 0.75rem;
+    z-index: 70;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: var(--shadow-panel);
+    color: var(--teal-deep);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transform: translateY(calc(-100% - 6rem));
+    transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* :focus, não :focus-visible — só se alcança por teclado, e alguns
+     leitores de tela focam sem disparar a heurística do :focus-visible. */
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
   .app-header {
     position: fixed;
     inset: 0 0 auto;
@@ -447,7 +478,13 @@
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+    /* Sem zerar os delays, encurtar a duração não basta: a animação/transição
+       continua esperando o delay antes de saltar para o estado final. O delay
+       negativo faz a animação já nascer terminada (ex.: .fx-line, que tem
+       0.15s no shorthand). */
+    animation-delay: -1ms !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
   .fx-line {

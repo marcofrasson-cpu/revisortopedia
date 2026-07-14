@@ -149,7 +149,7 @@ export default function NavTree({ onCollapse }: { onCollapse?: () => void }) {
       {/* pt no desktop = padding de topo do conteúdo (48px), para o primeiro
           item da barra alinhar com a primeira linha do hero/tópico. */}
       <nav
-        aria-label="Regiões e tópicos"
+        aria-label="Framework ortopédico"
         className="flex-1 overflow-y-auto px-2.5 pb-4 pt-4 lg:pt-12"
       >
         <div className="flex items-center justify-between gap-2 px-2 pb-2">
@@ -158,8 +158,8 @@ export default function NavTree({ onCollapse }: { onCollapse?: () => void }) {
             <button
               type="button"
               onClick={onCollapse}
-              aria-label="Recolher barra de topografias"
-              title="Recolher barra de topografias"
+              aria-label="Recolher framework ortopédico"
+              title="Recolher framework ortopédico"
               className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-muted transition-colors hover:bg-surface-2 hover:text-ink"
             >
               <IconChevronLeft className="h-4 w-4" />

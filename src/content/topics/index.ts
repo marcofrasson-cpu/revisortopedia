@@ -23,7 +23,6 @@ import { topic as quintoMetatarso } from "./fratura-quinto-metatarso";
 import { topic as tendinopatiaAquiles } from "./tendinopatia-aquiles";
 import { topic as lisfranc } from "./lesao-lisfranc";
 import { topic as tendoesFibulares } from "./lesao-tendoes-fibulares";
-import { topic as fraturaPilao } from "./fratura-pilao";
 import { topic as tibialPosterior } from "./ruptura-tendao-tibial-posterior";
 
 // Membro superior — topicos autorados.
@@ -88,11 +87,9 @@ import { topic as traumaRaquimedular } from "./trauma-raquimedular";
 // Esportiva & artroscopia — lesões ligamentares e retorno ao esporte.
 import { topic as lesaoLca } from "./lesao-lca";
 import { topic as lesaoMeniscal } from "./lesao-meniscal";
-import { topic as lesaoMultiligamentarJoelho } from "./lesao-multiligamentar-joelho";
 import { topic as lesaoManguitoRotador } from "./lesao-manguito-rotador";
 import { topic as lesaoLabralBankart } from "./lesao-labral-bankart";
 import { topic as instabilidadeLateralTornozelo } from "./instabilidade-lateral-tornozelo";
-import { topic as rupturaTendaoCalcaneo } from "./ruptura-tendao-calcaneo";
 
 // Tumores & metástases — princípios de investigação e estadiamento.
 import { topic as biopsiaLesaoOssea } from "./biopsia-lesao-ossea";
@@ -138,7 +135,6 @@ export const topics: Topic[] = [
   tendinopatiaAquiles,
   lisfranc,
   tendoesFibulares,
-  fraturaPilao,
   tibialPosterior,
   fraturaClavicula,
   luxacaoAcromioclavicular,
@@ -197,11 +193,9 @@ export const topics: Topic[] = [
   traumaRaquimedular,
   lesaoLca,
   lesaoMeniscal,
-  lesaoMultiligamentarJoelho,
   lesaoManguitoRotador,
   lesaoLabralBankart,
   instabilidadeLateralTornozelo,
-  rupturaTendaoCalcaneo,
   biopsiaLesaoOssea,
   estadiamentoEnneking,
   osteossarcoma,

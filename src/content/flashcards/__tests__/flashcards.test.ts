@@ -6,8 +6,8 @@ describe("flashcard bank", () => {
   const cards = allFlashcards();
 
   it("covers every complete topic with a useful package", () => {
-    expect(allTopics).toHaveLength(98);
-    expect(flashcardStats.topics).toBe(98);
+    expect(allTopics).toHaveLength(95);
+    expect(flashcardStats.topics).toBe(95);
     for (const topic of allTopics) {
       expect(flashcardsForTopic(topic.slug).length, topic.slug).toBeGreaterThanOrEqual(10);
     }

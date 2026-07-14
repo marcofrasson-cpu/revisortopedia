@@ -29,7 +29,7 @@ describe("question bank integrity", () => {
   });
 
   it("provides a complete four-question package for every topic", () => {
-    expect(allTopics).toHaveLength(98);
+    expect(allTopics).toHaveLength(95);
     for (const topic of allTopics) {
       expect(questionsForTopic(topic.slug).length, topic.slug).toBeGreaterThanOrEqual(4);
     }

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { allRegions, effectiveStatus, locate, stats } from "../content/registry";
 import { useUserState } from "../store/useUserState";
+import { scrollBehavior } from "../lib/motion";
 import { Eyebrow, StatusDot } from "../ui/primitives";
 import { IconArrowRight, IconLayers, IconChevronRight } from "../ui/icons";
 
@@ -50,7 +51,7 @@ export default function HomePage() {
     : 0;
 
   const scrollToRegions = () =>
-    regionsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    regionsRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -136,7 +136,6 @@ export const regions: RegionNode[] = [
         topics: [
           { slug: "fratura-maleolar-tornozelo", title: "Fratura maleolar do tornozelo", status: "complete" },
           { slug: "lesao-sindesmose-isolada", title: "Lesão isolada da sindesmose", status: "complete" },
-          { slug: "fratura-pilao", title: "Fratura do pilão", status: "complete" },
           { slug: "fratura-estresse-maleolo-medial", title: "Fratura por estresse do maléolo medial", status: "complete" },
         ],
       },
@@ -351,7 +350,6 @@ export const regions: RegionNode[] = [
         topics: [
           { slug: "lesao-lca", title: "Lesão do ligamento cruzado anterior", status: "complete" },
           { slug: "lesao-meniscal", title: "Lesão meniscal", status: "complete" },
-          { slug: "lesao-multiligamentar-joelho", title: "Lesão multiligamentar do joelho", status: "complete" },
         ],
       },
       {
@@ -367,7 +365,6 @@ export const regions: RegionNode[] = [
         title: "Tornozelo & pé",
         topics: [
           { slug: "instabilidade-lateral-tornozelo", title: "Instabilidade lateral do tornozelo", status: "complete" },
-          { slug: "ruptura-tendao-calcaneo", title: "Ruptura do tendão calcâneo", status: "complete" },
         ],
       },
     ],

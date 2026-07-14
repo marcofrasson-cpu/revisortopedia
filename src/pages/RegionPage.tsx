@@ -7,8 +7,9 @@ import { IconArrowRight, IconChevronRight } from "../ui/icons";
 function TopicCard({ ref }: { ref: TopicRef }) {
   const status = effectiveStatus(ref.slug, ref.status);
   const navigable = status !== "planned";
-  const statusLabel =
-    status === "complete" ? "Completo" : status === "stub" ? "Esboço" : "Planejado";
+  // O StatusDot já rotula "conteúdo completo" no title/aria — escrever "Completo"
+  // ao lado repetiria o mesmo sinal. Só o que foge do completo ganha texto.
+  const statusLabel = status === "stub" ? "Esboço" : status === "planned" ? "Planejado" : null;
 
   const body = (
     <>
@@ -17,9 +18,9 @@ function TopicCard({ ref }: { ref: TopicRef }) {
         <StatusDot status={status} />
       </div>
       <div className="mt-3 flex items-center justify-between">
-        <span className="eyebrow text-[0.6rem]">{statusLabel}</span>
+        {statusLabel && <span className="eyebrow text-[0.6rem]">{statusLabel}</span>}
         {navigable && (
-          <IconArrowRight className="h-4 w-4 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal" />
+          <IconArrowRight className="ml-auto h-4 w-4 text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal" />
         )}
       </div>
     </>

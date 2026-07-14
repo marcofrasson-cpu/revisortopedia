@@ -33,7 +33,7 @@ describe("NavTree", () => {
   it("exposes the compact-sidebar control when requested by the shell", () => {
     const onCollapse = vi.fn();
     renderTree("/", onCollapse);
-    fireEvent.click(screen.getByRole("button", { name: "Recolher barra de topografias" }));
+    fireEvent.click(screen.getByRole("button", { name: "Recolher framework ortopédico" }));
     expect(onCollapse).toHaveBeenCalledOnce();
   });
 });

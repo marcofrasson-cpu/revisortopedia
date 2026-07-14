@@ -8,7 +8,7 @@ export default function NotFoundPage() {
   return (
     <div className="mx-auto grid min-h-[70dvh] max-w-2xl place-items-center px-6 py-16 text-center">
       <div>
-        <Eyebrow className="justify-center">Erro 404 · rota não localizada</Eyebrow>
+        <Eyebrow className="justify-center">Erro 404 · página não encontrada</Eyebrow>
 
         <div className="my-6 flex justify-center" aria-hidden="true">
           <svg viewBox="0 0 120 90" className="h-28 w-40 text-line-strong" fill="none">

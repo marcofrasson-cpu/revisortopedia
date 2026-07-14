@@ -120,7 +120,11 @@ export default function QuizRunner({
                   setRevealed(false);
                   setAnswers([]);
                 }}
-                className="inline-flex items-center gap-2 rounded-lg bg-cortical/90 px-4 py-2.5 text-[0.9rem] font-medium text-surface transition-colors hover:bg-cortical"
+                /* cortical sólido: a 90% o texto ficava em 4.37:1 no tema
+                   escuro (5.09:1 a 100%). O hover é um halo em vez de um tom
+                   mais escuro porque não existe token cortical-deep — e baixar
+                   a opacidade no hover recriaria o mesmo problema. */
+                className="inline-flex items-center gap-2 rounded-lg bg-cortical px-4 py-2.5 text-[0.9rem] font-medium text-surface transition-shadow hover:ring-2 hover:ring-cortical/40"
               >
                 Refazer as {wrongQs.length} erradas
               </button>
@@ -130,7 +134,7 @@ export default function QuizRunner({
               onClick={onExit}
               className="inline-flex items-center gap-2 rounded-lg bg-teal px-4 py-2.5 text-[0.9rem] font-medium text-surface transition-colors hover:bg-teal-deep"
             >
-              Escolher outro bloco
+              Voltar ao estudo
               <IconArrowRight className="h-4 w-4" />
             </button>
           </div>
@@ -188,7 +192,7 @@ export default function QuizRunner({
           onClick={onExit}
           className="shrink-0 rounded-lg border border-line px-3 py-1.5 text-[0.78rem] text-muted transition-colors hover:bg-surface-2 hover:text-ink"
         >
-          Sair
+          Voltar ao estudo
         </button>
       </div>
 

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { PointerEvent as ReactPointerEvent } from "react";
+import type { MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import TopBar from "./TopBar";
 import NavTree from "./NavTree";
@@ -31,6 +31,15 @@ export default function AppShell() {
   const closePalette = useCallback(() => setPaletteOpen(false), []);
 
   const drawerCloseRef = useRef<HTMLButtonElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
+
+  // O href aponta para o <main> só pela semântica de link: sob HashRouter o
+  // hash É a rota, então deixar o browser segui-lo trocaria a página. Movemos
+  // o foco à mão; focar já rola o alvo à vista.
+  const skipToContent = useCallback((e: ReactMouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    mainRef.current?.focus();
+  }, []);
 
   // Fecha o drawer a cada mudança de rota.
   useEffect(() => {
@@ -192,6 +201,12 @@ export default function AppShell() {
       className="app-shell min-h-dvh bg-bg text-ink"
       data-header-hidden={headerHidden ? "true" : "false"}
     >
+      {/* Primeiro focável do documento — sem ele o teclado atravessa os 98
+          tópicos da NavTree antes de chegar ao conteúdo, em toda rota. */}
+      <a href="#conteudo" onClick={skipToContent} className="skip-link">
+        Pular para o conteúdo
+      </a>
+
       <TopBar
         onOpenSearch={openPalette}
         onOpenMenu={() => setNavOpen(true)}
@@ -267,7 +282,7 @@ export default function AppShell() {
         </aside>
 
         {/* Conteúdo central */}
-        <main className="min-w-0 flex-1">
+        <main id="conteudo" ref={mainRef} tabIndex={-1} className="min-w-0 flex-1">
           <Outlet />
         </main>
       </div>
