@@ -82,6 +82,12 @@ import { topic as fraturaInsuficienciaSacral } from "./fratura-insuficiencia-sac
 
 // Esportiva & artroscopia — lesões ligamentares e retorno ao esporte.
 import { topic as lesaoLca } from "./lesao-lca";
+import { topic as lesaoMeniscal } from "./lesao-meniscal";
+import { topic as lesaoMultiligamentarJoelho } from "./lesao-multiligamentar-joelho";
+import { topic as lesaoManguitoRotador } from "./lesao-manguito-rotador";
+import { topic as lesaoLabralBankart } from "./lesao-labral-bankart";
+import { topic as instabilidadeLateralTornozelo } from "./instabilidade-lateral-tornozelo";
+import { topic as rupturaTendaoCalcaneo } from "./ruptura-tendao-calcaneo";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -164,4 +170,10 @@ export const topics: Topic[] = [
   fraturaSacro,
   fraturaInsuficienciaSacral,
   lesaoLca,
+  lesaoMeniscal,
+  lesaoMultiligamentarJoelho,
+  lesaoManguitoRotador,
+  lesaoLabralBankart,
+  instabilidadeLateralTornozelo,
+  rupturaTendaoCalcaneo,
 ];

@@ -114,6 +114,11 @@ import { figures as figFraturaInsuficienciaSacral } from "./fratura-insuficienci
 
 // Esportiva & artroscopia.
 import { figures as figLesaoLca } from "./lesao-lca";
+import { figures as figLesaoMeniscal } from "./lesao-meniscal";
+import { figures as figLesaoManguitoRotador } from "./lesao-manguito-rotador";
+import { figures as figLesaoLabralBankart } from "./lesao-labral-bankart";
+import { figures as figInstabilidadeLateralTornozelo } from "./instabilidade-lateral-tornozelo";
+import { figures as figClinicalSports } from "./clinical-sports";
 
 /**
  * Registro de figuras: id canônico -> componente React.FC<FigureProps>.
@@ -236,6 +241,11 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
 
   // ── Esportiva & artroscopia ─────────────────────────────────────────────
   ...figLesaoLca,
+  ...figLesaoMeniscal,
+  ...figLesaoManguitoRotador,
+  ...figLesaoLabralBankart,
+  ...figInstabilidadeLateralTornozelo,
+  ...figClinicalSports,
 };
 
 /** Resolve um id de figura; ids desconhecidos caem no placeholder. */

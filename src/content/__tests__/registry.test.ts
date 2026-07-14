@@ -27,6 +27,13 @@ describe("flattenTree", () => {
     expect(ankle, `"${ANKLE}" must be present in the tree`).toBeDefined();
     expect(ankle?.status).toBe("complete");
   });
+
+  it("publishes the full sports and arthroscopy section", () => {
+    const sports = flat.filter((topic) => topic.regionId === "esportiva-artroscopia");
+
+    expect(sports).toHaveLength(7);
+    expect(sports.every((topic) => topic.status === "complete")).toBe(true);
+  });
 });
 
 describe("neighbors", () => {

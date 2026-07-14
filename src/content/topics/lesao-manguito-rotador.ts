@@ -1,0 +1,155 @@
+import { defineTopic } from "../../types/topic";
+
+export const topic = defineTopic({
+  id: "esp-ombro-lesao-manguito-rotador",
+  slug: "lesao-manguito-rotador",
+  kind: "condicao",
+  regionId: "esportiva-artroscopia",
+  bone: "Ombro",
+  injury: "Lesão do manguito rotador",
+  title: "Lesão do manguito rotador",
+  subtitle:
+    "Integrar mecanismo, força, reparabilidade e demanda para escolher entre reabilitação, reparo anatômico e procedimentos de salvamento.",
+  laterality: null,
+  status: "complete",
+  overview:
+    "O manguito rotador centraliza a cabeça do úmero e transforma a força dos músculos escapuloumerais em elevação e rotação eficientes. Suas rupturas variam de lesão parcial assintomática a ruptura traumática aguda com pseudoparesia, ou ruptura crônica extensa com infiltração gordurosa e artropatia. A presença de uma ruptura na imagem não define sozinha a origem da dor nem obriga reparo.\n\nA avaliação combina história, amplitude ativa e passiva, força por tendão, função escapular e radiografias. Ultrassonografia e ressonância definem espessura, tamanho, retração, atrofia, infiltração gordurosa e bíceps. Perda ativa de elevação com amplitude passiva preservada sugere falha mecânica relevante; rigidez global aponta para cápsula ou artrose associada.\n\nRuptura pequena degenerativa em paciente mais velho costuma iniciar com educação, analgesia e reabilitação. Trauma agudo em paciente ativo, progressão documentada, fraqueza incapacitante ou falha de tratamento bem conduzido favorecem reparo. A literatura não é contraditória quando as populações são separadas: alguns ensaios mostram equivalência em rupturas pequenas não traumáticas de idosos, enquanto outro demonstra vantagem crescente do reparo em rupturas pequenas e médias ao longo de dez anos.",
+  keyFacts: [
+    { label: "Função", value: "Centralizar a cabeça umeral e equilibrar o deltoide" },
+    { label: "Mais comum", value: "Supraespinal na inserção anterior" },
+    { label: "Urgência relativa", value: "Trauma agudo + fraqueza/pseudoparesia" },
+    { label: "Reparabilidade", value: "Retração, atrofia e infiltração gordurosa" },
+    { label: "Primeira linha", value: "Reabilitação na ruptura degenerativa selecionada" },
+    { label: "Princípio", value: "Reparo sem tensão e proteção biológica" },
+  ],
+  anatomy: {
+    text:
+      "O subescapular insere-se no tubérculo menor e produz rotação interna; o supraespinal ocupa a faceta superior do tubérculo maior e inicia/assiste a elevação; infraespinal e redondo menor ocupam facetas média e inferior e produzem rotação externa. A cápsula e os tendões formam uma unidade contínua ao redor da cabeça. O intervalo dos rotadores contém porção intra-articular do bíceps, ligamento coracoumeral e ligamento glenoumeral superior.\n\nNo plano transversal, subescapular e infraespinal formam um par de forças que centraliza a cabeça contra a glenoide. No plano coronal, o manguito deprime a cabeça enquanto o deltoide eleva o braço. Rupturas extensas rompem esses pares e permitem migração superior. O cabo rotador distribui tensão ao redor de uma área central mais fina; algumas rupturas em crescente preservam melhor a mecânica que rupturas em L ou U com retração.\n\nA irrigação e a qualidade do tendão pioram com idade, tabagismo, diabetes e cronicidade. O nervo supraescapular pode sofrer tração em retrações grandes. A longa porção do bíceps é fonte frequente de dor e deve ser avaliada junto do subescapular e da polia bicipital.",
+    figureIds: ["lesao-manguito-rotador:anatomia", "lesao-manguito-rotador:rm-clinica", "lesao-manguito-rotador:pares-forca"],
+  },
+  classification: [
+    {
+      id: "espessura-tamanho",
+      name: "Espessura e tamanho",
+      basis: "Profundidade nas parciais e maior diâmetro nas rupturas completas.",
+      types: [
+        { code: "Ellman I", label: "Parcial < 3 mm", description: "Menos de 25% da espessura; tratar inicialmente fatores de carga e reabilitação.", figureId: "lesao-manguito-rotador:padroes", figureVariant: "parcial-baixa" },
+        { code: "Ellman II", label: "Parcial 3–6 mm", description: "Cerca de 25–50% da espessura; decisão depende de sintomas e resposta ao tratamento.", figureId: "lesao-manguito-rotador:padroes", figureVariant: "parcial-media" },
+        { code: "Ellman III", label: "Parcial > 6 mm", description: "Mais de 50% da espessura; reparo ganha força após falha conservadora.", figureId: "lesao-manguito-rotador:padroes", figureVariant: "parcial-alta" },
+        { code: "Pequena", label: "Completa < 1 cm", description: "Defeito pequeno, em geral reparável com baixa tensão.", figureId: "lesao-manguito-rotador:padroes", figureVariant: "pequena" },
+        { code: "Média", label: "1–3 cm", description: "Reparabilidade geralmente boa, modulada por retração e qualidade muscular.", figureId: "lesao-manguito-rotador:padroes", figureVariant: "media" },
+        { code: "Grande/maciça", label: "> 3 cm ou ≥ 2 tendões", description: "Avaliar retração, infiltração gordurosa, migração superior e preservação dos pares de força.", figureId: "lesao-manguito-rotador:padroes", figureVariant: "macica" },
+      ],
+    },
+  ],
+  indications: {
+    operative: [
+      "Ruptura traumática aguda completa com perda de força em paciente ativo.",
+      "Pseudoparesia com tendão reparável e sem artropatia avançada.",
+      "Dor e limitação persistentes após programa estruturado de reabilitação.",
+      "Progressão de ruptura, atrofia ou infiltração gordurosa em paciente com demanda funcional.",
+      "Ruptura parcial de alta espessura sintomática após falha do tratamento conservador.",
+    ],
+    nonOperative: [
+      "Ruptura degenerativa pequena ou média com força funcional preservada.",
+      "Paciente de baixa demanda ou com alto risco clínico.",
+      "Ruptura irreparável compensada, sem pseudoparesia ou artropatia dolorosa avançada.",
+      "Fase inicial de dor subacromial sem correlação clara entre imagem e sintomas.",
+    ],
+    decisionNotes:
+      "A indicação deve registrar trauma, dominância, profissão/esporte, força, reparabilidade e expectativa. Em ruptura aguda traumática, retardar muitos meses permite retração e degeneração muscular. Em ruptura degenerativa pequena de paciente mais velho, reabilitação é razoável e não significa abandono: acompanhar força, dor e eventual progressão. Descompressão subacromial isolada não trata ruptura e não oferece benefício clinicamente relevante para dor subacromial inespecífica. Ruptura maciça irreparável exige algoritmo próprio: debridamento/bíceps, reparo parcial, transferência tendínea, reconstrução capsular ou artroplastia reversa conforme idade, artrose e padrão de déficit.",
+  },
+  approaches: [
+    {
+      id: "portais-artroscopicos-ombro",
+      name: "Portais posterior, anterior e lateral",
+      indication: "Inventário glenoumeral, avaliação do bíceps/subescapular e reparo no espaço subacromial.",
+      interval: "Portal posterior de visão; portal anterior pelo intervalo dos rotadores; portais laterais sob localização com agulha para trabalhar perpendicularmente à tuberosidade maior.",
+      atRisk: ["Nervo axilar em portais laterais distais", "Cartilagem na entrada anterior", "Nervo musculocutâneo medial ao coracoide"],
+      figureId: "lesao-manguito-rotador:reparo",
+    },
+  ],
+  technique: [
+    { n: 1, title: "Confirmar padrão e reparabilidade", detail: "Rever trauma, força por tendão, radiografias e RM/US. Definir tamanho, retração, atrofia, infiltração gordurosa, artrose e bíceps. Planejar alternativas antes da artroscopia.", figureId: "lesao-manguito-rotador:imagem", tips: ["Correlacionar imagem com déficit específico"], pitfalls: ["Prometer reparo anatômico de tendão cronicamente irreparável"] },
+    { n: 2, title: "Inventariar articulação e tratar geradores associados", detail: "Avaliar subescapular, polia e bíceps, labrum e cartilagem. Reparar subescapular quando indicado e decidir tenotomia ou tenodese do bíceps conforme idade, demanda e lesão.", figureId: "lesao-manguito-rotador:anatomia", tips: ["Inspecionar a face articular do supraespinal"], pitfalls: ["Ignorar subescapular superior e instabilidade do bíceps"] },
+    { n: 3, title: "Mobilizar sem desnervar", detail: "Realizar bursectomia suficiente para visualizar o padrão. Liberar aderências superficiais e capsulares de forma progressiva, preservando tecidos e evitando tração excessiva sobre nervo supraescapular.", figureId: "lesao-manguito-rotador:padroes", tips: ["Reconhecer crescente, L, L reverso ou U antes de escolher suturas"], pitfalls: ["Forçar cobertura completa sob tensão excessiva"] },
+    { n: 4, title: "Preparar a inserção", detail: "Remover tecido inviável e criar superfície sangrante na tuberosidade sem enfraquecer osso subcondral. Preservar cartilagem lateral e posicionar âncoras conforme qualidade óssea e configuração.", figureId: "lesao-manguito-rotador:reparo", tips: ["Preparar só a área que receberá tendão"], pitfalls: ["Medializar excessivamente ou remover osso demais"] },
+    { n: 5, title: "Reduzir o tendão com configuração adequada", detail: "Passar suturas que controlem margens anterior e posterior e restaurem o cabo. Fileira simples ou dupla deve obter contato estável sem estrangular tecido; convergência de margens reduz tensão em U ou L.", figureId: "lesao-manguito-rotador:reparo", tips: ["Testar redução com pinça antes de fixar"], pitfalls: ["Buscar dupla fileira quando ela aumenta tensão e piora biologia"] },
+    { n: 6, title: "Confirmar equilíbrio e iniciar proteção", detail: "Verificar estabilidade em rotação, ausência de conflito e integridade das suturas. Documentar tendões, qualidade, tensão e procedimento do bíceps para individualizar a reabilitação.", figureId: "lesao-manguito-rotador:reabilitacao", tips: ["Comunicar se o reparo foi pequeno, grande ou parcial"], pitfalls: ["Protocolo agressivo em ruptura grande ou tecido frágil"] },
+  ],
+  postop: {
+    immobilization: "Tipoia com almofada de abdução por cerca de 4–6 semanas, ajustada ao tamanho, tensão e qualidade do reparo.",
+    weightBearing: "Sem apoio, elevação ativa ou carga com o membro operado durante a proteção inicial. Movimento de mão, punho e cotovelo é incentivado.",
+    rehab: [
+      { window: "0-6 semanas", weightBearing: "Sem carga", focus: "Proteção, controle de dor, mobilidade passiva segura e manutenção distal." },
+      { window: "6-12 semanas", weightBearing: "Sem resistência relevante", focus: "Transição para movimento ativo, ritmo escapuloumeral e amplitude sem compensação." },
+      { window: "3-5 meses", weightBearing: "Resistência progressiva", focus: "Força do manguito, escápula e cadeia cinética; evitar dor reativa." },
+      { window: "5-9 meses", weightBearing: "Gestos específicos", focus: "Potência, resistência e retorno gradual ao trabalho ou esporte acima da cabeça." },
+    ],
+    followup: "Monitorar dor, amplitude ativa/passiva, força e compensação escapular. Rigidez inicial controlada não implica falha. Perda súbita de força após trauma exige reavaliação; imagem de controle deve responder a uma pergunta clínica.",
+  },
+  complications: [
+    { name: "Nova ruptura ou falha de cicatrização", detail: "Risco cresce com idade, tamanho, retração, infiltração gordurosa e tabagismo.", prevention: "Indicação realista, reparo sem tensão e proteção adequada." },
+    { name: "Rigidez", detail: "Dor e perda de amplitude após imobilização ou resposta capsular.", prevention: "Mobilidade passiva segura e progressão individualizada." },
+    { name: "Dor persistente", detail: "Pode decorrer de bíceps, rigidez, artrose, sensibilização ou falha estrutural.", prevention: "Diagnóstico amplo e expectativas claras." },
+    { name: "Lesão do nervo axilar ou supraescapular", detail: "Associada a portais distais ou liberação medial agressiva.", prevention: "Anatomia, localização com agulha e limites seguros de liberação." },
+  ],
+  evidence: [
+    {
+      id: "moosmayer-2019",
+      claim: "Em ruptura pequena ou média até 3 cm, o seguimento randomizado de dez anos mostrou resultados superiores do reparo e aumento progressivo das rupturas não reparadas.",
+      takeaway: "No paciente reparável e com expectativa longa, a diferença pode crescer com o tempo.",
+      level: "I",
+      studyType: "Seguimento de ensaio clínico randomizado",
+      era: "atual",
+      citation: { authors: "Moosmayer S, Lund G, Seljom US, et al.", title: "At a 10-Year Follow-up, Tendon Repair Is Superior to Physiotherapy in the Treatment of Small and Medium-Sized Rotator Cuff Tears", journal: "The Journal of Bone and Joint Surgery. American Volume", year: 2019, pmid: "31220021", doi: "10.2106/JBJS.18.01373" },
+    },
+    {
+      id: "kukkonen-2021",
+      claim: "Em pacientes acima de 55 anos com ruptura pequena não traumática isolada do supraespinal, reparo não foi superior ao tratamento conservador após mais de cinco anos.",
+      takeaway: "Ruptura degenerativa pequena no idoso pode iniciar com reabilitação e acompanhamento.",
+      level: "I",
+      studyType: "Ensaio clínico randomizado",
+      era: "atual",
+      citation: { authors: "Kukkonen J, Ryösä A, Joukainen A, et al.", title: "Operative versus conservative treatment of small, nontraumatic supraspinatus tears in patients older than 55 years: over 5-year follow-up of a randomized controlled trial", journal: "Journal of Shoulder and Elbow Surgery", year: 2021, pmid: "33774172", doi: "10.1016/j.jse.2021.03.133" },
+    },
+    {
+      id: "csaw-2018",
+      claim: "No CSAW, descompressão subacromial não ofereceu benefício clinicamente importante sobre artroscopia placebo para dor subacromial.",
+      takeaway: "Acromioplastia isolada não deve substituir diagnóstico, reabilitação ou reparo indicado.",
+      level: "I",
+      studyType: "Ensaio cirúrgico randomizado controlado por placebo",
+      era: "atual",
+      citation: { authors: "Beard DJ, Rees JL, Cook JA, et al.; CSAW Study Group", title: "Arthroscopic subacromial decompression for subacromial shoulder pain (CSAW): a multicentre, pragmatic, parallel group, placebo-controlled, three-group, randomised surgical trial", journal: "The Lancet", year: 2018, pmid: "29169668", doi: "10.1016/S0140-6736(17)32457-1" },
+    },
+  ],
+  pearls: [
+    "Separar amplitude ativa da passiva diferencia falha do manguito de rigidez.",
+    "Avaliar subescapular e bíceps em toda ruptura do supraespinal.",
+    "Reparabilidade depende mais de retração e músculo que do diâmetro isolado.",
+    "Contato sem tensão vale mais que uma construção complexa sob grande tensão.",
+    "Descompressão isolada não corrige ruptura nem dor subacromial inespecífica.",
+  ],
+  pitfalls: [
+    "Tratar toda ruptura de imagem como causa da dor.",
+    "Atrasar ruptura traumática com fraqueza até tornar o tendão irreparável.",
+    "Ignorar lesão do subescapular e instabilidade da longa porção do bíceps.",
+    "Forçar cobertura anatômica de ruptura maciça sob tensão excessiva.",
+    "Liberar fortalecimento precoce em reparo grande ou tecido ruim.",
+  ],
+  figures: [
+    { id: "lesao-manguito-rotador:anatomia", caption: "Quatro tendões do manguito e relação com a longa porção do bíceps.", alt: "Vista anterior e posterior do ombro com subescapular, supraespinal, infraespinal e redondo menor.", kind: "diagram" },
+    { id: "lesao-manguito-rotador:rm-clinica", caption: "Ressonância sagital mostrando ruptura transfixante e retração do supraespinal.", alt: "Ressonância magnética sagital do ombro com ruptura completa do tendão supraespinal.", kind: "mri", source: { label: "RSatUSZ / University Hospital Zurich / Wikimedia Commons", url: "https://commons.wikimedia.org/wiki/File:2_MRI._Complete_tear_and_rupture_of_the_supraspinatus_tendon._Wide_transmural_damage_(2.4_x_2.4_cm)..jpg", license: "CC BY-SA 3.0" } },
+    { id: "lesao-manguito-rotador:pares-forca", caption: "Pares de força centralizam a cabeça umeral nos planos coronal e transversal.", alt: "Vetores do deltoide, subescapular e infraespinal equilibrando a cabeça do úmero.", kind: "diagram" },
+    { id: "lesao-manguito-rotador:padroes", caption: "Profundidade, tamanho, retração e configuração definem reparabilidade.", alt: "Rupturas parcial, completa, em crescente, em L e em U do manguito rotador.", kind: "diagram" },
+    { id: "lesao-manguito-rotador:imagem", caption: "Leitura dirigida da RM: tendão, retração, músculo, bíceps e artrose.", alt: "Cortes esquemáticos de ressonância do ombro com ruptura e atrofia do manguito.", kind: "diagram" },
+    { id: "lesao-manguito-rotador:reparo", caption: "Mobilização, preparação da inserção e reparo sem tensão excessiva.", alt: "Etapas artroscópicas do reparo do manguito com âncoras e suturas.", kind: "diagram" },
+    { id: "lesao-manguito-rotador:reabilitacao", caption: "Proteção biológica e progressão de movimento, força e gesto esportivo.", alt: "Linha do tempo da reabilitação após reparo do manguito rotador.", kind: "diagram" },
+  ],
+  meta: {
+    lastReviewed: "2026-07-14",
+    sources: ["Moosmayer et al., JBJS 2019", "Kukkonen et al., JSES 2021", "CSAW, Lancet 2018"],
+    attribution: "Conteúdo original em português brasileiro; evidências verificadas no PubMed e diagramas próprios.",
+    figureReference: "Campbell's Operative Orthopaedics, 14a ed. (2021), seção de lesões do manguito rotador.",
+  },
+});
