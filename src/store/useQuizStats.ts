@@ -29,9 +29,12 @@ export const useQuizStats = create<QuizStore>((setState, getState) => {
   const persist = () => {
     const pid = getState().profileId;
     if (!pid || !getState().hydrated) return;
+    /* Fotografa a carga junto com o perfil dono dela — ler getState() dentro do
+       timer gravava o estado do perfil ativo dali a 200 ms na chave do anterior. */
+    const results = getState().results;
     clearTimeout(persistTimer);
     persistTimer = setTimeout(() => {
-      void idbSet(quizKey(pid), getState().results).catch(() => {});
+      void idbSet(quizKey(pid), results).catch(() => {});
     }, 200);
   };
 

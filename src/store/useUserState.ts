@@ -22,9 +22,13 @@ export const useUserState = create<UserStore>((set, get) => {
   const persist = () => {
     const pid = get().profileId;
     if (!pid || !get().hydrated) return; // não grava antes de carregar o perfil
+    /* A carga é fotografada junto com o perfil dono dela. Lê-la dentro do timer
+       gravaria o estado de quem estiver ativo daqui a 250 ms na chave de quem
+       estava ativo agora — e como hydrate() zera o estado, trocar de perfil na
+       janela do debounce apagava os favoritos do perfil anterior. */
+    const { bookmarks, notes, recent, lastRead } = get();
     clearTimeout(persistTimer);
     persistTimer = setTimeout(() => {
-      const { bookmarks, notes, recent, lastRead } = get();
       void saveUserState(pid, { bookmarks, notes, recent, lastRead });
     }, 250);
   };
