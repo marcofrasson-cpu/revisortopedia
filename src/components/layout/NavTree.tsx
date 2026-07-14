@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import type { RegionNode, TopicRef } from "../../types/topic";
-import { allRegions, effectiveStatus, locate, stats } from "../../content/registry";
+import { allRegions, effectiveStatus, locate } from "../../content/registry";
 import { IconChevronDown, IconChevronLeft } from "../../ui/icons";
 import { StatusDot, cx } from "../../ui/primitives";
 
@@ -179,26 +179,12 @@ export default function NavTree({ onCollapse }: { onCollapse?: () => void }) {
         </ul>
       </nav>
 
+      {/* A barra de cobertura saiu daqui: o framework está completo, então ela
+          ficava cravada em 100% em toda página, para sempre — medindo o progresso
+          de um trabalho que acabou. A home mostra a base de evidências no lugar. */}
       <div className="shrink-0 border-t border-line px-4 py-3">
-        <div className="flex items-center justify-between text-[0.72rem]">
-          <span className="eyebrow">Cobertura</span>
-          <span className="code text-muted">
-            <span className="text-teal-deep">{stats.topicsComplete}</span>
-            {" / "}
-            {stats.topicsPlanned}
-          </span>
-        </div>
-        <div className="mt-2 h-1 overflow-hidden rounded-full bg-surface-2">
-          <div
-            className="h-full rounded-full bg-teal"
-            style={{
-              width: `${stats.topicsPlanned ? (stats.topicsComplete / stats.topicsPlanned) * 100 : 0}%`,
-            }}
-          />
-        </div>
-
         <div
-          className="mt-3 flex items-center justify-between gap-2 rounded-md border px-2.5 py-2"
+          className="flex items-center justify-between gap-2 rounded-md border px-2.5 py-2"
           style={{
             borderColor: "var(--pill-border)",
             backgroundImage: "linear-gradient(to bottom, var(--pill-bg1), var(--pill-bg2))",

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { allRegions, effectiveStatus, locate, stats } from "../content/registry";
 import { useUserState } from "../store/useUserState";
+import EvidenceSpine from "../components/home/EvidenceSpine";
 import { scrollBehavior } from "../lib/motion";
 import { Eyebrow, StatusDot } from "../ui/primitives";
 import { IconArrowRight, IconLayers, IconChevronRight } from "../ui/icons";
@@ -46,9 +47,6 @@ export default function HomePage() {
   const lastRead = useUserState((s) => s.lastRead);
 
   const resumeFlat = lastRead ? locate(lastRead.slug) : undefined;
-  const coverage = stats.topicsPlanned
-    ? Math.round((stats.topicsComplete / stats.topicsPlanned) * 100)
-    : 0;
 
   const scrollToRegions = () =>
     regionsRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
@@ -59,10 +57,10 @@ export default function HomePage() {
       <section className="py-8 sm:py-10 lg:py-12">
         <div className="max-w-5xl min-w-0">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <Eyebrow className="shrink-0">Referência ortopédica · pt-BR</Eyebrow>
+            <Eyebrow className="shrink-0">Referência ortopédica</Eyebrow>
             <span aria-hidden="true" className="text-[0.72rem] text-line-strong">·</span>
             <span className="code shrink-0 text-[0.68rem] text-muted">
-              {stats.topicsComplete} / {stats.topicsPlanned} completos
+              {stats.topicsComplete} tópicos
             </span>
           </div>
 
@@ -110,72 +108,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Faixa de estatísticas */}
-      <section
-        aria-label="Cobertura do conteúdo"
-        className="py-5 sm:py-6"
-      >
-        <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
-          {[
-            {
-              n: stats.regions,
-              label: "Regiões anatômicas",
-              detail: "Mapa topográfico",
-            },
-            {
-              n: stats.topicsPlanned,
-              label: "Tópicos no framework",
-              detail: "Escopo editorial",
-            },
-            {
-              n: stats.topicsComplete,
-              label: "Tópicos completos",
-              detail: `${coverage}% da base`,
-              progress: coverage,
-            },
-          ].map((metric) => (
-            <div
-              key={metric.label}
-              className={`panel relative min-h-[124px] overflow-hidden p-4 sm:p-5 ${
-                metric.progress !== undefined ? "border-teal/40" : ""
-              }`}
-            >
-              <span
-                aria-hidden="true"
-                className={`absolute inset-x-0 top-0 h-0.5 ${
-                  metric.progress !== undefined ? "bg-teal" : "bg-line-strong"
-                }`}
-              />
-              <dt className="eyebrow text-[0.58rem] sm:text-[0.62rem]">
-                {metric.label}
-              </dt>
-              <dd className="mt-4 flex items-end justify-between gap-3">
-                <span className="font-display text-[2.45rem] leading-none text-ink sm:text-[2.7rem]">
-                  {metric.n}
-                </span>
-                <span className="code pb-1 text-right text-[0.64rem] text-muted">
-                  {metric.detail}
-                </span>
-              </dd>
-              {metric.progress !== undefined && (
-                <div
-                  className="mt-4 h-1 overflow-hidden rounded-full bg-surface-2"
-                  role="progressbar"
-                  aria-label="Cobertura dos tópicos"
-                  aria-valuenow={metric.progress}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                >
-                  <div
-                    className="h-full rounded-full bg-teal"
-                    style={{ width: `${metric.progress}%` }}
-                  />
-                </div>
-              )}
-            </div>
-          ))}
-        </dl>
-      </section>
+      <EvidenceSpine />
 
       {/* Grade de regiões */}
       <section ref={regionsRef} className="scroll-mt-24 py-10 sm:py-12">
