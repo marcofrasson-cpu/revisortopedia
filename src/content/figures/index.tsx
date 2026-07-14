@@ -83,6 +83,9 @@ import { figures as figEcf } from "./epifisiolise-femoral-proximal";
 import { figures as figPerthes } from "./legg-calve-perthes";
 import { figures as figSalterHarris } from "./fratura-fisaria-salter-harris";
 import { figures as figTransicaoTornozelo } from "./fratura-transicao-tornozelo";
+import { figures as figPerilunar } from "./luxacao-perilunar";
+import { figures as figKienbock } from "./kienbock";
+import { figures as figRizartrose } from "./rizartrose";
 import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
 
 /**
@@ -175,6 +178,9 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figPerthes,
   ...figSalterHarris,
   ...figTransicaoTornozelo,
+  ...figPerilunar,
+  ...figKienbock,
+  ...figRizartrose,
   ...figClinicalUpperLimb,
 };
 

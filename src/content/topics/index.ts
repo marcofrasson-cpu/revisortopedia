@@ -52,6 +52,9 @@ import { topic as ecf } from "./epifisiolise-femoral-proximal";
 import { topic as perthes } from "./legg-calve-perthes";
 import { topic as salterHarris } from "./fratura-fisaria-salter-harris";
 import { topic as transicaoTornozelo } from "./fratura-transicao-tornozelo";
+import { topic as perilunar } from "./luxacao-perilunar";
+import { topic as kienbock } from "./kienbock";
+import { topic as rizartrose } from "./rizartrose";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -108,4 +111,7 @@ export const topics: Topic[] = [
   perthes,
   salterHarris,
   transicaoTornozelo,
+  perilunar,
+  kienbock,
+  rizartrose,
 ];

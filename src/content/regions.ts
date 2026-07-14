@@ -70,6 +70,15 @@ export const regions: RegionNode[] = [
           { slug: "lesao-ligamento-colateral-ulnar-polegar", title: "Lesão do ligamento colateral ulnar do polegar", status: "planned" },
         ],
       },
+      {
+        id: "ms-punho-mao-nao-trauma",
+        title: "Punho & mão — não traumático",
+        topics: [
+          { slug: "luxacao-perilunar", title: "Luxação perilunar do carpo", status: "planned" },
+          { slug: "kienbock", title: "Doença de Kienböck", status: "planned" },
+          { slug: "rizartrose", title: "Rizartrose (artrose trapézio-metacarpiana)", status: "planned" },
+        ],
+      },
     ],
   },
   {
