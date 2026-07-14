@@ -55,6 +55,16 @@ import { topic as transicaoTornozelo } from "./fratura-transicao-tornozelo";
 import { topic as perilunar } from "./luxacao-perilunar";
 import { topic as kienbock } from "./kienbock";
 import { topic as rizartrose } from "./rizartrose";
+import { topic as condiloLateral } from "./fratura-condilo-lateral-umero";
+import { topic as epicondiloMedial } from "./fratura-epicondilo-medial";
+import { topic as monteggiaCrianca } from "./monteggia-crianca";
+import { topic as peTorto } from "./pe-torto-congenito";
+import { topic as metatarsoAduto } from "./metatarso-aduto";
+import { topic as blount } from "./deformidades-angulares-blount";
+import { topic as coloFemoralCrianca } from "./fratura-colo-femoral-crianca";
+import { topic as coxaVara } from "./coxa-vara";
+import { topic as paralisiaBraquial } from "./paralisia-braquial-obstetrica";
+import { topic as torcicolo } from "./torcicolo-muscular-congenito";
 
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
@@ -114,4 +124,14 @@ export const topics: Topic[] = [
   perilunar,
   kienbock,
   rizartrose,
+  condiloLateral,
+  epicondiloMedial,
+  monteggiaCrianca,
+  peTorto,
+  metatarsoAduto,
+  blount,
+  coloFemoralCrianca,
+  coxaVara,
+  paralisiaBraquial,
+  torcicolo,
 ];

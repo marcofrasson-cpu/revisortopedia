@@ -209,7 +209,11 @@ export const regions: RegionNode[] = [
         title: "Membro superior",
         topics: [
           { slug: "fratura-supracondiliana-umero", title: "Fratura supracondiliana do úmero", status: "planned" },
+          { slug: "fratura-condilo-lateral-umero", title: "Fratura do côndilo lateral do úmero", status: "planned" },
+          { slug: "fratura-epicondilo-medial", title: "Fratura do epicôndilo medial", status: "planned" },
           { slug: "fratura-antebraco-crianca", title: "Fratura do antebraço na criança", status: "planned" },
+          { slug: "monteggia-crianca", title: "Monteggia na criança", status: "planned" },
+          { slug: "paralisia-braquial-obstetrica", title: "Paralisia braquial obstétrica", status: "planned" },
         ],
       },
       {
@@ -219,6 +223,8 @@ export const regions: RegionNode[] = [
           { slug: "displasia-desenvolvimento-quadril", title: "Displasia do desenvolvimento do quadril", status: "planned" },
           { slug: "epifisiolise-femoral-proximal", title: "Epifisiólise femoral proximal", status: "planned" },
           { slug: "legg-calve-perthes", title: "Doença de Legg-Calvé-Perthes", status: "planned" },
+          { slug: "fratura-colo-femoral-crianca", title: "Fratura do colo femoral na criança", status: "planned" },
+          { slug: "coxa-vara", title: "Coxa vara do desenvolvimento", status: "planned" },
         ],
       },
       {
@@ -227,6 +233,22 @@ export const regions: RegionNode[] = [
         topics: [
           { slug: "fratura-fisaria-salter-harris", title: "Fratura fisária (Salter-Harris)", status: "planned" },
           { slug: "fratura-transicao-tornozelo", title: "Fraturas de transição do tornozelo", status: "planned" },
+          { slug: "deformidades-angulares-blount", title: "Deformidades angulares e doença de Blount", status: "planned" },
+        ],
+      },
+      {
+        id: "ped-pe",
+        title: "Pé",
+        topics: [
+          { slug: "pe-torto-congenito", title: "Pé torto congênito", status: "planned" },
+          { slug: "metatarso-aduto", title: "Metatarso aduto", status: "planned" },
+        ],
+      },
+      {
+        id: "ped-desenvolvimento",
+        title: "Desenvolvimento",
+        topics: [
+          { slug: "torcicolo-muscular-congenito", title: "Torcicolo muscular congênito", status: "planned" },
         ],
       },
     ],

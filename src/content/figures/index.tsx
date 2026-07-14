@@ -86,6 +86,16 @@ import { figures as figTransicaoTornozelo } from "./fratura-transicao-tornozelo"
 import { figures as figPerilunar } from "./luxacao-perilunar";
 import { figures as figKienbock } from "./kienbock";
 import { figures as figRizartrose } from "./rizartrose";
+import { figures as figCondiloLateral } from "./fratura-condilo-lateral-umero";
+import { figures as figEpicondiloMedial } from "./fratura-epicondilo-medial";
+import { figures as figMonteggiaCrianca } from "./monteggia-crianca";
+import { figures as figPeTorto } from "./pe-torto-congenito";
+import { figures as figMetatarsoAduto } from "./metatarso-aduto";
+import { figures as figBlount } from "./deformidades-angulares-blount";
+import { figures as figColoFemoralCrianca } from "./fratura-colo-femoral-crianca";
+import { figures as figCoxaVara } from "./coxa-vara";
+import { figures as figParalisiaBraquial } from "./paralisia-braquial-obstetrica";
+import { figures as figTorcicolo } from "./torcicolo-muscular-congenito";
 import { figures as figClinicalUpperLimb } from "./clinical-upper-limb";
 
 /**
@@ -181,6 +191,16 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figPerilunar,
   ...figKienbock,
   ...figRizartrose,
+  ...figCondiloLateral,
+  ...figEpicondiloMedial,
+  ...figMonteggiaCrianca,
+  ...figPeTorto,
+  ...figMetatarsoAduto,
+  ...figBlount,
+  ...figColoFemoralCrianca,
+  ...figCoxaVara,
+  ...figParalisiaBraquial,
+  ...figTorcicolo,
   ...figClinicalUpperLimb,
 };
 
