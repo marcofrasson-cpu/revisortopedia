@@ -46,6 +46,9 @@ export default function HomePage() {
 
   const resumeTopic = lastRead ? getTopic(lastRead.slug) : undefined;
   const resumeFlat = lastRead ? locate(lastRead.slug) : undefined;
+  const coverage = stats.topicsPlanned
+    ? Math.round((stats.topicsComplete / stats.topicsPlanned) * 100)
+    : 0;
 
   const scrollToRegions = () =>
     regionsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -110,26 +113,68 @@ export default function HomePage() {
       {/* Faixa de estatísticas */}
       <section
         aria-label="Cobertura do conteúdo"
-        className="grid grid-cols-3 gap-3 py-5 sm:gap-8 sm:py-6"
+        className="py-5 sm:py-6"
       >
-        {[
-          { n: stats.regions, label: "Regiões anatômicas", short: "Regiões" },
-          { n: stats.topicsPlanned, label: "Tópicos no framework", short: "Tópicos" },
-          { n: stats.topicsComplete, label: "Tópicos completos", short: "Completos" },
-        ].map((s) => (
-          <div
-            key={s.label}
-            className="flex flex-col items-center justify-center px-2 text-center sm:flex-row sm:gap-4 sm:px-4 sm:text-left"
-          >
-            <div className="font-display text-[1.8rem] leading-none text-ink sm:text-[2.2rem]">
-              {s.n}
+        <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+          {[
+            {
+              n: stats.regions,
+              label: "Regiões anatômicas",
+              detail: "Mapa topográfico",
+            },
+            {
+              n: stats.topicsPlanned,
+              label: "Tópicos no framework",
+              detail: "Escopo editorial",
+            },
+            {
+              n: stats.topicsComplete,
+              label: "Tópicos completos",
+              detail: `${coverage}% da base`,
+              progress: coverage,
+            },
+          ].map((metric) => (
+            <div
+              key={metric.label}
+              className={`panel relative min-h-[124px] overflow-hidden p-4 sm:p-5 ${
+                metric.progress !== undefined ? "border-teal/40" : ""
+              }`}
+            >
+              <span
+                aria-hidden="true"
+                className={`absolute inset-x-0 top-0 h-0.5 ${
+                  metric.progress !== undefined ? "bg-teal" : "bg-line-strong"
+                }`}
+              />
+              <dt className="eyebrow text-[0.58rem] sm:text-[0.62rem]">
+                {metric.label}
+              </dt>
+              <dd className="mt-4 flex items-end justify-between gap-3">
+                <span className="font-display text-[2.45rem] leading-none text-ink sm:text-[2.7rem]">
+                  {metric.n}
+                </span>
+                <span className="code pb-1 text-right text-[0.64rem] text-muted">
+                  {metric.detail}
+                </span>
+              </dd>
+              {metric.progress !== undefined && (
+                <div
+                  className="mt-4 h-1 overflow-hidden rounded-full bg-surface-2"
+                  role="progressbar"
+                  aria-label="Cobertura dos tópicos"
+                  aria-valuenow={metric.progress}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <div
+                    className="h-full rounded-full bg-teal"
+                    style={{ width: `${metric.progress}%` }}
+                  />
+                </div>
+              )}
             </div>
-            <div className="eyebrow mt-1 text-[0.56rem] sm:mt-0 sm:max-w-24 sm:text-[0.6rem]">
-              <span className="sm:hidden">{s.short}</span>
-              <span className="hidden sm:inline">{s.label}</span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </dl>
       </section>
 
       {/* Grade de regiões */}
