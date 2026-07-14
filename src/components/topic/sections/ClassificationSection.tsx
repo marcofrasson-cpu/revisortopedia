@@ -3,9 +3,12 @@ import type { Topic } from "../../../types/topic";
 import { CodeChip, cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
 import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
+import { sectionCopy } from "../../../content/sectionCopy";
 
-/* Classificação — cada sistema intercala a descrição e sua figura selecionada. */
+/* Classificação — cada sistema intercala a descrição e sua figura selecionada.
+   O título segue o tipo do tópico (classificação, estadiamento, achados…). */
 export default function ClassificationSection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "classification");
   const [selected, setSelected] = useState<Record<string, string>>(() =>
     Object.fromEntries(
       topic.classification.flatMap((system) => {
@@ -17,7 +20,7 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
 
   return (
     <>
-      <SectionHeading index="03" eyebrow="Classificação" title="Sistemas de classificação" />
+      <SectionHeading index="03" eyebrow={copy.eyebrow} title={copy.title} />
 
       <div className="mt-5 space-y-8">
         {topic.classification.map((sys) => {

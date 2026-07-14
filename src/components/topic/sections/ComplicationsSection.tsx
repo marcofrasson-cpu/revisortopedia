@@ -1,11 +1,13 @@
 import type { Topic } from "../../../types/topic";
 import { SectionHeading } from "../../../ui/primitives";
+import { sectionCopy } from "../../../content/sectionCopy";
 
 /* Complicações — cartões com descrição e como prevenir. */
 export default function ComplicationsSection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "complications");
   return (
     <>
-      <SectionHeading index="08" eyebrow="Complicações" title="Complicações e prevenção" />
+      <SectionHeading index="08" eyebrow={copy.eyebrow} title={copy.title} />
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {topic.complications.map((c, i) => (
           <div key={i} className="panel p-4">

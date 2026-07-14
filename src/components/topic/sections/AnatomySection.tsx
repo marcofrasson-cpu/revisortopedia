@@ -1,11 +1,13 @@
 import { useState } from "react";
 import type { Topic } from "../../../types/topic";
 import { cx, SectionHeading } from "../../../ui/primitives";
+import { sectionCopy } from "../../../content/sectionCopy";
 import FigurePanel from "../FigurePanel";
 import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
 
 /* Anatomia — texto seguido por figuras anatômicas ou clínicas comutáveis. */
 export default function AnatomySection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "anatomy");
   const ids = topic.anatomy.figureIds;
   const [sel, setSel] = useState<string | undefined>(ids[0]);
 
@@ -17,7 +19,7 @@ export default function AnatomySection({ topic }: { topic: Topic }) {
 
   return (
     <>
-      <SectionHeading index="02" eyebrow="Anatomia" title="Anatomia cirúrgica" />
+      <SectionHeading index="02" eyebrow={copy.eyebrow} title={copy.title} />
       <div className="mt-5 max-w-[78ch] space-y-5 text-[1.05rem] leading-[1.75] text-ink-soft">
         {paragraphs.map((p, i) => (
           <p key={i}>{p}</p>

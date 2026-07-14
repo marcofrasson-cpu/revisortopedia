@@ -1,13 +1,15 @@
 import type { Topic } from "../../../types/topic";
 import { CodeChip, SectionHeading } from "../../../ui/primitives";
+import { sectionCopy } from "../../../content/sectionCopy";
 
 /* Pós-op & reabilitação — imobilização, carga e a timeline de fases. */
 export default function PostopSection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "postop");
   const { immobilization, weightBearing, rehab, followup } = topic.postop;
 
   return (
     <>
-      <SectionHeading index="07" eyebrow="Pós-op" title="Pós-operatório e reabilitação" />
+      <SectionHeading index="07" eyebrow={copy.eyebrow} title={copy.title} />
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         <div className="panel p-4">

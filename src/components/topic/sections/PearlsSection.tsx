@@ -1,11 +1,13 @@
 import type { Topic } from "../../../types/topic";
 import { SectionHeading } from "../../../ui/primitives";
+import { sectionCopy } from "../../../content/sectionCopy";
 
 /* Pérolas & armadilhas — síntese acionável em duas colunas. */
 export default function PearlsSection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "pearls");
   return (
     <>
-      <SectionHeading index="10" eyebrow="Pérolas" title="Pérolas e armadilhas" />
+      <SectionHeading index="10" eyebrow={copy.eyebrow} title={copy.title} />
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         {topic.pearls.length > 0 && (
           <div className="panel p-4">

@@ -115,9 +115,20 @@ export type Complication = z.infer<typeof complicationSchema>;
 export const keyFactSchema = z.object({ label: z.string(), value: z.string() });
 export type KeyFact = z.infer<typeof keyFactSchema>;
 
+/* ---- Tipo do tópico -------------------------------------------------------
+   O manual cobre mais do que fratura. Cada tipo reusa o MESMO motor de
+   renderização, mudando apenas a cópia das seções (e escondendo as que não
+   fazem sentido, via `hasContent`). Default "fratura" — os tópicos já
+   autorados seguem válidos sem alteração.                                   */
+export const topicKindSchema = z
+  .enum(["fratura", "condicao", "procedimento", "fundamento", "propedeutica"])
+  .default("fratura");
+export type TopicKind = z.infer<typeof topicKindSchema>;
+
 export const topicSchema = z.object({
   id: z.string(),
   slug: z.string(),
+  kind: topicKindSchema,
   regionId: z.string(),
   bone: z.string(),
   injury: z.string(),

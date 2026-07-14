@@ -3,8 +3,10 @@ import type { Topic } from "../../../types/topic";
 import { CodeChip, cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
 import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
+import { sectionCopy } from "../../../content/sectionCopy";
 
-/* Vias de acesso — intervalo, estruturas em risco e esquema da incisão. */
+/* Vias/métodos — intervalo, estruturas em risco e esquema. O título segue o
+   tipo do tópico (vias de acesso, métodos e órteses, sequência do exame…). */
 export default function ApproachesSection({ topic }: { topic: Topic }) {
   const [sel, setSel] = useState<string | undefined>(
     () => topic.approaches.find((a) => a.figureId)?.id,
@@ -13,10 +15,11 @@ export default function ApproachesSection({ topic }: { topic: Topic }) {
   const focus = (id: string) => setSel(id);
 
   const selApproach = topic.approaches.find((a) => a.id === sel);
+  const copy = sectionCopy(topic.kind, "approaches");
 
   return (
     <>
-      <SectionHeading index="05" eyebrow="Vias de acesso" title="Abordagens cirúrgicas" />
+      <SectionHeading index="05" eyebrow={copy.eyebrow} title={copy.title} />
 
       <div className="mt-5 space-y-3">
         {topic.approaches.map((a) => {

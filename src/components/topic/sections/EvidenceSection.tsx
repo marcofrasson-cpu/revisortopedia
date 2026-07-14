@@ -1,5 +1,6 @@
 import type { EvidenceLevel, Topic } from "../../../types/topic";
 import { EraTag, LevelBadge, SectionHeading } from "../../../ui/primitives";
+import { sectionCopy } from "../../../content/sectionCopy";
 import { IconExternal } from "../../../ui/icons";
 
 const ORDER: Record<EvidenceLevel, number> = { I: 0, II: 1, III: 2, IV: 3, V: 4 };
@@ -7,11 +8,12 @@ const ORDER: Record<EvidenceLevel, number> = { I: 0, II: 1, III: 2, IV: 3, V: 4 
 /* Evidência — cartões ordenados por nível (Oxford CEBM), com claim, takeaway,
    citação completa, link DOI e PMID. Atribuição ao PubMed é obrigatória. */
 export default function EvidenceSection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "evidence");
   const items = [...topic.evidence].sort((a, b) => ORDER[a.level] - ORDER[b.level]);
 
   return (
     <>
-      <SectionHeading index="09" eyebrow="Evidência" title="Base de evidências" />
+      <SectionHeading index="09" eyebrow={copy.eyebrow} title={copy.title} />
 
       {topic.meta.attribution && (
         <p className="mt-3 rounded-lg border border-line bg-surface-2 px-4 py-2.5 text-[0.82rem] leading-relaxed text-muted">

@@ -173,7 +173,7 @@ export default function TopicView({ topic }: { topic: Topic }) {
         )}
       </header>
 
-      <SectionRail visible={visible} active={active} />
+      <SectionRail visible={visible} active={active} kind={topic.kind} />
 
       <div ref={contentRef} className="mx-auto max-w-6xl">
         {visible.map((k) => (

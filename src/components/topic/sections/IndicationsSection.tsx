@@ -1,8 +1,10 @@
 import type { Topic } from "../../../types/topic";
 import { Callout, SectionHeading } from "../../../ui/primitives";
+import { sectionCopy } from "../../../content/sectionCopy";
 
 /* Indicações — operatório vs não-operatório + notas de decisão. */
 export default function IndicationsSection({ topic }: { topic: Topic }) {
+  const copy = sectionCopy(topic.kind, "indications");
   const { operative, nonOperative, decisionNotes } = topic.indications;
 
   const Column = ({
@@ -40,7 +42,7 @@ export default function IndicationsSection({ topic }: { topic: Topic }) {
 
   return (
     <>
-      <SectionHeading index="04" eyebrow="Indicações" title="Operar ou não operar" />
+      <SectionHeading index="04" eyebrow={copy.eyebrow} title={copy.title} />
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <Column title="Tratamento cirúrgico" items={operative} tone="op" />
         <Column title="Tratamento conservador" items={nonOperative} tone="nonop" />

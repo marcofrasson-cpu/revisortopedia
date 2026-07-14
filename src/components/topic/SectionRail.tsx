@@ -1,17 +1,24 @@
-import type { SectionKey } from "../../types/topic";
+import type { SectionKey, TopicKind } from "../../types/topic";
 import { SECTIONS } from "../../types/topic";
+import { sectionCopy } from "../../content/sectionCopy";
 import { cx } from "../../ui/primitives";
 
 /* Trilha de seções — tira horizontal sticky com scroll-spy. Numerada porque a
-   leitura de um tópico segue uma sequência de estudo (anatomia → … → evidência). */
+   leitura de um tópico segue uma sequência de estudo (anatomia → … → evidência).
+   Os rótulos seguem o tipo do tópico (fratura, condição, propedêutica…). */
 export default function SectionRail({
   visible,
   active,
+  kind,
 }: {
   visible: SectionKey[];
   active: SectionKey;
+  kind: TopicKind;
 }) {
-  const items = SECTIONS.filter((s) => visible.includes(s.key));
+  const items = SECTIONS.filter((s) => visible.includes(s.key)).map((s) => ({
+    key: s.key,
+    short: sectionCopy(kind, s.key).short,
+  }));
 
   const go = (key: string) => {
     document.getElementById(`sec-${key}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
