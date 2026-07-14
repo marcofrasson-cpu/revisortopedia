@@ -112,6 +112,9 @@ import { figures as figEscolioseIdiopaticaAdolescente } from "./escoliose-idiopa
 import { figures as figFraturaSacro } from "./fratura-sacro";
 import { figures as figFraturaInsuficienciaSacral } from "./fratura-insuficiencia-sacral";
 
+// Esportiva & artroscopia.
+import { figures as figLesaoLca } from "./lesao-lca";
+
 /**
  * Registro de figuras: id canônico -> componente React.FC<FigureProps>.
  * O conteúdo referencia estes ids (e variants) de forma estável.
@@ -230,6 +233,9 @@ export const FIGURES: Record<string, FC<FigureProps>> = {
   ...figEscolioseIdiopaticaAdolescente,
   ...figFraturaSacro,
   ...figFraturaInsuficienciaSacral,
+
+  // ── Esportiva & artroscopia ─────────────────────────────────────────────
+  ...figLesaoLca,
 };
 
 /** Resolve um id de figura; ids desconhecidos caem no placeholder. */

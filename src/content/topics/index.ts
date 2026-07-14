@@ -80,6 +80,9 @@ import { topic as escolioseIdiopaticaAdolescente } from "./escoliose-idiopatica-
 import { topic as fraturaSacro } from "./fratura-sacro";
 import { topic as fraturaInsuficienciaSacral } from "./fratura-insuficiencia-sacral";
 
+// Esportiva & artroscopia — lesões ligamentares e retorno ao esporte.
+import { topic as lesaoLca } from "./lesao-lca";
+
 /* ============================================================================
    Barrel de tópicos autorados. O registry deriva navegação, busca e prev/next
    a partir daqui; um tópico novo é um arquivo de dados novo + uma linha aqui.
@@ -160,4 +163,5 @@ export const topics: Topic[] = [
   escolioseIdiopaticaAdolescente,
   fraturaSacro,
   fraturaInsuficienciaSacral,
+  lesaoLca,
 ];
