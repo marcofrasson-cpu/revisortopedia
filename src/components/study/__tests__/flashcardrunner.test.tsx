@@ -20,6 +20,27 @@ describe("FlashcardRunner", () => {
     useFlashcardStats.setState({ profileId: null, progress: {}, hydrated: true });
   });
 
+  it("stands down while the reader is typing in a field", () => {
+    // A busca (⌘K) abre por cima da sessão: cada tecla digitada ali não pode
+    // revelar a resposta nem queimar a revisão do cartão.
+    render(
+      <MemoryRouter>
+        <input aria-label="busca" />
+        <FlashcardRunner cards={[card]} title="Teste" onExit={() => {}} />
+      </MemoryRouter>,
+    );
+    const field = screen.getByLabelText("busca");
+    field.focus();
+
+    fireEvent.keyDown(field, { key: " " });
+    expect(screen.queryByText(card.answer)).toBeNull();
+
+    fireEvent.click(screen.getByRole("button", { name: "Mostrar resposta" }));
+    fireEvent.keyDown(field, { key: "1" });
+    expect(useFlashcardStats.getState().progress[card.id]).toBeUndefined();
+    expect(screen.queryByText("Sessão concluída")).toBeNull();
+  });
+
   it("reveals an answer and schedules the selected review", () => {
     render(<MemoryRouter><FlashcardRunner cards={[card]} title="Teste" onExit={() => {}} /></MemoryRouter>);
     expect(screen.queryByText(card.answer)).toBeNull();

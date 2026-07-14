@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import type { Flashcard } from "../../types/flashcard";
 import type { ReviewRating } from "../../lib/spacedRepetition";
 import { previewInterval } from "../../lib/spacedRepetition";
+import { isTypingTarget } from "../../lib/keyboard";
 import { flashcardTopicTitle } from "../../content/flashcards";
 import { useFlashcardStats } from "../../store/useFlashcardStats";
 import { CodeChip, cx } from "../../ui/primitives";
@@ -68,6 +69,7 @@ export default function FlashcardRunner({
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (finished || !card) return;
+      if (isTypingTarget(event.target)) return;
       if (event.key === " " || event.key === "Enter") {
         if (!revealed) {
           event.preventDefault();

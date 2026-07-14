@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import type { Question } from "../../types/question";
 import { topicTitle } from "../../content/questions";
+import { isTypingTarget } from "../../lib/keyboard";
 import { useQuizStats } from "../../store/useQuizStats";
 import { cx, CodeChip } from "../../ui/primitives";
 import { IconArrowRight, IconChevronRight, IconExternal } from "../../ui/icons";
@@ -65,6 +66,7 @@ export default function QuizRunner({
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (finished || !q) return;
+      if (isTypingTarget(e.target)) return;
       if (e.key === "Enter") {
         e.preventDefault();
         if (revealed) next();
