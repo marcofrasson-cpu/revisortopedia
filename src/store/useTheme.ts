@@ -37,10 +37,12 @@ interface ThemeStore {
 }
 
 export const useTheme = create<ThemeStore>((set) => ({
-  theme:
-    (typeof document !== "undefined" &&
-      (document.documentElement.getAttribute("data-theme") as Theme)) ||
-    "light",
+  /* Deriva de preferred(), a mesma fonte de applyStoredTheme(). Ler data-theme
+     do DOM aqui daria sempre "light": este módulo é avaliado no import, e os
+     imports ES são içados acima da chamada de applyStoredTheme() em main.tsx —
+     o atributo ainda não existe. O store ficava dessincronizado do DOM e o
+     primeiro clique no botão apenas reescrevia o tema vigente. */
+  theme: preferred(),
   toggle: () =>
     set((state) => {
       const next: Theme = state.theme === "dark" ? "light" : "dark";
