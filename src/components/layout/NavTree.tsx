@@ -146,7 +146,12 @@ export default function NavTree({ onCollapse }: { onCollapse?: () => void }) {
 
   return (
     <div className="flex h-full flex-col">
-      <nav aria-label="Regiões e tópicos" className="flex-1 overflow-y-auto px-2.5 py-4">
+      {/* pt no desktop = padding de topo do conteúdo (48px), para o primeiro
+          item da barra alinhar com a primeira linha do hero/tópico. */}
+      <nav
+        aria-label="Regiões e tópicos"
+        className="flex-1 overflow-y-auto px-2.5 pb-4 pt-4 lg:pt-12"
+      >
         <div className="flex items-center justify-between gap-2 px-2 pb-2">
           <div className="eyebrow">Framework ortopédico</div>
           {onCollapse && (

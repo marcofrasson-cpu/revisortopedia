@@ -112,7 +112,7 @@ export default function TopicView({ topic }: { topic: Topic }) {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
       {/* Header */}
       <header>
         <div className="flex items-start justify-between gap-4">

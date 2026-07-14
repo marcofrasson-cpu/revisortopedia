@@ -35,7 +35,7 @@ export default function StudyPage() {
 
   if (scope) {
     return (
-      <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
         <QuizRunner
           key={scope.title + scope.questions.length}
           questions={scope.questions}
@@ -82,7 +82,7 @@ export default function StudyPage() {
   );
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
       <Eyebrow>Modo estudo · pt-BR</Eyebrow>
       <h1 className="mt-3 font-display text-[2.2rem] leading-tight text-ink sm:text-[2.6rem]">
         Banco de questões
