@@ -112,8 +112,15 @@ export default function TopicView({ topic }: { topic: Topic }) {
     pearls: <PearlsSection topic={topic} />,
   };
 
+  /* max-w-5xl, e não 7xl: a prosa precisa de uma medida legível (~90ch), mas os
+     cartões e grades usavam a largura toda. Num monitor grande isso abria 370px
+     de vazio à direita de cada parágrafo — a prosa terminava muito antes das
+     grades acima dela, e o buraco lia como bug, não como respiro. Estreitando a
+     página, a medida da prosa e a das grades quase coincidem (960 × 846) e a
+     margem que sobra fica simétrica, que é como margem deve parecer.
+     A home continua em 7xl: lá a espinha de evidências quer os 61 anos de largura. */
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
       {/* Header */}
       <header>
         <div className="flex items-start justify-between gap-4">
@@ -187,7 +194,7 @@ export default function TopicView({ topic }: { topic: Topic }) {
 
       <SectionRail visible={visible} active={active} kind={topic.kind} />
 
-      <div ref={contentRef} className="mx-auto max-w-6xl">
+      <div ref={contentRef}>
         {visible.map((k) => (
           <section
             id={`sec-${k}`}
