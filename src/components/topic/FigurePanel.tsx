@@ -223,7 +223,13 @@ export default function FigurePanel({
                 {activeVariantLabel && !showSelector && (
                   <CodeChip tone="teal">{activeVariantLabel}</CodeChip>
                 )}
-                <p className="text-[0.82rem] leading-snug text-ink-soft">{caption}</p>
+                {/* A medida vale para a legenda também. Sem ela media 127
+                    caracteres por linha em blocos de até 3 linhas — pior que os
+                    90ch da prosa que motivou toda esta revisão. Passou batido
+                    porque legenda mora em <figcaption>, fora das seções. */}
+                <p className="max-w-[var(--measure)] text-[0.82rem] leading-snug text-ink-soft">
+                  {caption}
+                </p>
               </div>
             )}
             {source && (

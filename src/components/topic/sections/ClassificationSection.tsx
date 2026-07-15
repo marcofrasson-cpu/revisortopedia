@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { CSSProperties } from "react";
 import type { Topic } from "../../../types/topic";
 import { CodeChip, cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
@@ -40,7 +41,20 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
                 </p>
               )}
 
-              <ul className="mt-3 divide-y divide-line overflow-hidden rounded-xl border border-line">
+              {/* --code-w reserva a largura do código mais longo DESTE sistema.
+                  Sem isto o chip encolhe no "I" e cresce no "III", e como ele é
+                  o primeiro item de um flex, a diferença empurra rótulo e
+                  descrição junto: medi 812, 818 e 823 de borda esquerda em
+                  linhas vizinhas — 11px de tremor descendo a lista.
+
+                  Em `ch` porque o chip é font-mono: todo caractere tem a mesma
+                  largura, então a conta é exata. O `ch` resolve na fonte de quem
+                  usa a variável (o chip), não de quem a declara (a <ul>) — o
+                  mesmo motivo que faz --measure funcionar. */}
+              <ul
+                style={{ "--code-w": `${Math.max(...sys.types.map((t) => t.code.length))}ch` } as CSSProperties}
+                className="mt-3 divide-y divide-line overflow-hidden rounded-xl border border-line"
+              >
                 {sys.types.map((ty) => {
                   const key = `${sys.id}:${ty.code}`;
                   const on = ty.code === selected[sys.id];
@@ -61,7 +75,10 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
                           on && "bg-teal-tint/50",
                         )}
                       >
-                        <CodeChip tone={on ? "teal" : "plain"} className="mt-0.5 shrink-0">
+                        <CodeChip
+                          tone={on ? "teal" : "plain"}
+                          className="mt-0.5 min-w-[calc(var(--code-w)+0.75rem)] shrink-0 justify-center"
+                        >
                           {ty.code}
                         </CodeChip>
                         <span className="min-w-0 flex-1 lg:grid lg:grid-cols-[minmax(12rem,0.36fr)_minmax(0,1fr)] lg:gap-6">

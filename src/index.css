@@ -185,6 +185,18 @@
      sabe onde partir a palavra e ignora isto em silêncio. */
   p, li, dd, figcaption {
     hyphens: auto;
+    /* Contra a órfã de última linha: sem isto, "…dos ligamentos coraco-" quebra
+       e sobra "claviculares." sozinha embaixo. Medido na clavícula, blocos de
+       2+ linhas cuja última ocupa <25% da largura: 18 em 50 (36%) sem nada,
+       11 (22%) com `pretty`, 2 (4%) com `balance`.
+
+       `balance` e não `pretty` apesar da convenção mandar o contrário (balance
+       para título, pretty para corpo): o texto daqui é blurb de 2–3 linhas, que
+       é o caso para o qual balance existe, e a medição decide melhor que a
+       convenção. Na prosa longa não muda nada — o navegador ignora balance
+       acima do seu teto de linhas, e ali a justificação já fecha as bordas
+       (medido: 19 linhas e recorte zero com e sem). */
+    text-wrap: balance;
     /* Sem isto o navegador parte "síndrome" em "síndro-me" e joga um "me" órfão
        na linha seguinte. 6 3 3 = só parte palavra de 6+ letras, e nunca deixa
        menos de 3 letras de nenhum dos lados do hífen. Safari antigo ignora a
