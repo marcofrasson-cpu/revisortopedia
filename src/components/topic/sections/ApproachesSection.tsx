@@ -21,7 +21,16 @@ export default function ApproachesSection({ topic }: { topic: Topic }) {
     <>
       <SectionHeading index="05" eyebrow={copy.eyebrow} title={copy.title} />
 
-      <div className="mt-5 space-y-3">
+      {/* Duas colunas, e não uma pilha. Em coluna única o cartão tinha 960px e o
+          texto parava em 581px (a medida de 72ch a 0,9rem): 346px de vazio à
+          direita, 36% do cartão. Zona morta — o mesmo defeito que 18ca6a1 fechou
+          na prosa, que eu reabri aqui ao travar o texto sem encolher a caixa.
+
+          Um cartão de largura total é incompatível com uma medida: para 72ch
+          encherem 928px o corpo teria que ir a 23px. Ou a caixa encolhe, ou vira
+          grade. Grade é o padrão que Complicações e Evidência já usam e que
+          mede certo — cartão de 474px, texto de ~55 caracteres, vazio nenhum. */}
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {topic.approaches.map((a) => {
           const on = a.id === sel;
           return (

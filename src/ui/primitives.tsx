@@ -110,16 +110,35 @@ export function Callout({
   };
   const t = tones[tone];
   return (
-    <div className={cx("relative overflow-hidden rounded-lg py-3 pl-4 pr-4", t.wrap)}>
+    /* A CAIXA carrega a medida, não o texto — e é por isso que text-[0.9rem]
+       está aqui em cima e não só no corpo.
+
+       Travar o texto em 72ch e deixar a caixa com 960px abria 347px de vazio à
+       direita, 36% do callout, em TODOS os 95 tópicos: o texto encostado na
+       esquerda dentro de um quadro colorido enorme. Zona morta — o mesmo defeito
+       que 18ca6a1 fechou na prosa e que eu reabri ao medir o texto sem medir o
+       quadro.
+
+       Caixa de largura total é incompatível com medida: para 72ch encherem
+       928px o corpo teria que ir a 23px. Ou vira grade (foi a saída de Vias e
+       Evidência, que são listas de cartões) ou a caixa encolhe. Callout é nota
+       única, não lista: encolhe. 72ch + 2rem de padding = ~613px.
+
+       O `ch` resolve na fonte de QUEM USA a variável. Por isso text-[0.9rem]
+       precisa estar na caixa: sem ele o max-width calcularia 72ch na fonte
+       herdada (1rem) e daria uma caixa maior que o texto — a zona morta de
+       volta, menor e mais difícil de ver. */
+    <div
+      className={cx(
+        "relative max-w-[calc(var(--measure)+2rem)] overflow-hidden rounded-lg py-3 pl-4 pr-4 text-[0.9rem]",
+        t.wrap,
+      )}
+    >
       <span className={cx("absolute left-0 top-0 h-full w-[3px]", t.bar)} />
       {title && <div className={cx("eyebrow mb-1", t.label)}>{title}</div>}
-      {/* max-w e hyphens à mão: o corpo do callout é um <div>, não um <p>, então
-          não pega a regra de base. Media 115 caracteres por linha em blocos de
-          6 linhas na "Chave de decisão" — o pior texto de leitura da página
-          depois que a evidência virou grade. */}
-      <div className="max-w-[var(--measure)] hyphens-auto text-[0.9rem] leading-relaxed text-ink-soft">
-        {children}
-      </div>
+      {/* hyphens à mão: o corpo é um <div>, não um <p>, então não pega a regra
+          de base. Sem medida aqui — quem mede é a caixa. */}
+      <div className="hyphens-auto leading-relaxed text-ink-soft">{children}</div>
     </div>
   );
 }
