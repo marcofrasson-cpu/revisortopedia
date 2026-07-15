@@ -38,9 +38,12 @@ export const ApproachOpenAchilles: FC<FigureProps> = ({ className, title }) => (
       <path d="M150 110 C 158 150, 156 196, 144 228" fill="none" stroke="var(--amber)" strokeWidth="2" strokeDasharray="2 4" />
     </PosteriorLeg>
     <text x="70" y="150" {...label} textAnchor="end" fill="var(--cortical)">incisão</text>
-    <text x="70" y="164" {...label} textAnchor="end" fill="var(--cortical)">posteromedial</text>
+    <text x="70" y="164" {...label} textAnchor="end" fill="var(--cortical)">posterom.</text>
     <text x="188" y="170" {...label} textAnchor="start" fill="var(--amber)">n. sural</text>
-    <text x="188" y="184" {...label} textAnchor="start">(lateral — evitar)</text>
+    <text x="188" y="184" {...label} textAnchor="start">
+      <tspan x="188" dy="0">(lateral —</tspan>
+      <tspan x="188" dy="1.15em">evitar)</tspan>
+    </text>
     <text x="124" y="272" {...label} textAnchor="middle">Vista posterior</text>
   </svg>
 );
@@ -67,7 +70,10 @@ export const ApproachPercutaneous: FC<FigureProps> = ({ className, title }) => (
       <path d="M150 112 C 158 150, 156 196, 146 224" fill="none" stroke="var(--amber)" strokeWidth="2" strokeDasharray="2 4" />
     </PosteriorLeg>
     <text x="150" y="150" {...label} textAnchor="start" fill="var(--cortical)">mini-incisão</text>
-    <text x="188" y="168" {...label} textAnchor="start" fill="var(--amber)">n. sural em risco</text>
+    <text x="188" y="168" {...label} textAnchor="start" fill="var(--amber)">
+      <tspan x="188" dy="0">n. sural</tspan>
+      <tspan x="188" dy="1.15em">em risco</tspan>
+    </text>
     <text x="124" y="272" {...label} textAnchor="middle">Passagens percutâneas</text>
   </svg>
 );

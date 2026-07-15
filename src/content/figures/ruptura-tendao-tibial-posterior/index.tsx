@@ -104,10 +104,10 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     {/* zona hipovascular retromaleolar (watershed) */}
     <circle cx="150" cy="118" r="13" fill="none" stroke="var(--cortical)" strokeWidth="1.6" strokeDasharray="3 3" className="fx-line" />
     <text x="150" y="270" {...label} textAnchor="middle" fill="var(--cortical)">
-      Zona hipovascular retromaleolar → local habitual de tendinose e ruptura degenerativa.
+      Zona hipovascular retromaleolar: local habitual de tendinose/ruptura.
     </text>
     <text x="150" y="254" {...label} textAnchor="middle">
-      O TP inverte e trava o mediopé para o impulso; sua falência colapsa o arco medial.
+      TP inverte e trava o mediopé no impulso; falência colapsa o arco medial.
     </text>
   </svg>
 );
@@ -325,7 +325,7 @@ export const SingleHeelRise: FC<FigureProps> = ({ className, title, variant }) =
       {pos ? (
         <>
           <path d="M150 200 C 158 190, 164 180, 166 170" fill="none" stroke="var(--cortical)" strokeWidth="1.8" markerEnd="url(#hrArrow)" />
-          <text x="196" y="176" {...label} textAnchor="start" fill="var(--cortical)">permanece em VALGO</text>
+          <text x="196" y="176" {...label} textAnchor="start" fill="var(--cortical)">fica em VALGO</text>
         </>
       ) : (
         <>
@@ -348,7 +348,7 @@ export const SingleHeelRise: FC<FigureProps> = ({ className, title, variant }) =
       </text>
       <text x="150" y="252" {...label} textAnchor="middle">
         {pos
-          ? "Não eleva o calcanhar OU o retropé não inverte → TP insuficiente."
+          ? "Não eleva calcanhar OU retropé não inverte: TP insuficiente."
           : "O TP íntegro trava a coluna medial e o calcâneo inverte ao subir."}
       </text>
     </svg>
@@ -362,7 +362,7 @@ export const SingleHeelRise: FC<FigureProps> = ({ className, title, variant }) =
    ────────────────────────────────────────────────────────────────────────── */
 export const ViaMedial: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 320 260"
+    viewBox="0 0 320 290"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -391,17 +391,19 @@ export const ViaMedial: FC<FigureProps> = ({ className, title }) => (
 
     {/* feixe neurovascular tibial posterior — em risco, posterior ao FDL */}
     <path d="M230 112 C 204 132, 166 148, 128 160" fill="none" stroke={amber} strokeWidth="2" strokeDasharray="4 3" />
-    <text x="196" y="150" {...label} textAnchor="start" fill={amber}>feixe tibial post. (n. + a.)</text>
+    <text x="196" y="150" {...label} textAnchor="start" fill={amber}>feixe tib. post. (n.+a.)</text>
 
     {/* linha de incisão medial */}
     <line x1="222" y1="90" x2="96" y2="132" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
     <text x="150" y="80" {...label} textAnchor="middle" fill="var(--cortical)">incisão medial (maléolo → navicular)</text>
 
     <text x="18" y="236" {...label} textAnchor="start">
-      Abre a bainha do TP: sinovite, tendinose e alongamento confirmam o diagnóstico.
+      <tspan x="18" dy="0em">Abre a bainha do TP: sinovite, tendinose e</tspan>
+      <tspan x="18" dy="1.15em">alongamento confirmam o diagnóstico.</tspan>
     </text>
-    <text x="18" y="252" {...label} textAnchor="start" fill={amber}>
-      O FDL fica logo posterior; proteger o feixe neurovascular tibial posterior por trás dele.
+    <text x="18" y="268" {...label} textAnchor="start" fill={amber}>
+      <tspan x="18" dy="0em">O FDL fica logo posterior; proteger o feixe</tspan>
+      <tspan x="18" dy="1.15em">neurovascular tibial posterior por trás dele.</tspan>
     </text>
   </svg>
 );
@@ -464,8 +466,9 @@ export const StepMDCO: FC<FigureProps> = ({ className, title }) => (
     <path d="M190 200 C 186 216, 184 226, 184 234" fill="none" stroke="var(--teal)" strokeWidth="2" strokeDasharray="3 3" />
     <text x="186" y="246" {...label} textAnchor="middle" fill="var(--teal)">vetor do Aquiles → medial</text>
 
-    <text x="14" y="30" {...label} textAnchor="start">
-      Medializar a tuberosidade converte a força deformante em valgo em força corretiva em varo.
+    <text x="14" y="20" {...label} textAnchor="start">
+      <tspan x="14" dy="0em">Medializar a tuberosidade converte a força deformante</tspan>
+      <tspan x="14" dy="1.15em">em valgo em força corretiva em varo.</tspan>
     </text>
   </svg>
 );
@@ -477,7 +480,7 @@ export const StepMDCO: FC<FigureProps> = ({ className, title }) => (
    ────────────────────────────────────────────────────────────────────────── */
 export const StepFDL: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 320 250"
+    viewBox="0 0 320 280"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -512,10 +515,12 @@ export const StepFDL: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="146" {...label} textAnchor="middle" fill="var(--teal)">FDL → navicular</text>
 
     <text x="14" y="222" {...label} textAnchor="start">
-      Tensionar em inversão e leve flexão plantar; sinergismo com o TP (mesma fase da marcha).
+      <tspan x="14" dy="0em">Tensionar em inversão e leve flexão plantar; sinergismo</tspan>
+      <tspan x="14" dy="1.15em">com o TP (mesma fase da marcha).</tspan>
     </text>
-    <text x="14" y="238" {...label} textAnchor="start" fill={amber}>
-      A transferência isolada não corrige o osso — combina-se sempre à MDCO (± coluna lateral).
+    <text x="14" y="258" {...label} textAnchor="start" fill={amber}>
+      <tspan x="14" dy="0em">A transferência isolada não corrige o osso: combina-se</tspan>
+      <tspan x="14" dy="1.15em">sempre à MDCO (± coluna lateral).</tspan>
     </text>
   </svg>
 );
@@ -529,7 +534,7 @@ export const StepArtrodese: FC<FigureProps> = ({ className, title, variant }) =>
   const tripla = (variant ?? "tripla") !== "dupla";
   return (
     <svg
-      viewBox="0 0 320 250"
+      viewBox="0 0 320 280"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -576,13 +581,22 @@ export const StepArtrodese: FC<FigureProps> = ({ className, title, variant }) =>
         {tripla && <line x1="104" y1="172" x2="132" y2="128" />}
       </g>
 
-      <text x="16" y="228" {...label} textAnchor="start">
-        {tripla
-          ? "Deformidade rígida (III): tríplice realinha o retropé e alivia a artrose."
-          : "Dupla medial: poupa a coluna lateral, útil em deformidade medial isolada."}
+      <text x="16" y="222" {...label} textAnchor="start">
+        {tripla ? (
+          <>
+            <tspan x="16" dy="0em">Deformidade rígida (III): tríplice realinha</tspan>
+            <tspan x="16" dy="1.15em">o retropé, alivia artrose.</tspan>
+          </>
+        ) : (
+          <>
+            <tspan x="16" dy="0em">Dupla medial: poupa a coluna lateral, útil</tspan>
+            <tspan x="16" dy="1.15em">em deformidade medial isolada.</tspan>
+          </>
+        )}
       </text>
-      <text x="16" y="244" {...label} textAnchor="start" fill={amber}>
-        No estágio IV, associa-se a estabilização/artrodese do tornozelo pela báscula em valgo.
+      <text x="16" y="258" {...label} textAnchor="start" fill={amber}>
+        <tspan x="16" dy="0em">No estágio IV, associa-se a estabilização/artrodese</tspan>
+        <tspan x="16" dy="1.15em">do tornozelo pela báscula em valgo.</tspan>
       </text>
     </svg>
   );

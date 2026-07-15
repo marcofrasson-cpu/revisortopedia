@@ -204,7 +204,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     <text x="118" y="230" {...label} textAnchor="middle">trapézio</text>
 
     <text x="150" y="292" {...label} textAnchor="middle">
-      Sela biarticular: mobilidade em dois planos ao custo de estabilidade óssea
+      Sela biarticular: mobilidade em 2 planos ao custo de estabilidade
     </text>
   </Frame>
 );
@@ -253,12 +253,12 @@ export const Subluxation: FC<FigureProps> = ({ className, title, variant }) => {
             strokeLinecap="round"
           />
           <text x="212" y="138" {...label} fill="var(--amber)">
-            base foge dorsorradial
+            foge dorsorradial
           </text>
           <text x="40" y="170" {...label} fill="var(--cortical)">beak</text>
           <text x="40" y="182" {...label} fill="var(--cortical)">incompetente</text>
           <text x="160" y="286" {...label} textAnchor="middle">
-            Incompetência do beak → subluxação, adução do metacarpo e hiperextensão
+            Beak incompetente → subluxação, adução e hiperextensão
           </text>
           <text x="160" y="298" {...label} textAnchor="middle" fill="var(--cortical)">
             compensatória da MCF (deformidade em Z)
@@ -339,7 +339,7 @@ export const EatonLittler: FC<FigureProps> = ({ className, title, variant }) => 
         {stage === "i" && "I: interlinha normal ou alargada, sem subluxação"}
         {stage === "ii" && "II: redução da interlinha, osteófitos < 2 mm"}
         {stage === "iii" && "III: subluxação, osteófitos > 2 mm, esclerose/cistos"}
-        {stage === "iv" && "IV: pantrapezial — acomete também a escafo-trapézio-trapezoide"}
+        {stage === "iv" && "IV: pantrapezial — acomete escafo-trapézio-trapezoide"}
       </text>
       {stage === "i" && (
         <text x="150" y="292" {...label} textAnchor="middle" fill="var(--teal)">
@@ -399,7 +399,7 @@ export const GrindTest: FC<FigureProps> = ({ className, title }) => (
       Dor e crepitação reproduzidas = teste positivo
     </text>
     <text x="160" y="252" {...label} textAnchor="middle">
-      Teste de estresse revela subluxação dorsorradial no estágio inicial
+      Teste de estresse revela subluxação dorsorradial precoce
     </text>
   </Frame>
 );
@@ -448,13 +448,13 @@ export const Orthosis: FC<FigureProps> = ({ className, title }) => (
       strokeDasharray="4 4"
     />
 
-    <text x="230" y="150" {...label} fill="var(--teal)" textAnchor="start">estabiliza a TMC</text>
+    <text x="230" y="150" {...label} fill="var(--teal)" textAnchor="start">estabiliza TMC</text>
     <text x="34" y="96" {...label} textAnchor="start">IF do polegar livre</text>
     <text x="150" y="246" {...label} textAnchor="middle">
-      Imobiliza TMC (e por vezes a MCF), poupando a interfalângica
+      Imobiliza TMC (e por vezes MCF), poupa interfalângica
     </text>
     <text x="150" y="258" {...label} textAnchor="middle">
-      Associada a AINE, exercícios e infiltração como conduta inicial
+      AINE, exercícios e infiltração como conduta inicial
     </text>
   </Frame>
 );
@@ -538,10 +538,10 @@ export const Trapeziectomy: FC<FigureProps> = ({ className, title, variant }) =>
           <text x="196" y="200" {...label} textAnchor="start">espaço preenchido</text>
           <text x="196" y="214" {...label} textAnchor="start">por hematoma/fibrose</text>
           <text x="160" y="286" {...label} textAnchor="middle">
-            Simples, menor tempo cirúrgico e menos complicações precoces;
+            Simples, menor tempo, menos complicações precoces;
           </text>
           <text x="160" y="298" {...label} textAnchor="middle">
-            dor e função comparáveis às técnicas com suspensão
+            dor/função comparáveis às técnicas com suspensão
           </text>
         </>
       )}
@@ -607,10 +607,10 @@ export const AlternativeProcedures: FC<FigureProps> = ({ className, title, varia
           <path d="M100 178 C120 172, 146 172, 158 182" fill="none" stroke="var(--ink)" strokeWidth={2} />
           <text x="196" y="150" {...label} fill="var(--teal)" textAnchor="start">fixação rígida</text>
           <text x="150" y="284" {...label} textAnchor="middle">
-            Fusão estável e forte para paciente jovem, manual e de alta demanda;
+            Fusão estável p/ jovem, manual, alta demanda;
           </text>
           <text x="150" y="296" {...label} textAnchor="middle">
-            perde mobilidade e exige TMC isolada (sem doença pantrapezial)
+            perde mobilidade; exige TMC isolada (sem pantrapezial)
           </text>
         </>
       )}

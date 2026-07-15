@@ -211,7 +211,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => {
 --------------------------------------------------------------------------- */
 export const Mecanismo: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 360 260"
+    viewBox="0 0 360 300"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -334,14 +334,14 @@ export const Mecanismo: FC<FigureProps> = ({ className, title }) => (
     {/* Saco dural comprimido */}
     <path {...neuralStyle} strokeWidth={1.6} d="M 244 128 C 250 138, 268 138, 274 128" />
 
-    <text {...label} x={200} y={190}>
-      Fragmento retropulsado reduz a área do
+    <text {...label} x={16} y={254}>
+      Fragmento retropulsado reduz a área do canal —
     </text>
-    <text {...label} x={200} y={204}>
-      canal — mede-se a % de comprometimento
+    <text {...label} x={16} y={268}>
+      mede-se a % de comprometimento na TC (não
     </text>
-    <text {...label} x={200} y={218}>
-      na TC (não prediz o desfecho isoladamente).
+    <text {...label} x={16} y={282}>
+      prediz o desfecho isoladamente).
     </text>
     <text {...label} x={318} y={62}>
       corpo
@@ -364,7 +364,7 @@ export const AOSpine: FC<FigureProps> = ({ className, title, variant }) => {
     A1: "A1 — cunha-impactação de UM platô, muro posterior íntegro",
     A2: "A2 — separação / pinça: AMBOS os platôs, muro posterior íntegro",
     A3: "A3 — explosão incompleta: UM platô + muro posterior",
-    A4: "A4 — explosão completa: AMBOS os platôs + muro posterior",
+    A4: "A4 — explosão: AMBOS os platôs + muro posterior",
     B: "B — falência da banda de tensão (posterior B1/B2 ou anterior B3)",
     C: "C — translação / deslocamento em qualquer plano",
   };
@@ -373,7 +373,7 @@ export const AOSpine: FC<FigureProps> = ({ className, title, variant }) => {
 
   return (
     <svg
-      viewBox="0 0 320 240"
+      viewBox="0 0 320 256"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -498,7 +498,8 @@ export const AOSpine: FC<FigureProps> = ({ className, title, variant }) => {
         {captions[v] ?? captions.A4}
       </text>
       <text {...label} x={16} y={230}>
-        Modificadores: N (neurológico N0–N4, NX) e M1 (CLP indeterminado) / M2 (comorbidade).
+        <tspan x={16} dy="0em">Modificadores: N (neurológico N0–N4, NX) e M1</tspan>
+        <tspan x={16} dy="1.15em">(CLP indeterminado) / M2 (comorbidade).</tspan>
       </text>
     </svg>
   );
@@ -760,13 +761,13 @@ export const ComplexoLigamentarPosterior: FC<FigureProps> = ({ className, title,
       ) : (
         <>
           <text {...label} x={16} y={200}>
-            CLP íntegro → a banda de tensão posterior contém a cifose.
+            CLP íntegro → a banda de tensão post. contém a cifose.
           </text>
           <text {...label} x={16} y={214}>
             Na explosão sem déficit e com CLP íntegro (TLICS 2), o
           </text>
           <text {...label} x={16} y={228}>
-            tratamento conservador com órtese tem resultado equivalente.
+            tto. conservador com órtese tem resultado equivalente.
           </text>
         </>
       )}
@@ -840,16 +841,16 @@ export const Medidas: FC<FigureProps> = ({ className, title }) => (
     </text>
 
     <text {...label} x={16} y={214}>
-      Perda de altura anterior = 1 − (Ha / Hp). Cifose regional medida
+      Perda de altura anterior = 1 − (Ha/Hp). Cifose regional medida
     </text>
     <text {...label} x={16} y={228}>
-      pelo Cobb do platô superior da vértebra acima ao platô inferior
+      pelo Cobb platô superior da vértebra acima ao platô inferior
     </text>
     <text {...label} x={16} y={242}>
-      da vértebra abaixo. Nem a cifose nem a % de canal, isoladamente,
+      da vértebra abaixo. Nem cifose nem % canal, isoladamente,
     </text>
     <text {...label} x={16} y={256}>
-      predizem dor ou função — decida pelo TLICS/AOSpine, não pelo número.
+      predizem dor/função — decida por TLICS/AOSpine, não pelo nº.
     </text>
 
     {/* Inset axial — % de canal */}
@@ -861,8 +862,8 @@ export const Medidas: FC<FigureProps> = ({ className, title }) => (
       strokeWidth={1.6}
       d="M 268 236 L 304 236 L 298 250 L 274 250 Z"
     />
-    <text {...label} x={252} y={272} fill="var(--amber)">
-      % de canal ocupado
+    <text {...label} x={240} y={272} fill="var(--amber)">
+      % canal ocupado
     </text>
   </svg>
 );
@@ -1028,7 +1029,7 @@ export const Instrumentacao: FC<FigureProps> = ({ className, title, variant }) =
       {v === "curta" && (
         <>
           <text {...label} x={16} y={276}>
-            Construto curto (1 nível acima e 1 abaixo) poupa segmentos móveis;
+            Construto curto (1 acima/1 abaixo) poupa segmentos móveis;
           </text>
           <text {...label} x={16} y={290}>
             parafusos no nível da fratura reduzem a falha do implante.
@@ -1071,7 +1072,7 @@ export const Conduta: FC<FigureProps> = ({ className, title, activeStep }) => {
 
   return (
     <svg
-      viewBox="0 0 340 300"
+      viewBox="0 0 340 314"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -1134,7 +1135,8 @@ export const Conduta: FC<FigureProps> = ({ className, title, activeStep }) => {
       })}
 
       <text {...label} x={16} y={294}>
-        TLICS = 4: zona cinzenta — decida pelo conjunto clínico e pela preferência informada.
+        <tspan x={16} dy="0em">TLICS = 4: zona cinzenta — decida pelo conjunto</tspan>
+        <tspan x={16} dy="1.15em">clínico e pela preferência informada.</tspan>
       </text>
     </svg>
   );

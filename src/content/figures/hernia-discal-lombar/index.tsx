@@ -698,7 +698,7 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
 
       {/* rótulos explicativos */}
       <text x={380} y={62} {...corticalText}>
-        REGRA DA RAIZ COMPRIMIDA (exemplo em L4-L5)
+        REGRA DA RAIZ COMPRIMIDA (ex. L4-L5)
       </text>
       <text x={380} y={82} {...label}>
         PARACENTRAL (a mais comum, ~ 90%): o
@@ -726,7 +726,7 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
         EMERGE — em L4-L5, a raiz de L4.
       </text>
       <text x={380} y={208} {...label}>
-        Dor mais intensa, mais em pé, Lasègue menos
+        Dor mais intensa em pé, Lasègue menos
       </text>
       <text x={380} y={222} {...label}>
         sensível; a via interlaminar clássica NÃO
@@ -736,7 +736,7 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
       </text>
 
       <text x={380} y={264} {...label}>
-        CENTRAL volumosa: comprime todo o saco e é a
+        CENTRAL volumosa: comprime o saco e é a
       </text>
       <text x={380} y={278} {...label}>
         que produz síndrome da cauda equina.
@@ -1225,7 +1225,7 @@ const Lasegue: FC<FigureProps> = ({ variant, className, title }) => {
             Paciente em decúbito dorsal, joelho estendido.
           </text>
           <text x={366} y={78} {...label}>
-            Eleva-se o membro passivamente. Positivo quando
+            Eleva-se o membro passiv. Positivo quando
           </text>
           <text x={366} y={92} {...label}>
             reproduz a dor IRRADIADA do paciente, abaixo do
@@ -1237,19 +1237,19 @@ const Lasegue: FC<FigureProps> = ({ variant, className, title }) => {
             SENSÍVEL, pouco específico
           </text>
           <text x={366} y={144} {...label}>
-            Bom para descartar radiculopatia quando negativo;
+            Bom p/ descartar radiculopatia quando negativo;
           </text>
           <text x={366} y={158} {...label}>
             fraco para confirmar quando positivo.
           </text>
           <text x={366} y={182} {...label}>
-            Mecanismo: abaixo de 30° não há excursão da raiz;
+            Mecanismo: abaixo de 30° não há excurs. da raiz;
           </text>
           <text x={366} y={196} {...label}>
-            entre 30° e 70° a raiz desliza 2-6 mm no forame e
+            entre 30-70° a raiz desliza 2-6mm no forame e
           </text>
           <text x={366} y={210} {...label}>
-            tensiona sobre o fragmento; acima de 70° a raiz já
+            tensiona sobre o fragmento; acima de 70° já
           </text>
           <text x={366} y={224} {...label}>
             não se move mais.
@@ -1258,16 +1258,16 @@ const Lasegue: FC<FigureProps> = ({ variant, className, title }) => {
             Testa as raízes de L5 e S1 (nervo isquiático). Para
           </text>
           <text x={366} y={262} {...label}>
-            L2-L4 use o estiramento femoral (Lasègue invertido),
+            L2-L4 use o estiram. femoral (Lasègue invertido),
           </text>
           <text x={366} y={276} {...label}>
             em decúbito ventral.
           </text>
           <text x={366} y={300} {...amberText}>
-            Sinal de Bragard: após a dor, baixar 10° e dorsifletir
+            Sinal de Bragard: após a dor, baixar 10° e dorsiflet.
           </text>
           <text x={366} y={314} {...amberText}>
-            o tornozelo — reprodução confirma origem radicular.
+            o tornozelo — reprodução confirma origem radic.
           </text>
         </>
       )}

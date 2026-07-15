@@ -26,8 +26,8 @@ export const StepPosition: FC<FigureProps> = ({ className, title }) => (
     <path {...boneStyle} d="M220 78 C 244 80, 262 92, 268 110 L 250 118 C 240 104, 230 96, 220 96 Z" />
     <path {...boneStyle} d="M214 82 C 236 86, 252 100, 256 118 L 240 124 C 232 108, 224 100, 214 96 Z" />
     <text x="120" y="60" {...label} textAnchor="middle">Decúbito ventral</text>
-    <text x="256" y="140" {...label} textAnchor="middle" fill="var(--teal)">equino gravitacional</text>
-    <text x="120" y="132" {...label} textAnchor="middle">Comparar tensão de repouso com o lado contralateral</text>
+    <text x="256" y="140" {...label} textAnchor="middle" fill="var(--teal)">equino gravit.</text>
+    <text x="120" y="132" {...label} textAnchor="middle">Comparar tensão de repouso com contralateral</text>
   </svg>
 );
 
@@ -47,7 +47,7 @@ export const StepExposure: FC<FigureProps> = ({ className, title }) => (
       <line x1="126" y1="120" x2="134" y2="130" stroke="var(--cortical)" strokeWidth="2" strokeDasharray="2 2" />
     </g>
     <text x="188" y="90" {...label} textAnchor="start" fill="var(--teal)">paratenon</text>
-    <text x="188" y="128" {...label} textAnchor="start" fill="var(--cortical)">cotos desfiados</text>
+    <text x="178" y="128" {...label} textAnchor="start" fill="var(--cortical)">cotos desfiados</text>
     <text x="130" y="232" {...label} textAnchor="middle">Incisão posteromedial</text>
   </svg>
 );
@@ -66,7 +66,7 @@ export const StepCoreSuture: FC<FigureProps> = ({ className, title }) => (
       <path d="M116 196 L 128 188 L 116 180 L 128 172 L 116 164 L 128 156 L 116 148 L 126 140" />
       <path d="M144 196 L 132 188 L 144 180 L 132 172 L 144 164 L 132 156 L 144 148 L 134 140" />
     </g>
-    <text x="188" y="70" {...label} textAnchor="start" fill="var(--cortical)">laços bloqueantes</text>
+    <text x="188" y="70" {...label} textAnchor="start" fill="var(--cortical)">laços bloq.</text>
     <text x="130" y="232" {...label} textAnchor="middle">Fio resistente nº 2 em cada coto</text>
   </svg>
 );
@@ -144,8 +144,14 @@ export const StepFunctionalBrace: FC<FigureProps> = ({ className, title }) => (
       <rect x="128" y="176" width="62" height="6" />
       <rect x="136" y="170" width="54" height="6" />
     </g>
-    <text x="228" y="120" {...label} textAnchor="start" fill="var(--teal)">bota funcional</text>
-    <text x="228" y="180" {...label} textAnchor="start" fill="var(--amber)">calços de calcanhar</text>
+    <text x="228" y="120" {...label} textAnchor="start" fill="var(--teal)">
+      <tspan x="228" dy="0">bota</tspan>
+      <tspan x="228" dy="1.15em">funcional</tspan>
+    </text>
+    <text x="228" y="180" {...label} textAnchor="start" fill="var(--amber)">
+      <tspan x="228" dy="0">calços de</tspan>
+      <tspan x="228" dy="1.15em">calcanhar</tspan>
+    </text>
     <text x="150" y="216" {...label} textAnchor="middle">Carga precoce conforme protocolo funcional</text>
   </svg>
 );

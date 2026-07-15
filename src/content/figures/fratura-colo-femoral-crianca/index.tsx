@@ -298,7 +298,7 @@ const ClassificacaoDelbet: FC<FigureProps> = ({ className, title, variant }) => 
         <>
           <line x1="150" y1="119" x2="228" y2="82" {...leader} />
           <text x="14" y="322" {...label}>
-            Traço no terço médio do colo — o tipo mais frequente (~45%).
+            Traço no terço médio do colo — tipo mais frequente (~45%).
           </text>
           <text x="14" y="335" {...label}>
             Necrose ~30%–32%, proporcional ao desvio inicial.

@@ -184,11 +184,11 @@ const Anatomy: FC<FigureProps> = ({ className, title }) => (
       ECM normal
     </text>
     <text x="392" y="130" {...label}>
-      (lado contralateral)
+      (contralateral)
     </text>
     <path {...leader} d="M 392 176 L 266 170" />
     <text x="396" y="174" {...label} fill="var(--teal-deep)">
-      n. acessório (XI)
+      n. acessório XI
     </text>
     <path {...leader} d="M 392 238 L 300 254" />
     <text x="396" y="236" {...label}>
@@ -329,7 +329,7 @@ const Posture: FC<FigureProps> = ({ className, title }) => {
         Queixo roda para o lado oposto
       </text>
       <text x="360" y="346" {...label} textAnchor="middle">
-        “orelha no ombro do lado doente, queixo no ombro sadio”
+        “orelha no ombro doente, queixo no ombro sadio”
       </text>
     </svg>
   );
@@ -344,7 +344,7 @@ const CHENG = {
     kind: "tumor" as const,
     nome: "Pseudotumor do ECM",
     freq: "≈55% dos casos",
-    achado: "Massa fusiforme firme no terço médio/inferior do ventre",
+    achado: "Massa fusiforme firme no terço médio-inf. do ventre",
     deficit: 45,
     cirurgia: "≈8% acabam operados",
   },
@@ -587,7 +587,7 @@ const Plagiocephaly: FC<FigureProps> = ({ variant = "posicional", className, tit
             PARALELOGRAMO — orelha empurrada para a FRENTE, fronte ipsilateral abaulada.
           </text>
           <text x="206" y="320" {...label} textAnchor="middle">
-            Deformidade moldável, secundária ao TMC e ao decúbito: responde a reposicionamento e fisioterapia.
+            Deformidade moldável (TMC + decúbito): responde a reposicionamento e fisioterapia.
           </text>
         </>
       )}
@@ -704,14 +704,14 @@ const HipScreen: FC<FigureProps> = ({ className, title }) => (
       normal:
     </text>
     <text x="396" y="194" {...label} fill="var(--teal-deep)">
-      ínfero-MEDIAL
+      ínfero-med.
     </text>
 
     <text x="230" y="326" {...label} textAnchor="middle">
-      A DDQ coexiste com o TMC em ~5–12% dos casos — bem abaixo dos 20% classicamente citados.
+      DDQ coexiste com TMC em ~5–12% dos casos — abaixo dos 20% classicamente citados.
     </text>
     <text x="230" y="342" {...label} textAnchor="middle">
-      Todo lactente com TMC exige EXAME clínico do quadril; a imagem segue os critérios habituais
+      Todo lactente com TMC exige EXAME de quadril; a imagem segue critérios habituais
     </text>
     <text x="230" y="358" {...label} textAnchor="middle">
       de rastreio (exame alterado, apresentação pélvica, história familiar).
@@ -819,7 +819,7 @@ const Stretching: FC<FigureProps> = ({ activeStep, className, title }) => {
         ) : null}
 
         <text x="366" y="26" {...label} textAnchor="middle" fill="var(--ink)">
-          2. Inclinação — orelha PARA LONGE do lado acometido
+          2. Inclinação — orelha longe do lado acometido
         </text>
 
         <path {...bone} d="M 314 246 C 314 216, 340 200, 366 200 C 392 200, 418 216, 418 246 L 420 300 L 312 300 Z" />
@@ -849,8 +849,9 @@ const Stretching: FC<FigureProps> = ({ activeStep, className, title }) => {
         {/* seta de inclinação */}
         <path {...measure} d="M 366 78 A 176 176 0 0 1 424 96" strokeWidth={2.6} />
         <path fill="var(--amber)" d="M 424 96 L 412 92 L 418 84 Z" />
-        <text x="386" y="66" {...label} fill="var(--amber)">
-          orelha ao ombro oposto
+        <text x="386" y="60" {...label} fill="var(--amber)">
+          <tspan x="386" dy="0em">orelha ao</tspan>
+          <tspan x="386" dy="1.15em">ombro oposto</tspan>
         </text>
 
         <text x="366" y="326" {...label} textAnchor="middle">
@@ -1094,7 +1095,7 @@ const Differential: FC<FigureProps> = ({ variant = "ocular", className, title })
       </text>
 
       <text x="382" y="322" {...label} textAnchor="middle" fill="var(--amber)">
-        A cabeça ENDIREITA — teste-chave
+        ENDIREITA — teste-chave
       </text>
       <text x="382" y="336" {...label} textAnchor="middle">
         Encaminhar ao oftalmologista
@@ -1223,10 +1224,10 @@ const Release: FC<FigureProps> = ({ variant = "unipolar", className, title }) =>
             PRESERVADA
           </text>
           <text x="180" y="342" {...label} textAnchor="middle">
-            Primeira escolha na maioria: menos invasiva, poupa o nervo acessório e mantém o
+            1ª escolha: menos invasiva, poupa o n. acessório e mantém o
           </text>
           <text x="180" y="356" {...label} textAnchor="middle">
-            contorno em V do pescoço. Resultados comparáveis aos da bipolar.
+            contorno em V do pescoço. Resultados comparáveis à bipolar.
           </text>
         </>
       )}

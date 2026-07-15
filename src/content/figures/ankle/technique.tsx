@@ -68,7 +68,7 @@ export const StepReduction: FC<FigureProps> = ({ className, title, activeStep })
         <path d="M172 66 l4 -8 l4 8" fill="var(--amber)" stroke="none" />
         <path d="M172 224 l4 8 l4 -8" fill="var(--amber)" stroke="none" />
       </g>
-      <text x="192" y="150" {...label} fill="var(--amber)">
+      <text x="172" y="150" {...label} fill="var(--amber)">
         comprimento
       </text>
       <text x="120" y="272" textAnchor="middle" {...mono}>
@@ -263,10 +263,10 @@ export const StepPosteriorMalleolus: FC<FigureProps> = ({ className, title, acti
         <line x1="188" y1="198" x2="120" y2="196" stroke="var(--teal)" strokeWidth="2.6" strokeLinecap="round" />
         <circle cx="188" cy="198" r="4.5" fill="var(--teal)" stroke="none" />
       </g>
-      <text x="200" y="176" {...label} fill="var(--teal)">
+      <text x="190" y="176" {...label} fill="var(--teal)">
         placa
       </text>
-      <text x="200" y="192" {...label} fill="var(--teal)">
+      <text x="190" y="192" {...label} fill="var(--teal)">
         antiglide
       </text>
       <text x="120" y="250" textAnchor="middle" {...mono}>
@@ -295,7 +295,7 @@ export const StepFluoroCheck: FC<FigureProps> = ({ className, title, activeStep 
         <line x1="180" y1="120" x2="216" y2="120" />
         <path d="M210 114 l8 6 l-8 6" fill="var(--amber)" stroke="none" />
       </g>
-      <text x="222" y="112" {...label} fill="var(--amber)">
+      <text x="202" y="112" {...label} fill="var(--amber)">
         hook test
       </text>
       <text x="130" y="248" textAnchor="middle" {...mono}>

@@ -106,10 +106,10 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     <text x="40" y="126" {...label} textAnchor="start" fill="var(--teal)">a. dorsal do pé</text>
 
     <text x="14" y="248" {...label} textAnchor="start">
-      Suprimento retrógrado: o fluxo entra pelo colo/seio do tarso e sobe até o corpo.
+      Supr. retrógrado: entra pelo colo/seio, sobe ao corpo.
     </text>
     <text x="14" y="264" {...label} textAnchor="start" fill="var(--cortical)">
-      A fratura do colo secciona esse aporte → risco de necrose avascular do corpo.
+      Fx do colo corta o aporte → risco de necrose do corpo.
     </text>
   </svg>
 );
@@ -260,11 +260,11 @@ export const SinalHawkins: FC<FigureProps> = ({ className, title, variant }) => 
       </text>
       <text x="150" y="220" {...label} textAnchor="middle">
         {presente
-          ? "Banda radiolucente subcondral (6–8 sem) → corpo viável."
+          ? "Banda radiolucente subcondral (6–8sem) → corpo viável."
           : "Sem osteopenia subcondral → alerta para necrose avascular."}
       </text>
       <text x="150" y="236" {...label} textAnchor="middle" fill="var(--muted)">
-        Sensível (presente ≈ viável); ausência não confirma necrose.
+        Sensível (presente≈viável); ausência não confirma necrose.
       </text>
     </svg>
   );
@@ -275,7 +275,7 @@ export const SinalHawkins: FC<FigureProps> = ({ className, title, variant }) => 
    ────────────────────────────────────────────────────────────────────────── */
 export const ViaAnteromedial: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 260"
+    viewBox="0 0 300 290"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -304,10 +304,14 @@ export const ViaAnteromedial: FC<FigureProps> = ({ className, title }) => (
     <line x1="118" y1="70" x2="128" y2="216" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
     <text x="150" y="44" {...label} textAnchor="middle" fill="var(--cortical)">incisão anteromedial</text>
 
-    <text x="18" y="242" {...label} textAnchor="start">
-      Intervalo entre tibial anterior e tibial posterior; expõe o colo e a cominução dorsomedial.
+    <text x="18" y="248" {...label} textAnchor="start">
+      <tspan x="18" dy="0">Intervalo entre tibial anterior e tibial posterior;</tspan>
+      <tspan x="18" dy="1.15em">expõe o colo e a cominução dorsomedial.</tspan>
     </text>
-    <text x="18" y="256" {...label} textAnchor="start" fill={amber}>Preservar o retináculo/deltoide medial — evita agravar a desvascularização.</text>
+    <text x="18" y="274" {...label} textAnchor="start" fill={amber}>
+      <tspan x="18" dy="0">Preservar o retináculo/deltoide medial — evita</tspan>
+      <tspan x="18" dy="1.15em">agravar a desvascularização.</tspan>
+    </text>
   </svg>
 );
 
@@ -316,7 +320,7 @@ export const ViaAnteromedial: FC<FigureProps> = ({ className, title }) => (
    ────────────────────────────────────────────────────────────────────────── */
 export const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 260"
+    viewBox="0 0 300 290"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -328,7 +332,7 @@ export const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
 
     {/* maléolo lateral de referência */}
     <path {...bone} d="M196 60 C 212 58, 222 74, 216 96 C 206 104, 190 98, 188 82 Z" />
-    <text x="224" y="78" {...label} textAnchor="start">maléolo lateral</text>
+    <text x="224" y="78" {...label} textAnchor="start">maléolo lat.</text>
 
     {/* colo/cabeça do tálus (alvo) */}
     <path {...bone} d="M96 120 C 126 108, 166 116, 186 140 C 170 158, 132 160, 106 148 Z" />
@@ -340,16 +344,23 @@ export const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
 
     {/* tendões extensores / fibulares */}
     <path fill="var(--teal-tint)" stroke="var(--teal)" strokeWidth="1.6" d="M172 60 C 176 110, 182 170, 186 214 L 198 214 C 194 168, 188 110, 186 62 Z" />
-    <text x="206" y="196" {...label} textAnchor="start" fill="var(--teal)">extensor longo dos dedos</text>
+    <text x="206" y="196" {...label} textAnchor="start" fill="var(--teal)">
+      <tspan x="206" dy="0">extensor longo</tspan>
+      <tspan x="206" dy="1.15em">dos dedos</tspan>
+    </text>
 
     {/* linha de incisão / intervalo */}
     <line x1="182" y1="70" x2="192" y2="216" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
     <text x="150" y="44" {...label} textAnchor="middle" fill="var(--cortical)">incisão anterolateral</text>
 
-    <text x="18" y="242" {...label} textAnchor="start">
-      Lateral ao extensor longo dos dedos, sobre o seio do tarso; expõe a face lateral do colo.
+    <text x="18" y="250" {...label} textAnchor="start">
+      <tspan x="18" dy="0">Lateral ao extensor longo dos dedos, sobre o seio</tspan>
+      <tspan x="18" dy="1.15em">do tarso; expõe a face lateral do colo.</tspan>
     </text>
-    <text x="18" y="256" {...label} textAnchor="start" fill={amber}>Complementa a medial: a dupla via corrige o varo e evita malunião.</text>
+    <text x="18" y="276" {...label} textAnchor="start" fill={amber}>
+      <tspan x="18" dy="0">Complementa a medial: a dupla via corrige o varo</tspan>
+      <tspan x="18" dy="1.15em">e evita malunião.</tspan>
+    </text>
   </svg>
 );
 
@@ -400,7 +411,10 @@ export const StepReducao: FC<FigureProps> = ({ className, title }) => (
     </defs>
     <text x="36" y="210" {...label} textAnchor="start" fill={amber}>reduzir do varo → alinhar</text>
 
-    <text x="14" y="234" {...label} textAnchor="start" fill="var(--teal)">Alvo: redução anatômica — o varo residual é a malunião mais comum.</text>
+    <text x="14" y="222" {...label} textAnchor="start" fill="var(--teal)">
+      <tspan x="14" dy="0">Alvo: redução anatômica — o varo residual é a</tspan>
+      <tspan x="14" dy="1.15em">malunião mais comum.</tspan>
+    </text>
   </svg>
 );
 
@@ -412,7 +426,7 @@ export const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
   const placa = (variant ?? "parafusos") === "placa";
   return (
     <svg
-      viewBox="0 0 300 250"
+      viewBox="0 0 300 270"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -468,8 +482,14 @@ export const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
             <line x1="186" y1="144" x2="220" y2="132" strokeDasharray="2 2" />
           </g>
           <text x="150" y="26" {...label} textAnchor="middle" fill="var(--teal)">parafusos de compressão (cabeça → corpo)</text>
-          <text x="14" y="220" {...label} textAnchor="start">Cabeças embutidas na cartilagem articular anterior; rosca inteiramente além do traço.</text>
-          <text x="14" y="236" {...label} textAnchor="start">Parafusos póstero-lateral → ântero-medial também são uma opção (via percutânea posterior).</text>
+          <text x="14" y="222" {...label} textAnchor="start">
+            <tspan x="14" dy="0">Cabeças embutidas na cartilagem articular anterior;</tspan>
+            <tspan x="14" dy="1.15em">rosca inteiramente além do traço.</tspan>
+          </text>
+          <text x="14" y="250" {...label} textAnchor="start">
+            <tspan x="14" dy="0">Parafusos póstero-lateral → ântero-medial também</tspan>
+            <tspan x="14" dy="1.15em">são opção (via percutânea posterior).</tspan>
+          </text>
         </>
       )}
     </svg>

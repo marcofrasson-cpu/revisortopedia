@@ -79,7 +79,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
       strokeLinecap="round"
     />
 
-    <text x="130" y="10" {...label} textAnchor="middle">Diáfise umeral</text>
+    <text x="130" y="10" {...label} textAnchor="middle">Diáfise</text>
     <text x="52" y="196" {...label} textAnchor="middle">Coluna</text>
     <text x="52" y="209" {...label} textAnchor="middle">medial</text>
     <text x="208" y="188" {...label} textAnchor="middle">Coluna</text>
@@ -89,7 +89,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     <text x="129" y="292" {...label} textAnchor="middle">tróclea</text>
     <text x="70" y="278" {...label} textAnchor="middle" fill="var(--teal)">nervo ulnar</text>
     <text x="130" y="312" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      arco articular contínuo tróclea–capítulo
+      arco contínuo tróclea–capítulo
     </text>
   </svg>
 );
@@ -100,7 +100,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
 --------------------------------------------------------------------------- */
 export const Colunas: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 260 280"
+    viewBox="-2 0 264 296"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -139,8 +139,9 @@ export const Colunas: FC<FigureProps> = ({ className, title }) => (
     <text x="130" y="183" {...label} textAnchor="middle">olécrano</text>
     <text x="104" y="250" {...label} textAnchor="middle">tróclea</text>
     <text x="176" y="250" {...label} textAnchor="middle">capítulo</text>
-    <text x="130" y="272" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      estabilizar ambas as colunas + bloco articular
+    <text x="130" y="268" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
+      <tspan x="130" dy="0em">estabilizar ambas as colunas</tspan>
+      <tspan x="130" dy="1.15em">+ bloco articular</tspan>
     </text>
   </svg>
 );
@@ -200,7 +201,7 @@ export const AoTreze: FC<FigureProps> = ({ className, title, variant }) => {
         )}
       </g>
 
-      <text x="130" y="10" {...label} textAnchor="middle">Úmero distal (posterior)</text>
+      <text x="130" y="10" {...label} textAnchor="middle">Úmero distal (post.)</text>
       <text x="130" y="296" textAnchor="middle" {...mono}>{cfg.name}</text>
       <text x="130" y="282" textAnchor="middle" {...label}>{cfg.desc}</text>
     </svg>
@@ -257,7 +258,7 @@ export const ViaOlecrano: FC<FigureProps> = ({ className, title }) => (
     {/* Incisão posterior mediana */}
     <line x1="200" y1="30" x2="200" y2="300" stroke="var(--teal)" strokeWidth="2.2" strokeDasharray="2 6" strokeLinecap="round" />
 
-    <text x="130" y="8" {...label} textAnchor="middle">Úmero distal (posterior)</text>
+    <text x="130" y="8" {...label} textAnchor="middle">Úmero distal (post.)</text>
     <text x="205" y="60" {...label} textAnchor="start" fill="var(--teal)">incisão</text>
     <text x="205" y="73" {...label} textAnchor="start" fill="var(--teal)">posterior</text>
     <text x="158" y="286" {...label} textAnchor="start" fill="var(--cortical)">osteotomia</text>
@@ -265,7 +266,7 @@ export const ViaOlecrano: FC<FigureProps> = ({ className, title }) => (
     <text x="60" y="272" {...label} textAnchor="middle" fill="var(--teal)">tríceps +</text>
     <text x="60" y="285" {...label} textAnchor="middle" fill="var(--teal)">fragmento</text>
     <text x="130" y="318" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      ápice distal · reflete o aparelho extensor
+      ápice distal · reflete extensor
     </text>
   </svg>
 );
@@ -278,7 +279,7 @@ export const DuplaPlaca: FC<FigureProps> = ({ className, title, variant }) => {
   const paralela = (variant ?? "paralela").toLowerCase().startsWith("paral");
   return (
     <svg
-      viewBox="0 0 260 300"
+      viewBox="0 0 260 316"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -317,8 +318,9 @@ export const DuplaPlaca: FC<FigureProps> = ({ className, title, variant }) => {
             <line x1="84" y1="234" x2="176" y2="234" />
           </g>
           <text x="150" y="146" {...label} textAnchor="middle" fill="var(--teal)">placas paralelas (coronais)</text>
-          <text x="130" y="286" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-            parafusos longos transcolunares — máxima estabilidade articular
+          <text x="130" y="280" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
+            <tspan x="130" dy="0em">parafusos longos transcolunares</tspan>
+            <tspan x="130" dy="1.15em">máxima estabilidade articular</tspan>
           </text>
         </>
       ) : (
@@ -349,7 +351,7 @@ export const DuplaPlaca: FC<FigureProps> = ({ className, title, variant }) => {
 --------------------------------------------------------------------------- */
 export const StepArticular: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 260 280"
+    viewBox="0 0 260 296"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -385,8 +387,9 @@ export const StepArticular: FC<FigureProps> = ({ className, title }) => (
     <text x="190" y="60" {...label} textAnchor="middle">coluna lateral</text>
     <text x="130" y="200" {...label} textAnchor="middle" fill="var(--teal)">parafuso interfragmentário</text>
     <text x="130" y="228" {...label} textAnchor="middle">tróclea reconstruída (congruência)</text>
-    <text x="130" y="256" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      converter C em supracondiliana antes de fixar as colunas
+    <text x="130" y="252" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
+      <tspan x="130" dy="0em">converter C em supracondiliana</tspan>
+      <tspan x="130" dy="1.15em">antes de fixar as colunas</tspan>
     </text>
   </svg>
 );
@@ -397,7 +400,7 @@ export const StepArticular: FC<FigureProps> = ({ className, title }) => (
 --------------------------------------------------------------------------- */
 export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 260 280"
+    viewBox="0 0 260 296"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -431,14 +434,15 @@ export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
       strokeDasharray="5 4"
     />
 
-    <text x="176" y="176" {...label} textAnchor="start">epicôndilo medial</text>
+    <text x="176" y="176" {...label} textAnchor="start">epicôndilo med.</text>
     <text x="118" y="24" {...label} textAnchor="middle" fill="var(--teal)">nervo ulnar</text>
     <text x="60" y="200" {...label} textAnchor="middle" fill="var(--teal)">transposição</text>
     <text x="60" y="213" {...label} textAnchor="middle" fill="var(--teal)">anterior (alternativa)</text>
-    <text x="130" y="256" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      isolar e proteger antes de reduzir · evitar tração/isquemia
+    <text x="130" y="252" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
+      <tspan x="130" dy="0em">isolar e proteger antes de reduzir</tspan>
+      <tspan x="130" dy="1.15em">evitar tração/isquemia</tspan>
     </text>
-    <text x="130" y="272" {...label} textAnchor="middle">transpor se irritado por implante medial</text>
+    <text x="130" y="286" {...label} textAnchor="middle">transpor se irritado por implante medial</text>
   </svg>
 );
 
@@ -448,7 +452,7 @@ export const StepNervoUlnar: FC<FigureProps> = ({ className, title }) => (
 --------------------------------------------------------------------------- */
 export const Atc: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 260 320"
+    viewBox="-4 0 268 334"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -480,10 +484,14 @@ export const Atc: FC<FigureProps> = ({ className, title }) => (
     <text x="182" y="93" {...label} textAnchor="start" fill="var(--teal)">umeral</text>
     <text x="182" y="180" {...label} textAnchor="start" fill="var(--teal)">dobradiça</text>
     <text x="182" y="193" {...label} textAnchor="start" fill="var(--teal)">semiconstrita</text>
-    <text x="182" y="262" {...label} textAnchor="start" fill="var(--teal)">componente ulnar</text>
+    <text x="182" y="262" {...label} textAnchor="start" fill="var(--teal)">
+      <tspan x="182" dy="0em">componente</tspan>
+      <tspan x="182" dy="1.15em">ulnar</tspan>
+    </text>
     <text x="60" y="270" {...label} textAnchor="middle">ulna</text>
-    <text x="130" y="318" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      idoso · bloco articular não reconstrutível
+    <text x="130" y="316" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
+      <tspan x="130" dy="0em">idoso · bloco articular</tspan>
+      <tspan x="130" dy="1.15em">não reconstrutível</tspan>
     </text>
   </svg>
 );

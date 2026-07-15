@@ -323,7 +323,7 @@ export const ViaDeltopeitoral: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="46" {...label} textAnchor="middle" fill="var(--cortical)">veia cefálica / intervalo</text>
 
     <text x="20" y="284" {...label} textAnchor="start">
-      <tspan x="20" dy="0em">Via de escolha para placa bloqueada e artroplastia.</tspan>
+      <tspan x="20" dy="0em">Via de escolha: placa bloqueada, artroplastia.</tspan>
       <tspan x="20" dy="1.15em">Superficial: deltoide × peitoral maior; veia cefálica é o guia.</tspan>
     </text>
   </svg>
@@ -371,7 +371,7 @@ export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="216" {...label} textAnchor="start" fill="var(--cortical)">janela distal</text>
 
     <text x="20" y="284" {...label} textAnchor="start">
-      <tspan x="20" dy="0em">Deslizar a placa por baixo do nervo axilar. Menos exposição,</tspan>
+      <tspan x="20" dy="0em">Deslizar placa sob n. axilar. Menos exposição,</tspan>
       <tspan x="20" dy="1.15em">porém risco direto ao axilar — palpe e proteja.</tspan>
     </text>
   </svg>
@@ -451,7 +451,7 @@ export const StepPhilos: FC<FigureProps> = ({ className, title, activeStep }) =>
         placa bloqueada · PHILOS
       </text>
       <text x="20" y="298" {...label} textAnchor="start">
-        <tspan x="20" dy="0em">Suporte medial (calcar) e sutura do manguito reduzem</tspan>
+        <tspan x="20" dy="0em">Suporte medial (calcar) + sutura manguito reduzem</tspan>
         <tspan x="20" dy="1.15em">perda de redução em varo e falha do implante.</tspan>
       </text>
     </svg>

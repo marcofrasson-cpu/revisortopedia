@@ -185,7 +185,8 @@ export const Salenius: FC<FigureProps> = ({ className, title }) => (
     <circle cx="248" cy="114" r="4" fill="var(--amber)" />
     <path d="M 248 114 L 268 168" {...guide} />
     <text x={272} y={174} {...label}>
-      alinhamento adulto (~5-7° valgo) ~7 anos
+      <tspan x={272} dy="0em">alinhamento adulto</tspan>
+      <tspan x={272} dy="1.15em">(~5-7° valgo) ~7 anos</tspan>
     </text>
 
     <text x={66} y={214} {...label} fill="var(--cortical)">
@@ -310,7 +311,7 @@ export const Drennan: FC<FigureProps> = ({ variant, className, title }) => {
 
   return (
     <svg
-      viewBox="0 0 220 270"
+      viewBox="0 0 220 286"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -354,7 +355,17 @@ export const Drennan: FC<FigureProps> = ({ variant, className, title }) => {
         eixo da diáfise
       </text>
       <text x={110} y={266} {...label} fill={blount ? "var(--cortical)" : "var(--muted)"}>
-        {blount ? "> 16°: fortemente sugestivo de Blount" : "< 11°: zona fisiológica provável"}
+        {blount ? (
+          <>
+            <tspan x={110} dy="0em">&gt; 16°: fortemente</tspan>
+            <tspan x={110} dy="1.15em">sugestivo de Blount</tspan>
+          </>
+        ) : (
+          <>
+            <tspan x={110} dy="0em">&lt; 11°: zona fisiológica</tspan>
+            <tspan x={110} dy="1.15em">provável</tspan>
+          </>
+        )}
       </text>
     </svg>
   );
@@ -491,8 +502,10 @@ export const FisiologicoPatologico: FC<FigureProps> = ({ variant, className, tit
           <text x={150} y={142} {...label} fill="var(--cortical)">
             metáfise proximal
           </text>
-          <text x={16} y={306} {...label}>
-            unilateral / assimétrico · progressivo · thrust lateral · obesidade
+          <text x={16} y={290} {...label}>
+            <tspan x={16} dy="0em">unilateral / assimétrico</tspan>
+            <tspan x={16} dy="1.15em">progressivo · thrust lateral</tspan>
+            <tspan x={16} dy="1.15em">· obesidade</tspan>
           </text>
         </>
       ) : (
@@ -504,14 +517,16 @@ export const FisiologicoPatologico: FC<FigureProps> = ({ variant, className, tit
           {/* eixo curvo, sem ápice */}
           <path d="M 102 32 C 88 120, 92 224, 103 290" {...measure} />
           <path d="M 102 32 L 103 290" {...measureDash} />
-          <text x={150} y={128} {...label} fill="var(--teal-deep, var(--teal))">
+          <text x={131} y={128} {...label} fill="var(--teal-deep, var(--teal))">
             curvatura difusa,
           </text>
-          <text x={150} y={142} {...label} fill="var(--teal-deep, var(--teal))">
+          <text x={131} y={142} {...label} fill="var(--teal-deep, var(--teal))">
             sem ápice definido
           </text>
-          <text x={16} y={306} {...label}>
-            bilateral / simétrico · resolve com a idade · sem baixa estatura
+          <text x={16} y={290} {...label}>
+            <tspan x={16} dy="0em">bilateral / simétrico</tspan>
+            <tspan x={16} dy="1.15em">resolve c/ idade · sem</tspan>
+            <tspan x={16} dy="1.15em">baixa estatura</tspan>
           </text>
         </>
       )}
@@ -565,11 +580,11 @@ export const CrescimentoGuiado: FC<FigureProps> = ({ className, title }) => {
 
       {/* dobradiça lateral: crescimento tolhido */}
       <path d="M 178 78 m -9 0 a 9 9 0 1 0 18 0 a 9 9 0 1 0 -18 0" {...measure} strokeDasharray="4 4" />
-      <text x={196} y={70} {...mono} fill="var(--cortical)">
-        tether lateral
+      <text x={170} y={70} {...mono} fill="var(--cortical)">
+        tether lat.
       </text>
-      <text x={196} y={84} {...label}>
-        (dobradiça)
+      <text x={170} y={84} {...label}>
+        (dobrad.)
       </text>
 
       {/* crescimento medial preservado -> correção gradual do varo */}
@@ -593,8 +608,9 @@ export const CrescimentoGuiado: FC<FigureProps> = ({ className, title }) => {
       <text x={240} y={40} {...label} textAnchor="end">
         lateral
       </text>
-      <text x={100} y={252} {...label} textAnchor="middle">
-        contraindicado se houver barra fisária irressecável ou maturidade
+      <text x={125} y={244} {...label} textAnchor="middle">
+        <tspan x={125} dy="0em">contraindicado c/ barra fisária</tspan>
+        <tspan x={125} dy="1.15em">irressecável ou maturidade</tspan>
       </text>
     </svg>
   );
@@ -690,10 +706,10 @@ export const Osteotomia: FC<FigureProps> = ({ variant, className, title }) => {
       <path d="M 66 152 L 136 144" {...lesion} strokeDasharray="7 4" />
       {/* osteotomia da fíbula, mais distal */}
       <path d="M 172 168 L 194 166" {...lesion} strokeDasharray="7 4" />
-      <text x={200} y={172} {...label} fill="var(--cortical)">
+      <text x={190} y={172} {...label} fill="var(--cortical)">
         osteotomia
       </text>
-      <text x={200} y={186} {...label} fill="var(--cortical)">
+      <text x={190} y={186} {...label} fill="var(--cortical)">
         da fíbula
       </text>
 
@@ -714,16 +730,16 @@ export const Osteotomia: FC<FigureProps> = ({ variant, className, title }) => {
       <path d="M 100 250 L 100 290" {...measureDash} />
       <path d="M 100 250 L 128 290" {...measure} strokeWidth="2.4" />
       <path d="M 100 250 m 0 34 a 34 34 0 0 0 22 26" {...measure} />
-      <text x={132} y={286} {...mono} fill="var(--amber)">
+      <text x={129} y={286} {...mono} fill="var(--amber)">
         5-10° de valgo
       </text>
-      <text x={132} y={300} {...label}>
+      <text x={129} y={300} {...label}>
         (sobrecorreção)
       </text>
 
       {/* nervo fibular comum em risco */}
       <path d="M 196 96 C 210 108, 212 130, 202 148" fill="none" stroke="var(--teal)" strokeWidth="2.4" strokeDasharray="5 3" />
-      <text x={186} y={88} {...label} fill="var(--teal-deep, var(--teal))">
+      <text x={150} y={88} {...label} fill="var(--teal-deep, var(--teal))">
         n. fibular comum
       </text>
 
@@ -741,7 +757,7 @@ export const Osteotomia: FC<FigureProps> = ({ variant, className, title }) => {
 
 export const Ortese: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 240 400"
+    viewBox="0 0 240 430"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -815,7 +831,9 @@ export const Ortese: FC<FigureProps> = ({ className, title }) => (
       3
     </text>
     <text x={8} y={396} {...label}>
-      força de três pontos valgizante; uso na marcha, criança &lt; 3 anos, Langenskiöld I-II
+      <tspan x={8} dy="0em">força de três pontos valgizante;</tspan>
+      <tspan x={8} dy="1.15em">uso na marcha, criança &lt; 3 anos,</tspan>
+      <tspan x={8} dy="1.15em">Langenskiöld I-II</tspan>
     </text>
 
     <text x={12} y={18} {...label}>

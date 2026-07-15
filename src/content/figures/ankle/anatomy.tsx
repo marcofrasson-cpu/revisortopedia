@@ -94,13 +94,13 @@ export const AnkleMortise: FC<FigureProps> = ({ className, title }) => (
       Tíbia
     </text>
     <text x="66" y="240" {...label} textAnchor="end">
-      Maléolo medial
+      Mal. medial
     </text>
     <text x="238" y="20" {...label} textAnchor="middle">
       Fíbula
     </text>
     <text x="248" y="216" {...label} textAnchor="start">
-      Maléolo lateral
+      Mal. lateral
     </text>
     <text x="152" y="272" {...label} textAnchor="middle">
       Tálus
@@ -170,7 +170,7 @@ export const AnkleRing: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="276" {...label} textAnchor="middle">
       Tálus (ósseo)
     </text>
-    <text x="256" y="154" {...label} textAnchor="start">
+    <text x="236" y="154" {...label} textAnchor="start">
       Sindesmose
     </text>
     <text x="44" y="154" {...label} textAnchor="end">
@@ -240,7 +240,7 @@ export const AnkleLigaments: FC<FigureProps> = ({ className, title }) => (
       <path d="M140 208 C 134 224, 130 240, 134 250" />
     </g>
 
-    <text x="140" y="10" {...label} textAnchor="middle">
+    <text x="140" y="16" {...label} textAnchor="middle">
       Tíbia
     </text>
     <text x="200" y="16" {...label} textAnchor="middle">
@@ -250,12 +250,13 @@ export const AnkleLigaments: FC<FigureProps> = ({ className, title }) => (
       Sindesmose
     </text>
     <text x="248" y="120" {...label} textAnchor="start">
-      LTFA-I / LTFP-I / interósseo
+      <tspan x="248" dy="0">LTFA-I / LTFP-I</tspan>
+      <tspan x="248" dy="1.15em">/ interósseo</tspan>
     </text>
     <text x="250" y="238" {...label} textAnchor="start" fill="var(--teal)">
       Colateral lateral
     </text>
-    <text x="250" y="254" {...label} textAnchor="start">
+    <text x="246" y="254" {...label} textAnchor="start">
       LTFA · LCF · LTFP
     </text>
     <text x="92" y="238" {...label} textAnchor="end" fill="var(--teal)">

@@ -166,7 +166,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     <text x="40" y="82" {...label} textAnchor="middle">proximal</text>
     <text x="40" y="250" {...label} textAnchor="middle">1º metacarpo</text>
     <text x="150" y="290" {...label} textAnchor="middle">
-      Próprio: restritor em flexão · acessório e placa volar: restritores em extensão
+      Próprio: restritor em flexão · acessório/placa: em extensão
     </text>
   </Frame>
 );
@@ -177,7 +177,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
 
 export const Mechanism: FC<FigureProps> = ({ className, title }) => (
   <Frame
-    viewBox="0 0 340 260"
+    viewBox="0 0 340 278"
     className={className}
     title={title ?? "Mecanismo de lesão: abdução e hiperextensão forçadas da MCF do polegar"}
   >
@@ -219,9 +219,12 @@ export const Mechanism: FC<FigureProps> = ({ className, title }) => (
     <path {...ligamentTorn} d="M188 112 C200 122, 204 134, 198 148" />
     <path d="M198 148 l-8 -2 m8 2 l-2 8" stroke="var(--cortical)" strokeWidth={3} strokeLinecap="round" />
 
-    <text x="255" y="70" {...label} fill="var(--amber)">força em abdução</text>
+    <text x="244" y="70" {...label} fill="var(--amber)">força em abdução</text>
     <text x="210" y="150" {...label} fill="var(--cortical)">avulsão distal do LCU</text>
-    <text x="90" y="255" {...label}>o LCU falha caracteristicamente na inserção distal (falange proximal)</text>
+    <text x="90" y="260" {...label}>
+      <tspan x="90" dy="0">LCU falha tipicamente na inserção distal</tspan>
+      <tspan x="90" dy="1.15em">(falange proximal)</tspan>
+    </text>
   </Frame>
 );
 
@@ -259,7 +262,7 @@ export const StenerLesion: FC<FigureProps> = ({ className, title, variant }) => 
         strokeWidth={2}
         strokeDasharray="4 4"
       />
-      <text x="238" y="184" {...label}>borda da aponeurose</text>
+      <text x="238" y="184" {...label}>borda aponeurose</text>
 
       {isStener ? (
         <>
@@ -273,7 +276,7 @@ export const StenerLesion: FC<FigureProps> = ({ className, title, variant }) => 
           <circle cx="196" cy="192" r="4" fill="none" stroke="var(--cortical)" strokeWidth={2} />
           <path d="M196 192 l-2 -8 m2 8 l8 0" stroke="var(--cortical)" strokeWidth={2} strokeLinecap="round" />
           <text x="150" y="270" {...label} textAnchor="middle">
-            A aponeurose interposta entre o coto e a inserção impede a cicatrização
+            Aponeurose interposta entre coto e inserção impede cicatrização
           </text>
           <text x="150" y="286" {...label} textAnchor="middle" fill="var(--cortical)">
             nódulo palpável proximal · indicação cirúrgica
@@ -350,7 +353,7 @@ export const Classification: FC<FigureProps> = ({ className, title, variant }) =
       </text>
       {grade === "iii" && (
         <text x="150" y="278" {...label} textAnchor="middle" fill="var(--cortical)">
-          abertura ≥ 30–35° ou &gt; 15° de diferença vs contralateral
+          abertura ≥30–35° ou &gt;15° vs contralateral
         </text>
       )}
       {stable && (
@@ -386,7 +389,7 @@ export const StressTest: FC<FigureProps> = ({ className, title }) => (
       <path {...ligament} d="M96 116 C108 126, 110 138, 104 150" />
       <path d="M104 60 C88 46, 66 44, 46 54" fill="none" stroke="var(--amber)" strokeWidth={2.6} strokeLinecap="round" />
       <path d="M46 54 l12 -6 m-12 6 l10 9" fill="none" stroke="var(--amber)" strokeWidth={2.6} strokeLinecap="round" />
-      <text x="76" y="250" {...label} textAnchor="middle">em extensão (acessório + placa)</text>
+      <text x="76" y="250" {...label} textAnchor="middle">extensão (acessório+placa)</text>
     </g>
 
     {/* Painel 2: a 30° de flexão */}
@@ -403,7 +406,7 @@ export const StressTest: FC<FigureProps> = ({ className, title }) => (
     </g>
 
     <text x="170" y="112" {...label} textAnchor="middle" fill="var(--muted)">
-      testar sempre em ambas as posições e comparar ao lado contralateral
+      testar em ambas posições e comparar ao lado contralateral
     </text>
   </Frame>
 );
@@ -414,7 +417,7 @@ export const StressTest: FC<FigureProps> = ({ className, title }) => (
 
 export const Approach: FC<FigureProps> = ({ className, title }) => (
   <Frame
-    viewBox="0 0 300 280"
+    viewBox="0 0 300 296"
     className={className}
     title={title ?? "Via dorsoulnar da MCF do polegar e ramos sensitivos do nervo radial"}
   >
@@ -452,8 +455,9 @@ export const Approach: FC<FigureProps> = ({ className, title }) => (
       strokeWidth={3}
       strokeLinecap="round"
     />
-    <text x="150" y="256" {...label} textAnchor="middle">
-      incisar a aponeurose do adutor, expor o LCU e reparar a aponeurose ao final
+    <text x="150" y="272" {...label} textAnchor="middle">
+      <tspan x="150" dy="0">incisar a aponeurose do adutor, expor o LCU</tspan>
+      <tspan x="150" dy="1.15em">e reparar a aponeurose ao final</tspan>
     </text>
   </Frame>
 );
@@ -511,7 +515,7 @@ export const Repair: FC<FigureProps> = ({ className, title, activeStep }) => {
       </g>
 
       <text x="160" y="276" {...label} textAnchor="middle">
-        Fio de Kirschner opcional para proteção transarticular por 3–4 semanas
+        Fio de Kirschner opcional: proteção transarticular por 3–4 sem.
       </text>
     </Frame>
   );
@@ -523,7 +527,7 @@ export const Repair: FC<FigureProps> = ({ className, title, activeStep }) => {
 
 export const Reconstruction: FC<FigureProps> = ({ className, title }) => (
   <Frame
-    viewBox="0 0 300 290"
+    viewBox="0 0 300 300"
     className={className}
     title={title ?? "Reconstrução do LCU com enxerto tendíneo livre para lesão crônica"}
   >
@@ -547,13 +551,16 @@ export const Reconstruction: FC<FigureProps> = ({ className, title }) => (
       {...ligament}
       d="M150 126 C168 124, 172 108, 158 98 C150 92, 140 96, 142 108 C144 120, 158 130, 150 126"
     />
-    <text x="196" y="150" {...label} fill="var(--teal)">enxerto (ex.: palmar longo)</text>
-
-    <text x="150" y="266" {...label} textAnchor="middle">
-      Restaura origem e inserção do LCU quando o tecido nativo é irreparável
+    <text x="196" y="146" {...label} fill="var(--teal)">
+      <tspan x="196" dy="0">enxerto (ex.:</tspan>
+      <tspan x="196" dy="1.15em">palmar longo)</tspan>
     </text>
-    <text x="150" y="282" {...label} textAnchor="middle">
-      Alternativas: artrodese da MCF na artrose ou grande instabilidade crônica
+
+    <text x="150" y="272" {...label} textAnchor="middle">
+      Restaura origem/inserção do LCU se tecido nativo irreparável
+    </text>
+    <text x="150" y="288" {...label} textAnchor="middle">
+      Alt.: artrodese da MCF em artrose ou instabilidade crônica grave
     </text>
   </Frame>
 );

@@ -447,7 +447,7 @@ const Axial: FC<FigureProps> = ({ variant, className, title }) => {
 
       <path d="M 190 30 L 190 12" {...leader} />
       <text x={190} y={9} textAnchor="middle" {...label}>
-        anterior
+        ant.
       </text>
     </Frame>
   );
@@ -900,9 +900,16 @@ const Schizas: FC<FigureProps> = ({ variant, className, title }) => {
       <text x={30} y={228} {...amberText}>
         {g.titulo}
       </text>
-      <text x={30} y={246} {...label}>
-        {g.texto}
-      </text>
+      {ativo === "c" ? (
+        <text x={30} y={246} {...label}>
+          <tspan x={30} dy="0em">Nenhuma raiz identificável: saco homogêneo, sem líquor.</tspan>
+          <tspan x={30} dy="1.15em">Gordura epidural posterior está presente.</tspan>
+        </text>
+      ) : (
+        <text x={30} y={246} {...label}>
+          {g.texto}
+        </text>
+      )}
       <text x={30} y={272} {...label}>
         C e D falham mais o conservador; A e B raramente operam. A graduação
       </text>
@@ -999,14 +1006,16 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
 
       <path d="M 190 30 L 190 12" {...leader} />
       <text x={190} y={9} textAnchor="middle" {...label}>
-        anterior
+        ant.
       </text>
 
       <text x={30} y={272} {...amberText}>
         {info.titulo}
       </text>
       <text x={30} y={290} {...label}>
-        {info.texto}
+        {z === "central"
+          ? "Comprime a cauda equina em bloco: claudicação neurogênica clássica."
+          : info.texto}
       </text>
       <text x={30} y={310} {...label}>
         Corte axial L4-L5. As três zonas coexistem; cada uma pede gesto cirúrgico diferente.
@@ -1204,7 +1213,7 @@ const Tratamento: FC<FigureProps> = ({ variant, activeStep, className, title }) 
 
       <path d="M 190 30 L 190 12" {...leader} />
       <text x={190} y={9} textAnchor="middle" {...label}>
-        anterior
+        ant.
       </text>
     </Frame>
   );

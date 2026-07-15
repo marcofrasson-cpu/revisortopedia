@@ -72,7 +72,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
 
     {/* istmo — ponto mais estreito do canal medular */}
     <line x1="120" y1="150" x2="150" y2="150" stroke="var(--amber)" strokeWidth="1" strokeDasharray="3 3" />
-    <text x="196" y="152" {...mono} textAnchor="start" fill="var(--amber)">istmo (canal estreito)</text>
+    <text x="196" y="152" {...mono} textAnchor="start" fill="var(--amber)">istmo (canal)</text>
 
     {/* Forças deformantes */}
     <g stroke="var(--teal)" strokeWidth="1.8" fill="none" strokeLinecap="round">
@@ -87,7 +87,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     </g>
     <text x="30" y="36" {...label} textAnchor="start" fill="var(--teal)">iliopsoas → flexão</text>
     <text x="176" y="46" {...label} textAnchor="start" fill="var(--teal)">glúteos → abdução</text>
-    <text x="200" y="320" {...mono} textAnchor="start" fill="var(--teal)">adutores → varo/encurt.</text>
+    <text x="200" y="320" {...mono} textAnchor="start" fill="var(--teal)">adutores → varo</text>
 
     <text x="66" y="60" {...label} textAnchor="middle">Cabeça</text>
     <text x="152" y="26" {...label} textAnchor="middle">Tr. maior</text>
@@ -101,7 +101,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
 export const WinquistHansen: FC<FigureProps> = ({ className, title, variant = "I" }) => {
   const v = ["I", "II", "III", "IV"].includes(variant) ? variant : "I";
   const captions: Record<string, string> = {
-    I: "Tipo I — cominuição mínima; > 75% de contato cortical",
+    I: "Tipo I — cominuição mínima; >75% de contato cortical",
     II: "Tipo II — fragmento em asa; ≥ 50% de contato cortical",
     III: "Tipo III — cominuição de 50–100% da circunferência",
     IV: "Tipo IV — segmentar; sem contato cortical (instável)",
@@ -190,8 +190,8 @@ export const ViaAnterograda: FC<FigureProps> = ({ className, title }) => (
     <path d="M148 80 l1 -8 m-1 8 l-8 -3" stroke="var(--teal)" strokeWidth="2" fill="none" strokeLinecap="round" />
 
     <text x="176" y="52" {...label} textAnchor="start" fill="var(--teal)">inserção</text>
-    <text x="176" y="90" {...mono} textAnchor="start" fill="var(--amber)">ápice trocânter /</text>
-    <text x="176" y="104" {...mono} textAnchor="start" fill="var(--amber)">fossa piriforme</text>
+    <text x="176" y="90" {...mono} textAnchor="start" fill="var(--amber)">ápice troc. /</text>
+    <text x="176" y="104" {...mono} textAnchor="start" fill="var(--amber)">f. piriforme</text>
     <text x="40" y="130" {...label} textAnchor="middle">Cabeça</text>
     <text x="140" y="292" {...label} textAnchor="middle">Haste anterógrada</text>
   </svg>
@@ -228,7 +228,7 @@ export const ViaRetrograda: FC<FigureProps> = ({ className, title }) => (
     <path d="M140 288 L 140 262" stroke="var(--teal)" strokeWidth="2" fill="none" strokeLinecap="round" />
     <path d="M140 262 l-5 7 m5 -7 l5 7" stroke="var(--teal)" strokeWidth="2" fill="none" strokeLinecap="round" />
 
-    <text x="170" y="256" {...mono} textAnchor="start" fill="var(--amber)">sulco intercondilar</text>
+    <text x="170" y="256" {...mono} textAnchor="start" fill="var(--amber)">sulco intercond.</text>
     <text x="160" y="120" {...label} textAnchor="start" fill="var(--teal)">Haste retrógrada</text>
     <text x="140" y="296" {...label} textAnchor="middle">entrada anterior ao PCL</text>
   </svg>
@@ -264,7 +264,7 @@ export const StepReducao: FC<FigureProps> = ({ className, title }) => (
 
     <text x="90" y="80" {...label} textAnchor="middle">Fragmento proximal</text>
     <text x="220" y="92" {...label} textAnchor="middle">Fragmento distal</text>
-    <text x="160" y="200" {...label} textAnchor="middle">Restaurar comprimento, alinhamento e rotação sob fluoroscopia</text>
+    <text x="160" y="200" {...label} textAnchor="middle">Restaurar comprimento, alinhamento e rotação (fluoro)</text>
   </svg>
 );
 
@@ -295,11 +295,11 @@ export const StepPontoEntrada: FC<FigureProps> = ({ className, title }) => (
     {/* alerta de ponto de entrada lateral (varo) */}
     <circle cx="158" cy="66" r="3" fill="none" stroke="var(--cortical)" strokeWidth="1.6" />
     <path d="M158 66 l6 -6" stroke="var(--cortical)" strokeWidth="1.4" />
-    <text x="172" y="62" {...mono} textAnchor="start" fill="var(--cortical)">lateral → varo</text>
+    <text x="172" y="62" {...mono} textAnchor="start" fill="var(--cortical)">lateral→varo</text>
 
     <text x="172" y="90" {...label} textAnchor="start" fill="var(--amber)">ponto correto</text>
     <text x="172" y="200" {...label} textAnchor="start" fill="var(--teal)">fio-guia central</text>
-    <text x="130" y="258" {...mono} textAnchor="middle">ponta em bola no canal</text>
+    <text x="130" y="258" {...mono} textAnchor="middle">ponta em bola, canal</text>
   </svg>
 );
 
@@ -339,9 +339,9 @@ export const StepFresagem: FC<FigureProps> = ({ className, title }) => (
 
     <text x="168" y="90" {...label} textAnchor="start" fill="var(--teal)">fresagem</text>
     <text x="168" y="106" {...mono} textAnchor="start" fill="var(--teal)">0,5 mm/passo</text>
-    <text x="168" y="150" {...mono} textAnchor="start" fill="var(--amber)">1,0–1,5 mm acima</text>
-    <text x="168" y="164" {...mono} textAnchor="start" fill="var(--amber)">do diâmetro final</text>
-    <text x="130" y="286" {...label} textAnchor="middle">Reduzido antes de fresar; irrigação para reduzir êmbolos</text>
+    <text x="168" y="150" {...mono} textAnchor="start" fill="var(--amber)">+1,0–1,5mm</text>
+    <text x="168" y="164" {...mono} textAnchor="start" fill="var(--amber)">do diâm. final</text>
+    <text x="130" y="286" {...label} textAnchor="middle">Reduzido antes de fresar; irrigação reduz êmbolos</text>
   </svg>
 );
 
@@ -377,9 +377,9 @@ export const StepBloqueio: FC<FigureProps> = ({ className, title }) => (
     <circle cx="96" cy="250" r="3" fill="var(--teal)" />
     <circle cx="98" cy="272" r="3" fill="var(--teal)" />
 
-    <text x="176" y="64" {...label} textAnchor="start" fill="var(--teal)">bloqueio proximal</text>
+    <text x="176" y="64" {...label} textAnchor="start" fill="var(--teal)">bloq. proximal</text>
     <text x="176" y="262" {...label} textAnchor="start" fill="var(--teal)">bloqueio distal</text>
-    <text x="176" y="160" {...mono} textAnchor="start" fill="var(--cortical)">foco de fratura</text>
+    <text x="176" y="160" {...mono} textAnchor="start" fill="var(--cortical)">foco fratura</text>
     <text x="130" y="312" {...label} textAnchor="middle">Bloqueio estático controla comprimento e rotação</text>
   </svg>
 );

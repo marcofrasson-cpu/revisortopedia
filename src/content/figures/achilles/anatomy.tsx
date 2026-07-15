@@ -64,8 +64,8 @@ export const AchillesAnatomy: FC<FigureProps> = ({ className, title }) => (
     {/* pé (dorso) */}
     <path {...boneStyle} d="M158 276 C 186 274, 214 278, 232 286 L 232 298 L 158 298 Z" />
 
-    <text x="200" y="120" {...label} textAnchor="start" fill="var(--teal)">Gastrocnêmio</text>
-    <text x="200" y="136" {...label} textAnchor="start" fill="var(--teal)">+ sóleo</text>
+    <text x="180" y="120" {...label} textAnchor="start" fill="var(--teal)">Gastrocnêmio</text>
+    <text x="180" y="136" {...label} textAnchor="start" fill="var(--teal)">+ sóleo</text>
     <text x="152" y="212" {...label} textAnchor="start" fill="var(--teal)">Tendão calcâneo</text>
     <text x="150" y="238" {...label} textAnchor="start" fill="var(--amber)" fontFamily="var(--font-mono, monospace)">watershed 2–6 cm</text>
     <text x="120" y="316" {...label} textAnchor="middle">Calcâneo</text>
@@ -138,7 +138,7 @@ export const ThompsonTest: FC<FigureProps> = ({ className, title, variant = "int
           </>
         )}
       </g>
-      <text x="250" y="222" {...label} textAnchor="middle" fill={accent}
+      <text x="235" y="222" {...label} textAnchor="middle" fill={accent}
         fontFamily="var(--font-mono, monospace)">
         {ruptured ? "sem flexão (+)" : "flexão plantar (–)"}
       </text>
@@ -192,7 +192,7 @@ export const AchillesGap: FC<FigureProps> = ({ className, title }) => (
     </text>
     <text x="214" y="132" {...label} textAnchor="start" fill="var(--cortical)">gap</text>
     <text x="150" y="238" {...label} textAnchor="middle">
-      Perda da tensão de repouso → pé mais neutro/dorsifletido
+      Perda da tensão de repouso → pé neutro/dorsifletido
     </text>
   </svg>
 );
