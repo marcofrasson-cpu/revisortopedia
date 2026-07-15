@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Topic } from "../../../types/topic";
-import { CodeChip, cx, SectionHeading } from "../../../ui/primitives";
+import { cx, SectionHeading } from "../../../ui/primitives";
 import FigurePanel from "../FigurePanel";
 import { altFor, captionFor, kindFor, sourceFor } from "../figureMeta";
 import { sectionCopy } from "../../../content/sectionCopy";
@@ -35,19 +35,49 @@ export default function ApproachesSection({ topic }: { topic: Topic }) {
                 on && "border-teal/50 ring-1 ring-teal/30",
               )}
             >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="font-display text-[1.15rem] text-ink">{a.name}</h3>
-                <CodeChip tone="plain">{a.interval}</CodeChip>
-              </div>
-              <p className="mt-1.5 text-[0.9rem] leading-relaxed text-ink-soft">{a.indication}</p>
+              <h3 className="font-display text-[1.15rem] text-ink">{a.name}</h3>
+              <p className="mt-1.5 max-w-[var(--measure)] text-[0.9rem] leading-relaxed text-ink-soft">
+                {a.indication}
+              </p>
+
+              {/* `interval` saiu do CodeChip. O chip é mono e existe para código
+                  de classificação — "Weber A", "31-A1" —, mas este campo tem 182
+                  caracteres de mediana em 245 valores, e 242 deles passam de 40.
+                  O maior tem 538. Era prosa técnica dentro de uma etiqueta: o
+                  chip esticava para os 926px do cartão e quebrava em duas linhas
+                  de mono.
+
+                  O campo nasceu curto ("Posteromedial", 13 chars) e o conteúdo
+                  cresceu; encurtar 242 campos jogaria fora informação boa. O
+                  errado é a apresentação, não o dado. Agora é prosa com rótulo
+                  mono em cima — que é o uso do mono descrito no topo deste CSS. */}
+              {a.interval && (
+                <div className="mt-3">
+                  <span className="eyebrow">Intervalo</span>
+                  <p className="mt-1 max-w-[var(--measure)] text-[0.9rem] leading-relaxed text-ink-soft">
+                    {a.interval}
+                  </p>
+                </div>
+              )}
+
+              {/* Mesma história: mediana de 46 caracteres em 769 valores, 232
+                  acima de 60. São frases, não etiquetas. Viram lista com ponto
+                  cortical — o mesmo padrão de Complicações, que já trata perigo
+                  assim. Cortical-red continua marcando só perigo. */}
               {a.atRisk.length > 0 && (
-                <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                  <span className="eyebrow mr-1">Em risco</span>
-                  {a.atRisk.map((s) => (
-                    <CodeChip key={s} tone="cortical">
-                      {s}
-                    </CodeChip>
-                  ))}
+                <div className="mt-3">
+                  <span className="eyebrow">Em risco</span>
+                  <ul className="mt-1.5 space-y-1.5">
+                    {a.atRisk.map((s) => (
+                      <li
+                        key={s}
+                        className="flex max-w-[var(--measure)] gap-2.5 text-[0.88rem] leading-relaxed text-ink-soft"
+                      >
+                        <span className="mt-[0.5rem] h-1.5 w-1.5 shrink-0 rounded-full bg-cortical" />
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
             </button>
