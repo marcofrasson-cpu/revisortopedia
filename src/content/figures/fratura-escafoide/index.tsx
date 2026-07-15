@@ -151,7 +151,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="196" {...label} fill="var(--teal)">tubérculo distal</text>
 
     {/* Tabaqueira anatômica — inserção clínica */}
-    <g transform="translate(352 60)">
+    <g transform="translate(330 60)">
       <text x="40" y="-16" {...mono} textAnchor="middle">tabaqueira</text>
       <path {...boneBack} d="M0 40 C10 6 34 -6 60 -2 C86 2 96 26 92 54 C80 60 60 58 40 62 C20 66 6 60 0 40 Z" />
       {/* tendões que delimitam a tabaqueira */}
@@ -162,8 +162,9 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
       <text x="46" y="90" {...label} textAnchor="middle">dor à palpação</text>
     </g>
 
-    <text x="230" y="314" {...label} textAnchor="middle">
-      O escafoide cruza as fileiras e sofre alta carga de cisalhamento no punho.
+    <text x="230" y="308" {...label} textAnchor="middle">
+      <tspan x="230" dy="0em">O escafoide cruza as fileiras e sofre alta carga de</tspan>
+      <tspan x="230" dy="1.15em">cisalhamento no punho.</tspan>
     </text>
   </svg>
 );
@@ -451,7 +452,7 @@ export const Nonunion: FC<FigureProps> = ({ className, title }) => (
       {[
         { n: "I", d: "Estiloide radial-escaf.", y: 30 },
         { n: "II", d: "Art. escafocapitato", y: 90 },
-        { n: "III", d: "Capitolunar (poupa rad.-lunar)", y: 150 },
+        { n: "III", d: "Capitolunar (poupa rad.)", y: 150 },
       ].map((s) => (
         <g key={s.n} transform={`translate(0 ${s.y})`}>
           <circle cx={8} cy={0} r={11} fill="var(--cortical)" opacity={0.18} />
@@ -459,7 +460,7 @@ export const Nonunion: FC<FigureProps> = ({ className, title }) => (
           <text x={28} y={4} {...label}>{s.d}</text>
         </g>
       ))}
-      <text x={4} y={186} {...label}>Progressão sequencial da artrose.</text>
+      <text x={4} y={186} {...label}>Progressão da artrose.</text>
     </g>
 
     <text x="230" y="304" {...label} textAnchor="middle">
@@ -486,7 +487,7 @@ export const Graft: FC<FigureProps> = ({ className, title, variant }) => {
 
       {/* Rádio distal como fonte de enxerto */}
       <path {...boneBack} d="M40 300 L40 210 C40 186 54 174 78 174 L120 176 C120 200 116 300 116 300 Z" />
-      <text x="52" y="292" {...label}>rádio distal</text>
+      <text x="46" y="220" {...label}>rádio distal</text>
 
       {/* Escafoide reconstruído (alinhado) */}
       <ScaphoidBody cx={250} cy={160} scale={1.5} proximalShade={vascular ? "risco" : undefined}>

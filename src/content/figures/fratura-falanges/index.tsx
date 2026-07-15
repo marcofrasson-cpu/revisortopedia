@@ -162,7 +162,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     ))}
 
     <text x="240" y="288" {...label} textAnchor="middle">
-      Forças tendíneas opostas determinam o padrão de desvio da fratura.
+      Forças tendíneas opostas ditam o desvio da fratura.
     </text>
   </svg>
 );

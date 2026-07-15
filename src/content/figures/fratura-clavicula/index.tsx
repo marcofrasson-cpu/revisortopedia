@@ -73,7 +73,7 @@ const Anatomia: FC<FigureProps> = ({ className, title }) => (
     <text x="300" y="72" style={mono}>art. AC</text>
     <text x="292" y="164" style={label}>lig. CC</text>
     <text x="30" y="158" style={label}>lig. costoclavicular</text>
-    <text x="150" y="188" style={label}>plexo braquial + a./v. subclávias (post.)</text>
+    <text x="90" y="188" style={label}>plexo braquial + a./v. subclávias (post.)</text>
     <text x="196" y="60" style={label}>ECM / trapézio</text>
     <text x="128" y="158" style={label}>peitoral / deltoide</text>
   </svg>
@@ -157,10 +157,10 @@ const Robinson: FC<FigureProps> = ({ className, title, variant }) => {
           <line x1="150" y1="145" x2="150" y2="155" stroke="var(--amber)" strokeWidth="1.4" />
           <line x1="286" y1="145" x2="286" y2="155" stroke="var(--amber)" strokeWidth="1.4" />
           <text x="180" y="170" style={mono}>encurtamento ≥ 2 cm</text>
-          <text x="80" y="52" style={label}>2B — desvio/cominuição (cunha) → risco de pseudartrose</text>
+          <text x="20" y="52" style={label}>2B — desvio/cominuição (cunha) → risco de pseudartrose</text>
         </>
       )}
-      <text x="20" y="188" style={label}>1 = medial · 2 = diafisário · 3 = lateral (A: alinhado · B: desviado)</text>
+      <text x="20" y="188" style={label}>1=medial · 2=diafisário · 3=lateral (A=alinhado · B=desviado)</text>
     </svg>
   );
 };
@@ -187,7 +187,7 @@ const Acesso: FC<FigureProps> = ({ className, title }) => (
     <path d="M156 162 C 190 168, 226 168, 256 162" stroke="var(--cortical)" strokeWidth="1.6" fill="none" strokeDasharray="2 3" />
     <text x="108" y="54" style={label}>nn. supraclaviculares (proteger)</text>
     <text x="70" y="112" style={mono}>incisão sobre a diáfise</text>
-    <text x="150" y="192" style={label}>plexo braquial + a./v. subclávias — não perfurar cortical post.</text>
+    <text x="10" y="192" style={label}>plexo/vasos subclávios — não perfurar cortical post.</text>
   </svg>
 );
 
@@ -213,7 +213,7 @@ const Step1: FC<FigureProps> = ({ className, title }) => (
     <path d="M70 150 L 40 150 M40 150 L 48 145 M40 150 L 48 155" stroke="var(--amber)" strokeWidth="1.4" fill="none" />
     <path d="M300 150 L 340 150 M340 150 L 332 145 M340 150 L 332 155" stroke="var(--amber)" strokeWidth="1.4" fill="none" />
     <text x="150" y="52" style={label}>pinças pontiagudas</text>
-    <text x="130" y="172" style={mono}>tração → restaurar comprimento/rotação</text>
+    <text x="90" y="172" style={mono}>tração → restaurar comprimento/rotação</text>
   </svg>
 );
 
@@ -246,7 +246,7 @@ const Step2: FC<FigureProps> = ({ className, title }) => (
     <path d="M198 92 L 208 120" stroke="var(--ink-soft)" strokeWidth="1" strokeDasharray="2 3" />
     <line x1="188" y1="112" x2="220" y2="94" stroke="var(--teal)" strokeWidth="3" strokeLinecap="round" />
     <text x="70" y="60" style={mono}>placa superior pré-moldada</text>
-    <text x="150" y="150" style={label}>parafuso interfrag. (lag) na obliquidade</text>
+    <text x="110" y="150" style={label}>parafuso interfrag. (lag) na obliquidade</text>
     <text x="60" y="170" style={label}>≥ 3 parafusos bicorticais de cada lado do foco</text>
   </svg>
 );

@@ -467,12 +467,12 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
 
       <path d="M 168 44 L 154 36" {...leader} />
       <text x={150} y={39} textAnchor="end" {...label}>
-        {nomes[0]} — assimetria dos ombros
+        {nomes[0]} — ombros
       </text>
 
       <path d="M 220 100 L 320 84" {...leader} />
       <text x={324} y={87} {...label}>
-        vértebra terminal superior
+        vértebra terminal sup.
       </text>
 
       <path d="M 262 156 L 320 148" {...leader} />
@@ -480,22 +480,22 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
         vértebra apical
       </text>
       <text x={324} y={165} {...label}>
-        maior desvio e rotação
+        maior desvio/rotação
       </text>
 
       <path d="M 218 212 L 320 204" {...leader} />
       <text x={324} y={207} {...label}>
-        vértebra terminal inferior
+        vértebra terminal inf.
       </text>
 
       <path d="M 176 240 L 154 232" {...leader} />
       <text x={150} y={235} textAnchor="end" {...label}>
-        curva lombar compensatória
+        curva lombar compens.
       </text>
 
       <path d="M 232 128 L 128 108" {...leader} />
       <text x={125} y={111} textAnchor="end" {...label}>
-        CONVEXIDADE (direita)
+        CONVEXA (dir.)
       </text>
 
       <path d="M 166 172 L 96 164" {...leader} />
@@ -503,9 +503,10 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
         CONCAVIDADE
       </text>
 
-      <text x={40} y={310} {...label}>
-        <tspan x={40} dy="0em">Pedículos e espinhosos migram para a concavidade —</tspan>
-        <tspan x={40} dy="1.15em">leitura radiográfica da rotação. {nomes[16]} na base.</tspan>
+      <text x={40} y={296} {...label}>
+        <tspan x={40} dy="0em">Pedículos e espinhosos migram para a concavidade</tspan>
+        <tspan x={40} dy="1.15em">— leitura radiográfica da rotação.</tspan>
+        <tspan x={40} dy="1.15em">{nomes[16]} na base.</tspan>
       </text>
     </Frame>
   );
@@ -586,12 +587,12 @@ const Adams: FC<FigureProps> = ({ className, title }) => (
       gibosidade
     </text>
 
-    <path d="M 236 216 L 400 240" {...leader} />
-    <text x={404} y={243} {...label}>
+    <path d="M 236 216 L 380 240" {...leader} />
+    <text x={380} y={243} {...label}>
       rotação vertebral
     </text>
-    <text x={404} y={257} {...label}>
-      (causa da gibosidade)
+    <text x={380} y={257} {...label}>
+      (causa)
     </text>
 
     <path d="M 150 160 L 144 172" {...leader} />
@@ -605,9 +606,10 @@ const Adams: FC<FigureProps> = ({ className, title }) => (
     <text x={40} y={70} {...label}>
       o examinador observa o dorso no plano tangencial, de trás e de cima.
     </text>
-    <text x={40} y={300} {...amberText}>
-      <tspan x={40} dy="0em">RTT ≥ 5° a 7° no escoliômetro → solicitar radiografia panorâmica.</tspan>
-      <tspan x={40} dy="1.15em">O teste detecta ROTAÇÃO, não mede o Cobb.</tspan>
+    <text x={40} y={288} {...amberText}>
+      <tspan x={40} dy="0em">RTT ≥ 5° a 7° no escoliômetro →</tspan>
+      <tspan x={40} dy="1.15em">solicitar radiografia panorâmica.</tspan>
+      <tspan x={40} dy="1.15em">Detecta ROTAÇÃO, não mede o Cobb.</tspan>
     </text>
   </Frame>
 );
@@ -685,25 +687,26 @@ const Cobb: FC<FigureProps> = ({ className, title }) => {
 
       <path d="M 128 93 L 8 74" {...leader} />
       <text x={4} y={77} textAnchor="end" {...label}>
-        vértebra terminal sup.
+        term. sup.
       </text>
       <text x={4} y={91} textAnchor="end" {...label}>
-        (a mais inclinada)
+        (+ inclinada)
       </text>
 
       <path d="M 152 158 L 8 152" {...leader} />
       <text x={4} y={155} textAnchor="end" {...label}>
-        vértebra apical
+        vért. apical
       </text>
 
       <path d="M 128 223 L 8 244" {...leader} />
       <text x={4} y={247} textAnchor="end" {...label}>
-        vértebra terminal inf.
+        term. inf.
       </text>
 
-      <text x={-70} y={330} {...label}>
-        <tspan x={-70} dy="0em">Escoliose = Cobb ≥ 10° com rotação. Erro interobservador de ~5°:</tspan>
-        <tspan x={-70} dy="1.15em">só se considera progressão a partir de 5° a 10°.</tspan>
+      <text x={-70} y={318} {...label}>
+        <tspan x={-70} dy="0em">Escoliose = Cobb ≥ 10° com rotação.</tspan>
+        <tspan x={-70} dy="1.15em">Erro interobservador ~5°: progressão</tspan>
+        <tspan x={-70} dy="1.15em">só a partir de 5° a 10°.</tspan>
       </text>
     </Frame>
   );
@@ -975,17 +978,17 @@ const modificadoresLombar: Record<string, { cx: number; texto: string; regra: st
   a: {
     cx: 200,
     texto: "Modificador A",
-    regra: "A LVCS passa ENTRE os pedículos da vértebra apical lombar (até L4).",
+    regra: "LVCS passa ENTRE os pedículos apicais (até L4).",
   },
   b: {
     cx: 178,
     texto: "Modificador B",
-    regra: "A LVCS toca o corpo apical entre o pedículo medial e a margem lateral do corpo.",
+    regra: "LVCS toca o corpo apical, entre pedículo e margem lateral.",
   },
   c: {
     cx: 146,
     texto: "Modificador C",
-    regra: "O corpo apical está inteiramente medial à LVCS — sem contato algum.",
+    regra: "Corpo apical inteiramente medial à LVCS — sem contato.",
   },
 };
 
@@ -1061,7 +1064,7 @@ const Modificadores: FC<FigureProps> = ({ variant, className, title }) => {
 
   return (
     <Frame
-      viewBox="0 0 440 320"
+      viewBox="0 0 440 330"
       title={title ?? `Modificador lombar de Lenke — ${m.texto}: ${m.regra}`}
       className={className}
     >
@@ -1095,7 +1098,7 @@ const Modificadores: FC<FigureProps> = ({ variant, className, title }) => {
 
       <path d={`M ${m.cx} 143 L 130 120`} {...leader} />
       <text x={126} y={123} textAnchor="end" {...label}>
-        vértebra apical lombar
+        vért. apical lombar
       </text>
 
       <text x={36} y={44} {...amberText}>
@@ -1257,7 +1260,7 @@ const Conduta: FC<FigureProps> = ({ variant, activeStep, className, title }) => 
           </text>
         </g>
       ))}
-      <text x={xg(65) + 6} y={164} {...label}>
+      <text x={xg(65) - 30} y={178} {...label}>
         Cobb (°)
       </text>
 
@@ -1272,20 +1275,20 @@ const Conduta: FC<FigureProps> = ({ variant, activeStep, className, title }) => 
       </text>
 
       <text x={40} y={44} {...label}>
-        <tspan x={40} dy="0em">A magnitude sozinha não decide: o eixo horizontal é o Cobb,</tspan>
-        <tspan x={40} dy="1.15em">mas a MATURIDADE define se há risco de progressão.</tspan>
+        <tspan x={40} dy="0em">O Cobb (eixo horizontal) não decide sozinho:</tspan>
+        <tspan x={40} dy="1.15em">a MATURIDADE define o risco de progressão.</tspan>
       </text>
       <text x={40} y={76} {...label}>
-        Esqueleto maduro com 30°: observar. Risser 0 com 30°: prescrever colete.
+        Maduro c/ 30°: observar. Risser 0 c/ 30°: colete.
       </text>
 
       <text x={40} y={280} {...label}>
-        <tspan x={40} dy="0em">&lt; 25°: radiografia a cada 4 a 6 meses durante o crescimento;</tspan>
-        <tspan x={40} dy="1.15em">alta ao atingir a maturidade.</tspan>
+        <tspan x={40} dy="0em">&lt; 25°: radiografia a cada 4-6 meses no</tspan>
+        <tspan x={40} dy="1.15em">crescimento; alta na maturidade.</tspan>
       </text>
       <text x={40} y={310} {...label}>
-        <tspan x={40} dy="0em">&gt; 45° a 50°: o colete não corrige — a curva progride</tspan>
-        <tspan x={40} dy="1.15em">mesmo após a maturidade (~1°/ano).</tspan>
+        <tspan x={40} dy="0em">&gt; 45-50°: colete não corrige — curva</tspan>
+        <tspan x={40} dy="1.15em">progride mesmo após maturidade (~1°/ano).</tspan>
       </text>
     </Frame>
   );
@@ -1384,10 +1387,10 @@ const Artrodese: FC<FigureProps> = ({ variant, activeStep, className, title }) =
       {/* colchete dos níveis fundidos */}
       <path d="M 108 86 L 100 86 L 100 198 L 108 198" {...structuralLine} />
       <text x={130} y={136} textAnchor="end" {...corticalText}>
-        níveis da artrodese
+        níveis artrodese
       </text>
       <text x={130} y={150} textAnchor="end" {...label}>
-        = curvas ESTRUTURAIS
+        curvas ESTRUTURAIS
       </text>
       <text x={130} y={164} textAnchor="end" {...label}>
         (Lenke)
@@ -1415,9 +1418,9 @@ const Artrodese: FC<FigureProps> = ({ variant, activeStep, className, title }) =
         — corrige espont.
       </text>
 
-      <text x={30} y={320} {...label}>
-        <tspan x={30} dy="0em">Objetivo: coluna equilibrada nos três planos, poupando o</tspan>
-        <tspan x={30} dy="1.15em">máximo de segmentos móveis distais.</tspan>
+      <text x={30} y={306} {...label}>
+        <tspan x={30} dy="0em">Objetivo: coluna equilibrada nos três planos,</tspan>
+        <tspan x={30} dy="1.15em">poupando o máximo de segmentos móveis distais.</tspan>
       </text>
     </Frame>
   );
