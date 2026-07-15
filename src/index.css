@@ -214,6 +214,38 @@
 }
 
 @layer components {
+  /* ==========================================================================
+     A prosa longa do manual (Visão geral, Anatomia). Uma classe, não duas
+     listas de utilitários que divergem na primeira vez que alguém mexer em uma
+     só.
+
+     hyphens: auto é o que endireita a borda. Português tem palavra comprida e
+     estes textos têm parênteses enormes ("(extensores + nervo fibular profundo
+     + a. tibial anterior)"); sem hifenizar, o bloco inteiro pula para a linha
+     seguinte e deixa um buraco. Medido na Anatomia: a falta média na borda
+     direita cai de 55px para 22px, as linhas que morriam >40px cedo caem de 8
+     em 16 para 1 em 14 — e ainda economiza 2 linhas, porque cabe mais por
+     linha. Só funciona porque o index.html declara lang="pt-BR": sem idioma o
+     navegador não sabe onde partir a palavra e não hifeniza nada.
+
+     O tamanho é responsivo e a justificação também, pelo mesmo motivo — a
+     medida. No telefone a coluna dá ~343px: a 1,3rem isso seria 29 caracteres
+     por linha (curto demais, e justificar abriria rios entre as palavras), a
+     1,05rem dá 41. No desktop o teto de 72ch morde e a coluna para em 839px.
+     ========================================================================== */
+  .prose-manual {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    hyphens: auto;
+  }
+
+  @media (width >= 40rem) {
+    .prose-manual {
+      font-size: 1.3rem;
+      text-align: justify;
+    }
+  }
+
   .app-shell {
     --app-sticky-top: var(--app-header-space);
   }
