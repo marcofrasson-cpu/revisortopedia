@@ -166,6 +166,34 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+  /* Hifenização em todo texto corrido do site. Uma regra, e não `hyphens-auto`
+     repetido em doze componentes, que diverge no primeiro que alguém esquecer.
+
+     É o que endireita a borda direita: português tem palavra comprida e o
+     manual tem parênteses enormes ("(extensores + nervo fibular profundo + a.
+     tibial anterior)"). Sem hifenizar, o bloco todo pula de linha e deixa o
+     buraco. Medido na Anatomia: falta média na borda cai de 55px para 22px, e
+     ainda economiza 2 linhas por caber mais em cada uma.
+
+     Só p/li/dd/figcaption — os elementos que carregam texto corrido. Título não
+     entra: h1..h4 são curtos, medidos à mão, e um hífen no meio do nome do
+     tópico seria pior que a borda torta. Chip, badge e código são <span>, então
+     também ficam de fora. Os itens do NavTree são <li> mas usam `truncate`:
+     linha única, sem quebra, logo sem hífen.
+
+     Depende do lang="pt-BR" do index.html — sem idioma declarado o navegador não
+     sabe onde partir a palavra e ignora isto em silêncio. */
+  p, li, dd, figcaption {
+    hyphens: auto;
+    /* Sem isto o navegador parte "síndrome" em "síndro-me" e joga um "me" órfão
+       na linha seguinte. 6 3 3 = só parte palavra de 6+ letras, e nunca deixa
+       menos de 3 letras de nenhum dos lados do hífen. Safari antigo ignora a
+       forma curta, daí os dois -webkit- explícitos. */
+    hyphenate-limit-chars: 6 3 3;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+  }
+
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 500;
@@ -219,24 +247,18 @@
      listas de utilitários que divergem na primeira vez que alguém mexer em uma
      só.
 
-     hyphens: auto é o que endireita a borda. Português tem palavra comprida e
-     estes textos têm parênteses enormes ("(extensores + nervo fibular profundo
-     + a. tibial anterior)"); sem hifenizar, o bloco inteiro pula para a linha
-     seguinte e deixa um buraco. Medido na Anatomia: a falta média na borda
-     direita cai de 55px para 22px, as linhas que morriam >40px cedo caem de 8
-     em 16 para 1 em 14 — e ainda economiza 2 linhas, porque cabe mais por
-     linha. Só funciona porque o index.html declara lang="pt-BR": sem idioma o
-     navegador não sabe onde partir a palavra e não hifeniza nada.
+     A hifenização vem da regra de base (p/li/dd/figcaption) e é o que endireita
+     a borda direita — a explicação está lá.
 
-     O tamanho é responsivo e a justificação também, pelo mesmo motivo — a
-     medida. No telefone a coluna dá ~343px: a 1,3rem isso seria 29 caracteres
-     por linha (curto demais, e justificar abriria rios entre as palavras), a
-     1,05rem dá 41. No desktop o teto de 72ch morde e a coluna para em 839px.
+     O que é só daqui: tamanho e justificação, os dois responsivos, e pelo mesmo
+     motivo — a medida. No telefone a coluna dá ~343px: a 1,3rem isso seria 29
+     caracteres por linha (curto demais, e justificar com tão poucas palavras
+     abriria rios entre elas), a 1,05rem dá 36. No desktop o teto de 72ch morde
+     e a coluna para em 839px, onde justificar fecha o recorte em zero.
      ========================================================================== */
   .prose-manual {
     font-size: 1.05rem;
     line-height: 1.6;
-    hyphens: auto;
   }
 
   @media (width >= 40rem) {

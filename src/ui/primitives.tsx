@@ -113,7 +113,13 @@ export function Callout({
     <div className={cx("relative overflow-hidden rounded-lg py-3 pl-4 pr-4", t.wrap)}>
       <span className={cx("absolute left-0 top-0 h-full w-[3px]", t.bar)} />
       {title && <div className={cx("eyebrow mb-1", t.label)}>{title}</div>}
-      <div className="text-[0.9rem] leading-relaxed text-ink-soft">{children}</div>
+      {/* max-w e hyphens à mão: o corpo do callout é um <div>, não um <p>, então
+          não pega a regra de base. Media 115 caracteres por linha em blocos de
+          6 linhas na "Chave de decisão" — o pior texto de leitura da página
+          depois que a evidência virou grade. */}
+      <div className="max-w-[var(--measure)] hyphens-auto text-[0.9rem] leading-relaxed text-ink-soft">
+        {children}
+      </div>
     </div>
   );
 }
