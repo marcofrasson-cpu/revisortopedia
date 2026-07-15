@@ -273,6 +273,23 @@
     line-height: 1.6;
   }
 
+  /* text-wrap: balance NÃO entra na prosa longa. A regra de base o liga em todo
+     <p>, e ali ele é veneno: balance só age em bloco de até ~6 linhas (o teto é
+     do navegador e muda entre eles), então um parágrafo curto era reequilibrado
+     e o seguinte, mais longo, não. Junto com a justificação isso produz duas
+     diagramações no MESMO tópico — a Visão geral compacta e hifenizada, a
+     Anatomia logo abaixo com rios entre as palavras.
+
+     Não custa nada tirar: medido na Anatomia, a prosa é idêntica com e sem
+     balance (19 linhas, recorte 0 nos dois). Ele nunca esteve ajudando aqui —
+     só divergindo.
+
+     `pretty` no lugar: cuida da órfã de última linha, que é a única que a
+     justificação não resolve (justify estica todas as linhas menos a última). */
+  .prose-manual p {
+    text-wrap: pretty;
+  }
+
   @media (width >= 40rem) {
     .prose-manual {
       font-size: 1.3rem;
