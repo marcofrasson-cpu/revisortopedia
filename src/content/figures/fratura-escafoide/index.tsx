@@ -152,18 +152,18 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
 
     {/* Tabaqueira anatômica — inserção clínica */}
     <g transform="translate(352 60)">
-      <text x="40" y="-16" {...mono} textAnchor="middle">tabaqueira anatômica</text>
+      <text x="40" y="-16" {...mono} textAnchor="middle">tabaqueira</text>
       <path {...boneBack} d="M0 40 C10 6 34 -6 60 -2 C86 2 96 26 92 54 C80 60 60 58 40 62 C20 66 6 60 0 40 Z" />
       {/* tendões que delimitam a tabaqueira */}
       <path {...teal} strokeWidth={2.2} d="M22 -2 C30 24 34 44 30 66" />
       <path {...teal} strokeWidth={2.2} d="M58 -4 C66 20 72 42 74 66" />
       <path {...cortical} strokeWidth={2.4} d="M32 30 C40 26 50 26 60 32" opacity={0.9} />
       <circle cx={46} cy={30} r={4} fill="var(--cortical)" />
-      <text x="46" y="90" {...label} textAnchor="middle">dor à palpação = suspeita</text>
+      <text x="46" y="90" {...label} textAnchor="middle">dor à palpação</text>
     </g>
 
     <text x="230" y="314" {...label} textAnchor="middle">
-      O escafoide cruza as duas fileiras e sofre alta carga de cisalhamento nos movimentos do punho.
+      O escafoide cruza as fileiras e sofre alta carga de cisalhamento no punho.
     </text>
   </svg>
 );
@@ -244,8 +244,9 @@ export const Vascular: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="70" {...mono} textAnchor="end" fill="var(--amber)">polo proximal</text>
     <text x="150" y="84" {...label} textAnchor="end">70–80% via retrógrada</text>
 
-    <text x="220" y="312" {...label} textAnchor="middle">
-      Fratura proximal ou do colo interrompe o fluxo retrógrado → risco de necrose avascular do polo proximal.
+    <text x="220" y="300" {...label} textAnchor="middle">
+      <tspan x="220" dy="0em">Fratura proximal ou do colo interrompe o fluxo retrógrado →</tspan>
+      <tspan x="220" dy="1.15em">risco de necrose avascular do polo proximal.</tspan>
     </text>
   </svg>
 );
@@ -402,8 +403,9 @@ export const PercutaneousFixation: FC<FigureProps> = ({ className, title, varian
         </marker>
       </defs>
 
-      <text x="220" y="310" {...label} textAnchor="middle">
-        Parafuso canulado sem cabeça no eixo central → maior comprimento e compressão interfragmentar.
+      <text x="220" y="300" {...label} textAnchor="middle">
+        <tspan x="220" dy="0em">Parafuso canulado sem cabeça no eixo central →</tspan>
+        <tspan x="220" dy="1.15em">maior comprimento e compressão interfragmentar.</tspan>
       </text>
     </svg>
   );
@@ -414,7 +416,7 @@ export const PercutaneousFixation: FC<FigureProps> = ({ className, title, varian
    ========================================================================== */
 export const Nonunion: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 460 320"
+    viewBox="0 0 480 340"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -445,11 +447,11 @@ export const Nonunion: FC<FigureProps> = ({ className, title }) => (
 
     {/* Estágios SNAC à direita */}
     <g transform="translate(300 46)">
-      <text x="60" y="-8" {...mono} textAnchor="middle">colapso avançado (SNAC)</text>
+      <text x="60" y="-8" {...mono} textAnchor="middle">colapso avanç. (SNAC)</text>
       {[
-        { n: "I", d: "Estiloide radial–escafoide", y: 26 },
-        { n: "II", d: "Articulação escafocapitato", y: 78 },
-        { n: "III", d: "Capitolunar (poupa radiolunar)", y: 130 },
+        { n: "I", d: "Estiloide radial-escaf.", y: 30 },
+        { n: "II", d: "Art. escafocapitato", y: 90 },
+        { n: "III", d: "Capitolunar (poupa rad.-lunar)", y: 150 },
       ].map((s) => (
         <g key={s.n} transform={`translate(0 ${s.y})`}>
           <circle cx={8} cy={0} r={11} fill="var(--cortical)" opacity={0.18} />
@@ -457,11 +459,12 @@ export const Nonunion: FC<FigureProps> = ({ className, title }) => (
           <text x={28} y={4} {...label}>{s.d}</text>
         </g>
       ))}
-      <text x={4} y={172} {...label}>Progressão sequencial da artrose degenerativa.</text>
+      <text x={4} y={186} {...label}>Progressão sequencial da artrose.</text>
     </g>
 
-    <text x="230" y="312" {...label} textAnchor="middle">
-      A não consolidação evolui com colapso em corcova, DISI e artrose progressiva radioescafoide → capitolunar.
+    <text x="230" y="304" {...label} textAnchor="middle">
+      <tspan x="230" dy="0em">A não consolidação evolui com colapso em corcova, DISI</tspan>
+      <tspan x="230" dy="1.15em">e artrose progressiva radioescafoide → capitolunar.</tspan>
     </text>
   </svg>
 );
@@ -527,8 +530,9 @@ export const Graft: FC<FigureProps> = ({ className, title, variant }) => {
         <>
           <path d="M110 210 C150 210 180 200 208 186" fill="none" stroke="var(--ink-soft)" strokeWidth={2} strokeDasharray="5 4" />
           <text x="120" y="230" {...label}>enxerto corticoesponjoso não vascularizado</text>
-          <text x="230" y="300" {...label} textAnchor="middle">
-            Cunha volar (Fisk–Fernandez) restaura altura e alinhamento; fixação estável favorece a união.
+          <text x="230" y="292" {...label} textAnchor="middle">
+            <tspan x="230" dy="0em">Cunha volar (Fisk–Fernandez) restaura altura</tspan>
+            <tspan x="230" dy="1.15em">e alinhamento; fixação estável favorece união.</tspan>
           </text>
         </>
       )}

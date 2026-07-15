@@ -58,7 +58,7 @@ const amber = "var(--amber)";
    ────────────────────────────────────────────────────────────────────────── */
 export const Anatomia: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 330 300"
+    viewBox="0 0 330 314"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -108,11 +108,12 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
 
     {/* FISE cervicocefálica (placa de crescimento proximal do fêmur) */}
     <path d="M158 176 C 172 178, 184 188, 190 202" fill="none" stroke="var(--teal)" strokeWidth="3" strokeLinecap="round" />
-    <text x="204" y="196" {...label} textAnchor="start" fill="var(--teal)">fise (placa de crescimento)</text>
+    <text x="204" y="196" {...label} textAnchor="start" fill="var(--teal)">fise (crescimento)</text>
 
     <text x="150" y="220" {...label} textAnchor="middle">cabeça cartilaginosa</text>
-    <text x="40" y="292" {...label} textAnchor="start">
-      A concavidade do acetábulo depende da cabeça bem centrada — base do tratamento da DDQ.
+    <text x="20" y="288" {...label} textAnchor="start">
+      <tspan x="20" dy="0em">A concavidade do acetábulo depende da cabeça bem</tspan>
+      <tspan x="20" dy="1.15em">centrada — base do tratamento da DDQ.</tspan>
     </text>
   </svg>
 );
@@ -215,7 +216,7 @@ export const Manobras: FC<FigureProps> = ({ className, title, variant }) => {
 
   return (
     <svg
-      viewBox="0 0 300 260"
+      viewBox="0 0 300 276"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -250,7 +251,10 @@ export const Manobras: FC<FigureProps> = ({ className, title, variant }) => {
           {/* seta de abdução + elevação (redução) */}
           <path d="M120 118 C 132 116, 140 122, 146 128" fill="none" stroke="var(--teal)" strokeWidth="2" markerEnd="url(#arrMan)" />
           <text x="150" y="24" {...labelMono} textAnchor="middle" fill="var(--teal)">ORTOLANI (reduz)</text>
-          <text x="40" y="238" {...label} textAnchor="start">Abdução + elevação do trocânter → cabeça entra no acetábulo (clunk positivo).</text>
+          <text x="20" y="238" {...label} textAnchor="start">
+            <tspan x="20" dy="0em">Abdução + elevação do trocânter → cabeça entra</tspan>
+            <tspan x="20" dy="1.15em">no acetábulo (clunk positivo).</tspan>
+          </text>
         </>
       ) : (
         <>
@@ -262,7 +266,7 @@ export const Manobras: FC<FigureProps> = ({ className, title, variant }) => {
           {/* seta de adução + pressão posterior (luxa) */}
           <path d="M146 128 C 134 126, 122 122, 112 118" fill="none" stroke={amber} strokeWidth="2" markerEnd="url(#arrManA)" />
           <text x="150" y="24" {...labelMono} textAnchor="middle" fill={amber}>BARLOW (luxa)</text>
-          <text x="40" y="238" {...label} textAnchor="start">Adução + pressão posterior → cabeça sai do acetábulo (quadril luxável).</text>
+          <text x="20" y="238" {...label} textAnchor="start">Adução + pressão post. → cabeça sai (quadril luxável).</text>
         </>
       )}
 
@@ -275,8 +279,9 @@ export const Manobras: FC<FigureProps> = ({ className, title, variant }) => {
         </marker>
       </defs>
 
-      <text x="40" y="252" {...label} textAnchor="start">
-        Recém-nascido; teste um quadril por vez, joelhos e quadris a 90°.
+      <text x="20" y="252" {...label} textAnchor="start">
+        <tspan x="20" dy="0em">Recém-nascido; teste um quadril por vez,</tspan>
+        <tspan x="20" dy="1.15em">joelhos e quadris a 90°.</tspan>
       </text>
     </svg>
   );
@@ -353,7 +358,7 @@ export const Graf: FC<FigureProps> = ({ className, title, variant }) => {
       </text>
       <text x="150" y="242" {...label} textAnchor="middle">{c.desc}</text>
       <text x="150" y="256" {...label} textAnchor="middle" fill="var(--teal)">
-        α maior = teto ósseo melhor · método de escolha até ~4–6 meses
+        α maior = teto ósseo melhor · escolha até ~4–6 m
       </text>
     </svg>
   );
@@ -365,7 +370,7 @@ export const Graf: FC<FigureProps> = ({ className, title, variant }) => {
    ────────────────────────────────────────────────────────────────────────── */
 export const Radiografia: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 320 280"
+    viewBox="0 0 320 296"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -411,10 +416,11 @@ export const Radiografia: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="196" {...label} textAnchor="middle" fill="var(--teal)">arco de Shenton (roto no lado displásico)</text>
 
     <text x="20" y="252" {...label} textAnchor="start">
-      Cabeça normal: quadrante ínfero-medial de Ombrédanne (abaixo de H, medial a Perkin).
+      <tspan x="20" dy="0em">Cabeça normal: quadrante ínfero-medial de</tspan>
+      <tspan x="20" dy="1.15em">Ombrédanne (abaixo de H, medial a Perkin).</tspan>
     </text>
-    <text x="20" y="268" {...label} textAnchor="start">
-      Radiografia útil após surgir o núcleo de ossificação / ossificação do esqueleto.
+    <text x="20" y="282" {...label} textAnchor="start">
+      Radiografia útil após surgir o núcleo de ossificação.
     </text>
   </svg>
 );
@@ -424,7 +430,7 @@ export const Radiografia: FC<FigureProps> = ({ className, title }) => (
    ────────────────────────────────────────────────────────────────────────── */
 export const Pavlik: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 280"
+    viewBox="0 0 300 296"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -455,8 +461,9 @@ export const Pavlik: FC<FigureProps> = ({ className, title }) => (
     <path d="M150 158 C 162 178, 170 196, 172 214" fill="none" stroke={amber} strokeWidth="1.4" strokeDasharray="3 3" />
     <text x="150" y="250" {...label} textAnchor="middle" fill={amber}>flexão ~100–110° · abdução na zona segura</text>
 
-    <text x="20" y="270" {...label} textAnchor="start">
-      1ª linha até ~6 meses. Evitar abdução forçada (risco de necrose) e flexão insuficiente (não reduz).
+    <text x="20" y="266" {...label} textAnchor="start">
+      <tspan x="20" dy="0em">1ª linha até ~6 meses. Evitar abdução forçada (risco de</tspan>
+      <tspan x="20" dy="1.15em">necrose) e flexão insuficiente (não reduz).</tspan>
     </text>
   </svg>
 );
@@ -466,7 +473,7 @@ export const Pavlik: FC<FigureProps> = ({ className, title }) => (
    ────────────────────────────────────────────────────────────────────────── */
 export const ReducaoGesso: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 280"
+    viewBox="0 0 300 316"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -500,10 +507,12 @@ export const ReducaoGesso: FC<FigureProps> = ({ className, title }) => (
     <text x="60" y="130" {...label} textAnchor="start" fill="var(--cortical)">tenotomia dos adutores (se limita a abdução)</text>
 
     <text x="20" y="252" {...label} textAnchor="start">
-      6–18 meses: redução fechada sob anestesia + artrografia; gessar na posição humana (não forçar).
+      <tspan x="20" dy="0em">6–18 meses: redução fechada sob anestesia + artrografia;</tspan>
+      <tspan x="20" dy="1.15em">gessar na posição humana (não forçar).</tspan>
     </text>
-    <text x="20" y="268" {...label} textAnchor="start">
-      Confirmar reduzido e estável (TC/RM); zona segura estreita → risco de necrose ou reluxação.
+    <text x="20" y="286" {...label} textAnchor="start">
+      <tspan x="20" dy="0em">Confirmar reduzido e estável (TC/RM); zona segura</tspan>
+      <tspan x="20" dy="1.15em">estreita → risco de necrose ou reluxação.</tspan>
     </text>
   </svg>
 );
@@ -516,7 +525,7 @@ export const Osteotomias: FC<FigureProps> = ({ className, title, variant }) => {
   const femoral = (variant ?? "femoral") === "femoral";
   return (
     <svg
-      viewBox="0 0 300 280"
+      viewBox="0 0 300 292"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -557,8 +566,9 @@ export const Osteotomias: FC<FigureProps> = ({ className, title, variant }) => {
           {/* arco de correção do varo (amber) */}
           <path d="M150 148 A 40 40 0 0 0 176 178" fill="none" stroke={amber} strokeWidth="1.4" strokeDasharray="3 3" />
           <text x="150" y="24" {...labelMono} textAnchor="middle" fill="var(--ink-soft)">osteotomia femoral</text>
-          <text x="20" y="270" {...label} textAnchor="start">
-            Variza/desrotа e encurta o fêmur; melhora cobertura e reduz pressão na cabeça.
+          <text x="20" y="266" {...label} textAnchor="start">
+            <tspan x="20" dy="0em">Variza/desrot. e encurta o fêmur; melhora</tspan>
+            <tspan x="20" dy="1.15em">cobertura e reduz pressão na cabeça.</tspan>
           </text>
         </>
       ) : (

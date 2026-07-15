@@ -223,16 +223,16 @@ const Anatomia: FC<FigureProps> = ({ className, title }) => (
     </title>
     <FemurGroup vessels />
     <line x1="196" y1="120" x2="208" y2="92" {...leader} />
-    <text x="212" y="62" {...labelStrong} fill="var(--amber)">
+    <text x="205" y="62" {...labelStrong} fill="var(--amber)">
       Vasos retinaculares
     </text>
-    <text x="212" y="76" {...label}>
+    <text x="205" y="76" {...label}>
       posterossuperiores
     </text>
-    <text x="212" y="89" {...label}>
-      (ramos da circunflexa
+    <text x="205" y="89" {...label}>
+      (ramos da circunfl.
     </text>
-    <text x="212" y="102" {...label}>
+    <text x="205" y="102" {...label}>
       femoral medial)
     </text>
     <line x1="118" y1="110" x2="56" y2="182" {...leader} />
@@ -391,7 +391,7 @@ const RiscoNav: FC<FigureProps> = ({ className, title }) => {
       })}
       <path d="M 68 52 L 300 52" {...dashed} />
       <text x="184" y="44" {...label} textAnchor="middle">
-        Quanto mais proximal o traço, mais vasos interrompidos
+        Mais proximal = mais vasos interrompidos
       </text>
       <text x="42" y="262" {...label}>
         Metanálise (Xin, 2023); necrose global ~22%.
@@ -465,7 +465,7 @@ const Fixacao: FC<FigureProps> = ({ className, title, variant }) => {
   const transfisaria = variant === "transfisaria";
   return (
     <svg
-      viewBox="0 0 340 340"
+      viewBox="0 0 340 366"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -515,20 +515,26 @@ const Fixacao: FC<FigureProps> = ({ className, title, variant }) => {
             além do traço
           </text>
           <line x1="176" y1="166" x2="240" y2="212" {...leader} />
-          <text x="214" y="230" {...labelStrong}>
-            Dois parafusos canulados
+          <text x="208" y="230" {...labelStrong}>
+            Parafusos canulados
           </text>
-          <text x="214" y="244" {...label}>
-            Paralelos, entrada abaixo
+          <text x="208" y="244" {...label}>
+            Paralelos, entrada
           </text>
-          <text x="214" y="257" {...label}>
-            do trocânter maior
+          <text x="208" y="257" {...label}>
+            abaixo do troc. maior
           </text>
-          <text x="14" y="322" {...label}>
-            Regra geral: poupar a fise sempre que o colo distal comporte o implante.
+          <text x="14" y="310" {...label}>
+            Regra geral: poupar a fise sempre que
           </text>
-          <text x="14" y="335" {...label}>
-            Nos tipos III/IV, placa bloqueada proximal previne melhor a coxa vara.
+          <text x="14" y="323" {...label}>
+            o colo distal comporte o implante.
+          </text>
+          <text x="14" y="336" {...label}>
+            Nos tipos III/IV, placa bloqueada proximal
+          </text>
+          <text x="14" y="349" {...label}>
+            previne melhor a coxa vara.
           </text>
         </>
       )}
@@ -539,7 +545,7 @@ const Fixacao: FC<FigureProps> = ({ className, title, variant }) => {
 /* ---- 6. Via de acesso anterolateral (Watson-Jones) ----------------------------- */
 const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 340 300"
+    viewBox="0 0 340 316"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -584,15 +590,15 @@ const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
     {/* Intervalo de Watson-Jones */}
     <path d="M 246 108 L 206 132" {...cortical} strokeDasharray="6 4" />
     <path d="M 206 132 L 214 130 L 211 138 Z" fill="var(--cortical)" stroke="none" />
-    <line x1="246" y1="108" x2="292" y2="60" {...leader} />
-    <text x="264" y="48" {...labelStrong} fill="var(--cortical)">
-      Intervalo de Watson-Jones
+    <line x1="246" y1="108" x2="206" y2="58" {...leader} />
+    <text x="190" y="48" {...labelStrong} fill="var(--cortical)">
+      Watson-Jones
     </text>
-    <text x="264" y="34" {...label}>
-      TFL (n. glúteo superior) ×
+    <text x="190" y="34" {...label}>
+      TFL × glúteo médio
     </text>
-    <text x="264" y="21" {...label}>
-      glúteo médio (n. glúteo superior)
+    <text x="190" y="21" {...label}>
+      (mesmo n. glúteo sup.)
     </text>
     <line x1="76" y1="150" x2="52" y2="204" {...leader} />
     <text x="12" y="220" {...labelStrong} fill="var(--cortical)">
@@ -604,11 +610,14 @@ const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
     <text x="12" y="247" {...label}>
       n. glúteo superior (proximal)
     </text>
-    <text x="14" y="288" {...label}>
-      Intervalo intermuscular, mas não internervoso — ambos os ventres são
+    <text x="14" y="272" {...label}>
+      Intervalo intermuscular, mas não internervoso —
+    </text>
+    <text x="14" y="285" {...label}>
+      ambos os ventres inervados pelo n. glúteo sup.
     </text>
     <text x="14" y="298" {...label}>
-      inervados pelo nervo glúteo superior; não estender além de 5 cm do rebordo.
+      não estender além de 5 cm do rebordo.
     </text>
   </svg>
 );
@@ -616,7 +625,7 @@ const ViaAnterolateral: FC<FigureProps> = ({ className, title }) => (
 /* ---- 7. Coxa vara / parada de crescimento -------------------------------------- */
 const CoxaVara: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 340 340"
+    viewBox="0 0 340 366"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -648,19 +657,25 @@ const CoxaVara: FC<FigureProps> = ({ className, title }) => (
       Coxa vara
     </text>
     <text x="228" y="46" {...label}>
-      Trocânter alto, braço de
+      Trocânter alto
     </text>
     <text x="228" y="33" {...label}>
-      alavanca abdutor encurtado
+      abdutor curto
     </text>
     <text x="238" y="20" {...label}>
       → Trendelenburg
     </text>
-    <text x="14" y="322" {...label}>
-      Complicação típica do Delbet III/IV mal reduzido ou fixado sem apoio angular.
+    <text x="14" y="310" {...label}>
+      Complicação típica do Delbet III/IV mal reduzido
     </text>
-    <text x="14" y="335" {...label}>
-      Corrigir com osteotomia valgizante subtrocantérica se {"<"} 110° ou marcha alterada.
+    <text x="14" y="323" {...label}>
+      ou fixado sem apoio angular.
+    </text>
+    <text x="14" y="336" {...label}>
+      Corrigir com osteotomia valgizante subtrocantérica
+    </text>
+    <text x="14" y="349" {...label}>
+      se {"<"} 110° ou marcha alterada.
     </text>
   </svg>
 );
@@ -676,7 +691,7 @@ const NecroseAvascular: FC<FigureProps> = ({ className, title, variant }) => {
   const v = variant && NECROSE_TITLES[variant] ? variant : "I";
   return (
     <svg
-      viewBox="0 0 340 340"
+      viewBox="0 0 340 366"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -715,13 +730,19 @@ const NecroseAvascular: FC<FigureProps> = ({ className, title, variant }) => {
         <>
           <line x1="118" y1="86" x2="224" y2="58" {...leader} />
           <text x="228" y="58" {...label}>
-            Todo o núcleo epifisário
+            Núcleo epifisário
           </text>
-          <text x="14" y="322" {...label}>
-            O padrão mais comum e o de pior prognóstico: colapso global da cabeça.
+          <text x="14" y="310" {...label}>
+            O padrão mais comum e o de pior prognóstico:
           </text>
-          <text x="14" y="335" {...label}>
-            Decorre da interrupção de todos os vasos retinaculares (típico do tipo I/II).
+          <text x="14" y="323" {...label}>
+            colapso global da cabeça.
+          </text>
+          <text x="14" y="336" {...label}>
+            Decorre da interrupção de todos os vasos
+          </text>
+          <text x="14" y="349" {...label}>
+            retinaculares (típico do tipo I/II).
           </text>
         </>
       ) : null}

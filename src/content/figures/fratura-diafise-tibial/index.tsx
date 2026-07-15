@@ -198,9 +198,9 @@ export const Compartimentos: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="72" {...label} textAnchor="middle" fill="var(--teal)">Anterior</text>
     <text x="150" y="86" {...mono} textAnchor="middle">n. fibular profundo</text>
     <text x="272" y="120" {...label} textAnchor="middle" fill="var(--teal)">Lateral</text>
-    <text x="278" y="134" {...mono} textAnchor="middle">n. fib. superf.</text>
+    <text x="270" y="134" {...mono} textAnchor="middle">n. fib. sup.</text>
     <text x="150" y="180" {...label} textAnchor="middle" fill="var(--teal)">Post. profundo</text>
-    <text x="150" y="248" {...label} textAnchor="middle" fill="var(--teal)">Post. superficial</text>
+    <text x="150" y="204" {...label} textAnchor="middle" fill="var(--teal)">Post. superficial</text>
 
     {/* box das 5 P + pressão delta */}
     <rect x="8" y="220" width="150" height="72" rx="6" fill="var(--surface)" stroke="var(--line-strong)" strokeWidth="1" />
@@ -219,7 +219,7 @@ export const Compartimentos: FC<FigureProps> = ({ className, title }) => (
 /* -------------------------------------------------------------------------- */
 export const ViaSuprapatelar: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 260 300"
+    viewBox="0 0 260 314"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -247,9 +247,9 @@ export const ViaSuprapatelar: FC<FigureProps> = ({ className, title }) => (
     <path d="M92 56 l-5 -7 m5 7 l5 -7" stroke="var(--teal)" strokeWidth="2" fill="none" strokeLinecap="round" />
 
     <text x="150" y="58" {...label} textAnchor="start" fill="var(--amber)">portal suprapatelar</text>
-    <text x="150" y="122" {...mono} textAnchor="start">joelho ~15° flexão</text>
-    <text x="150" y="200" {...label} textAnchor="start" fill="var(--teal)">haste (pela patelofemoral)</text>
-    <text x="130" y="296" {...label} textAnchor="middle">semiestendido: melhor controle do fragmento proximal</text>
+    <text x="150" y="122" {...mono} textAnchor="start">joelho ~15° flex.</text>
+    <text x="150" y="200" {...label} textAnchor="start" fill="var(--teal)"><tspan x="150" dy="0">haste (pela</tspan><tspan x="150" dy="1.15em">patelofemoral)</tspan></text>
+    <text x="130" y="290" {...label} textAnchor="middle"><tspan x="130" dy="0">semiestendido: melhor controle</tspan><tspan x="130" dy="1.15em">do fragmento proximal</tspan></text>
   </svg>
 );
 
@@ -258,7 +258,7 @@ export const ViaSuprapatelar: FC<FigureProps> = ({ className, title }) => (
 /* -------------------------------------------------------------------------- */
 export const ViaInfrapatelar: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 260 300"
+    viewBox="0 0 260 316"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -285,9 +285,9 @@ export const ViaInfrapatelar: FC<FigureProps> = ({ className, title }) => (
     <path d="M116 136 l1 -8 m-1 8 l-8 -3" stroke="var(--teal)" strokeWidth="2" fill="none" strokeLinecap="round" />
 
     <text x="150" y="128" {...label} textAnchor="start" fill="var(--amber)">portal infrapatelar</text>
-    <text x="150" y="96" {...mono} textAnchor="start">joelho &gt; 90° flexão</text>
+    <text x="150" y="96" {...mono} textAnchor="start">joelho &gt;90° flex.</text>
     <text x="150" y="210" {...label} textAnchor="start" fill="var(--teal)">tendão patelar</text>
-    <text x="130" y="298" {...label} textAnchor="middle">flexão desloca o fragmento proximal em ápice anterior</text>
+    <text x="130" y="292" {...label} textAnchor="middle"><tspan x="130" dy="0">flexão desloca o fragmento proximal</tspan><tspan x="130" dy="1.15em">em ápice anterior</tspan></text>
   </svg>
 );
 
@@ -318,9 +318,9 @@ export const StepEntrada: FC<FigureProps> = ({ className, title }) => (
 
     {/* alerta: entrada medial/posterior → deformidade */}
     <circle cx="128" cy="50" r="3" fill="none" stroke="var(--cortical)" strokeWidth="1.6" />
-    <text x="150" y="48" {...mono} textAnchor="start" fill="var(--cortical)">medial/post. → valgo/procurvato</text>
+    <text x="150" y="48" {...mono} textAnchor="start" fill="var(--cortical)"><tspan x="150" dy="0">medial/post. →</tspan><tspan x="150" dy="1.15em">valgo/procurvato</tspan></text>
 
-    <text x="150" y="70" {...label} textAnchor="start" fill="var(--amber)">ponto de entrada</text>
+    <text x="150" y="86" {...label} textAnchor="start" fill="var(--amber)">ponto de entrada</text>
     <text x="150" y="200" {...label} textAnchor="start" fill="var(--teal)">fio-guia central</text>
     <text x="130" y="292" {...label} textAnchor="middle">alinhar eixo do canal em AP e perfil antes de fresar</text>
   </svg>
@@ -357,8 +357,8 @@ export const StepFresagem: FC<FigureProps> = ({ className, title }) => (
 
     <text x="164" y="90" {...label} textAnchor="start" fill="var(--teal)">fresagem</text>
     <text x="164" y="106" {...mono} textAnchor="start" fill="var(--teal)">0,5 mm/passo</text>
-    <text x="164" y="150" {...mono} textAnchor="start" fill="var(--amber)">1,0–1,5 mm acima</text>
-    <text x="164" y="164" {...mono} textAnchor="start" fill="var(--amber)">do diâmetro da haste</text>
+    <text x="164" y="150" {...mono} textAnchor="start" fill="var(--amber)">1,0–1,5 mm</text>
+    <text x="164" y="164" {...mono} textAnchor="start" fill="var(--amber)">acima da haste</text>
     <text x="130" y="286" {...label} textAnchor="middle">reduzido antes de fresar; irrigação e fresas afiadas</text>
   </svg>
 );
@@ -396,9 +396,9 @@ export const StepBloqueio: FC<FigureProps> = ({ className, title }) => (
     <circle cx="96" cy="252" r="3" fill="var(--teal)" />
     <circle cx="98" cy="274" r="3" fill="var(--teal)" />
 
-    <text x="172" y="60" {...label} textAnchor="start" fill="var(--teal)">bloqueio proximal</text>
+    <text x="172" y="60" {...label} textAnchor="start" fill="var(--teal)">bloq. proximal</text>
     <text x="172" y="262" {...label} textAnchor="start" fill="var(--teal)">bloqueio distal</text>
-    <text x="172" y="160" {...mono} textAnchor="start" fill="var(--cortical)">foco de fratura</text>
+    <text x="172" y="160" {...mono} textAnchor="start" fill="var(--cortical)">foco de fx.</text>
     <text x="130" y="314" {...label} textAnchor="middle">estático em fraturas proximais/distais e instáveis</text>
   </svg>
 );

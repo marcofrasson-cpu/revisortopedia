@@ -193,7 +193,7 @@ const Mecanismo: FC<FigureProps> = ({ className, title }) => (
 
     <path {...lead} d="M232 150 L300 150" />
     <text x="304" y="146" {...label}>traço intra-articular</text>
-    <text x="304" y="162" {...label}>(afastamento do fragmento)</text>
+    <text x="304" y="162" {...label}>(afastamento do fragm.)</text>
 
     <path {...lead} d="M232 250 L300 250" />
     <text x="304" y="253" {...label}>fragmento distal estável</text>
@@ -246,10 +246,10 @@ function MayoPanel({ variant, x, y }: { variant: MayoKey; x: number; y: number }
         {variant === "I"
           ? "não desviada"
           : variant === "IIA"
-            ? "desviada estável"
+            ? "desv. estável"
             : variant === "IIB"
-              ? "desviada cominutiva"
-              : "instável (fx-luxação)"}
+              ? "desv. cominutiva"
+              : "instável (fx-lux.)"}
       </text>
     </g>
   );
@@ -260,7 +260,7 @@ const Mayo: FC<FigureProps> = ({ className, title, variant }) => {
   const single = order.includes(variant as MayoKey) ? (variant as MayoKey) : null;
   return (
     <svg
-      viewBox="0 0 440 220"
+      viewBox="0 0 560 220"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -268,13 +268,13 @@ const Mayo: FC<FigureProps> = ({ className, title, variant }) => {
     >
       <title>{title ?? "Classificação de Mayo da fratura do olécrano"}</title>
       {single ? (
-        <MayoPanel variant={single} x={160} y={20} />
+        <MayoPanel variant={single} x={230} y={20} />
       ) : (
         <>
-          <MayoPanel variant="I" x={12} y={16} />
-          <MayoPanel variant="IIA" x={116} y={16} />
-          <MayoPanel variant="IIB" x={224} y={16} />
-          <MayoPanel variant="III" x={332} y={16} />
+          <MayoPanel variant="I" x={10} y={16} />
+          <MayoPanel variant="IIA" x={150} y={16} />
+          <MayoPanel variant="IIB" x={290} y={16} />
+          <MayoPanel variant="III" x={430} y={16} />
         </>
       )}
     </svg>
@@ -327,7 +327,7 @@ const Schatzker: FC<FigureProps> = ({ className, title, variant }) => {
   const single = order.includes(variant as SchatzkerKey) ? (variant as SchatzkerKey) : null;
   return (
     <svg
-      viewBox="0 0 440 290"
+      viewBox="0 0 520 290"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -335,12 +335,12 @@ const Schatzker: FC<FigureProps> = ({ className, title, variant }) => {
     >
       <title>{title ?? "Padrões morfológicos de Schatzker da fratura do olécrano"}</title>
       {single ? (
-        <SchatzkerPanel variant={single} x={170} />
+        <SchatzkerPanel variant={single} x={200} />
       ) : (
         <>
-          <SchatzkerPanel variant="transversa" x={40} />
-          <SchatzkerPanel variant="obliqua" x={170} />
-          <SchatzkerPanel variant="cominutiva" x={300} />
+          <SchatzkerPanel variant="transversa" x={20} />
+          <SchatzkerPanel variant="obliqua" x={200} />
+          <SchatzkerPanel variant="cominutiva" x={380} />
         </>
       )}
     </svg>
@@ -450,7 +450,7 @@ const Placa: FC<FigureProps> = ({ className, title }) => (
 
     <path {...lead} d="M232 150 L300 150" />
     <text x="304" y="146" {...label}>cominuição / obliquidade</text>
-    <text x="304" y="162" {...label}>que a banda não neutraliza</text>
+    <text x="304" y="162" {...label}>que a banda não cobre</text>
 
     <path {...lead} d="M232 220 L300 232" />
     <text x="304" y="234" {...label}>parafusos multiplanares</text>

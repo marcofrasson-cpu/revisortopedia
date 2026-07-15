@@ -149,7 +149,8 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     {/* eixo do talus × eixo do calcâneo (divergência perdida no pé torto) */}
     <path {...measure} d="M 105 60 L 98 155" strokeDasharray="5 4" />
     <path {...measure} d="M 108 55 L 130 152" strokeDasharray="5 4" />
-    <text x="150" y="120" {...label}>eixos divergentes</text>
+    <text x="150" y="98" {...label}>eixos</text>
+    <text x="150" y="111" {...label}>divergentes</text>
 
     <path {...measure} d="M 345 60 L 340 155" strokeDasharray="5 4" />
     <path {...measure} d="M 348 55 L 354 152" strokeDasharray="5 4" />
@@ -158,8 +159,8 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     {/* navicular medializado contra o maléolo medial */}
     <path {...lesion} d="M 320 150 C 306 146, 300 138, 300 128" />
     <circle cx="300" cy="126" r="6" fill="none" stroke="var(--cortical)" strokeWidth="2.4" />
-    <text x="238" y="112" {...label} textAnchor="end" fill="var(--cortical)">navicular</text>
-    <text x="238" y="125" {...label} textAnchor="end" fill="var(--cortical)">medializado</text>
+    <text x="238" y="145" {...label} textAnchor="end" fill="var(--cortical)">navicular</text>
+    <text x="238" y="158" {...label} textAnchor="end" fill="var(--cortical)">medializado</text>
 
     <text x="60" y="70" {...label} textAnchor="end">maléolo</text>
     <text x="60" y="83" {...label} textAnchor="end">medial</text>
@@ -167,7 +168,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     <text x="120" y="318" {...label} textAnchor="middle">talus, navicular e calcâneo alinhados</text>
     <text x="360" y="318" {...label} textAnchor="middle">bloco médio-antepé aduzido em torno do talus</text>
     <text x="240" y="336" {...label} textAnchor="middle">
-      a deformidade é articular: o esqueleto roda em torno de um talus fixo — não há osso &quot;a mais&quot; nem &quot;a menos&quot;.
+      deformidade articular — o pé roda sobre um talus fixo, sem osso extra
     </text>
   </svg>
 );
@@ -203,7 +204,7 @@ export const Cave: FC<FigureProps> = ({ variant, className, title }) => {
         {/* arco medial elevado */}
         <path {...measure} d="M 62 146 C 96 108, 150 106, 200 132" />
         <text x="120" y="100" {...label} fill="var(--amber)" textAnchor="middle">arco medial elevado</text>
-        <text x="120" y="164" {...label} textAnchor="middle">antepé pronado sobre o retropé; 1º raio em flexão plantar</text>
+        <text x="120" y="164" {...label} textAnchor="middle">antepé pronado sobre retropé; 1º raio flexo</text>
       </g>
 
       {/* ---- ADUTO (vista plantar) ---- */}
@@ -240,7 +241,7 @@ export const Cave: FC<FigureProps> = ({ variant, className, title }) => {
         <path {...measure} d="M 122 268 L 140 310" />
         <path {...measure} d="M 122 300 A 32 32 0 0 0 134 296" />
         <text x="168" y="296" {...label} fill="var(--amber)">varo do calcâneo</text>
-        <text x="122" y="332" {...label} textAnchor="middle">retropé em inversão — só corrige com abdução, nunca com pronação</text>
+        <text x="122" y="328" {...label} textAnchor="middle">retropé em inversão; corrige só com abdução</text>
       </g>
 
       {/* ---- EQUINO (perfil lateral) ---- */}
@@ -259,7 +260,7 @@ export const Cave: FC<FigureProps> = ({ variant, className, title }) => {
         <path {...measure} d="M 344 272 L 414 320" />
         <path {...measure} d="M 400 272 A 56 56 0 0 0 390 300" />
         <text x="426" y="248" {...label} fill="var(--amber)" textAnchor="middle">equino</text>
-        <text x="358" y="332" {...label} textAnchor="middle">é o último a corrigir — quase sempre exige tenotomia do Aquiles</text>
+        <text x="358" y="328" {...label} textAnchor="middle">último a corrigir — usualmente com tenotomia</text>
       </g>
     </svg>
   );
@@ -324,7 +325,7 @@ export const Pirani: FC<FigureProps> = ({ variant, className, title }) => {
 
       {/* ---- tabela de pontuação ---- */}
       <g transform="translate(252 42)">
-        <text x="0" y="0" {...mono} fill={hiInk("mediope")}>MEDIOPÉ — 0 a 3</text>
+        <text x="0" y="0" {...mono} fill={hiInk("mediope")}>MEDIOPÉ · 0–3</text>
         {mid.map(([code, name], i) => (
           <g key={code} transform={`translate(0 ${12 + i * 30})`}>
             <rect x="0" y="0" width="212" height="24" rx="6" fill={hi("mediope")} stroke="var(--line)" strokeWidth="1" />
@@ -343,8 +344,8 @@ export const Pirani: FC<FigureProps> = ({ variant, className, title }) => {
         ))}
 
         <rect x="0" y="240" width="212" height="26" rx="8" fill="var(--teal-tint)" />
-        <text x="106" y="257" {...mono} fill="var(--teal-deep)" textAnchor="middle">
-          retropé ≥ 1 após gessos → tenotomia
+        <text x="106" y="257" {...mono} fill="var(--teal-deep)" textAnchor="middle" fontSize={10}>
+          retropé ≥ 1 → tenotomia
         </text>
       </g>
 
@@ -363,13 +364,13 @@ export const Dimeglio: FC<FigureProps> = ({ variant, className, title }) => {
     ["I", "benigno", "< 5"],
     ["II", "moderado", "5–9"],
     ["III", "grave", "10–14"],
-    ["IV", "muito grave", "15–20"],
+    ["IV", "m. grave", "15–20"],
   ];
   const params: Array<[string, string, number]> = [
     ["equino", "equino (sagital)", 40],
-    ["varo", "varo do retropé (frontal)", 160],
-    ["rotacao", "desrotação do bloco calcaneopédio", 280],
-    ["aducao", "adução do antepé (horizontal)", 400],
+    ["varo", "varo do retropé", 160],
+    ["rotacao", "desrotação calcaneopédio", 280],
+    ["aducao", "adução do antepé", 400],
   ];
 
   return (
@@ -382,7 +383,7 @@ export const Dimeglio: FC<FigureProps> = ({ variant, className, title }) => {
     >
       <title>{title ?? "Classificação de Dimeglio: quatro parâmetros de redutibilidade medidos em graus, mais quatro pontos acessórios"}</title>
 
-      <text x="240" y="18" {...mono} textAnchor="middle">Dimeglio — redutibilidade em graus (4 × 4 pts) + 4 pts acessórios = 0 a 20</text>
+      <text x="240" y="18" {...mono} textAnchor="middle">Dimeglio — 4 parâmetros × 4 pts + 4 pts acessórios = 0 a 20</text>
 
       {/* quatro goniometrias */}
       {params.map(([key, name, cx]) => {
@@ -403,7 +404,7 @@ export const Dimeglio: FC<FigureProps> = ({ variant, className, title }) => {
             <path {...measure} d="M 30 0 A 30 30 0 0 1 21 22" />
             <circle r="3" fill="var(--amber)" stroke="none" />
             <text x="0" y="-52" {...mono} fontSize={10} textAnchor="middle">
-              {active ? "◆" : ""} 0–4 pts
+              {active ? "◆" : ""} 0–4
             </text>
             <text x="0" y="62" {...label} fontSize={10} textAnchor="middle">
               {name}
@@ -528,7 +529,7 @@ export const PonsetiCasts: FC<FigureProps> = ({ variant, activeStep, className, 
       <g opacity={isError ? 1 : 0.55}>
         <circle cx="262" cy="176" r="8" fill="none" stroke="var(--ink-soft)" strokeWidth="1.6" strokeDasharray="3 3" />
         <path {...lesion} d="M 256 170 L 268 182 M 268 170 L 256 182" />
-        <text x="280" y="180" {...label}>nunca na calcaneocuboide (erro de Kite)</text>
+        <text x="280" y="180" {...label}>nunca na calcaneocuboide (Kite)</text>
       </g>
 
       {/* arco de abdução */}
@@ -648,7 +649,7 @@ export const Tenotomy: FC<FigureProps> = ({ variant, className, title }) => {
       <text x="240" y="300" {...label} textAnchor="middle">
         {after
           ? "Gesso final em 60–70° de abdução e máxima dorsiflexão por 3 semanas; o tendão regenera com o mesmo comprimento funcional."
-          : "Indicada em ~80–90% dos pés quando persiste equino com o mediopé já corrigido (abdução ≥ 60°)."}
+          : "Indicada em ~80–90% quando persiste equino com mediopé já corrigido (abdução ≥ 60°)."}
       </text>
     </svg>
   );
@@ -690,7 +691,7 @@ export const Brace: FC<FigureProps> = ({ variant, className, title }) => {
       <title>{title ?? "Órtese de abdução tipo Denis-Browne: barra na largura dos ombros, pé afetado em 60 a 70 graus de abdução"}</title>
 
       <text x="240" y="20" {...mono} textAnchor="middle">
-        órtese de abdução (Denis-Browne / FAB) — a adesão é o principal preditor de recidiva
+        órtese de abdução (Denis-Browne/FAB) — adesão é o maior preditor de recidiva
       </text>
 
       {/* barra */}
@@ -702,8 +703,8 @@ export const Brace: FC<FigureProps> = ({ variant, className, title }) => {
         comprimento da barra = largura dos ombros da criança
       </text>
 
-      <Shoe x={120} deg={-62} tag="lado afetado" />
-      <Shoe x={360} deg={36} tag="lado normal" />
+      <Shoe x={120} deg={-62} tag="afetado" />
+      <Shoe x={360} deg={36} tag="normal" />
 
       <text x="120" y="106" {...label} textAnchor="middle">60–70° de abdução</text>
       <text x="360" y="106" {...label} textAnchor="middle">30–40° de abdução</text>
@@ -748,7 +749,7 @@ export const Brace: FC<FigureProps> = ({ variant, className, title }) => {
       </g>
 
       <text x="240" y="306" {...label} textAnchor="middle">
-        A órtese mantém a correção; ela não corrige deformidade residual — o pé deve chegar já corrigido pelos gessos.
+        a órtese mantém a correção obtida pelos gessos; não corrige deformidade residual
       </text>
     </svg>
   );
@@ -782,9 +783,9 @@ export const TibialisTransfer: FC<FigureProps> = ({ className, title }) => (
       strokeDasharray="6 5"
     />
     <circle cx="124" cy="172" r="7" fill="none" stroke="var(--ink-soft)" strokeWidth="2" />
-    <text x="66" y="150" {...label} textAnchor="end">inserção original</text>
-    <text x="66" y="163" {...label} textAnchor="end">(cuneiforme medial</text>
-    <text x="66" y="176" {...label} textAnchor="end">e base do 1º MTT)</text>
+    <text x="100" y="150" {...label} textAnchor="end">inserção original</text>
+    <text x="100" y="163" {...label} textAnchor="end">(cuneiforme medial</text>
+    <text x="100" y="176" {...label} textAnchor="end">e base do 1º MTT)</text>
 
     {/* novo trajeto — lateralizado para o 3º cuneiforme */}
     <path {...lesion} d="M 148 46 C 152 100, 168 140, 186 170" strokeWidth="4" />
@@ -799,10 +800,10 @@ export const TibialisTransfer: FC<FigureProps> = ({ className, title }) => (
     <text x="212" y="92" {...label} fill="var(--amber)">vetor lateralizado</text>
 
     <text x="200" y="300" {...label} textAnchor="middle">
-      Indicada na recidiva dinâmica em supinação de criança &gt; 2,5–3 anos, com 3º cuneiforme já ossificado
+      indicada na recidiva em supinação &gt; 2,5–3 anos, cuneiforme já ossificado
     </text>
     <text x="200" y="316" {...label} textAnchor="middle">
-      e sem deformidade fixa — o que for rígido volta primeiro aos gessos de Ponseti.
+      sem deformidade fixa — o rígido volta primeiro aos gessos de Ponseti
     </text>
   </svg>
 );

@@ -130,7 +130,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     <path d="M262 118 L286 132" {...teal} strokeWidth={2.2} />
     <path d="M356 118 L378 134" {...teal} strokeWidth={2.2} />
     <text x="205" y="110" {...label} fill="var(--teal)" textAnchor="middle">aparelho extensor</text>
-    <text x="288" y="146" {...label} fill="var(--teal)">banda central → base P2</text>
+    <text x="288" y="104" {...label} fill="var(--teal)">banda central → P2</text>
 
     {/* Tendões flexores (volar) — FDS em P2, FDP em P3 */}
     <path
@@ -162,7 +162,7 @@ export const Anatomy: FC<FigureProps> = ({ className, title }) => (
     ))}
 
     <text x="240" y="288" {...label} textAnchor="middle">
-      Cada falange tem base, diáfise, colo e cabeça bicondilar; as forças tendíneas opostas determinam o padrão de desvio.
+      Forças tendíneas opostas determinam o padrão de desvio da fratura.
     </text>
   </svg>
 );
@@ -300,7 +300,7 @@ export const Patterns: FC<FigureProps> = ({ className, title, variant }) => {
    ========================================================================== */
 export const Articular: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 470 300"
+    viewBox="0 0 560 340"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -321,17 +321,17 @@ export const Articular: FC<FigureProps> = ({ className, title }) => (
     </g>
 
     {/* B) Fratura da base volar de P2 (lábio palmar) */}
-    <g transform="translate(160 40)">
-      <text x="60" y="-6" {...mono} textAnchor="middle">base P2 (lábio volar)</text>
+    <g transform="translate(210 40)">
+      <text x="60" y="-6" {...mono} textAnchor="middle">base P2 (volar)</text>
       <path {...bone} d="M22 14 C 22 8 30 6 46 6 C 68 6 78 10 78 20 L78 96 C 78 104 70 108 50 108 C 30 108 22 102 22 90 Z" />
       {/* fragmento volar destacado */}
       <path d="M22 78 C 40 82 60 82 78 78 L78 96 C 78 104 70 108 50 108 C 30 108 22 102 22 90 Z" fill="var(--amber)" opacity={0.28} stroke="var(--cortical)" strokeWidth={2.4} />
-      <text x="50" y="130" {...label} textAnchor="middle">% articular = estabilidade</text>
+      <text x="50" y="130" {...label} textAnchor="middle">% articular = estab.</text>
     </g>
 
     {/* C) Fratura-luxação dorsal da IFP */}
-    <g transform="translate(300 40)">
-      <text x="70" y="-6" {...mono} textAnchor="middle">fratura-luxação IFP</text>
+    <g transform="translate(400 40)">
+      <text x="70" y="-6" {...mono} textAnchor="middle">fratura-luxação</text>
       {/* falange proximal (base fixa) */}
       <path {...boneBack} d="M6 44 C 6 30 14 24 30 24 C 46 24 54 34 54 48 L54 84 C 54 92 46 96 30 96 C 14 96 6 90 6 78 Z" />
       {/* falange média subluxada dorsalmente (deslocada para cima-direita) */}
@@ -341,7 +341,7 @@ export const Articular: FC<FigureProps> = ({ className, title }) => (
       {/* fragmento volar retido */}
       <path d="M46 78 C 54 82 60 84 62 84" {...cortical} strokeWidth={2.6} />
       <path d="M60 40 C 60 30 62 24 66 20" {...amberLine} strokeDasharray="3 3" markerEnd="url(#arrArt)" />
-      <text x="70" y="126" {...label} textAnchor="middle">subluxação dorsal (V invertido)</text>
+      <text x="70" y="126" {...label} textAnchor="middle">subluxação dorsal</text>
     </g>
 
     <defs>
@@ -350,8 +350,8 @@ export const Articular: FC<FigureProps> = ({ className, title }) => (
       </marker>
     </defs>
 
-    <text x="235" y="288" {...label} textAnchor="middle">
-      Fratura articular desviada ou instável → redução anatômica e fixação; a IFP tolera mal a incongruência.
+    <text x="280" y="320" {...label} textAnchor="middle">
+      Fratura articular desviada/instável exige redução anatômica e fixação.
     </text>
   </svg>
 );
@@ -414,7 +414,7 @@ export const Fixation: FC<FigureProps> = ({ className, title, variant }) => {
 
       <text x="190" y="230" {...mono} textAnchor="middle">{cap[v]}</text>
       <text x="190" y="266" {...label} textAnchor="middle">
-        Estabilidade suficiente para permitir movimento precoce — sem excesso de dissecção.
+        Estabilidade para movimento precoce; dissecção mínima.
       </text>
     </svg>
   );
@@ -425,7 +425,7 @@ export const Fixation: FC<FigureProps> = ({ className, title, variant }) => {
    ========================================================================== */
 export const EarlyMotion: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 460 300"
+    viewBox="0 0 460 320"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -435,7 +435,7 @@ export const EarlyMotion: FC<FigureProps> = ({ className, title }) => (
 
     {/* Esquerda: dedo mobilizado (arco de flexão + buddy taping) */}
     <g transform="translate(30 40)">
-      <text x="90" y="-8" {...mono} textAnchor="middle">movimento precoce</text>
+      <text x="90" y="-8" {...mono} textAnchor="middle">movim. precoce</text>
       {/* dedo estendido */}
       <path {...boneBack} d="M10 120 L120 120" fill="none" stroke="var(--ink-soft)" strokeWidth={10} strokeLinecap="round" />
       {/* dedo fletido (arco) */}
@@ -444,15 +444,18 @@ export const EarlyMotion: FC<FigureProps> = ({ className, title }) => (
       <line x1={40} y1={112} x2={40} y2={128} stroke="var(--amber)" strokeWidth={3} strokeLinecap="round" />
       <line x1={72} y1={110} x2={72} y2={130} stroke="var(--amber)" strokeWidth={3} strokeLinecap="round" />
       <path d="M150 60 C 158 44 158 30 150 20" {...teal} strokeWidth={2.4} markerEnd="url(#arrMot)" />
-      <text x="90" y="176" {...label} textAnchor="middle">buddy taping + ADM ativa</text>
-      <text x="90" y="192" {...label} textAnchor="middle" fill="var(--teal)">deslizamento tendíneo preservado</text>
+      <text x="90" y="172" {...label} textAnchor="middle">buddy taping + ADM ativa</text>
+      <text x="90" y="188" {...label} textAnchor="middle" fill="var(--teal)">
+        <tspan x="90" dy="0">deslizamento</tspan>
+        <tspan x="90" dy="1.15em">tendíneo preservado</tspan>
+      </text>
     </g>
 
-    <line x1="230" y1="30" x2="230" y2="210" stroke="var(--ink-soft)" strokeWidth={1} strokeDasharray="4 4" />
+    <line x1="230" y1="30" x2="230" y2="230" stroke="var(--ink-soft)" strokeWidth={1} strokeDasharray="4 4" />
 
     {/* Direita: dedo imobilizado → aderências → rigidez */}
     <g transform="translate(270 40)">
-      <text x="90" y="-8" {...mono} textAnchor="middle">imobilização prolongada</text>
+      <text x="90" y="-8" {...mono} textAnchor="middle">imobiliz. prolongada</text>
       <path {...boneBack} d="M10 120 L120 120" fill="none" stroke="var(--ink-soft)" strokeWidth={10} strokeLinecap="round" />
       {/* arco de flexão reduzido */}
       <path d="M10 120 C 50 120 84 116 104 108" {...cortical} strokeWidth={9} strokeLinecap="round" opacity={0.4} />
@@ -460,8 +463,11 @@ export const EarlyMotion: FC<FigureProps> = ({ className, title }) => (
       {[36, 60, 84].map((x) => (
         <path key={x} d={`M${x} 108 l 4 -6 l 4 6 l 4 -6`} fill="none" stroke="var(--cortical)" strokeWidth={1.6} />
       ))}
-      <text x="90" y="176" {...label} textAnchor="middle">aderências extensor/flexor</text>
-      <text x="90" y="192" {...label} textAnchor="middle" fill="var(--cortical)">arco reduzido = rigidez</text>
+      <text x="90" y="172" {...label} textAnchor="middle">
+        <tspan x="90" dy="0">aderências</tspan>
+        <tspan x="90" dy="1.15em">extensor/flexor</tspan>
+      </text>
+      <text x="90" y="204" {...label} textAnchor="middle" fill="var(--cortical)">arco reduzido = rigidez</text>
     </g>
 
     <defs>
@@ -470,9 +476,9 @@ export const EarlyMotion: FC<FigureProps> = ({ className, title }) => (
       </marker>
     </defs>
 
-    <text x="230" y="256" {...mono} textAnchor="middle">A rigidez é a principal complicação.</text>
-    <text x="230" y="284" {...label} textAnchor="middle">
-      Fixar apenas o necessário para permitir movimento precoce; equilibrar estabilidade e função.
+    <text x="230" y="272" {...mono} textAnchor="middle">A rigidez é a principal complicação.</text>
+    <text x="230" y="300" {...label} textAnchor="middle">
+      Fixar o necessário para permitir movimento precoce; equilibrar estabilidade e função.
     </text>
   </svg>
 );
@@ -482,7 +488,7 @@ export const EarlyMotion: FC<FigureProps> = ({ className, title }) => (
    ========================================================================== */
 export const Malunion: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 460 300"
+    viewBox="0 0 460 330"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -492,7 +498,7 @@ export const Malunion: FC<FigureProps> = ({ className, title }) => (
 
     {/* Esquerda: má rotação → tesoura (dedos que se cruzam na flexão) */}
     <g transform="translate(40 40)">
-      <text x="80" y="-8" {...mono} textAnchor="middle">má rotação → tesoura</text>
+      <text x="80" y="-8" {...mono} textAnchor="middle">má rotação</text>
       {/* dois dedos convergindo/cruzando */}
       <path {...boneBack} d="M20 140 C 40 90 60 60 84 40" fill="none" stroke="var(--ink-soft)" strokeWidth={11} strokeLinecap="round" />
       <path d="M120 140 C 100 92 84 66 66 46" fill="none" stroke="var(--cortical)" strokeWidth={11} strokeLinecap="round" opacity={0.55} />
@@ -505,7 +511,7 @@ export const Malunion: FC<FigureProps> = ({ className, title }) => (
 
     {/* Direita: angulação residual em ápice volar */}
     <g transform="translate(280 60)">
-      <text x="80" y="-24" {...mono} textAnchor="middle">angulação em ápice volar</text>
+      <text x="80" y="-24" {...mono} textAnchor="middle">angulação volar</text>
       <g transform="translate(0 30)">
         <path {...bone} d="M0 -22 C 8 -22 54 -18 60 -12 C 64 -6 62 4 58 10 C 52 18 8 22 0 22 C -9 12 -9 -12 0 -22 Z" />
       </g>
@@ -514,14 +520,14 @@ export const Malunion: FC<FigureProps> = ({ className, title }) => (
       </g>
       {/* ângulo */}
       <path d="M12 46 L66 46 L150 108" {...amberLine} />
-      <text x="70" y="150" {...label} textAnchor="middle" fill="var(--amber)">déficit de extensão / pseudogarra</text>
+      <text x="70" y="150" {...label} textAnchor="middle" fill="var(--amber)">déficit ext. / pseudogarra</text>
     </g>
 
-    <text x="230" y="252" {...label} textAnchor="middle">
-      Má rotação de poucos graus já cruza os dedos; corrigir é mais fácil precocemente (osteotomia se sintomática).
+    <text x="230" y="282" {...label} textAnchor="middle">
+      Poucos graus de má rotação cruzam os dedos; corrigir cedo é mais fácil.
     </text>
-    <text x="230" y="280" {...label} textAnchor="middle">
-      Sempre checar rotação com os dedos em flexão durante a redução.
+    <text x="230" y="308" {...label} textAnchor="middle">
+      Checar rotação com os dedos em flexão durante a redução.
     </text>
   </svg>
 );

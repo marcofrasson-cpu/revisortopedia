@@ -53,7 +53,7 @@ const amber = "var(--amber)";
    ────────────────────────────────────────────────────────────────────────── */
 export const Anatomia: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 320 300"
+    viewBox="0 0 320 320"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -106,9 +106,10 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     <text x="196" y="214" {...label} textAnchor="start">trocânter menor</text>
     <text x="150" y="196" {...label} textAnchor="start" fill="var(--teal)">circunflexa femoral medial</text>
     <text x="188" y="96" {...label} textAnchor="start" fill="var(--teal)">vasos retinaculares</text>
-    <text x="26" y="112" {...label} textAnchor="start" fill="var(--teal)">a. lig. redondo</text>
-    <text x="40" y="292" {...label} textAnchor="start">
-      Suprimento é retrógrado: a fratura do colo interrompe os vasos retinaculares → risco de necrose.
+    <text x="20" y="132" {...label} textAnchor="start" fill="var(--teal)">a. lig. redondo</text>
+    <text x="40" y="290" {...label} textAnchor="start">
+      <tspan x="40" dy="0em">Suprimento retrógrado: fratura interrompe vasos</tspan>
+      <tspan x="40" dy="1.15em">retinaculares → risco de necrose.</tspan>
     </text>
   </svg>
 );
@@ -275,7 +276,7 @@ export const Pauwels: FC<FigureProps> = ({ className, title, variant }) => {
       </text>
       <text x="150" y="248" {...label} textAnchor="middle">{c.label}</text>
       <text x="150" y="262" {...label} textAnchor="middle" fill="var(--cortical)">
-        maior ângulo → maior cisalhamento → maior risco de falha da fixação
+        maior ângulo → mais cisalhamento → maior risco de falha
       </text>
     </svg>
   );
@@ -315,8 +316,10 @@ export const ViaSmithPetersen: FC<FigureProps> = ({ className, title }) => (
     <path d="M128 66 C 138 100, 140 140, 138 180" fill="none" stroke={amber} strokeWidth="1.6" strokeDasharray="2 3" />
     <text x="150" y="200" {...label} textAnchor="start" fill={amber}>n. cutâneo femoral lat.</text>
 
-    <text x="40" y="250" {...label} textAnchor="start">
-      Superficial: sartório (n. femoral) × TFL (n. glúteo sup.). Profundo: reto femoral × glúteo médio.
+    <text x="40" y="224" {...label} textAnchor="start">
+      <tspan x="40" dy="0em">Superficial: sartório (n. femoral)</tspan>
+      <tspan x="40" dy="1.15em">× TFL (n. glúteo sup.).</tspan>
+      <tspan x="40" dy="1.15em">Profundo: reto femoral × glúteo médio.</tspan>
     </text>
   </svg>
 );
@@ -352,8 +355,10 @@ export const ViaWatsonJones: FC<FigureProps> = ({ className, title }) => (
     <line x1="170" y1="60" x2="176" y2="216" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
     <text x="150" y="42" {...label} textAnchor="middle" fill="var(--cortical)">incisão sobre o trocânter</text>
 
-    <text x="40" y="250" {...label} textAnchor="start">
-      Intervalo anterior ao glúteo médio; acesso direto ao colo. Cuidado com o abdutor e a a. circunflexa lat.
+    <text x="40" y="224" {...label} textAnchor="start">
+      <tspan x="40" dy="0em">Intervalo anterior ao glúteo médio;</tspan>
+      <tspan x="40" dy="1.15em">acesso direto ao colo.</tspan>
+      <tspan x="40" dy="1.15em">Cuidado: abdutor e a. circunflexa lat.</tspan>
     </text>
   </svg>
 );
@@ -363,7 +368,7 @@ export const ViaWatsonJones: FC<FigureProps> = ({ className, title }) => (
    ────────────────────────────────────────────────────────────────────────── */
 export const StepReducao: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 260"
+    viewBox="0 0 300 280"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -397,8 +402,10 @@ export const StepReducao: FC<FigureProps> = ({ className, title }) => (
     <text x="58" y="214" {...label} textAnchor="start" fill={amber}>tração + rotação interna</text>
 
     <text x="150" y="24" {...label} textAnchor="middle" fill="var(--teal)">alvo: redução anatômica (Garden alinhado)</text>
-    <text x="40" y="252" {...label} textAnchor="start">
-      No jovem, redução fechada urgente; se inaceitável → redução aberta. Índice de Garden 155°–180° em AP e perfil.
+    <text x="40" y="246" {...label} textAnchor="start">
+      <tspan x="40" dy="0em">No jovem, redução fechada urgente;</tspan>
+      <tspan x="40" dy="1.15em">se inaceitável → redução aberta.</tspan>
+      <tspan x="40" dy="1.15em">Índice de Garden 155°–180° em AP/perfil.</tspan>
     </text>
   </svg>
 );
@@ -451,8 +458,8 @@ export const StepParafusos: FC<FigureProps> = ({ className, title, activeStep })
     </g>
 
     <text x="150" y="24" {...label} textAnchor="middle" fill="var(--teal)">triângulo invertido, parafusos paralelos</text>
-    <text x="40" y="240" {...label} textAnchor="start">Inferior apoiado no calcar; posterior junto à cortical posterior.</text>
-    <text x="40" y="254" {...label} textAnchor="start">Paralelismo permite deslizamento e compressão dinâmica no traço.</text>
+    <text x="40" y="240" {...label} textAnchor="start">Inferior no calcar; posterior na cortical posterior.</text>
+    <text x="40" y="254" {...label} textAnchor="start">Paralelismo → compressão dinâmica no traço.</text>
   </svg>
 );
 
@@ -513,7 +520,7 @@ export const StepArtroplastia: FC<FigureProps> = ({ className, title, variant })
       <text x="40" y="270" {...label} textAnchor="start">
         {total
           ? "Melhor função/menos revisão em ativo e independente; maior risco de luxação."
-          : "Mais rápida e estável; escolha no idoso frágil, menos ativo."}
+          : "Mais rápida e estável: idoso frágil, menos ativo."}
       </text>
     </svg>
   );

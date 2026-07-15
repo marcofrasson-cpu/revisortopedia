@@ -200,13 +200,13 @@ const LinhasRadiograficas: FC<FigureProps> = ({ className, title }) => (
         ["2", "ilioisquiática (col. post.)", "var(--teal)"],
         ["3", "lágrima (teardrop)", "var(--amber)"],
         ["4", "teto (sourcil)", "var(--amber)"],
-        ["5", "rebordo anterior", "var(--ink-soft)"],
-        ["6", "rebordo posterior", "var(--ink-soft)"],
+        ["5", "rebordo ant.", "var(--ink-soft)"],
+        ["6", "rebordo post.", "var(--ink-soft)"],
       ].map(([n, txt, c], i) => (
-        <g key={n} transform={`translate(6 ${18 + i * 17})`}>
+        <g key={n} transform={`translate(6 ${20 + i * 20})`}>
           <circle cx="6" cy="-4" r="7" fill="none" stroke={c} strokeWidth="1.6" />
           <text x="6" y="-1" textAnchor="middle" fontSize="9" fontFamily="var(--font-mono, monospace)" fill={c}>{n}</text>
-          <text x="18" y="0" {...label}>{txt}</text>
+          <text x="18" y="0" {...label} fontSize="10">{txt}</text>
         </g>
       ))}
     </g>
@@ -425,14 +425,14 @@ const ViaIlioinguinal: FC<FigureProps> = ({ className, title }) => (
     {/* Feixe: n. femoral / iliopsoas (teal) e vasos ilíacos externos (teal) */}
     <path d="M150 60 C 152 96, 150 132, 156 176" {...soft} />
     <path d="M186 62 C 190 100, 190 140, 186 182" stroke="var(--teal)" strokeWidth="2.2" strokeDasharray="5 4" fill="none" strokeLinecap="round" />
-    <text x="146" y="196" {...label} fill="var(--teal)" textAnchor="end">iliopsoas / n. femoral</text>
-    <text x="196" y="190" {...label} fill="var(--teal)">vasos ilíacos ext.</text>
+    <text x="146" y="192" {...label} fill="var(--teal)" textAnchor="end">iliopsoas / n. femoral</text>
+    <text x="196" y="202" {...label} fill="var(--teal)">vasos ilíacos ext.</text>
 
     {/* Legenda das janelas */}
     <g>
       <text x="8" y="218" {...label}>1 fossa ilíaca (lateral)</text>
       <text x="8" y="233" {...label}>2 entre iliopsoas/n. femoral e vasos</text>
-      <text x="8" y="248" {...label}>3 retropúbica (Retzius), medial aos vasos</text>
+      <text x="8" y="248" {...label}>3 retropúbica (Retzius)</text>
     </g>
   </svg>
 );

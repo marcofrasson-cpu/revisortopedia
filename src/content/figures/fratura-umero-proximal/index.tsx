@@ -74,7 +74,7 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     {/* Tuberosidade maior (lateral) */}
     <path {...bone} d="M138 96 C 168 92, 190 106, 190 132 C 178 150, 150 152, 132 138 Z" />
     <text x="196" y="120" {...label} textAnchor="start">tubérculo maior</text>
-    <text x="196" y="134" {...label} textAnchor="start">(supra/infra/redondo m.)</text>
+    <text x="196" y="134" {...label} textAnchor="start">(supra/infra/redondo)</text>
 
     {/* Sulco bicipital + tuberosidade menor (medial-anterior) */}
     <path {...bone} d="M104 118 C 96 132, 98 148, 110 156 C 122 150, 124 132, 118 120 Z" />
@@ -97,11 +97,12 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
     <path d="M132 172 C 122 158, 116 140, 118 122" fill="none" stroke="var(--teal)" strokeWidth="2.2" />
     {/* Contribuição posterior — a. circunflexa umeral posterior (dominante moderna) */}
     <path d="M150 176 C 160 158, 158 132, 140 116" fill="none" stroke="var(--teal)" strokeWidth="1.8" strokeDasharray="2 3" />
-    <text x="150" y="250" {...label} textAnchor="start" fill="var(--teal)">a. circunflexa umeral anterior (arqueada)</text>
-    <text x="150" y="264" {...label} textAnchor="start" fill="var(--teal)">+ circunflexa umeral posterior (contribuição maior)</text>
+    <text x="150" y="250" {...label} textAnchor="start" fill="var(--teal)">circunflexa ant. (arqueada)</text>
+    <text x="150" y="264" {...label} textAnchor="start" fill="var(--teal)">+ circunflexa post. (predomina)</text>
 
-    <text x="20" y="300" {...label} textAnchor="start">
-      Quatro segmentos: cabeça · tubérculo maior · tubérculo menor · diáfise. Deslocamento define o padrão de Neer.
+    <text x="20" y="288" {...label} textAnchor="start">
+      <tspan x="20" dy="0em">Quatro segmentos: cabeça · tubérculo maior ·</tspan>
+      <tspan x="20" dy="1.15em">tubérculo menor · diáfise. Define o padrão de Neer.</tspan>
     </text>
   </svg>
 );
@@ -292,7 +293,7 @@ export const Hertel: FC<FigureProps> = ({ className, title, variant }) => {
    ────────────────────────────────────────────────────────────────────────── */
 export const ViaDeltopeitoral: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 280"
+    viewBox="0 0 300 300"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -321,8 +322,9 @@ export const ViaDeltopeitoral: FC<FigureProps> = ({ className, title }) => (
     <path d="M148 74 C 150 120, 152 176, 150 226" fill="none" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
     <text x="150" y="46" {...label} textAnchor="middle" fill="var(--cortical)">veia cefálica / intervalo</text>
 
-    <text x="20" y="270" {...label} textAnchor="start">
-      Via de escolha para placa bloqueada e artroplastia. Superficial: deltoide × peitoral maior; veia cefálica é o guia.
+    <text x="20" y="284" {...label} textAnchor="start">
+      <tspan x="20" dy="0em">Via de escolha para placa bloqueada e artroplastia.</tspan>
+      <tspan x="20" dy="1.15em">Superficial: deltoide × peitoral maior; veia cefálica é o guia.</tspan>
     </text>
   </svg>
 );
@@ -333,7 +335,7 @@ export const ViaDeltopeitoral: FC<FigureProps> = ({ className, title }) => (
    ────────────────────────────────────────────────────────────────────────── */
 export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 300 280"
+    viewBox="0 0 300 300"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -353,8 +355,8 @@ export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
       <path d="M150 68 C 152 130, 154 190, 156 236" />
       <path d="M170 68 C 170 130, 172 190, 174 236" />
     </g>
-    <text x="190" y="116" {...label} textAnchor="start" fill="var(--teal)">deltoide</text>
-    <text x="190" y="131" {...label} textAnchor="start" fill="var(--teal)">(separação das fibras)</text>
+    <text x="190" y="108" {...label} textAnchor="start" fill="var(--teal)">deltoide</text>
+    <text x="190" y="121" {...label} textAnchor="start" fill="var(--teal)">(separação fibras)</text>
 
     {/* incisão superior (split) */}
     <line x1="150" y1="66" x2="150" y2="150" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
@@ -368,8 +370,9 @@ export const ViaDeltoide: FC<FigureProps> = ({ className, title }) => (
     <line x1="150" y1="172" x2="150" y2="230" stroke="var(--cortical)" strokeWidth="2.2" strokeDasharray="6 4" className="fx-line" />
     <text x="150" y="216" {...label} textAnchor="start" fill="var(--cortical)">janela distal</text>
 
-    <text x="20" y="270" {...label} textAnchor="start">
-      Deslizar a placa por baixo do nervo axilar. Menos exposição, porém risco direto ao axilar — palpe e proteja.
+    <text x="20" y="284" {...label} textAnchor="start">
+      <tspan x="20" dy="0em">Deslizar a placa por baixo do nervo axilar. Menos exposição,</tspan>
+      <tspan x="20" dy="1.15em">porém risco direto ao axilar — palpe e proteja.</tspan>
     </text>
   </svg>
 );
@@ -382,7 +385,7 @@ export const StepPhilos: FC<FigureProps> = ({ className, title, activeStep }) =>
   const calcarOn = activeStep === undefined || activeStep >= 2;
   return (
     <svg
-      viewBox="0 0 300 300"
+      viewBox="0 0 300 320"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -410,7 +413,8 @@ export const StepPhilos: FC<FigureProps> = ({ className, title, activeStep }) =>
         stroke="var(--teal)"
         strokeWidth="2"
       />
-      <text x="204" y="150" {...label} textAnchor="start" fill="var(--teal)">placa bloqueada</text>
+      <text x="200" y="100" {...label} textAnchor="start" fill="var(--teal)">placa</text>
+      <text x="200" y="113" {...label} textAnchor="start" fill="var(--teal)">bloqueada</text>
 
       {/* parafusos bloqueados divergentes na cabeça */}
       <g {...implant} strokeWidth="2.6">
@@ -446,8 +450,9 @@ export const StepPhilos: FC<FigureProps> = ({ className, title, activeStep }) =>
       <text x="150" y="24" {...labelMono} textAnchor="middle" fill="var(--ink-soft)">
         placa bloqueada · PHILOS
       </text>
-      <text x="20" y="300" {...label} textAnchor="start">
-        Suporte medial (calcar) e sutura do manguito reduzem perda de redução em varo e falha do implante.
+      <text x="20" y="298" {...label} textAnchor="start">
+        <tspan x="20" dy="0em">Suporte medial (calcar) e sutura do manguito reduzem</tspan>
+        <tspan x="20" dy="1.15em">perda de redução em varo e falha do implante.</tspan>
       </text>
     </svg>
   );
@@ -487,20 +492,24 @@ export const StepReversa: FC<FigureProps> = ({ className, title }) => (
     />
     {/* copa côncava que acopla na glenosfera */}
     <path d="M112 118 C 124 106, 150 106, 158 122 C 150 138, 124 140, 112 128 Z" fill="var(--teal-tint)" stroke="var(--teal)" strokeWidth="2" />
-    <text x="188" y="150" {...label} textAnchor="start" fill="var(--teal)">haste umeral + inserto</text>
+    <text x="188" y="150" {...label} textAnchor="start" fill="var(--teal)">haste + inserto</text>
 
     {/* tuberosidade reinserida com sutura (quando possível) */}
     <path {...bone} d="M148 150 C 168 148, 182 158, 182 176 L 158 176 C 154 166, 150 158, 148 150 Z" />
     <g stroke={amber} strokeWidth="1.6" fill="none">
       <path d="M150 150 C 162 140, 176 142, 184 152" />
     </g>
-    <text x="150" y="132" {...label} textAnchor="start" fill={amber}>reinserção da tuberosidade maior</text>
+    <text x="150" y="132" {...label} textAnchor="start" fill={amber}>
+      <tspan x="150" dy="0em">reinserção da</tspan>
+      <tspan x="150" dy="1.15em">tuberosidade maior</tspan>
+    </text>
 
     <text x="150" y="24" {...labelMono} textAnchor="middle" fill="var(--ink-soft)">
       artroplastia reversa
     </text>
-    <text x="20" y="288" {...label} textAnchor="start" fill="var(--teal)">
-      Reversa medializa/abaixa o centro de rotação → deltoide compensa o manguito ausente.
+    <text x="20" y="284" {...label} textAnchor="start" fill="var(--teal)">
+      <tspan x="20" dy="0em">Reversa medializa/abaixa o centro de rotação →</tspan>
+      <tspan x="20" dy="1.15em">deltoide compensa o manguito ausente.</tspan>
     </text>
   </svg>
 );

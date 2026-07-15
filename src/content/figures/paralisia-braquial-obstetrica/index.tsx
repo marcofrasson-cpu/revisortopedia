@@ -86,7 +86,7 @@ const ROOTS: { name: string; y: number }[] = [
 
 const Anatomy: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 500 330"
+    viewBox="0 0 500 348"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -212,21 +212,31 @@ const Anatomy: FC<FigureProps> = ({ className, title }) => (
     <text x={189} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
       troncos
     </text>
-    <text x={234} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
+    <text x={222} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
       divisões
     </text>
-    <text x={278} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
+    <text x={300} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
       fascículos
     </text>
-    <text x={380} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
+    <text x={400} y={266} {...mono} textAnchor="middle" fill="var(--muted)">
       ramos terminais
     </text>
 
-    <text x={250} y={296} {...label} textAnchor="middle">
-      A tração cérvico-escapular no parto concentra-se nas raízes superiores (C5-C6): daí o predomínio do padrão de Erb.
+    <text x={250} y={288} {...label} textAnchor="middle">
+      <tspan x={250} dy="0">
+        A tração cérvico-escapular no parto concentra-se nas raízes superiores (C5-C6):
+      </tspan>
+      <tspan x={250} dy="1.15em">
+        daí o predomínio do padrão de Erb.
+      </tspan>
     </text>
-    <text x={250} y={312} {...label} textAnchor="middle">
-      O gânglio da raiz dorsal separa a lesão pré-ganglionar (avulsão) da pós-ganglionar (ruptura, enxertável).
+    <text x={250} y={320} {...label} textAnchor="middle">
+      <tspan x={250} dy="0">
+        O gânglio da raiz dorsal separa a lesão pré-ganglionar (avulsão)
+      </tspan>
+      <tspan x={250} dy="1.15em">
+        da pós-ganglionar (ruptura, enxertável).
+      </tspan>
     </text>
   </svg>
 );
@@ -337,7 +347,7 @@ const PATTERNS: Record<
       "Ombro aduzido e em rotação interna",
       "Cotovelo estendido, antebraço pronado",
       "Punho fletido — “gorjeta de garçom”",
-      "Preensão PRESERVADA (C8-T1 íntegras)",
+      "Preensão PRESERVADA (C8-T1)",
       "Moro assimétrico; bíceps ausente",
     ],
   },
@@ -427,7 +437,7 @@ const Patterns: FC<FigureProps> = ({ className, title, variant }) => {
         <g>
           <path {...measure} d="M 196 126 A 26 26 0 0 0 216 142" />
           <path {...measure} d="M 216 142 L 209 139 M 216 142 L 213 135" />
-          <text x={228} y={136} {...label} fill="var(--amber)">
+          <text x={214} y={140} {...label} fill="var(--amber)" textAnchor="end">
             rotação interna
           </text>
         </g>
@@ -455,11 +465,16 @@ const Patterns: FC<FigureProps> = ({ className, title, variant }) => {
         </g>
       ))}
 
-      <text x={240} y={292} {...label} textAnchor="middle">
-        Diferencial obrigatório no recém-nascido: pseudoparalisia por fratura de clavícula ou de úmero proximal,
-      </text>
-      <text x={240} y={308} {...label} textAnchor="middle">
-        artrite séptica e osteomielite — nelas há dor à mobilização, e não déficit neurológico segmentar.
+      <text x={240} y={286} {...label} textAnchor="middle">
+        <tspan x={240} dy="0">
+          Diferencial obrigatório no recém-nascido: pseudoparalisia por fratura
+        </tspan>
+        <tspan x={240} dy="1.15em">
+          de clavícula ou de úmero proximal, artrite séptica e osteomielite —
+        </tspan>
+        <tspan x={240} dy="1.15em">
+          nelas há dor à mobilização, e não déficit neurológico segmentar.
+        </tspan>
       </text>
     </svg>
   );
@@ -783,9 +798,20 @@ const NerveInjury: FC<FigureProps> = ({ className, title, variant }) => {
         </g>
       )}
 
-      <text x={220} y={236} {...label} textAnchor="middle">
-        {captions[key]}
-      </text>
+      {key === "neuropraxia" ? (
+        <text x={220} y={224} {...label} textAnchor="middle">
+          <tspan x={220} dy="0">
+            Continuidade axonal mantida; recuperação completa esperada em semanas —
+          </tspan>
+          <tspan x={220} dy="1.15em">
+            é o substrato da maioria dos casos que se resolvem sozinhos.
+          </tspan>
+        </text>
+      ) : (
+        <text x={220} y={236} {...label} textAnchor="middle">
+          {captions[key]}
+        </text>
+      )}
     </svg>
   );
 };
@@ -816,7 +842,7 @@ const BicepsTimeline: FC<FigureProps> = ({ className, title, activeStep }) => {
 
   return (
     <svg
-      viewBox="0 0 440 310"
+      viewBox="0 0 440 326"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -836,7 +862,7 @@ const BicepsTimeline: FC<FigureProps> = ({ className, title, activeStep }) => {
           </text>
         </g>
       ))}
-      <text x={412} y={62} {...label}>
+      <text x={396} y={62} {...label} textAnchor="middle">
         meses
       </text>
       <text x={26} y={26} {...mono} fill="var(--ink)">
@@ -906,14 +932,19 @@ const BicepsTimeline: FC<FigureProps> = ({ className, title, activeStep }) => {
       {/* sinais de alarme */}
       <rect {...boneBack} x={40} y={240} width={356} height={40} rx={6} />
       <text x={218} y={258} {...label} textAnchor="middle" fill="var(--cortical)">
-        Alarme (antecipar a exploração para ~3 meses): Horner, membro totalmente flácido (Narakas IV),
+        Alarme (antecipar p/ ~3 meses): Horner, membro flácido total (Narakas IV),
       </text>
       <text x={218} y={272} {...label} textAnchor="middle" fill="var(--cortical)">
         paralisia diafragmática ou avulsão radicular demonstrada em RM/mielo-TC.
       </text>
 
-      <text x={220} y={300} {...label} textAnchor="middle">
-        O marco dos 3 meses ESTRATIFICA o risco; a indicação cirúrgica consolida-se pela ausência de bíceps aos 6 meses.
+      <text x={220} y={296} {...label} textAnchor="middle">
+        <tspan x={220} dy="0">
+          O marco dos 3 meses ESTRATIFICA o risco;
+        </tspan>
+        <tspan x={220} dy="1.15em">
+          a indicação cirúrgica consolida-se pela ausência de bíceps aos 6 meses.
+        </tspan>
       </text>
     </svg>
   );
@@ -928,7 +959,7 @@ const Microsurgery: FC<FigureProps> = ({ className, title, variant }) => {
 
   return (
     <svg
-      viewBox="0 0 440 260"
+      viewBox="0 0 440 280"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -988,18 +1019,28 @@ const Microsurgery: FC<FigureProps> = ({ className, title, variant }) => {
             coaptações sem tensão
           </text>
 
-          <text x={378} y={100} {...label}>
+          <text x={352} y={100} {...label}>
             supraescapular
           </text>
-          <text x={378} y={160} {...label}>
+          <text x={348} y={160} {...label}>
             musculocutâneo
           </text>
 
-          <text x={220} y={224} {...label} textAnchor="middle">
-            Indicado na RUPTURA pós-ganglionar e no neuroma que não conduz: o coto proximal viável é a condição para enxertar.
+          <text x={220} y={228} {...label} textAnchor="middle">
+            <tspan x={220} dy="0">
+              Indicado na RUPTURA pós-ganglionar e no neuroma que não conduz:
+            </tspan>
+            <tspan x={220} dy="1.15em">
+              o coto proximal viável é a condição para enxertar.
+            </tspan>
           </text>
-          <text x={220} y={240} {...label} textAnchor="middle">
-            Prioridade de reinervação: flexão do cotovelo (musculocutâneo) e rotação externa/abdução (supraescapular, axilar).
+          <text x={220} y={256} {...label} textAnchor="middle">
+            <tspan x={220} dy="0">
+              Prioridade de reinervação: flexão do cotovelo (musculocutâneo)
+            </tspan>
+            <tspan x={220} dy="1.15em">
+              e rotação externa/abdução (supraescapular, axilar).
+            </tspan>
           </text>
         </g>
       ) : (
@@ -1247,10 +1288,10 @@ const GHDysplasia: FC<FigureProps> = ({ className, title, variant }) => {
         {g.note}
       </text>
       <text x={230} y={296} {...label} textAnchor="middle">
-        O desequilíbrio entre o subescapular contraturado e os rotadores externos paralisados retroverte a glenoide
+        O desequilíbrio subescapular contraturado × rotadores externos paralisados retroverte a glenoide
       </text>
       <text x={230} y={312} {...label} textAnchor="middle">
-        e empurra a cabeça para trás: a displasia é adquirida, progressiva e — no início — reversível.
+        e empurra a cabeça para trás: a displasia é adquirida, progressiva e inicialmente reversível.
       </text>
     </svg>
   );
@@ -1285,7 +1326,7 @@ const SequelaeSurgery: FC<FigureProps> = ({ className, title, variant }) => {
 
   return (
     <svg
-      viewBox="0 0 440 300"
+      viewBox="0 0 440 330"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -1344,11 +1385,11 @@ const SequelaeSurgery: FC<FigureProps> = ({ className, title, variant }) => {
           </text>
           {/* cabeça recentrada */}
           <circle {...measure} cx={206} cy={104} r={33} strokeDasharray="5 4" strokeWidth={1.4} />
-          <text x={300} y={104} {...label}>
-            cabeça recentrada na glenoide
+          <text x={264} y={104} {...label}>
+            cabeça recentrada
           </text>
-          <text x={300} y={118} {...label}>
-            (redução aberta ou artroscópica)
+          <text x={264} y={118} {...label}>
+            (redução aberta/artrosc.)
           </text>
         </g>
       )}
@@ -1437,9 +1478,23 @@ const SequelaeSurgery: FC<FigureProps> = ({ className, title, variant }) => {
         </g>
       )}
 
-      <text x={220} y={278} {...label} textAnchor="middle">
-        {captions[key]}
-      </text>
+      {key === "liberacao" ? (
+        <text x={220} y={266} {...label} textAnchor="middle">
+          <tspan x={220} dy="0">
+            Alonga o contraturado, recentra a cabeça e devolve
+          </tspan>
+          <tspan x={220} dy="1.15em">
+            ao acetábulo glenoidal a chance de remodelar —
+          </tspan>
+          <tspan x={220} dy="1.15em">
+            só funciona enquanto a articulação é redutível.
+          </tspan>
+        </text>
+      ) : (
+        <text x={220} y={278} {...label} textAnchor="middle">
+          {captions[key]}
+        </text>
+      )}
     </svg>
   );
 };

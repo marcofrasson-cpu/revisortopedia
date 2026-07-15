@@ -204,7 +204,7 @@ export const FractureSite: FC<FigureProps> = ({ className, title, variant }) => 
 
       <text x="150" y="30" {...mono} textAnchor="middle">{sites[v] ?? v}</text>
       <text x="150" y="312" {...label} textAnchor="middle">
-        Sítio anatômico define desvio, tolerância e método de fixação.
+        Sítio define desvio, tolerância e fixação.
       </text>
     </svg>
   );
@@ -242,20 +242,18 @@ export const AngularTolerance: FC<FigureProps> = ({ className, title }) => (
     <text x="200" y="278" {...label}>eixo diafisário</text>
 
     {/* Legenda de tolerância por raio */}
-    <g transform="translate(330 60)">
-      <text x="0" y="0" {...mono}>tolerância angular</text>
-      {[
-        ["2º–3º raio", "10–15°"],
-        ["4º raio", "30–40°"],
-        ["5º raio", "50–60°"],
-      ].map(([ray, deg], i) => (
-        <g key={ray} transform={`translate(0 ${22 + i * 24})`}>
-          <rect x="0" y="-12" width="118" height="18" rx="4" fill="var(--amber-tint, var(--surface-2, var(--surface)))" opacity="0.5" />
-          <text x="6" y="2" {...label}>{ray}</text>
-          <text x="112" y="2" {...label} textAnchor="end" fill="var(--amber)">{deg}</text>
-        </g>
-      ))}
-    </g>
+    <text x="304" y="70" {...mono}>tolerância angular</text>
+    {[
+      ["2º–3º", "10–15°", 84],
+      ["4º", "30–40°", 108],
+      ["5º", "50–60°", 132],
+    ].map(([ray, deg, y]) => (
+      <g key={ray}>
+        <rect x="304" y={(y as number) - 12} width="104" height="18" rx="4" fill="var(--amber-tint, var(--surface-2, var(--surface)))" opacity="0.5" />
+        <text x="310" y={y} {...label}>{ray}</text>
+        <text x="402" y={y} {...label} textAnchor="end" fill="var(--amber)">{deg}</text>
+      </g>
+    ))}
 
     <text x="150" y="34" {...mono} textAnchor="middle">angulação com ápice dorsal</text>
     <text x="230" y="294" {...label} textAnchor="middle">
@@ -269,7 +267,7 @@ export const AngularTolerance: FC<FigureProps> = ({ className, title }) => (
    ========================================================================== */
 export const Rotation: FC<FigureProps> = ({ className, title }) => (
   <svg
-    viewBox="0 0 460 300"
+    viewBox="0 0 460 316"
     preserveAspectRatio="xMidYMid meet"
     role="img"
     className={className}
@@ -316,8 +314,9 @@ export const Rotation: FC<FigureProps> = ({ className, title }) => (
     <text x="300" y="150" {...label} fill="var(--amber)">sobreposição</text>
     <text x="352" y="278" {...label} textAnchor="middle" fill="var(--amber)">tesoura na flexão</text>
 
-    <text x="230" y="296" {...label} textAnchor="middle">
-      Rotação é avaliada com os dedos fletidos; até 5° geram ~1,5 cm de desvio da polpa — indicação cirúrgica.
+    <text x="230" y="292" {...label} textAnchor="middle">
+      <tspan x="230" dy="0em">Rotação é avaliada com os dedos fletidos; até 5° geram</tspan>
+      <tspan x="230" dy="1.15em">~1,5 cm de desvio da polpa — indicação cirúrgica.</tspan>
     </text>
   </svg>
 );
@@ -350,7 +349,7 @@ export const JahssReduction: FC<FigureProps> = ({ className, title }) => (
 
     {/* Vetores de força */}
     <path d="M300 236 C282 224, 264 216, 244 212" fill="none" stroke="var(--teal)" strokeWidth="3" markerEnd="url(#jahssArrow)" />
-    <text x="300" y="252" {...label} fill="var(--teal)">empurrão dorsal na F. proximal</text>
+    <text x="250" y="252" {...label} fill="var(--teal)">empurrão dorsal na F. prox.</text>
     <path d="M170 96 C186 104, 200 114, 208 128" fill="none" stroke="var(--teal)" strokeWidth="3" markerEnd="url(#jahssArrow)" />
     <text x="120" y="88" {...label} fill="var(--teal)">contra-apoio na cabeça</text>
 
@@ -400,8 +399,8 @@ export const KWireFixation: FC<FigureProps> = ({ className, title, variant }) =>
           <circle cx="150" cy="272" r="5" fill="var(--teal)" />
           <path d="M140 104 L118 82" stroke="var(--line-strong)" />
           <text x="60" y="80" {...label} fill="var(--teal)">fios pré-curvados</text>
-          <path d="M150 274 L192 286" stroke="var(--line-strong)" />
-          <text x="196" y="288" {...label}>entrada na base</text>
+          <path d="M150 274 L192 264" stroke="var(--line-strong)" />
+          <text x="196" y="266" {...label}>entrada na base</text>
           <text x="150" y="30" {...mono} textAnchor="middle">antegrada intramedular</text>
         </>
       ) : (
@@ -424,7 +423,7 @@ export const KWireFixation: FC<FigureProps> = ({ className, title, variant }) =>
       )}
 
       <text x="210" y="292" {...label} textAnchor="middle">
-        Fixação minimamente invasiva; preserva partes moles e permite reabilitação precoce.
+        Minimamente invasiva; preserva partes moles, reabilitação precoce.
       </text>
     </svg>
   );
@@ -438,7 +437,7 @@ export const PlateFixation: FC<FigureProps> = ({ className, title, variant }) =>
 
   return (
     <svg
-      viewBox="0 0 340 300"
+      viewBox="0 0 340 316"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       className={className}
@@ -487,7 +486,8 @@ export const PlateFixation: FC<FigureProps> = ({ className, title, variant }) =>
       )}
 
       <text x="170" y="292" {...label} textAnchor="middle">
-        Reservada a instabilidade, cominuição, múltiplos raios ou desvio rotacional irredutível.
+        <tspan x="170" dy="0em">Reservada a instabilidade, cominuição,</tspan>
+        <tspan x="170" dy="1.15em">múltiplos raios ou desvio rotacional irredutível.</tspan>
       </text>
     </svg>
   );

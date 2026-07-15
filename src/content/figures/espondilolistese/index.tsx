@@ -230,16 +230,19 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
 
       {/* rótulos anteriores */}
       <path d="M 62 60 L 40 60" {...leader} />
-      <text x={36} y={63} textAnchor="end" {...label}>
-        corpo vertebral (L4)
+      <text x={36} y={60} textAnchor="end" {...label}>
+        <tspan x={36} dy="0em">corpo vertebral</tspan>
+        <tspan x={36} dy="1.15em">(L4)</tspan>
       </text>
       <path d="M 70 85 L 40 85" {...leader} />
-      <text x={36} y={88} textAnchor="end" {...label}>
-        disco intervertebral
+      <text x={36} y={82} textAnchor="end" {...label}>
+        <tspan x={36} dy="0em">disco</tspan>
+        <tspan x={36} dy="1.15em">intervertebral</tspan>
       </text>
       <path d="M 74 190 L 46 200" {...leader} />
-      <text x={42} y={203} textAnchor="end" {...label}>
-        sacro (promontório)
+      <text x={42} y={200} textAnchor="end" {...label}>
+        <tspan x={42} dy="0em">sacro</tspan>
+        <tspan x={42} dy="1.15em">(promontório)</tspan>
       </text>
 
       {/* rótulos posteriores */}
@@ -249,11 +252,11 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
       </text>
       <path d="M 146 25 L 300 20" {...leader} />
       <text x={304} y={23} {...label}>
-        saco tecal (canal vertebral)
+        saco tecal (canal)
       </text>
       <path d="M 146 110 L 300 74" {...leader} />
       <text x={304} y={77} {...label}>
-        pars interarticularis (istmo)
+        pars interarticularis
       </text>
       <path d="M 152 87 L 300 100" {...leader} />
       <text x={304} y={103} {...label}>
@@ -261,7 +264,7 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
       </text>
       <path d="M 196 118 L 300 128" {...leader} />
       <text x={304} y={131} {...label}>
-        lâmina e processo espinhoso
+        lâmina e proc. espinhoso
       </text>
       <path d="M 158 143 L 300 156" {...leader} />
       <text x={304} y={159} {...label}>
@@ -352,24 +355,26 @@ const Wiltse: FC<FigureProps> = ({ variant, className, title }) => {
           <path d="M 132 60 L 150 60 L 150 96 L 172 96 L 172 176 L 150 176 L 150 132 L 132 132 Z" {...neuralSoft} />
 
           <path d="M 96 96 L 60 88" {...leader} />
-          <text x={56} y={91} textAnchor="end" {...label}>
-            corpo de L5 escorrega
+          <text x={56} y={85} textAnchor="end" {...label}>
+            <tspan x={56} dy="0em">corpo de L5</tspan>
+            <tspan x={56} dy="1.15em">escorrega</tspan>
           </text>
           <path d="M 156 96 L 300 68" {...leader} />
-          <text x={304} y={71} {...label}>
+          <text x={298} y={71} {...label}>
             lise da pars (espondilólise)
           </text>
           <path d="M 190 108 L 300 96" {...leader} />
           <text x={304} y={99} {...label}>
-            arco posterior FICA para trás
+            arco posterior fica atrás
           </text>
           <path d="M 168 140 L 300 132" {...leader} />
           <text x={304} y={135} {...label}>
             o canal permanece amplo
           </text>
-          <path d="M 120 150 L 300 168" {...leader} />
-          <text x={304} y={171} {...label}>
-            raiz de L5 tensionada no forame
+          <path d="M 120 150 L 300 165" {...leader} />
+          <text x={304} y={165} {...label}>
+            <tspan x={304} dy="0em">raiz de L5</tspan>
+            <tspan x={304} dy="1.15em">tensionada no forame</tspan>
           </text>
           <text x={40} y={272} {...label}>
             ÍSTMICA (Wiltse II) — típica em L5-S1, jovem/atleta
@@ -520,34 +525,37 @@ const Scottie: FC<FigureProps> = ({ variant, className, title }) => {
       {/* rótulos */}
       <path d="M 60 120 L 60 78" {...leader} />
       <text x={60} y={72} textAnchor="middle" {...label}>
-        focinho = processo transverso
+        focinho = proc. transverso
       </text>
       <path d="M 118 126 L 60 168" {...leader} />
-      <text x={56} y={171} textAnchor="end" {...label}>
-        olho = pedículo
+      <text x={56} y={165} textAnchor="end" {...label}>
+        <tspan x={56} dy="0em">olho =</tspan>
+        <tspan x={56} dy="1.15em">pedículo</tspan>
       </text>
       <path d="M 126 66 L 168 44" {...leader} />
       <text x={172} y={47} {...label}>
         orelha = proc. articular superior
       </text>
       <path d="M 138 154 L 300 126" {...leader} />
-      <text x={304} y={129} {...label}>
-        pescoço = pars interarticularis
+      <text x={304} y={123} {...label}>
+        <tspan x={304} dy="0em">pescoço =</tspan>
+        <tspan x={304} dy="1.15em">pars interarticularis</tspan>
       </text>
       <path d="M 210 160 L 300 156" {...leader} />
       <text x={304} y={159} {...label}>
         corpo = lâmina
       </text>
       <path d="M 172 226 L 300 200" {...leader} />
-      <text x={304} y={203} {...label}>
-        pata = proc. articular inferior
+      <text x={304} y={197} {...label}>
+        <tspan x={304} dy="0em">pata = proc.</tspan>
+        <tspan x={304} dy="1.15em">articular inferior</tspan>
       </text>
       <path d="M 264 100 L 300 82" {...leader} />
       <text x={304} y={85} {...label}>
-        cauda = proc. articular
+        cauda = proc. artic.
       </text>
       <text x={304} y={99} {...label}>
-        superior contralateral
+        sup. contralateral
       </text>
 
       <text x={30} y={278} {...label}>
@@ -619,8 +627,8 @@ const Sagital: FC<FigureProps> = ({ variant, className, title }) => {
         <>
           {/* cabeça femoral */}
           <circle cx={152} cy={252} r={15} {...boneBack} />
-          <text x={152} y={280} textAnchor="middle" {...label}>
-            eixo das cabeças femorais
+          <text x={175} y={256} {...label}>
+            eixo femoral
           </text>
 
           {/* ponto médio da placa de S1 */}
@@ -651,12 +659,14 @@ const Sagital: FC<FigureProps> = ({ variant, className, title }) => {
           </text>
 
           <path d="M 190 140 L 300 96" {...leader} />
-          <text x={304} y={99} {...label}>
-            perpendicular à placa de S1
+          <text x={304} y={93} {...label}>
+            <tspan x={304} dy="0em">perpendicular à</tspan>
+            <tspan x={304} dy="1.15em">placa de S1</tspan>
           </text>
           <path d="M 200 136 L 300 126" {...leader} />
-          <text x={304} y={129} {...label}>
-            placa terminal superior de S1
+          <text x={304} y={123} {...label}>
+            <tspan x={304} dy="0em">placa terminal</tspan>
+            <tspan x={304} dy="1.15em">superior de S1</tspan>
           </text>
 
           <text x={26} y={40} {...label}>
@@ -719,23 +729,26 @@ const Estenose: FC<FigureProps> = ({ variant, className, title }) => {
             {...neuralSoft}
           />
           <path d="M 122 168 L 60 190" {...leader} />
-          <text x={56} y={193} textAnchor="end" {...label}>
-            hipertrofia facetária
+          <text x={56} y={187} textAnchor="end" {...label}>
+            <tspan x={56} dy="0em">hipertrofia</tspan>
+            <tspan x={56} dy="1.15em">facetária</tspan>
           </text>
           <path d="M 190 158 L 300 196" {...leader} />
-          <text x={304} y={199} {...label}>
-            ligamento amarelo espessado
+          <text x={304} y={193} {...label}>
+            <tspan x={304} dy="0em">ligamento amarelo</tspan>
+            <tspan x={304} dy="1.15em">espessado</tspan>
           </text>
           <path d="M 200 128 L 300 96" {...leader} />
           <text x={304} y={99} {...label}>
-            saco tecal comprimido
+            saco tecal compr.
           </text>
           <text x={304} y={113} {...label}>
             (aspecto em trevo)
           </text>
           <path d="M 168 134 L 60 128" {...leader} />
-          <text x={56} y={131} textAnchor="end" {...label}>
-            recesso lateral estreito
+          <text x={56} y={125} textAnchor="end" {...label}>
+            <tspan x={56} dy="0em">recesso lateral</tspan>
+            <tspan x={56} dy="1.15em">estreito</tspan>
           </text>
           <text x={26} y={266} {...label}>
             ESTENOSE — a claudicação neurogênica domina o quadro
@@ -880,10 +893,13 @@ const Tratamento: FC<FigureProps> = ({ variant, activeStep, className, title }) 
           </text>
           <path d="M 120 168 L 300 150" {...leader} />
           <text x={304} y={153} {...label}>
-            sem implantes: menor sangramento,
+            sem implantes:
           </text>
           <text x={304} y={167} {...label}>
-            menor tempo e menor custo
+            menor sangramento,
+          </text>
+          <text x={304} y={181} {...label}>
+            menor tempo e custo
           </text>
           <text x={40} y={274} {...label}>
             DESCOMPRESSÃO ISOLADA

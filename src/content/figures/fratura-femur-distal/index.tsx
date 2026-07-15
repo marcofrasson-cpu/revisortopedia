@@ -82,8 +82,8 @@ export const Anatomia: FC<FigureProps> = ({ className, title }) => (
 
     <text x="130" y="12" {...label} textAnchor="middle">Diáfise femoral</text>
     <text x="200" y="204" {...label} textAnchor="start">Metáfise</text>
-    <text x="60" y="256" {...label} textAnchor="end" fill="var(--teal)">Cabeças do</text>
-    <text x="60" y="270" {...label} textAnchor="end" fill="var(--teal)">gastrocnêmio</text>
+    <text x="74" y="256" {...label} textAnchor="end" fill="var(--teal)">Cabeças do</text>
+    <text x="74" y="270" {...label} textAnchor="end" fill="var(--teal)">gastrocnêmio</text>
     <text x="70" y="300" {...label} textAnchor="middle">Côndilo medial</text>
     <text x="192" y="300" {...label} textAnchor="middle">Côndilo lateral</text>
     <text x="130" y="316" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
@@ -161,8 +161,8 @@ export const Deformidade: FC<FigureProps> = ({ className, title }) => (
 
     <text x="112" y="16" {...label} textAnchor="middle">Diáfise (desvio anterior)</text>
     <text x="176" y="150" {...label} textAnchor="start" fill="var(--cortical)">traço</text>
-    <text x="230" y="248" {...label} textAnchor="start" fill="var(--teal)">gastrocnêmio →</text>
-    <text x="230" y="262" {...label} textAnchor="start" fill="var(--teal)">extensão / posterior</text>
+    <text x="210" y="248" {...label} textAnchor="start" fill="var(--teal)">gastrocnêmio</text>
+    <text x="210" y="262" {...label} textAnchor="start" fill="var(--teal)">extensão/post.</text>
     <text x="212" y="150" {...label} textAnchor="start" fill="var(--cortical)">a. poplítea</text>
     <text x="150" y="292" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
       ápice posterior (recurvatum)
@@ -226,7 +226,6 @@ export const AoOta: FC<FigureProps> = ({ className, title, variant }) => {
 
       <text x="130" y="12" {...label} textAnchor="middle">Fêmur distal (AP)</text>
       <text x="130" y="298" textAnchor="middle" {...mono}>{cfg.name}</text>
-      <text x="130" y="292" textAnchor="middle" {...label} opacity="0">.</text>
       <text x="130" y="284" textAnchor="middle" {...label}>{cfg.desc}</text>
     </svg>
   );
@@ -327,7 +326,7 @@ export const ViaRetrograda: FC<FigureProps> = ({ className, title }) => (
     <text x="140" y="256" {...label} textAnchor="start" fill="var(--teal)">ponto de entrada</text>
     <text x="150" y="120" {...label} textAnchor="start" fill="var(--teal)">eixo da haste</text>
     <text x="130" y="292" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      central em AP · ápice de Blumensaat no perfil
+      central em AP · Blumensaat no perfil
     </text>
   </svg>
 );
@@ -434,8 +433,8 @@ export const StepPlaca: FC<FigureProps> = ({ className, title }) => (
 
     <text x="60" y="182" {...label} textAnchor="end" fill="var(--cortical)">cominução</text>
     <text x="188" y="34" {...label} textAnchor="middle" fill="var(--teal)">placa lateral</text>
-    <text x="214" y="148" {...label} textAnchor="start" fill="var(--amber)">comprimento</text>
-    <text x="214" y="162" {...label} textAnchor="start" fill="var(--amber)">de trabalho</text>
+    <text x="214" y="148" {...label} textAnchor="start" fill="var(--amber)">compr.</text>
+    <text x="214" y="162" {...label} textAnchor="start" fill="var(--amber)">trabalho</text>
     <text x="130" y="300" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
       fixação em ponte — estabilidade relativa
     </text>
@@ -489,10 +488,11 @@ export const StepHaste: FC<FigureProps> = ({ className, title }) => (
 
     <text x="130" y="12" {...label} textAnchor="middle">Fêmur distal (AP)</text>
     <text x="146" y="70" {...label} textAnchor="start" fill="var(--teal)">haste retrógrada</text>
-    <text x="200" y="232" {...label} textAnchor="start" fill="var(--teal)">bloqueio distal</text>
+    <text x="200" y="232" {...label} textAnchor="start" fill="var(--teal)">bloq. distal</text>
     <text x="60" y="188" {...label} textAnchor="end" fill="var(--cortical)">traço</text>
     <text x="130" y="300" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-      entrada central · ≥ 3 parafusos distais no bloco articular
+      <tspan x="130" dy="0em">entrada central · ≥ 3 parafusos</tspan>
+      <tspan x="130" dy="1.15em">distais no bloco articular</tspan>
     </text>
   </svg>
 );
@@ -560,9 +560,9 @@ export const StepDupla: FC<FigureProps> = ({ className, title, variant }) => {
         </>
       )}
 
-      <text x="60" y="182" {...label} textAnchor="end" fill="var(--cortical)">defeito medial</text>
+      <text x="74" y="182" {...label} textAnchor="end" fill="var(--cortical)">defeito medial</text>
       <text x="130" y="300" {...label} textAnchor="middle" fontFamily="var(--font-mono, monospace)">
-        {nailPlate ? "reforço para cominução / osso osteoporótico" : "sustenta a coluna medial cominuída"}
+        {nailPlate ? "reforço p/ cominução / osso osteoporótico" : "sustenta a coluna medial cominuída"}
       </text>
     </svg>
   );

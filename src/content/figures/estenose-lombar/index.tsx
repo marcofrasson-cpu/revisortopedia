@@ -244,7 +244,7 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
   const destacarLA = variant === "ligamento";
   return (
     <Frame
-      viewBox="0 0 460 330"
+      viewBox="-50 0 525 330"
       title={
         title ??
         "Anatomia do canal lombar em perfil: corpo, disco, pedículo, ligamento amarelo, saco tecal, recesso lateral e forame de conjugação"
@@ -291,19 +291,20 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
       {/* rótulos anteriores */}
       <path d="M 62 56 L 40 56" {...leader} />
       <text x={36} y={59} textAnchor="end" {...label}>
-        corpo vertebral (L4)
+        corpo (L4)
       </text>
       <path d="M 70 83 L 40 83" {...leader} />
       <text x={36} y={86} textAnchor="end" {...label}>
-        disco intervertebral
+        disco interv.
       </text>
       <path d="M 124 88 L 46 116" {...leader} />
       <text x={42} y={119} textAnchor="end" {...label}>
-        raiz de L4 emerge no forame
+        <tspan x={42} dy="0em">raiz L4 emerge</tspan>
+        <tspan x={42} dy="1.15em">no forame</tspan>
       </text>
       <path d="M 74 190 L 46 206" {...leader} />
       <text x={42} y={209} textAnchor="end" {...label}>
-        sacro (promontório)
+        sacro (prom.)
       </text>
 
       {/* rótulos posteriores */}
@@ -340,7 +341,7 @@ const Anatomia: FC<FigureProps> = ({ variant, className, title }) => {
       </text>
 
       <text x={40} y={306} {...label}>
-        Perfil — anterior à esquerda. As três paredes que estreitam o canal: disco à frente,
+        Perfil — ant. à esquerda. As três paredes que estreitam o canal: disco à frente,
       </text>
       <text x={40} y={320} {...label}>
         faceta lateralmente e ligamento amarelo atrás.
@@ -355,7 +356,7 @@ const Axial: FC<FigureProps> = ({ variant, className, title }) => {
   const estenose = variant !== "normal";
   return (
     <Frame
-      viewBox="0 0 460 300"
+      viewBox="-60 0 550 300"
       title={
         title ??
         (estenose
@@ -386,19 +387,19 @@ const Axial: FC<FigureProps> = ({ variant, className, title }) => {
 
           <path d="M 190 100 L 60 74" {...leader} />
           <text x={56} y={77} textAnchor="end" {...label}>
-            abaulamento discal
+            abaul. discal
           </text>
           <path d="M 122 166 L 60 196" {...leader} />
           <text x={56} y={199} textAnchor="end" {...label}>
-            hipertrofia facetária
+            hipertr. facet.
           </text>
           <path d="M 166 132 L 60 138" {...leader} />
           <text x={56} y={141} textAnchor="end" {...label}>
-            recesso lateral estreito
+            recesso lat. estr.
           </text>
           <path d="M 190 160 L 320 200" {...leader} />
           <text x={324} y={203} {...label}>
-            ligamento amarelo espessado
+            ligamento amarelo espess.
           </text>
           <path d="M 210 124 L 320 98" {...leader} />
           <text x={324} y={101} {...label}>
@@ -408,7 +409,7 @@ const Axial: FC<FigureProps> = ({ variant, className, title }) => {
             (aspecto em trevo)
           </text>
           <text x={40} y={276} {...label}>
-            ESTENOSE — o estreitamento é circunferencial: disco, faceta e ligamento amarelo
+            ESTENOSE — o estreitamento é circunf.: disco, faceta e ligamento amarelo
           </text>
           <text x={40} y={290} {...label}>
             fecham o canal em conjunto.
@@ -565,7 +566,7 @@ const Dinamica: FC<FigureProps> = ({ variant, className, title }) => {
           </text>
           <path d="M 166 88 L 314 118" {...leader} />
           <text x={318} y={121} {...label}>
-            ligamento amarelo dobra-se
+            ligamento amarelo dobra
           </text>
           <text x={318} y={135} {...label}>
             para dentro do canal
@@ -582,7 +583,7 @@ const Dinamica: FC<FigureProps> = ({ variant, className, title }) => {
             EXTENSÃO — ficar em pé, caminhar, descer ladeira
           </text>
           <text x={40} y={296} {...label}>
-            O paciente PIORA. A estenose lombar é uma doença dinâmica, não apenas anatômica.
+            O paciente PIORA. A estenose lombar é doença dinâmica, não só anatômica.
           </text>
         </>
       )}
@@ -596,7 +597,7 @@ const Claudicacao: FC<FigureProps> = ({ variant, className, title }) => {
   const vascular = variant === "vascular";
   return (
     <Frame
-      viewBox="0 0 460 340"
+      viewBox="0 0 550 340"
       title={
         title ??
         (vascular
@@ -834,7 +835,7 @@ const Schizas: FC<FigureProps> = ({ variant, className, title }) => {
       className={className}
     >
       <text x={30} y={30} {...label}>
-        Graduação de Schizas — morfologia do saco dural em T2 axial, pela razão raízes/líquor.
+        Graduação de Schizas — saco dural em T2 axial (raízes/líquor).
       </text>
 
       {graus.map((k, i) => {
@@ -888,11 +889,11 @@ const Schizas: FC<FigureProps> = ({ variant, className, title }) => {
       <text x={36} y={179} textAnchor="end" {...label}>
         raízes
       </text>
-      <path d="M 390 150 L 420 176" {...leader} />
-      <text x={424} y={179} {...label}>
+      <path d="M 390 150 L 382 176" {...leader} />
+      <text x={384} y={179} {...label}>
         sem gordura
       </text>
-      <text x={424} y={193} {...label}>
+      <text x={384} y={193} {...label}>
         epidural
       </text>
 
@@ -903,7 +904,7 @@ const Schizas: FC<FigureProps> = ({ variant, className, title }) => {
         {g.texto}
       </text>
       <text x={30} y={272} {...label}>
-        C e D falham mais o tratamento conservador; A e B raramente chegam à cirurgia. A graduação
+        C e D falham mais o conservador; A e B raramente operam. A graduação
       </text>
       <text x={30} y={286} {...label}>
         avalia o sofrimento das raízes — não substitui a clínica, que continua soberana.
@@ -936,7 +937,7 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
 
   return (
     <Frame
-      viewBox="0 0 460 320"
+      viewBox="-30 0 510 320"
       title={title ?? `Zonas da estenose lombar no corte axial de L4-L5 — ${info.titulo}`}
       className={className}
     >
@@ -971,29 +972,29 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
       {/* rótulos */}
       <path d="M 190 102 L 322 60" {...leader} />
       <text x={326} y={63} {...(z === "central" ? amberText : label)}>
-        1. CENTRAL — cauda equina
+        1. CENTRAL — c. equina
       </text>
       <path d="M 218 138 L 322 108" {...leader} />
       <text x={326} y={111} {...(z === "recesso" ? amberText : label)}>
-        2. RECESSO LATERAL — raiz de L5
+        2. RECESSO LATERAL
       </text>
       <text x={326} y={125} {...label}>
-        (descendente)
+        raiz L5 (descendente)
       </text>
       <path d="M 272 112 L 322 156" {...leader} />
       <text x={326} y={159} {...(z === "foraminal" ? amberText : label)}>
-        3. FORAMINAL — raiz de L4
+        3. FORAMINAL — raiz L4
       </text>
       <text x={326} y={173} {...label}>
         (que emerge)
       </text>
       <path d="M 108 112 L 60 88" {...leader} />
       <text x={56} y={91} textAnchor="end" {...label}>
-        forame de conjugação
+        forame conj.
       </text>
       <path d="M 156 146 L 60 158" {...leader} />
       <text x={56} y={161} textAnchor="end" {...label}>
-        recesso lateral
+        recesso lat.
       </text>
 
       <path d="M 190 30 L 190 12" {...leader} />
@@ -1008,7 +1009,7 @@ const Zonas: FC<FigureProps> = ({ variant, className, title }) => {
         {info.texto}
       </text>
       <text x={30} y={310} {...label}>
-        Corte axial em L4-L5. As três zonas coexistem e cada uma pede um gesto cirúrgico diferente.
+        Corte axial L4-L5. As três zonas coexistem; cada uma pede gesto cirúrgico diferente.
       </text>
     </Frame>
   );
@@ -1028,7 +1029,7 @@ const Tratamento: FC<FigureProps> = ({ variant, activeStep, className, title }) 
       : "Descompressão isolada: laminotomia bilateral com ressecção do ligamento amarelo e da porção medial das facetas, preservando ao menos metade de cada faceta";
 
   return (
-    <Frame viewBox="0 0 460 320" title={title ?? legenda} className={className}>
+    <Frame viewBox="-60 0 560 320" title={title ?? legenda} className={className}>
       {/* corpo vertebral e pedículos permanecem em todos os cenários */}
       <path
         d="M 190 30 Q 248 32 260 66 Q 266 92 252 106 L 228 106 Q 190 96 152 106 L 128 106 Q 114 92 120 66 Q 132 32 190 30 Z"
@@ -1171,10 +1172,10 @@ const Tratamento: FC<FigureProps> = ({ variant, activeStep, className, title }) 
         <>
           <path d="M 190 176 L 60 200" {...leader} />
           <text x={56} y={203} textAnchor="end" {...label}>
-            arco posterior ressecado
+            arco post. ressec.
           </text>
           <text x={56} y={217} textAnchor="end" {...label}>
-            (contorno tracejado)
+            (contorno tracej.)
           </text>
           <path d="M 216 124 L 322 96" {...leader} />
           <text x={326} y={99} {...label}>
@@ -1182,7 +1183,7 @@ const Tratamento: FC<FigureProps> = ({ variant, activeStep, className, title }) 
           </text>
           <path d="M 140 150 L 322 146" {...leader} />
           <text x={326} y={149} {...label}>
-            preservar ≥ metade de cada faceta
+            preservar ≥ metade da faceta
           </text>
           <path d="M 170 148 L 322 196" {...leader} />
           <text x={326} y={199} {...label}>
@@ -1193,10 +1194,10 @@ const Tratamento: FC<FigureProps> = ({ variant, activeStep, className, title }) 
             DESCOMPRESSÃO ISOLADA
           </text>
           <text x={30} y={290} {...label}>
-            Suficiente para a maioria: sem implantes, menos sangramento, menos tempo, menos custo.
+            Suficiente para a maioria: sem implante, menos sangue, tempo e custo.
           </text>
           <text x={30} y={304} {...label}>
-            O limite técnico é a faceta — ressecá-la além da metade cria instabilidade iatrogênica.
+            O limite é a faceta — ressecá-la além da metade cria instabilidade iatrogênica.
           </text>
         </>
       )}
