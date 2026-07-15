@@ -166,10 +166,32 @@ const LinhasRadiograficas: FC<FigureProps> = ({ className, title }) => (
     <path d="M132 158 C 126 172, 128 190, 136 198 C 142 190, 144 172, 138 158 Z" fill="none" stroke="var(--amber)" strokeWidth="2" />
     {/* 4. Teto (dome/sourcil) — amber */}
     <path d="M118 120 C 134 110, 166 110, 184 120" stroke="var(--amber)" strokeWidth="2.2" fill="none" strokeLinecap="round" />
-    {/* 5. Rima anterior — ink-soft fino */}
+    {/* 5. Rebordo anterior — ink-soft fino */}
     <path d="M114 132 C 108 150, 110 168, 118 182" stroke="var(--ink-soft)" strokeWidth="1.4" fill="none" strokeDasharray="3 3" />
-    {/* 6. Rima posterior — ink-soft fino */}
+    {/* 6. Rebordo posterior — ink-soft fino */}
     <path d="M188 130 C 196 150, 194 170, 184 186" stroke="var(--ink-soft)" strokeWidth="1.6" fill="none" />
+
+    {/* Marcadores numerados sobre o desenho — cada número na ponta de um tick
+        curto que toca a sua linha; mesma chave/cor da legenda. Sem eles, os
+        números da legenda não têm a que se referir (as cores repetem 2 a 2). */}
+    <g>
+      {([
+        ["1", 242, 212, 230, 207, 236, 210, "var(--teal)"],
+        ["2", 150, 54, 150, 64, 150, 61, "var(--teal)"],
+        ["3", 112, 200, 126, 190, 118, 195, "var(--amber)"],
+        ["4", 168, 98, 158, 113, 164, 104, "var(--amber)"],
+        ["5", 92, 158, 109, 157, 100, 158, "var(--ink-soft)"],
+        ["6", 212, 156, 195, 155, 204, 156, "var(--ink-soft)"],
+      ] as const).map(([n, cx, cy, lx1, ly1, lx2, ly2, c]) => (
+        <g key={n}>
+          <line x1={lx1} y1={ly1} x2={lx2} y2={ly2} stroke={c} strokeWidth="1" />
+          <circle cx={cx} cy={cy} r="7" fill="var(--surface)" stroke={c} strokeWidth="1.6" />
+          <text x={cx} y={cy + 3} textAnchor="middle" fontSize="9" fontFamily="var(--font-mono, monospace)" fill={c}>
+            {n}
+          </text>
+        </g>
+      ))}
+    </g>
 
     {/* Legenda numerada */}
     <g>
@@ -178,8 +200,8 @@ const LinhasRadiograficas: FC<FigureProps> = ({ className, title }) => (
         ["2", "ilioisquiática (col. post.)", "var(--teal)"],
         ["3", "lágrima (teardrop)", "var(--amber)"],
         ["4", "teto (sourcil)", "var(--amber)"],
-        ["5", "rima anterior", "var(--ink-soft)"],
-        ["6", "rima posterior", "var(--ink-soft)"],
+        ["5", "rebordo anterior", "var(--ink-soft)"],
+        ["6", "rebordo posterior", "var(--ink-soft)"],
       ].map(([n, txt, c], i) => (
         <g key={n} transform={`translate(6 ${18 + i * 17})`}>
           <circle cx="6" cy="-4" r="7" fill="none" stroke={c} strokeWidth="1.6" />
@@ -229,7 +251,7 @@ const JudetElementares: FC<FigureProps> = ({ className, title, variant }) => {
       <g className="fx-line">
         {v === "parede-posterior" && (
           <>
-            {/* fragmento da rima/parede posterior destacado */}
+            {/* fragmento do rebordo/parede posterior destacado */}
             <path d="M186 120 C 200 138, 200 162, 188 182 L 176 176 C 186 160, 186 140, 176 124 Z" fill="var(--cortical)" opacity="0.16" stroke="var(--cortical)" strokeWidth="2.4" />
             <path d="M176 124 L 188 120 M176 176 L 188 182" {...fx} />
           </>
@@ -403,14 +425,14 @@ const ViaIlioinguinal: FC<FigureProps> = ({ className, title }) => (
     {/* Feixe: n. femoral / iliopsoas (teal) e vasos ilíacos externos (teal) */}
     <path d="M150 60 C 152 96, 150 132, 156 176" {...soft} />
     <path d="M186 62 C 190 100, 190 140, 186 182" stroke="var(--teal)" strokeWidth="2.2" strokeDasharray="5 4" fill="none" strokeLinecap="round" />
-    <text x="150" y="200" {...label} fill="var(--teal)">iliopsoas / n. femoral</text>
-    <text x="196" y="196" {...label} fill="var(--teal)">vasos ilíacos ext.</text>
+    <text x="146" y="196" {...label} fill="var(--teal)" textAnchor="end">iliopsoas / n. femoral</text>
+    <text x="196" y="190" {...label} fill="var(--teal)">vasos ilíacos ext.</text>
 
     {/* Legenda das janelas */}
     <g>
-      <text x="8" y="230" {...label}>1 fossa ilíaca (lateral)</text>
-      <text x="8" y="245" {...label}>2 entre iliopsoas/n.femoral e vasos</text>
-      <text x="180" y="245" {...label}>3 retropúbica (medial / Retzius)</text>
+      <text x="8" y="218" {...label}>1 fossa ilíaca (lateral)</text>
+      <text x="8" y="233" {...label}>2 entre iliopsoas/n. femoral e vasos</text>
+      <text x="8" y="248" {...label}>3 retropúbica (Retzius), medial aos vasos</text>
     </g>
   </svg>
 );

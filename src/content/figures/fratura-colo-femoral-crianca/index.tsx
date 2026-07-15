@@ -222,28 +222,28 @@ const Anatomia: FC<FigureProps> = ({ className, title }) => (
       {title ?? "Vascularização do fêmur proximal na criança: vasos retinaculares, fise e artéria do ligamento redondo"}
     </title>
     <FemurGroup vessels />
-    <line x1="196" y1="120" x2="252" y2="86" {...leader} />
-    <text x="238" y="76" {...labelStrong} fill="var(--amber)">
+    <line x1="196" y1="120" x2="208" y2="92" {...leader} />
+    <text x="212" y="62" {...labelStrong} fill="var(--amber)">
       Vasos retinaculares
     </text>
-    <text x="238" y="90" {...label}>
+    <text x="212" y="76" {...label}>
       posterossuperiores
     </text>
-    <text x="238" y="103" {...label}>
+    <text x="212" y="89" {...label}>
       (ramos da circunflexa
     </text>
-    <text x="238" y="116" {...label}>
+    <text x="212" y="102" {...label}>
       femoral medial)
     </text>
-    <line x1="118" y1="110" x2="72" y2="176" {...leader} />
-    <text x="14" y="190" {...labelStrong} fill="var(--teal)">
+    <line x1="118" y1="110" x2="56" y2="182" {...leader} />
+    <text x="14" y="196" {...labelStrong} fill="var(--teal)">
       Fise proximal
     </text>
-    <text x="14" y="204" {...label}>
+    <text x="14" y="210" {...label}>
       Barreira ao fluxo
     </text>
-    <text x="14" y="217" {...label}>
-      metafisário até ~4 anos
+    <text x="14" y="223" {...label}>
+      metafisário após ~4 anos
     </text>
     <line x1="80" y1="98" x2="46" y2="64" {...leader} />
     <text x="10" y="52" {...labelStrong} fill="var(--amber)">
@@ -256,10 +256,10 @@ const Anatomia: FC<FigureProps> = ({ className, title }) => (
       dos 8 anos
     </text>
     <text x="14" y="322" {...label}>
-      A perfusão da epífise depende quase inteiramente dos vasos retinaculares,
+      A epífise depende quase só dos vasos retinaculares,
     </text>
     <text x="14" y="335" {...label}>
-      que correm subperiosteais no colo — daí a necrose após fraturas altas.
+      que sobem subperiosteais no colo: traço alto = necrose.
     </text>
   </svg>
 );
@@ -301,7 +301,7 @@ const ClassificacaoDelbet: FC<FigureProps> = ({ className, title, variant }) => 
             Traço no terço médio do colo — o tipo mais frequente (~45%).
           </text>
           <text x="14" y="335" {...label}>
-            Necrose em torno de 30%–32%, proporcional ao desvio inicial.
+            Necrose ~30%–32%, proporcional ao desvio inicial.
           </text>
         </>
       ) : null}
@@ -335,7 +335,7 @@ const ClassificacaoDelbet: FC<FigureProps> = ({ className, title, variant }) => 
 const BARS: { code: string; rate: number; text: string }[] = [
   { code: "I", rate: 45, text: "Transepifisária" },
   { code: "II", rate: 32, text: "Transcervical" },
-  { code: "III", rate: 17, text: "Cervicotrocantérica" },
+  { code: "III", rate: 17, text: "Basicervical" },
   { code: "IV", rate: 12, text: "Intertrocantérica" },
 ];
 
@@ -383,7 +383,7 @@ const RiscoNav: FC<FigureProps> = ({ className, title }) => {
             <text x={x + 19} y={baseY + 18} {...labelStrong} textAnchor="middle">
               Delbet {b.code}
             </text>
-            <text x={x + 19} y={baseY + 32} {...label} textAnchor="middle" fontSize={9}>
+            <text x={x + 19} y={baseY + 32} {...label} textAnchor="middle" fontSize={8}>
               {b.text}
             </text>
           </g>
@@ -391,10 +391,10 @@ const RiscoNav: FC<FigureProps> = ({ className, title }) => {
       })}
       <path d="M 68 52 L 300 52" {...dashed} />
       <text x="184" y="44" {...label} textAnchor="middle">
-        Quanto mais proximal o traço, mais vasos retinaculares interrompidos
+        Quanto mais proximal o traço, mais vasos interrompidos
       </text>
       <text x="42" y="262" {...label}>
-        Incidências agrupadas de metanálise (Xin, 2023); necrose global ~22%.
+        Metanálise (Xin, 2023); necrose global ~22%.
       </text>
     </svg>
   );
@@ -433,7 +433,7 @@ const DescompressaoCapsular: FC<FigureProps> = ({ className, title }) => (
       Hematoma sob tensão
     </text>
     <text x="216" y="258" {...label}>
-      Tamponamento dos vasos
+      Tampona os vasos
     </text>
     <text x="216" y="271" {...label}>
       retinaculares
@@ -452,10 +452,10 @@ const DescompressaoCapsular: FC<FigureProps> = ({ className, title }) => (
       são intracapsulares.
     </text>
     <text x="14" y="322" {...label}>
-      A descompressão é de baixo custo biológico e amplamente recomendada, embora
+      Descompressão tem baixo custo biológico, embora a
     </text>
     <text x="14" y="335" {...label}>
-      a revisão sistemática de Yeranosian não tenha demonstrado redução da necrose.
+      revisão de Yeranosian não mostre menos necrose.
     </text>
   </svg>
 );

@@ -30,7 +30,7 @@ export const topic = defineTopic({
   ],
   anatomy: {
     text:
-      "O acetábulo é sustentado por duas colunas ósseas que formam um arco em Y invertido convergindo sobre o teto (dome). A coluna anterior (ílio-púbica) estende-se da crista ilíaca e da espinha ilíaca ântero-superior, passa pela borda pélvica (linha iliopectínea) e termina na sínfise púbica; a coluna posterior (ílio-isquiática) vai da incisura isquiática maior, através do corpo do ísquio, até a tuberosidade isquiática, e é marcada radiograficamente pela linha ilioisquiática. As paredes anterior e posterior são as bordas (rimas) que contêm a cabeça femoral, sendo a parede posterior a mais frequentemente fraturada nas luxações posteriores. O teto (sourcil) é a porção súpero-medial que transmite a maior parte da carga; sua integridade e congruência determinam o prognóstico. O plano (lâmina) quadrilátero é a fina parede medial da pelve verdadeira, que separa a articulação da cavidade pélvica e cujo deslocamento medial gera o padrão de protrusão — particularmente relevante no idoso. A superfície articular em forma de meia-lua (lunata) reveste ambas as colunas e a fossa acetabular é não articular. As seis linhas radiográficas da incidência AP resumem a anatomia projetada: linha iliopectínea (coluna anterior), linha ilioisquiática (coluna posterior), lágrima (teardrop, relação entre a parede anterior/quadrilátero e a fossa), linha do teto, rima anterior e rima posterior. A leitura sistemática de cada linha, complementada pelas oblíquas de Judet e pela TC, é a base para classificar e planejar o acesso.",
+      "O acetábulo é sustentado por duas colunas ósseas que formam um arco em Y invertido convergindo sobre o teto (dome). A coluna anterior (ílio-púbica) estende-se da crista ilíaca e da espinha ilíaca ântero-superior, passa pela borda pélvica (linha iliopectínea) e termina na sínfise púbica; a coluna posterior (ílio-isquiática) vai da incisura isquiática maior, através do corpo do ísquio, até a tuberosidade isquiática, e é marcada radiograficamente pela linha ilioisquiática. As paredes anterior e posterior são os rebordos que contêm a cabeça femoral, sendo a parede posterior a mais frequentemente fraturada nas luxações posteriores. O teto (sourcil) é a porção súpero-medial que transmite a maior parte da carga; sua integridade e congruência determinam o prognóstico. O plano (lâmina) quadrilátero é a fina parede medial da pelve verdadeira, que separa a articulação da cavidade pélvica e cujo deslocamento medial gera o padrão de protrusão — particularmente relevante no idoso. A superfície articular em forma de meia-lua (lunata) reveste ambas as colunas e a fossa acetabular é não articular. As seis linhas radiográficas da incidência AP resumem a anatomia projetada: linha iliopectínea (coluna anterior), linha ilioisquiática (coluna posterior), lágrima (teardrop, relação entre a parede anterior/quadrilátero e a fossa), linha do teto, rebordo anterior e rebordo posterior. A leitura sistemática de cada linha, complementada pelas oblíquas de Judet e pela TC, é a base para classificar e planejar o acesso.",
     figureIds: ["fratura-acetabulo:anatomia", "fratura-acetabulo:linhas-radiograficas"],
   },
   classification: [
@@ -46,7 +46,7 @@ export const topic = defineTopic({
           code: "PP",
           label: "Parede posterior",
           description:
-            "Fragmento da rima/parede posterior, tipicamente por luxação posterior do quadril (trauma no painel — dashboard). Buscar impacção marginal e fragmentos osteocondrais na TC; avaliar estabilidade sob estresse. Acesso: Kocher-Langenbeck.",
+            "Fragmento do rebordo/parede posterior, tipicamente por luxação posterior do quadril (trauma no painel — dashboard). Buscar impacção marginal e fragmentos osteocondrais na TC; avaliar estabilidade sob estresse. Acesso: Kocher-Langenbeck.",
           figureId: "fratura-acetabulo:judet-elementares",
           figureVariant: "parede-posterior",
         },
@@ -62,7 +62,7 @@ export const topic = defineTopic({
           code: "PA",
           label: "Parede anterior",
           description:
-            "Fratura da rima anterior, relativamente rara e isolada; frequentemente associada a padrões da coluna anterior. Acesso: ilioinguinal ou anterior intrapélvico.",
+            "Fratura do rebordo anterior, relativamente rara e isolada; frequentemente associada a padrões da coluna anterior. Acesso: ilioinguinal ou anterior intrapélvico.",
           figureId: "fratura-acetabulo:judet-elementares",
           figureVariant: "parede-anterior",
         },
@@ -120,7 +120,7 @@ export const topic = defineTopic({
           code: "CA+HT",
           label: "Coluna anterior + hemitransversa posterior",
           description:
-            "Fratura completa da coluna anterior associada a um traço transverso que envolve apenas a coluna posterior (hemitransversa). Comum no idoso; parte da superfície articular permanece ligada à coluna posterior íntegra. Acesso: ilioinguinal / anterior intrapélvico.",
+            "Fratura completa da coluna anterior associada a um traço transverso que envolve apenas a coluna posterior (hemitransversa). Comum no idoso; parte da superfície articular permanece ligada ao ílio intacto — é exatamente isso que a distingue da fratura das duas colunas. Acesso: ilioinguinal / anterior intrapélvico.",
           figureId: "fratura-acetabulo:judet-associadas",
           figureVariant: "coluna-ant-hemitransversa-post",
         },
@@ -174,7 +174,7 @@ export const topic = defineTopic({
     ],
     nonOperative: [
       "Fratura sem desvio ou com desvio mínimo (< 2 mm) e articulação congruente e estável.",
-      "Fratura que poupa o teto de carga (arco do teto medial preservado nas três incidências).",
+      "Fratura que poupa o teto de carga (arcos do teto medial, anterior e posterior ≥ 45°, cada um medido na sua incidência: AP, obturadora e alar).",
       "Fraturas baixas da coluna/parede anterior ou infratectais que não afetam a área de carga e mantêm a congruência.",
       "Fratura das duas colunas com congruência secundária satisfatória e boa cobertura da cabeça.",
       "Paciente com contraindicação clínica proibitiva ao ato cirúrgico ou partes moles/lesões associadas que inviabilizam a osteossíntese.",
@@ -430,7 +430,7 @@ export const topic = defineTopic({
     {
       id: "ferguson-2010",
       claim:
-        "Em base prospectiva de 1309 fraturas do acetábulo (1980-2007), a proporção de idosos (> 60 anos) aumentou 2,4 vezes; nos idosos predominaram fraturas com deslocamento da coluna anterior (64% vs 43%), componente do plano quadrilátero (50,8%) e impacção do teto (40%) — características associadas a pior prognóstico.",
+        "Em base prospectiva de 1309 fraturas do acetábulo (1980-2007), a proporção de idosos (> 60 anos) aumentou 2,4 vezes; nos idosos predominaram fraturas com deslocamento da coluna anterior (64% vs 43%) e, dentro dessas fraturas anteriores, componente separado do plano quadrilátero (50,8%) e impacção do teto (40%) — características associadas a pior prognóstico.",
       takeaway:
         "A fratura do acetábulo no idoso é crescente e tem padrões próprios (coluna anterior, quadrilátero, impacção) que orientam a decisão terapêutica.",
       level: "III",
@@ -493,8 +493,8 @@ export const topic = defineTopic({
         "Revisão sistemática e meta-análise (5 estudos, 255 pacientes) de artroplastia aguda (fix-and-replace) versus tardia após fratura do acetábulo: resultados funcionais e taxas de complicação semelhantes, porém a artroplastia tardia teve maior taxa de revisão (17,1% vs 4,3%).",
       takeaway:
         "A artroplastia aguda (fix-and-replace) apresenta menor taxa de revisão que a tardia — há equipoise suficiente para ensaios randomizados.",
-      level: "II",
-      studyType: "Revisão sistemática e meta-análise (Eur J Orthop Surg Traumatol)",
+      level: "III",
+      studyType: "Revisão sistemática e meta-análise de 5 estudos retrospectivos (Eur J Orthop Surg Traumatol)",
       era: "atual",
       citation: {
         authors: "Liang K, Gani MH, Griffin X, Culpan P, Mukabeta T, Bates P",
@@ -555,7 +555,7 @@ export const topic = defineTopic({
     {
       id: "fratura-acetabulo:linhas-radiograficas",
       caption: "As seis linhas radiográficas da incidência AP.",
-      alt: "Linhas iliopectínea, ilioisquiática, lágrima, teto, rima anterior e rima posterior projetadas sobre o acetábulo.",
+      alt: "Linhas iliopectínea, ilioisquiática, lágrima, teto, rebordo anterior e rebordo posterior projetadas sobre o acetábulo.",
     },
     {
       id: "fratura-acetabulo:judet-elementares",

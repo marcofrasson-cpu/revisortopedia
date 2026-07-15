@@ -34,7 +34,7 @@ export const topic = defineTopic({
 
   anatomy: {
     text:
-      "O sacro é formado por cinco vértebras fundidas em uma cunha triangular de base superior (promontório / platô de S1) e ápice inferior (articulação sacrococcígea). É côncavo anteriormente e transmite a carga axial do tronco ao anel pélvico pelas articulações sacroilíacas — suspenso entre os ilíacos pelos ligamentos sacroilíacos posteriores e interósseos, os mais fortes do corpo, auxiliados pelos ligamentos sacroespinhoso e sacrotuberoso.\n\nO canal sacral contém a porção distal da cauda equina; o saco dural termina tipicamente em S2 e o filamento terminal desce até o cóccix. Quatro pares de forames anteriores e posteriores dão passagem às raízes de S1 a S4, que convergem e diminuem de calibre no sentido distal. A raiz de L5 não passa por forame sacral: ela cruza a face anterior da ala, apoiada sobre o osso — razão pela qual um traço na zona I pode lesá-la.\n\nA topografia das raízes explica a classificação de Denis. Lateral aos forames (zona I) está apenas a ala e, sobre ela, L5. Através dos forames (zona II) transitam S1 e S2, cuja lesão produz ciatalgia e déficit motor distal, mas raramente disfunção vesical. Medial aos forames (zona III) está o canal central, com as raízes de S2 a S4 — responsáveis pela inervação parassimpática da bexiga e do reto, pelo controle esfincteriano, pela função sexual e pela sensibilidade da região perineal. Daí a regra clínica: zona III é a zona dos esfíncteres.\n\nDois detalhes anatômicos comandam a técnica percutânea. Primeiro, o corredor ósseo de S1 — o túnel entre o platô superior, o canal e a raiz de L5 — por onde o parafuso iliossacral deve passar. Segundo, o disformismo sacral, presente em cerca de um terço da população: alas com inclinação acentuada, S1 não recuado em relação às cristas ilíacas, processos mamilares e disco residual entre S1 e S2. No sacro displásico o corredor de S1 é estreito e obliquo, obrigando a uma trajetória oblíqua ou ao uso do corredor de S2 sob risco de perfuração alar e lesão de L5.",
+      "O sacro é formado por cinco vértebras fundidas em uma cunha triangular de base superior (promontório / platô de S1) e ápice inferior (articulação sacrococcígea). É côncavo anteriormente e transmite a carga axial do tronco ao anel pélvico pelas articulações sacroilíacas — suspenso entre os ilíacos pelos ligamentos sacroilíacos posteriores e interósseos, os mais fortes do corpo, auxiliados pelos ligamentos sacroespinhoso e sacrotuberoso.\n\nO canal sacral contém a porção distal da cauda equina; o saco dural termina tipicamente em S2 e o filamento terminal desce até o cóccix. Quatro pares de forames anteriores e posteriores dão passagem às raízes de S1 a S4, que convergem e diminuem de calibre no sentido distal. A raiz de L5 não passa por forame sacral: ela cruza a face anterior da ala, apoiada sobre o osso — razão pela qual um traço na zona I pode lesá-la.\n\nA topografia das raízes explica a classificação de Denis. Lateral aos forames (zona I) está apenas a ala e, sobre ela, L5. Através dos forames (zona II) transitam S1 e S2, cuja lesão produz ciatalgia e déficit motor distal, mas raramente disfunção vesical. Medial aos forames (zona III) está o canal central, com as raízes de S2 a S4 — responsáveis pela inervação parassimpática da bexiga e do reto, pelo controle esfincteriano, pela função sexual e pela sensibilidade da região perineal. Daí a regra clínica: zona III é a zona dos esfíncteres.\n\nDois detalhes anatômicos comandam a técnica percutânea. Primeiro, o corredor ósseo de S1 — o túnel entre o platô superior, o canal e a raiz de L5 — por onde o parafuso iliossacral deve passar. Segundo, o dismorfismo sacral, presente em cerca de um terço da população: alas com inclinação acentuada, S1 não recuado em relação às cristas ilíacas, processos mamilares e disco residual entre S1 e S2. No sacro displásico o corredor de S1 é estreito e oblíquo, obrigando a uma trajetória oblíqua ou ao uso do corredor de S2 sob risco de perfuração alar e lesão de L5.",
     figureIds: [
       "fratura-sacro:anatomia",
       "fratura-sacro:raizes-sacrais",
@@ -241,7 +241,7 @@ export const topic = defineTopic({
       indication:
         "Traços bilaterais, sacro com corredor amplo, fratura por insuficiência ou necessidade de maior braço de alavanca que o parafuso iliossacral unilateral.",
       interval:
-        "Percutâneo, atravessando ílio - sacro - ílio contralateral em um único corredor osseo transverso; exige corredor de S1 (ou S2) confirmado na TC pré-operatória.",
+        "Percutâneo, atravessando ílio - sacro - ílio contralateral em um único corredor ósseo transverso; exige corredor de S1 (ou S2) confirmado na TC pré-operatória.",
       atRisk: [
         "Raízes de L5 bilateralmente",
         "Canal sacral",
@@ -309,9 +309,9 @@ export const topic = defineTopic({
   technique: [
     {
       n: 1,
-      title: "Planejamento na TC — corredor, disformismo e traço transverso",
+      title: "Planejamento na TC — corredor, dismorfismo e traço transverso",
       detail:
-        "Antes de qualquer decisão, percorrer a TC nos três planos. No axial e no coronal, definir a zona de Denis e medir o desvio. No sagital, procurar ativamente o traço transverso — é ele que muda a lesão de categoria. Medir o corredor de S1 e identificar sinais de disformismo sacral (alas com inclinação acentuada, S1 não recuado em relação às cristas, processos mamilares, disco residual S1-S2, articulações SI em encaixe). Se o corredor de S1 for estreito, planejar trajetória oblíqua ou corredor de S2.",
+        "Antes de qualquer decisão, percorrer a TC nos três planos. No axial e no coronal, definir a zona de Denis e medir o desvio. No sagital, procurar ativamente o traço transverso — é ele que muda a lesão de categoria. Medir o corredor de S1 e identificar sinais de dismorfismo sacral (alas com inclinação acentuada, S1 não recuado em relação às cristas, processos mamilares, disco residual S1-S2, articulações SI em encaixe). Se o corredor de S1 for estreito, planejar trajetória oblíqua ou corredor de S2.",
       figureId: "fratura-sacro:corredor-s1",
       figureVariant: "displasico",
       tips: [
@@ -320,7 +320,7 @@ export const topic = defineTopic({
         "Documente Gibbons e o exame das raízes sacrais antes de sedar ou intubar.",
       ],
       pitfalls: [
-        "Assumir corredor de S1 patente sem medir — o disformismo está presente em cerca de um terço dos sacros.",
+        "Assumir corredor de S1 patente sem medir — o dismorfismo está presente em cerca de um terço dos sacros.",
         "Diagnosticar 'fratura do anel pélvico' e não olhar o sagital do sacro.",
       ],
     },
@@ -359,7 +359,7 @@ export const topic = defineTopic({
       n: 4,
       title: "Fio-guia no corredor de S1",
       detail:
-        "Com a redução mantida, obter as incidências inlet (controla o plano anteroposterior), outlet (controla o plano cranio-caudal) e perfil estrito do sacro (define o ponto de entrada e evita a ala anterior). Introduzir o fio-guia a partir do ílio posterolateral em direção ao corpo de S1, alternando as três incidências a cada avanço. No perfil, o fio deve permanecer posterior e inferior à linha da rampa alar (densidade ilíaca cortical), à frente da qual está a raiz de L5.",
+        "Com a redução mantida, obter as incidências inlet (controla o plano anteroposterior), outlet (controla o plano craniocaudal) e perfil estrito do sacro (define o ponto de entrada e evita a ala anterior). Introduzir o fio-guia a partir do ílio posterolateral em direção ao corpo de S1, alternando as três incidências a cada avanço. No perfil, o fio deve permanecer posterior e inferior à linha da rampa alar (densidade ilíaca cortical), à frente da qual está a raiz de L5.",
       figureId: "fratura-sacro:corredor-s1",
       figureVariant: "normal",
       tips: [
@@ -660,7 +660,7 @@ export const topic = defineTopic({
     "A raiz de L5 não passa por forame: ela cruza a face anterior da ala. É por isso que uma fratura 'inocente' da zona I dá déficit de L5 e é por isso que a perfuração alar anterior é tão temida.",
     "A redução é o primeiro gesto descompressivo. Corrigir a cifose e a translação restaura o volume do canal e dos forames — séries de fixação percutânea mostram 70% de recuperação neurológica completa sem laminectomia.",
     "Perfil estrito do sacro, com as incisuras ciáticas sobrepostas: é a incidência que revela a transversa e a que impede o parafuso de cruzar a rampa alar.",
-    "Disformismo sacral está em cerca de um terço das pessoas. Mede-se o corredor de S1 na TC antes de operar, não com o fio já na mão.",
+    "Dismorfismo sacral está em cerca de um terço das pessoas. Mede-se o corredor de S1 na TC antes de operar, não com o fio já na mão.",
     "Reduza cedo — depois de 10 a 14 dias a fratura deixa de ser redutível por via percutânea.",
     "A montagem triangular existe para permitir carga precoce: fixa o cisalhamento vertical (lombopélvica) e a translação horizontal (parafuso IS).",
     "Fratura transversa do sacro e queda de altura em tentativa de suicídio são fatores de risco independentes para paralisia do plexo lombossacral — suspeite mesmo sem exame neurológico confiável.",
@@ -858,7 +858,7 @@ export const topic = defineTopic({
       variant: "displasico",
       kind: "diagram",
       caption:
-        "Sacro displásico — corredor de S1 estreito e obliquo; obriga trajetória oblíqua ou uso do corredor de S2, sob risco de perfuração alar.",
+        "Sacro displásico — corredor de S1 estreito e oblíquo; obriga trajetória oblíqua ou uso do corredor de S2, sob risco de perfuração alar.",
       alt: "Corte axial do sacro displásico com faixa de corredor estreita e inclinada.",
       source: {
         label: "Diagrama original Revisortopedia",

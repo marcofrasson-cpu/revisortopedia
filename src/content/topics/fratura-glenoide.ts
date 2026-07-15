@@ -12,9 +12,9 @@ export const topic = defineTopic({
   laterality: null,
   status: "complete",
   overview:
-    "Fraturas da glenoide são raras e geralmente surgem em dois cenários: avulsão da rima associada à luxação do ombro (Bankart ósseo ou rima posterior) e fraturas de alta energia que atravessam a fossa glenoidal ou o colo escapular. O tratamento depende de três perguntas: há instabilidade glenoumeral por perda da rima? Há incongruência ou degrau articular relevante na fossa? Há dupla ruptura do complexo suspensório superior do ombro (SSSC), criando um ombro flutuante? A TC com reconstrução 3D é indispensável para medir o tamanho do fragmento, o desvio, a versão e a trajetória do traço. Fragmentos pequenos e estáveis da rima podem ser tratados conservadoramente; perdas grandes, fragmentos deslocados, instabilidade recorrente ou fraturas transversas com degrau articular tendem a exigir fixação aberta, percutânea ou assistida por artroscopia.",
+    "Fraturas da glenoide são raras e geralmente surgem em dois cenários: avulsão do rebordo associada à luxação do ombro (Bankart ósseo ou rebordo posterior) e fraturas de alta energia que atravessam a fossa glenoidal ou o colo escapular. O tratamento depende de três perguntas: há instabilidade glenoumeral por perda do rebordo? Há incongruência ou degrau articular relevante na fossa? Há dupla ruptura do complexo suspensório superior do ombro (SSSC), criando um ombro flutuante? A TC com reconstrução 3D é indispensável para medir o tamanho do fragmento, o desvio, a versão e a trajetória do traço. Fragmentos pequenos e estáveis do rebordo podem ser tratados conservadoramente; perdas grandes, fragmentos deslocados, instabilidade recorrente ou fraturas transversas com degrau articular tendem a exigir fixação aberta, percutânea ou assistida por artroscopia.",
   keyFacts: [
-    { label: "Imagem", value: "TC com 3D para fossa, rima e colo escapular" },
+    { label: "Imagem", value: "TC com 3D para fossa, rebordo e colo escapular" },
     { label: "Classificação", value: "Ideberg modificada por Goss" },
     { label: "Rima anterior", value: "Relacionada a luxação anterior/Bankart ósseo" },
     { label: "Rima posterior", value: "Luxação posterior, convulsão, choque elétrico ou trauma axial" },
@@ -23,16 +23,16 @@ export const topic = defineTopic({
   ],
   anatomy: {
     text:
-      "A glenoide é uma cavidade rasa, cuja profundidade é aumentada pelo lábio glenoidal; a cápsula e os ligamentos orientam a estabilidade. A rima anterior é vulnerável na luxação anterior e a posterior, na luxação posterior. A fossa glenoidal conecta-se ao corpo e ao colo da escápula, e a estabilidade da cintura depende do complexo suspensório superior do ombro: glenoide, coracoide, clavícula distal, articulação AC, ligamentos CC e acrômio. Duas lesões nesse anel podem produzir instabilidade mesmo que, isoladamente, cada uma pareça moderada.",
+      "A glenoide é uma cavidade rasa, cuja profundidade é aumentada pelo lábio glenoidal; a cápsula e os ligamentos orientam a estabilidade. O rebordo anterior é vulnerável na luxação anterior e a posterior, na luxação posterior. A fossa glenoidal conecta-se ao corpo e ao colo da escápula, e a estabilidade da cintura depende do complexo suspensório superior do ombro: glenoide, coracoide, clavícula distal, articulação AC, ligamentos CC e acrômio. Duas lesões nesse anel podem produzir instabilidade mesmo que, isoladamente, cada uma pareça moderada.",
     figureIds: ["fratura-glenoide:radiografia", "fratura-glenoide:anatomia", "fratura-glenoide:sssc"],
   },
   classification: [
     {
       id: "ideberg-goss",
       name: "Ideberg modificada por Goss",
-      basis: "Direção do traço envolvendo a rima ou a fossa glenoidal e extensão para a escápula.",
+      basis: "Direção do traço envolvendo o rebordo ou a fossa glenoidal e extensão para a escápula.",
       types: [
-        { code: "I", label: "Rima", description: "Fratura da rima anterior ou posterior; comportamento dominado por instabilidade.", figureId: "fratura-glenoide:ideberg", figureVariant: "i" },
+        { code: "I", label: "Rima", description: "Fratura do rebordo anterior ou posterior; comportamento dominado por instabilidade.", figureId: "fratura-glenoide:ideberg", figureVariant: "i" },
         { code: "II", label: "Inferior/lateral", description: "Traço pela fossa com saída lateral ou inferior no corpo escapular.", figureId: "fratura-glenoide:ideberg", figureVariant: "ii" },
         { code: "III", label: "Superior", description: "Traço superior em direção à base do coracoide.", figureId: "fratura-glenoide:ideberg", figureVariant: "iii" },
         { code: "IV", label: "Medial", description: "Traço transverso para a borda medial da escápula.", figureId: "fratura-glenoide:ideberg", figureVariant: "iv" },
@@ -43,7 +43,7 @@ export const topic = defineTopic({
   ],
   indications: {
     operative: [
-      "Fragmento grande da rima com instabilidade glenoumeral, subluxação ou luxação recorrente.",
+      "Fragmento grande do rebordo com instabilidade glenoumeral, subluxação ou luxação recorrente.",
       "Degrau ou afastamento articular relevante da fossa glenoidal em paciente ativo.",
       "Desvio medial ou lateral do colo escapular com alteração da relação glenoide-corpo da escápula.",
       "Dupla ruptura do SSSC com instabilidade da cintura escapular.",
@@ -55,14 +55,14 @@ export const topic = defineTopic({
       "Paciente com baixa demanda ou risco cirúrgico alto.",
     ],
     decisionNotes:
-      "Não há um único valor universal para todos os fragmentos da rima; a decisão depende da instabilidade, da subluxação da cabeça e da perda funcional da concavidade glenoidal. Na fossa e no colo, degrau articular, medialização e dupla lesão do SSSC aumentam a indicação. A artroscopia pode auxiliar no tratamento da rima e de alguns fragmentos, mas fraturas complexas da fossa ou do colo ainda exigem planejamento aberto anterior, posterior ou combinado.",
+      "Não há um único valor universal para todos os fragmentos do rebordo; a decisão depende da instabilidade, da subluxação da cabeça e da perda funcional da concavidade glenoidal. Na fossa e no colo, degrau articular, medialização e dupla lesão do SSSC aumentam a indicação. A artroscopia pode auxiliar no tratamento do rebordo e de alguns fragmentos, mas fraturas complexas da fossa ou do colo ainda exigem planejamento aberto anterior, posterior ou combinado.",
   },
   approaches: [
     {
       id: "deltopeitoral",
       name: "Anterior deltopeitoral/subescapular",
       indication: "Rima anterior, Ideberg I anterior e alguns padrões com extensão anterior.",
-      interval: "Intervalo deltopeitoral; manejo do subescapular e da cápsula conforme o reparo da rima.",
+      interval: "Intervalo deltopeitoral; manejo do subescapular e da cápsula conforme o reparo do rebordo.",
       atRisk: ["Nervo musculocutâneo medial ao coracobraquial", "Nervo axilar inferior ao subescapular", "Cartilagem glenoidal"],
       figureId: "fratura-glenoide:via-anterior",
     },
@@ -78,19 +78,19 @@ export const topic = defineTopic({
   technique: [
     {
       n: 1,
-      title: "Mapear fossa, rima e SSSC na TC",
+      title: "Mapear fossa, rebordo e SSSC na TC",
       detail:
-        "Reconstruir a glenoide em face, medir o fragmento da rima, avaliar a subluxação da cabeça, o degrau articular e a dupla lesão do SSSC. Planejar parafuso, placa ou âncora conforme o vetor do traço.",
+        "Reconstruir a glenoide em face, medir o fragmento do rebordo, avaliar a subluxação da cabeça, o degrau articular e a dupla lesão do SSSC. Planejar parafuso, placa ou âncora conforme o vetor do traço.",
       figureId: "fratura-glenoide:sssc",
-      tips: ["A reconstrução 3D em face da glenoide evita subestimar perda de rima"],
+      tips: ["A reconstrução 3D em face da glenoide evita subestimar perda de rebordo"],
       pitfalls: ["Tratar apenas a clavícula/AC e ignorar dupla ruptura do SSSC"],
     },
     {
       n: 2,
       title: "Selecionar via pelo fragmento dominante",
       detail:
-        "A rima anterior exige acesso anterior ou artroscopia; a rima posterior e as fraturas da fossa ou do colo geralmente exigem via posterior. Nos padrões combinados, preparar uma estratégia sequencial.",
-      figureId: "fratura-glenoide:rima-instabilidade",
+        "O rebordo anterior exige acesso anterior ou artroscopia; o rebordo posterior e as fraturas da fossa ou do colo geralmente exigem via posterior. Nos padrões combinados, preparar uma estratégia sequencial.",
+      figureId: "fratura-glenoide:rebordo-instabilidade",
       figureVariant: "anterior",
       tips: ["Escolher a via que oferece redução direta do degrau principal"],
       pitfalls: ["Tentar reduzir indiretamente fragmento articular rodado"],
@@ -99,10 +99,10 @@ export const topic = defineTopic({
       n: 3,
       title: "Reduzir superfície e centrar a cabeça",
       detail:
-        "Remover a interposição, reduzir o fragmento ao lábio glenoidal e à cortical e confirmar que a cabeça está centrada. Nas fraturas da rima, restaurar o lábio glenoidal, a cápsula e a concavidade; nas fraturas da fossa, comprimir perpendicularmente ao traço.",
+        "Remover a interposição, reduzir o fragmento ao lábio glenoidal e à cortical e confirmar que a cabeça está centrada. Nas fraturas do rebordo, restaurar o lábio glenoidal, a cápsula e a concavidade; nas fraturas da fossa, comprimir perpendicularmente ao traço.",
       figureId: "fratura-glenoide:step-fixacao",
       tips: ["Controle fluoroscópico e, quando artroscópico, visão direta da cartilagem"],
-      pitfalls: ["Parafuso intra-articular", "Fixar rima baixa demais e manter instabilidade"],
+      pitfalls: ["Parafuso intra-articular", "Fixar o rebordo baixo demais e manter instabilidade"],
     },
     {
       n: 4,
@@ -126,14 +126,14 @@ export const topic = defineTopic({
     followup: "Radiografias e TC se houver dúvida sobre redução ou consolidação; vigiar subluxação e artrose.",
   },
   complications: [
-    { name: "Instabilidade recorrente", detail: "Decorre de perda da rima não tratada ou reparo capsulolabral insuficiente.", prevention: "Medir a perda óssea e centrar a cabeça." },
+    { name: "Instabilidade recorrente", detail: "Decorre de perda do rebordo não tratada ou reparo capsulolabral insuficiente.", prevention: "Medir a perda óssea e centrar a cabeça." },
     { name: "Artrose glenoumeral", detail: "Associada a degrau articular, condropatia e luxação.", prevention: "Redução anatômica da superfície de carga." },
     { name: "Lesão nervosa", detail: "Pode afetar os nervos supraescapular ou axilar, conforme a via.", prevention: "Conhecer as zonas seguras e limitar a retração." },
   ],
   evidence: [
     {
       id: "chalidis-2024-glenoid",
-      claim: "Fixação assistida por artroscopia tem papel crescente em fraturas selecionadas da fossa/rima, preservando partes moles e permitindo avaliação intra-articular.",
+      claim: "Fixação assistida por artroscopia tem papel crescente em fraturas selecionadas da fossa/rebordo, preservando partes moles e permitindo avaliação intra-articular.",
       takeaway: "Boa opção para fragmentos acessíveis; não substitui a via aberta em padrões complexos da fossa ou do colo.",
       level: "IV",
       studyType: "Revisão narrativa contemporânea",
@@ -172,7 +172,7 @@ export const topic = defineTopic({
   pitfalls: [
     "Perder luxação posterior associada.",
     "Parafuso intra-articular.",
-    "Tratar a rima óssea sem reparar o lábio glenoidal e a cápsula quando houver instabilidade.",
+    "Tratar o rebordo ósseo sem reparar o lábio glenoidal e a cápsula quando houver instabilidade.",
   ],
   figures: [
     {
@@ -187,13 +187,13 @@ export const topic = defineTopic({
       },
     },
     { id: "fratura-glenoide:anatomia", caption: "Glenoide, lábio glenoidal e relação com a escápula.", alt: "Anatomia da glenoide" },
-    { id: "fratura-glenoide:ideberg", variant: "i", caption: "Ideberg I: rima glenoidal.", alt: "Ideberg tipo I" },
+    { id: "fratura-glenoide:ideberg", variant: "i", caption: "Ideberg I: rebordo glenoidal.", alt: "Ideberg tipo I" },
     { id: "fratura-glenoide:ideberg", variant: "ii", caption: "Ideberg II: traço inferior/lateral.", alt: "Ideberg tipo II" },
     { id: "fratura-glenoide:ideberg", variant: "iv", caption: "Ideberg IV: traço medial/transverso.", alt: "Ideberg tipo IV" },
-    { id: "fratura-glenoide:rima-instabilidade", variant: "anterior", caption: "Rima anterior e instabilidade.", alt: "Fratura da rima anterior da glenoide" },
+    { id: "fratura-glenoide:rebordo-instabilidade", variant: "anterior", caption: "Rima anterior e instabilidade.", alt: "Fratura do rebordo anterior da glenoide" },
     { id: "fratura-glenoide:sssc", caption: "Complexo suspensório superior do ombro.", alt: "SSSC da cintura escapular" },
-    { id: "fratura-glenoide:via-anterior", caption: "Via anterior para rima anterior.", alt: "Via anterior da glenoide" },
-    { id: "fratura-glenoide:via-posterior", caption: "Via posterior para fossa/rima posterior.", alt: "Via posterior da glenoide" },
+    { id: "fratura-glenoide:via-anterior", caption: "Via anterior para o rebordo anterior.", alt: "Via anterior da glenoide" },
+    { id: "fratura-glenoide:via-posterior", caption: "Via posterior para fossa/rebordo posterior.", alt: "Via posterior da glenoide" },
     { id: "fratura-glenoide:step-fixacao", caption: "Redução e fixação da glenoide.", alt: "Fixação da glenoide" },
   ],
   meta: {

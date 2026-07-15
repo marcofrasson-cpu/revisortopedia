@@ -169,7 +169,7 @@ const Anatomia: FC<FigureProps> = ({ className, title }) => (
       <line x1="228" y1="168" x2="286" y2="168" strokeDasharray="4 3" />
       <line x1="228" y1="168" x2="284" y2="180" />
     </g>
-    <text x="262" y="196" {...label} fill="var(--amber)">retroversão ~5°</text>
+    <text x="262" y="196" {...label} fill="var(--amber)">retrov. ~5°</text>
 
     {/* Incisura escapular / feixe supraescapular (referência) */}
     <circle cx="196" cy="118" r="3" fill="none" stroke="var(--teal)" strokeWidth="1.4" />
@@ -211,7 +211,7 @@ function ClassBase() {
 const Ideberg: FC<FigureProps> = ({ className, title, variant }) => {
   const v = variant ?? "ii";
   const legend: Record<string, string> = {
-    i: "Tipo I — rima glenoidal",
+    i: "Tipo I — rebordo glenoidal",
     ii: "Tipo II — traço à borda lateral",
     iii: "Tipo III — traço à borda superior",
     iv: "Tipo IV — traço à borda medial",
@@ -232,7 +232,7 @@ const Ideberg: FC<FigureProps> = ({ className, title, variant }) => {
       <g className="fx-line">
         {v === "i" && (
           <>
-            {/* chip da rima (fragmento marginal anterior/posterior) */}
+            {/* chip do rebordo (fragmento marginal anterior/posterior) */}
             <path
               d="M241 128 C 250 138, 250 162, 241 172 L 231 168 C 238 158, 238 142, 231 132 Z"
               fill="var(--cortical)"
@@ -284,7 +284,7 @@ const Ideberg: FC<FigureProps> = ({ className, title, variant }) => {
    3) Rima glenoidal & instabilidade — método do círculo (PICO) e subluxação
       da cabeça umeral. Variants: anterior | posterior.
    ========================================================================= */
-const RimaInstabilidade: FC<FigureProps> = ({ className, title, variant }) => {
+const RebordoInstabilidade: FC<FigureProps> = ({ className, title, variant }) => {
   const v = variant ?? "anterior";
   const anterior = v !== "posterior";
   // glenoide "en face" (círculo inferior perfeito de Pico) vista frontal
@@ -314,7 +314,7 @@ const RimaInstabilidade: FC<FigureProps> = ({ className, title, variant }) => {
       <line x1={cx} y1={cy - r} x2={cx} y2={cy + r} stroke="var(--amber)" strokeWidth="1" strokeDasharray="3 3" />
       <text x={cx + 6} y={cy - r + 14} {...label} fill="var(--amber)">método do círculo</text>
 
-      {/* Fragmento / defeito de rima */}
+      {/* Fragmento / defeito de rebordo */}
       {anterior ? (
         <>
           <path
@@ -325,7 +325,7 @@ const RimaInstabilidade: FC<FigureProps> = ({ className, title, variant }) => {
             strokeWidth="2.4"
             className="fx-line"
           />
-          <text x={cx - r - 4} y={cy} {...label} textAnchor="end" fill="var(--cortical)">rima ant.</text>
+          <text x={cx - r - 4} y={cy} {...label} textAnchor="end" fill="var(--cortical)">reb. ant.</text>
         </>
       ) : (
         <>
@@ -337,7 +337,7 @@ const RimaInstabilidade: FC<FigureProps> = ({ className, title, variant }) => {
             strokeWidth="2.4"
             className="fx-line"
           />
-          <text x={cx + r + 4} y={cy} {...label} fill="var(--cortical)">rima post.</text>
+          <text x={cx + r + 4} y={cy} {...label} fill="var(--cortical)">reb. post.</text>
         </>
       )}
 
@@ -360,7 +360,7 @@ const RimaInstabilidade: FC<FigureProps> = ({ className, title, variant }) => {
       </g>
 
       {/* Nota de percentual crítico */}
-      <text x="150" y="290" {...mono} textAnchor="middle">perda óssea crítica ~ 20-25% · subluxação</text>
+      <text x="150" y="290" {...mono} textAnchor="middle">perda óssea ~20-25% · subluxação</text>
     </svg>
   );
 };
@@ -425,12 +425,12 @@ const SSSC: FC<FigureProps> = ({ className, title }) => (
     <text x="150" y="30" {...label} textAnchor="middle">escora superior (clavícula)</text>
 
     {/* Marcador de "dupla lesão" */}
-    <text x="160" y="266" {...mono} textAnchor="middle">dupla lesão do anel = instável (ombro flutuante)</text>
+    <text x="160" y="266" {...mono} textAnchor="middle">dupla lesão do anel = ombro flutuante</text>
   </svg>
 );
 
 /* =========================================================================
-   5) Via anterior (deltopeitoral) — rima/fossa anterior.
+   5) Via anterior (deltopeitoral) — rebordo/fossa anterior.
    ========================================================================= */
 const ViaAnterior: FC<FigureProps> = ({ className, title }) => (
   <svg
@@ -462,12 +462,12 @@ const ViaAnterior: FC<FigureProps> = ({ className, title }) => (
     <path d="M140 196 C 158 204, 178 204, 196 196" stroke="var(--teal)" strokeWidth="2.4" strokeDasharray="5 4" fill="none" strokeLinecap="round" />
     <text x="150" y="216" {...label} fill="var(--teal)" textAnchor="middle">n. axilar (risco)</text>
 
-    <text x="150" y="262" {...mono} textAnchor="middle">deltopeitoral · rima/fossa anterior (Ideberg Ia)</text>
+    <text x="150" y="262" {...mono} textAnchor="middle">deltopeitoral · anterior (Ideberg Ia)</text>
   </svg>
 );
 
 /* =========================================================================
-   6) Via posterior (Judet) — fossa/rima posterior, tipos II/III.
+   6) Via posterior (Judet) — fossa/rebordo posterior, tipos II/III.
    ========================================================================= */
 const ViaPosterior: FC<FigureProps> = ({ className, title }) => (
   <svg
@@ -500,7 +500,7 @@ const ViaPosterior: FC<FigureProps> = ({ className, title }) => (
     <path d="M150 208 C 172 216, 196 214, 214 202" stroke="var(--teal)" strokeWidth="2.2" strokeDasharray="5 4" fill="none" strokeLinecap="round" />
     <text x="150" y="228" {...label} fill="var(--teal)" textAnchor="middle">n. axilar / espaço quadrilátero</text>
 
-    <text x="150" y="266" {...mono} textAnchor="middle">Judet · fossa/rima posterior (tipos II-III)</text>
+    <text x="150" y="266" {...mono} textAnchor="middle">Judet · posterior (tipos II-III)</text>
   </svg>
 );
 
@@ -518,7 +518,7 @@ const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>{title ?? (ancoras ? "Reparo da rima com âncoras de sutura" : "Redução articular e fixação da glenoide")}</title>
+      <title>{title ?? (ancoras ? "Reparo do rebordo com âncoras de sutura" : "Redução articular e fixação da glenoide")}</title>
       <ClassBase />
 
       {/* traço reduzido (quase fechado) */}
@@ -544,7 +544,7 @@ const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
           </g>
           {/* laçadas de sutura sobre o fragmento */}
           <path d="M240 128 C 250 138, 250 162, 240 172" fill="none" stroke="var(--teal)" strokeWidth="1.6" strokeDasharray="3 3" />
-          <text x="150" y="286" {...mono} textAnchor="middle">âncoras · rima/bony Bankart (artroscópico/aberto)</text>
+          <text x="150" y="286" {...mono} textAnchor="middle">âncoras · rebordo/bony Bankart (artroscópico/aberto)</text>
         </>
       ) : (
         <>
@@ -582,7 +582,7 @@ const StepFixacao: FC<FigureProps> = ({ className, title, variant }) => {
 export const figures: Record<string, FC<FigureProps>> = {
   "fratura-glenoide:anatomia": Anatomia,
   "fratura-glenoide:ideberg": Ideberg,
-  "fratura-glenoide:rima-instabilidade": RimaInstabilidade,
+  "fratura-glenoide:rebordo-instabilidade": RebordoInstabilidade,
   "fratura-glenoide:sssc": SSSC,
   "fratura-glenoide:via-anterior": ViaAnterior,
   "fratura-glenoide:via-posterior": ViaPosterior,

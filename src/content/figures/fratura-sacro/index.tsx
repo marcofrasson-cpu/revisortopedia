@@ -269,8 +269,11 @@ const Anatomia: FC<FigureProps> = ({ className, title }) => (
     <text {...label} x="252" y="72">
       ala
     </text>
-    <text {...label} x="266" y="122">
-      forames anteriores
+    <text {...label} x="266" y="118">
+      forames
+    </text>
+    <text {...label} x="266" y="132">
+      anteriores
     </text>
     <text {...label} x="196" y="150">
       canal sacral
@@ -509,7 +512,7 @@ const PadroesTransversos: FC<FigureProps> = ({ variant = "U", className, title }
       <text {...label} x="188" y="26" fill="var(--amber)">
         coluna
       </text>
-      <path {...measure} strokeDasharray="4 4" d="M92 200 L120 186" />
+      <path {...measure} strokeDasharray="4 4" d="M52 206 L84 184" />
       <text {...label} x="14" y="212" fill="var(--amber)">
         pelve
       </text>
@@ -581,17 +584,20 @@ const RaizesSacrais: FC<FigureProps> = ({ className, title }) => (
       </g>
     ))}
 
-    <text {...label} x="240" y="100">
-      S1 — flexão plantar, aquileu
+    <text {...label} x="240" y="94">
+      S1 — flexão plantar
     </text>
-    <text {...label} x="240" y="126">
-      S2-S4 — esfíncteres, bexiga
+    <text {...label} x="240" y="106">
+      e reflexo aquileu
     </text>
-    <text {...label} x="240" y="152">
-      S2-S4 — sensibilidade em sela
+    <text {...label} x="240" y="150">
+      S2-S4 — bexiga e
     </text>
-    <text {...label} x="240" y="178">
-      reflexo bulbocavernoso
+    <text {...label} x="240" y="162">
+      esfíncteres, sela,
+    </text>
+    <text {...label} x="240" y="174">
+      bulbocavernoso
     </text>
 
     {/* Área "em sela" */}
@@ -607,8 +613,8 @@ const RaizesSacrais: FC<FigureProps> = ({ className, title }) => (
       anestesia em sela (zona III)
     </text>
 
-    <path {...measure} strokeWidth="1.2" opacity="0.6" d="M236 96 L216 100" />
-    <path {...measure} strokeWidth="1.2" opacity="0.6" d="M236 122 L190 130" />
+    <path {...measure} strokeWidth="1.2" opacity="0.6" d="M236 90 L216 96" />
+    <path {...measure} strokeWidth="1.2" opacity="0.6" d="M236 146 L212 150" />
   </svg>
 );
 
@@ -873,12 +879,13 @@ const Reducao: FC<FigureProps> = ({ activeStep = 1, className, title }) => {
   const step = activeStep < 1 ? 1 : activeStep > 3 ? 3 : activeStep;
   const kyphosis = step === 1 ? -16 : step === 2 ? -7 : 0;
 
-  const legend =
+  /* Legenda em duas linhas: no viewBox de 320 a etapa 3 não cabe em uma só. */
+  const legend: string[] =
     step === 1
-      ? "1. Deformidade inicial — cifose sacral e translação"
+      ? ["1. Deformidade inicial —", "cifose sacral e translação"]
       : step === 2
-        ? "2. Tração transcondiliana + contratração manual"
-        : "3. Coxim sob a transição lombossacral — hiperlordose corrige a cifose";
+        ? ["2. Tração transcondiliana", "+ contratração manual"]
+        : ["3. Coxim sob a transição lombossacral", "— hiperlordose corrige a cifose"];
 
   return (
     <svg
@@ -888,7 +895,8 @@ const Reducao: FC<FigureProps> = ({ activeStep = 1, className, title }) => {
       className={className}
     >
       <title>
-        {title ?? `Sequência de redução da dissociação espinopélvica, etapa ${step} — ${legend}`}
+        {title ??
+          `Sequência de redução da dissociação espinopélvica, etapa ${step} — ${legend.join(" ")}`}
       </title>
 
       <g transform="translate(40,10)">
@@ -945,9 +953,11 @@ const Reducao: FC<FigureProps> = ({ activeStep = 1, className, title }) => {
       <text {...tag} x="14" y="24">
         {`Etapa ${step}`}
       </text>
-      <text {...label} x="14" y="40">
-        {legend}
-      </text>
+      {legend.map((line, i) => (
+        <text {...label} key={line} x="14" y={40 + i * 16}>
+          {line}
+        </text>
+      ))}
     </svg>
   );
 };
