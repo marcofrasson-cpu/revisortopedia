@@ -31,12 +31,26 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
 
           return (
             <div key={sys.id}>
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <h3 className="font-display text-[1.25rem] text-ink">{sys.name}</h3>
-                <span className="eyebrow">{sys.basis}</span>
-              </div>
+              <h3 className="font-display text-[1.25rem] text-ink">{sys.name}</h3>
+
+              {/* `basis` saiu do .eyebrow. O eyebrow é mono 0.66rem, CAIXA ALTA,
+                  com 0.18em entre as letras — feito para duas ou três palavras.
+                  Este campo tem 73 caracteres de mediana em 198 valores e chega
+                  a 359: era frase inteira em caixa alta correndo a largura toda,
+                  logo acima de um `note` travado em 72ch. Dois textos empilhados
+                  com larguras diferentes — era isso que lia como quebrado, e não
+                  o note em si.
+
+                  Os dois agora são prosa na mesma medida. `note` fica em
+                  ink-soft porque é o ponto clínico; `basis` fica em muted porque
+                  é referência sobre o que o sistema divide. */}
+              {sys.basis && (
+                <p className="mt-1.5 max-w-[var(--measure)] text-[0.88rem] leading-relaxed text-muted">
+                  {sys.basis}
+                </p>
+              )}
               {sys.note && (
-                <p className="mt-1 max-w-[var(--measure)] text-[0.88rem] leading-relaxed text-muted">
+                <p className="mt-2 max-w-[var(--measure)] text-[0.88rem] leading-relaxed text-ink-soft">
                   {sys.note}
                 </p>
               )}
