@@ -35,7 +35,7 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
                 <span className="eyebrow">{sys.basis}</span>
               </div>
               {sys.note && (
-                <p className="mt-1 max-w-[88ch] text-[0.88rem] leading-relaxed text-muted">
+                <p className="mt-1 max-w-[var(--measure)] text-[0.88rem] leading-relaxed text-muted">
                   {sys.note}
                 </p>
               )}
@@ -68,7 +68,7 @@ export default function ClassificationSection({ topic }: { topic: Topic }) {
                           <span className="block text-[0.92rem] font-medium text-ink">
                             {ty.label}
                           </span>
-                          <span className="mt-0.5 block text-[0.88rem] leading-relaxed text-ink-soft lg:mt-0">
+                          <span className="mt-0.5 block max-w-[var(--measure)] text-[0.88rem] leading-relaxed text-ink-soft lg:mt-0">
                             {ty.description}
                           </span>
                         </span>

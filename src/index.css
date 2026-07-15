@@ -12,6 +12,21 @@
   --font-body: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
+  /* A medida: quantos caracteres cabem numa linha de leitura.
+     Regra: texto que se LÊ em sequência (3+ linhas) obedece isto; texto que se
+     ESCANEIA (blurb de 2 linhas, citação, rótulo, código) não — a medida existe
+     porque o olho precisa achar o começo da linha seguinte, e quem não volta
+     não precisa de ajuda para voltar.
+
+     Está em `ch`, que resolve na fonte de QUEM USA: 72ch são 72 caracteres a
+     qualquer tamanho. Por isso subir o corpo de 1,05rem para 1,3rem não alarga
+     a coluna — mantém os ~840px de hoje e derruba a medida de 90 para 72, sem
+     reabrir o vão à direita da prosa que 18ca6a1 fechou.
+
+     Um número, um lugar. Antes disto cada seção inventava o seu: 90ch na prosa,
+     88ch na classificação, nenhum na evidência (que chegava a 131). */
+  --measure: 72ch;
+
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);

@@ -36,7 +36,9 @@ export default function PostopSection({ topic }: { topic: Topic }) {
                   <CodeChip tone="teal">{ph.window}</CodeChip>
                   <span className="text-[0.82rem] text-muted">{ph.weightBearing}</span>
                 </div>
-                <p className="mt-1.5 text-[0.92rem] leading-relaxed text-ink-soft">{ph.focus}</p>
+                <p className="mt-1.5 max-w-[var(--measure)] text-[0.92rem] leading-relaxed text-ink-soft">
+                  {ph.focus}
+                </p>
               </div>
             </li>
           ))}
@@ -44,7 +46,7 @@ export default function PostopSection({ topic }: { topic: Topic }) {
       )}
 
       {followup && (
-        <p className="mt-4 border-l-2 border-line pl-4 text-[0.9rem] leading-relaxed text-muted">
+        <p className="mt-4 max-w-[var(--measure)] border-l-2 border-line pl-4 text-[0.9rem] leading-relaxed text-muted">
           <span className="eyebrow mr-2">Seguimento</span>
           {followup}
         </p>

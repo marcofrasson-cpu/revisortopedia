@@ -140,8 +140,10 @@ export default function TopicView({ topic }: { topic: Topic }) {
             <h1 className="mt-2 max-w-3xl font-display text-[2.1rem] leading-[1.06] text-ink sm:text-[2.6rem]">
               {topic.title}
             </h1>
+            {/* Lide a 1,2rem: com a prosa a 1,3rem, o 1,02rem antigo o rebaixava
+                a nota de rodapé debaixo do título. */}
             {topic.subtitle && (
-              <p className="mt-2 max-w-2xl text-[1.02rem] leading-relaxed text-ink-soft">
+              <p className="mt-2 max-w-2xl text-[1.2rem] leading-relaxed text-ink-soft">
                 {topic.subtitle}
               </p>
             )}

@@ -21,12 +21,18 @@ export default function EvidenceSection({ topic }: { topic: Topic }) {
         </p>
       )}
 
-      <div className="mt-5 space-y-3">
+      {/* Duas colunas, e não uma pilha: em coluna única o cartão ficava com 926px
+          e a citação corria a 131 caracteres por linha em blocos de até 14 linhas
+          — a pior superfície de leitura da página, pior que a prosa. Em duas
+          colunas cai para ~58. É o mesmo padrão de Complicações e Pós-op, que já
+          eram as únicas seções com a medida certa (53–55ch), justamente por serem
+          grade. Reusar o padrão que funciona em vez de inventar um terceiro. */}
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {items.map((e) => {
           const c = e.citation;
           const href = c.url ?? (c.doi ? `https://doi.org/${c.doi}` : undefined);
           return (
-            <article key={e.id} className="panel p-4">
+            <article key={e.id} className="panel flex flex-col p-4">
               <div className="flex flex-wrap items-center gap-2">
                 <LevelBadge level={e.level} />
                 <EraTag era={e.era} />
@@ -34,12 +40,16 @@ export default function EvidenceSection({ topic }: { topic: Topic }) {
               </div>
 
               <p className="mt-3 text-[0.98rem] font-medium leading-snug text-ink">{e.claim}</p>
-              <p className="mt-1.5 text-[0.9rem] leading-relaxed text-ink-soft">
+              <p className="mb-3 mt-1.5 text-[0.9rem] leading-relaxed text-ink-soft">
                 <span className="eyebrow mr-2 text-teal-deep">Em síntese</span>
                 {e.takeaway}
               </p>
 
-              <div className="mt-3 border-t border-line pt-3">
+              {/* mt-auto: em grade os cartões da mesma linha esticam para a altura
+                  do mais alto. Sem isto a régua da citação para onde o texto
+                  acabou, e duas réguas vizinhas ficam em alturas diferentes —
+                  o pé de cada cartão vira um degrau. */}
+              <div className="mt-auto border-t border-line pt-3">
                 <p className="text-[0.82rem] leading-relaxed text-muted">
                   {c.authors} <span className="text-ink-soft">{c.title}.</span>{" "}
                   <span className="italic">{c.journal}</span>. {c.year}.

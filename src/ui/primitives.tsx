@@ -136,7 +136,10 @@ export function SectionHeading({
         {index && <span className="code text-[0.8rem] font-medium text-teal">{index}</span>}
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       </div>
-      <h2 className="text-[1.6rem] text-ink">{title}</h2>
+      {/* 2rem, e não 1,6rem: o corpo da prosa subiu para 1,3rem para derrubar a
+          medida de 90 para 72 caracteres. A 1,6rem o h2 ficaria só 1,22× o corpo
+          — o título de seção deixaria de mandar na página. */}
+      <h2 className="text-[2rem] text-ink">{title}</h2>
     </div>
   );
 }

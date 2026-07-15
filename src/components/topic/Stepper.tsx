@@ -88,7 +88,9 @@ export default function Stepper({
           <h3 className="font-display text-[1.35rem] leading-tight text-ink">{step.title}</h3>
         </div>
 
-        <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft">{step.detail}</p>
+        <p className="mt-3 max-w-[var(--measure)] text-[0.98rem] leading-relaxed text-ink-soft">
+          {step.detail}
+        </p>
 
         <FigurePanel
           className="mt-5"
